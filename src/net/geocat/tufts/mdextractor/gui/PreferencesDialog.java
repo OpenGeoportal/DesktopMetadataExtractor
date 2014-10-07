@@ -2,50 +2,44 @@ package net.geocat.tufts.mdextractor.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JSeparator;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
+import net.geocat.tufts.mdextractor.gui.model.PreferencesBean;
+
+import com.jgoodies.binding.PresentationModel;
+import com.jgoodies.binding.adapter.Bindings;
+import com.jgoodies.binding.value.Trigger;
 import com.jgoodies.forms.builder.ButtonBarBuilder2;
 import com.jgoodies.forms.builder.DefaultFormBuilder;
-import com.jgoodies.forms.builder.PanelBuilder;
-import com.jgoodies.forms.layout.CellConstraints;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormLayout;
-
-import javax.swing.JPanel;
-import javax.swing.text.DefaultFormatterFactory;
-
-import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.factories.FormFactory;
-
-import javax.swing.JLabel;
-
-import java.awt.Font;
-import java.awt.FlowLayout;
-
-import javax.swing.JCheckBox;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class PreferencesDialog extends JDialog {
 
 	private static final long serialVersionUID = -3274785125608529455L;
 	private JTextField nameTextField;
-	private JTextField organisationTextField;
+	private JTextField organizationTextField;
 	private JTextField txtEmail;
 	private JTextField txtDefaultprojection;
 	private JTextField txtMinx;
@@ -63,11 +57,22 @@ public class PreferencesDialog extends JDialog {
 	private JCheckBox chckbxGenerateinseparatedir;
 	private JLabel lblSeparatedir;
 	private JFileChooser fChsrOutputDir;
+	private PresentationModel<PreferencesBean> presentationModel;
+	private Trigger trigger;
+	private JButton btnCancel;
+	private JButton btnSave;
 
 	/**
 	 * Create the frame.
 	 */
 	public PreferencesDialog() {
+		// Init model
+		PreferencesBean preferencesBean = new PreferencesBean();
+		this.trigger = new Trigger();
+		this.presentationModel = new PresentationModel<PreferencesBean>(preferencesBean, this.trigger);
+
+		
+		// Init frame
 		setResizable(false);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setModal(true);
@@ -87,9 +92,11 @@ public class PreferencesDialog extends JDialog {
 		
 		ButtonBarBuilder2 buttonBuilder = new ButtonBarBuilder2();
 		buttonBuilder.addGlue();
-		buttonBuilder.addButton(new JButton("Save"));
+		btnSave = new JButton("Save");
+		buttonBuilder.addButton(btnSave);
 		buttonBuilder.addRelatedGap();
-		buttonBuilder.addButton(new JButton("Cancel"));
+		btnCancel = new JButton("Cancel");
+		buttonBuilder.addButton(btnCancel);
 		buttonPanel = new JPanel();
 		FlowLayout fl_buttonPanel2 = (FlowLayout) buttonPanel.getLayout();
 		fl_buttonPanel2.setAlignment(FlowLayout.RIGHT);
@@ -99,7 +106,6 @@ public class PreferencesDialog extends JDialog {
 
 		getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-
 	}
 
 
@@ -150,20 +156,23 @@ public class PreferencesDialog extends JDialog {
 		panel.add(lblName, "1, 3, right, default");
 
 		nameTextField = new JTextField();
+		Bindings.bind(nameTextField, presentationModel.getBufferedModel(PreferencesBean.NAME_PROPERTY));
 		panel.add(nameTextField, "3, 3, 9, 1, fill, default");
 		nameTextField.setColumns(10);
 
 		JLabel lblOrganisation = new JLabel("Organisation");
 		panel.add(lblOrganisation, "1, 5, right, default");
 
-		organisationTextField = new JTextField();
-		panel.add(organisationTextField, "3, 5, 9, 1, fill, default");
-		organisationTextField.setColumns(10);
+		organizationTextField = new JTextField();
+		Bindings.bind(organizationTextField, presentationModel.getBufferedModel(PreferencesBean.ORGANIZATION_PROPERTY));
+		panel.add(organizationTextField, "3, 5, 9, 1, fill, default");
+		organizationTextField.setColumns(10);
 
 		JLabel lblEmail = new JLabel("E-mail");
 		panel.add(lblEmail, "1, 7, right, default");
 
 		txtEmail = new JTextField();
+		Bindings.bind(txtEmail, presentationModel.getBufferedModel(PreferencesBean.EMAIL_PROPERTY));
 		panel.add(txtEmail, "3, 7, 9, 1, fill, default");
 		txtEmail.setColumns(10);
 
@@ -175,6 +184,7 @@ public class PreferencesDialog extends JDialog {
 		panel.add(lblDefaultProjection, "1, 11, right, default");
 
 		txtDefaultprojection = new JTextField();
+		Bindings.bind(txtDefaultprojection, presentationModel.getBufferedModel(PreferencesBean.DEFAULT_PROYECTION_PROPERTY));
 		panel.add(txtDefaultprojection, "3, 11, 3, 1, fill, default");
 		txtDefaultprojection.setColumns(10);
 
@@ -194,18 +204,22 @@ public class PreferencesDialog extends JDialog {
 		panel.add(lblDefaultBoundingBox, "1, 15, right, default");
 
 		txtMinx = new JTextField();
+		Bindings.bind(txtMinx, presentationModel.getBufferedModel(PreferencesBean.MINX_PROPERTY));
 		txtMinx.setToolTipText("Min X");
 		panel.add(txtMinx, "3, 15, fill, default");
 
 		txtMiny = new JTextField();
+		Bindings.bind(txtMiny, presentationModel.getBufferedModel(PreferencesBean.MINY_PROPERTY));
 		txtMiny.setToolTipText("Min Y");
 		panel.add(txtMiny, "5, 15, fill, default");
 
 		txtMaxx = new JTextField();
+		Bindings.bind(txtMaxx, presentationModel.getBufferedModel(PreferencesBean.MAXX_PROPERTY));
 		txtMaxx.setToolTipText("Max X");
 		panel.add(txtMaxx, "7, 15, fill, default");
 
 		txtMaxy = new JTextField();
+		Bindings.bind(txtMaxy, presentationModel.getBufferedModel(PreferencesBean.MAXY_PROPERTY));
 		txtMaxy.setToolTipText("Max X");
 		panel.add(txtMaxy, "9, 15, fill, default");
 
@@ -285,5 +299,27 @@ public class PreferencesDialog extends JDialog {
 
 		
 		return panel;
+	}
+	
+	class SaveAction extends AbstractAction {
+
+		private static final long serialVersionUID = -6488510217216397069L;
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			trigger.triggerCommit();
+			
+		}
+	}
+	
+	class CancelAction extends AbstractAction {
+		private static final long serialVersionUID = 5945488874950435558L;
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			trigger.triggerFlush();
+			
+		}
+		
 	}
 }
