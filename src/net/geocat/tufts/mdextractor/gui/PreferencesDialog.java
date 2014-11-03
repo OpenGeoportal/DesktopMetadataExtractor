@@ -90,6 +90,13 @@ public class PreferencesDialog extends JDialog {
 	private JButton btnCancel;
 	private JButton btnSave;
 	private PreferencesBean preferencesBean;
+	/**
+	 * @return the preferencesBean
+	 */
+	public PreferencesBean getPreferencesBean() {
+		return preferencesBean;
+	}
+
 	private Preferences prefs;
 
 	/**

@@ -9,6 +9,8 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import net.geocat.tufts.mdextractor.gui.menu.MetadataExtractorMenu;
+import java.awt.Toolkit;
+import javax.swing.JProgressBar;
 
 public class MetadataExtractorFrame extends JFrame {
 
@@ -38,6 +40,7 @@ public class MetadataExtractorFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MetadataExtractorFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MetadataExtractorFrame.class.getResource("/img/48x48/OGPLogo.png")));
 		setTitle("Metadata extractor");
 		preferencesFrame = new PreferencesDialog();
 		initUI();
@@ -52,13 +55,12 @@ public class MetadataExtractorFrame extends JFrame {
 		MetadataExtractorMenu menuBar = new MetadataExtractorMenu();
 		menuBar.setPreferencesFrame(preferencesFrame);
 		setJMenuBar(menuBar);
-
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
-		contentPane.add(new MetadataExtractorPanel());
-
+        JPanel pane = new JPanel();
+        pane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        pane.setLayout(new BorderLayout(0, 0));
+        JPanel metadataExtractorPane = new MetadataExtractorPanel(preferencesFrame.getPreferencesBean());
+        pane.add(metadataExtractorPane);
+		setContentPane(pane);
 	}
 
 }
