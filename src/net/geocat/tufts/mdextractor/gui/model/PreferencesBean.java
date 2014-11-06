@@ -16,6 +16,7 @@ public class PreferencesBean extends Model {
 	public static final String MAXY_PROPERTY = "maxy";
 	public static final String GENERATE_IN_SEPARATE_DIR_PROPERTY = "generateInSeparateDir";
 	public static final String OUTPUT_DIR_PROPERTY = "outputDir";
+	public static final String RESOURCES_DIR_PROPERTY = "resourcesDir";
 
 	private String name;
 	private String organization;
@@ -27,6 +28,7 @@ public class PreferencesBean extends Model {
 	private Double maxy;
 	private Boolean generateInSeparateDir;
 	private String outputDir;
+	private String resourcesDir;
 
 	/**
 	 * @return the generateInSeparateDir
@@ -200,6 +202,21 @@ public class PreferencesBean extends Model {
 		Double oldMaxy = this.maxy;
 		this.maxy = maxy;
 		firePropertyChange(MAXY_PROPERTY, oldMaxy, this.maxy);
+	}
+
+	/**
+	 * @return the resourcesDir
+	 */
+	public String getResourcesDir() {
+		return resourcesDir;
+	}
+
+	public void setResourcesDir(String resourcesDir) {
+		String oldResourcesDir = this.resourcesDir;
+		this.resourcesDir = resourcesDir;
+		firePropertyChange(RESOURCES_DIR_PROPERTY, oldResourcesDir,
+				this.resourcesDir);
+
 	}
 
 }

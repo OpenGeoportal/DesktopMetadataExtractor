@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
@@ -30,9 +33,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 
 public class MetadataExtractorPanel extends JPanel {
 
@@ -143,7 +143,7 @@ public class MetadataExtractorPanel extends JPanel {
 	}
 
 	private void generateMetadata() {
-		
+
 		worker = new TalendWorker(preferencesBean, datasetList, progressBar);
 
 		worker.addPropertyChangeListener(new PropertyChangeListener() {
@@ -162,19 +162,20 @@ public class MetadataExtractorPanel extends JPanel {
 						progressBar.setVisible(false);
 						action.putValue(Action.NAME, "Extract metadata");
 						try {
-							String result = worker.get();
+							worker.get();
 
 						} catch (final CancellationException oops) {
 							oops.printStackTrace();
 						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} catch (ExecutionException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} finally {
 							worker = null;
 						}
+						JOptionPane.showMessageDialog(
+								MetadataExtractorPanel.this,
+								"Metadata extraction finished.");
 						break;
 					case STARTED:
 					case PENDING:
@@ -206,7 +207,14 @@ public class MetadataExtractorPanel extends JPanel {
 
 		public void actionPerformed(ActionEvent e) {
 			if (worker == null) {
-				generateMetadata();
+				if (preferencesBean.getResourcesDir() == null
+						|| "".equals(preferencesBean.getResourcesDir())) {
+					JOptionPane
+							.showMessageDialog(MetadataExtractorPanel.this,
+									"You must set the path to metadata-properties.csv in the Preferences dialog");
+				} else {
+					generateMetadata();
+				}
 			} else {
 				cancel();
 			}

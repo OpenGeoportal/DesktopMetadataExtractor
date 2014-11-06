@@ -6,11 +6,12 @@ import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.io.FileFilter;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -26,12 +27,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import net.geocat.tufts.guicomponents.ImprovedFormattedTextField;
 import net.geocat.tufts.mdextractor.gui.model.PreferencesBean;
@@ -48,13 +48,10 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-
 public class PreferencesDialog extends JDialog {
 
 	private static final long serialVersionUID = -3274785125608529455L;
-	
+
 	private static final String PREF_MINX = "minx";
 	private static final String PREF_MINY = "miny";
 	private static final String PREF_MAXX = "maxx";
@@ -65,8 +62,10 @@ public class PreferencesDialog extends JDialog {
 	private static final String PREF_NAME = "name";
 	private static final String PREF_GENERATE_IN_SEPARATE_DIR = "generateInSeparateDir";
 	private static final String PREF_OUTPUT_DIR = "outputDir";
-	
-	private JTextField nameTextField;
+
+	private static final String PREF_RESOURCES_DIR = "resourcesDir";
+
+	private JTextField txtName;
 	private JTextField organizationTextField;
 	private JTextField txtEmail;
 	private JTextField txtDefaultprojection;
@@ -90,6 +89,7 @@ public class PreferencesDialog extends JDialog {
 	private JButton btnCancel;
 	private JButton btnSave;
 	private PreferencesBean preferencesBean;
+
 	/**
 	 * @return the preferencesBean
 	 */
@@ -98,6 +98,11 @@ public class PreferencesDialog extends JDialog {
 	}
 
 	private Preferences prefs;
+	private JLabel lblCommonProperties;
+	private JTextField txtCommonProps;
+	private JButton btnCommonProps;
+
+	private BufferedValueModel resourcesDirBufferedModel;
 
 	/**
 	 * Create the frame.
@@ -107,7 +112,7 @@ public class PreferencesDialog extends JDialog {
 			@Override
 			public void componentHidden(ComponentEvent e) {
 				trigger.triggerFlush();
-				}
+			}
 		});
 		prefs = Preferences.userNodeForPackage(PreferencesDialog.class);
 		preferencesBean = new PreferencesBean();
@@ -121,11 +126,12 @@ public class PreferencesDialog extends JDialog {
 		preferencesBean.setOrganization(prefs.get(PREF_ORGANIZATION, null));
 		preferencesBean.setDefaultProjection(prefs.get(PREF_DEFAULT_PROJECTION,
 				"EPSG:4326"));
-		preferencesBean.setGenerateInSeparateDir(prefs.getBoolean(PREF_GENERATE_IN_SEPARATE_DIR, Boolean.FALSE));
+		preferencesBean.setGenerateInSeparateDir(prefs.getBoolean(
+				PREF_GENERATE_IN_SEPARATE_DIR, Boolean.FALSE));
+		preferencesBean.setResourcesDir(prefs.get(PREF_RESOURCES_DIR, null));
 		if (prefs.getBoolean(PREF_GENERATE_IN_SEPARATE_DIR, Boolean.FALSE) == true) {
 			preferencesBean.setOutputDir(prefs.get(PREF_OUTPUT_DIR, null));
 		}
-		
 
 		this.trigger = new Trigger();
 		this.presentationModel = new PresentationModel<PreferencesBean>(
@@ -141,7 +147,7 @@ public class PreferencesDialog extends JDialog {
 						.getResource("/img/16x16/preferences-system.png")));
 		setTitle("Preferences");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 535, 359);
+		setBounds(100, 100, 535, 340);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.putClientProperty("jgoodies.noContentBorder", Boolean.TRUE);
@@ -152,11 +158,13 @@ public class PreferencesDialog extends JDialog {
 		ButtonBarBuilder2 buttonBuilder = new ButtonBarBuilder2();
 		buttonBuilder.addGlue();
 		btnSave = new JButton();
-		btnSave.setAction(new SaveAction("Save"));
+		final SaveAction saveAction = new SaveAction("Save");
+		btnSave.setAction(saveAction);
 		buttonBuilder.addButton(btnSave);
 		buttonBuilder.addRelatedGap();
 		btnCancel = new JButton();
-		btnCancel.setAction(new CancelAction("Cancel"));
+		final CancelAction cancelAction = new CancelAction("Cancel");
+		btnCancel.setAction(cancelAction);
 		buttonBuilder.addButton(btnCancel);
 		buttonsPanel = new JPanel();
 		FlowLayout fl_buttonsPanel = (FlowLayout) buttonsPanel.getLayout();
@@ -174,28 +182,23 @@ public class PreferencesDialog extends JDialog {
 		FormLayout fl_metadataDefaultsPanel = new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("right:default"),
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
-				FormFactory.BUTTON_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.BUTTON_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.BUTTON_COLSPEC, FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.BUTTON_COLSPEC, FormFactory.GLUE_COLSPEC,
-				FormFactory.PREF_COLSPEC, FormFactory.RELATED_GAP_COLSPEC, },
-				new RowSpec[] { FormFactory.PREF_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.PREF_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.PREF_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.PREF_ROWSPEC,
-						FormFactory.UNRELATED_GAP_ROWSPEC,
-						FormFactory.PREF_ROWSPEC, FormFactory.LINE_GAP_ROWSPEC,
-						FormFactory.PREF_ROWSPEC,
-						FormFactory.RELATED_GAP_ROWSPEC,
-						FormFactory.PREF_ROWSPEC,
-						FormFactory.NARROW_LINE_GAP_ROWSPEC,
-						FormFactory.PREF_ROWSPEC,
-						FormFactory.PARAGRAPH_GAP_ROWSPEC,
-						FormFactory.GLUE_ROWSPEC,
-						RowSpec.decode("bottom:max(17dlu;pref)"), });
+				FormFactory.GROWING_BUTTON_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.BUTTON_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.BUTTON_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC, FormFactory.BUTTON_COLSPEC,
+				FormFactory.GLUE_COLSPEC, FormFactory.PREF_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC, }, new RowSpec[] {
+				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.UNRELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.LINE_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.NARROW_LINE_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC, FormFactory.PARAGRAPH_GAP_ROWSPEC,
+				FormFactory.GLUE_ROWSPEC,
+				RowSpec.decode("bottom:max(17dlu;pref)"), });
 		metadataDefaultsPanel.setLayout(fl_metadataDefaultsPanel);
 
 		DefaultFormBuilder builder = new DefaultFormBuilder(
@@ -205,64 +208,100 @@ public class PreferencesDialog extends JDialog {
 				CC.xyw(1, 1, 12));
 		metadataDefaultsPanel.add(metadataSeparator, CC.xyw(1, 1, 12));
 
-		JLabel lblName = new JLabel("Name");
-		metadataDefaultsPanel.add(lblName, "1, 3, right, default");
+		lblCommonProperties = new JLabel("Common properties");
+		metadataDefaultsPanel.add(lblCommonProperties, "1, 3, right, default");
 
-		nameTextField = new JTextField();
-		Bindings.bind(nameTextField, presentationModel
+		txtCommonProps = new JTextField();
+		txtCommonProps.setEditable(false);
+		metadataDefaultsPanel.add(txtCommonProps, "3, 3, 5, 1, fill, default");
+		txtCommonProps.setColumns(10);
+
+		resourcesDirBufferedModel = presentationModel
+				.getBufferedModel(PreferencesBean.RESOURCES_DIR_PROPERTY);
+		Bindings.bind(txtCommonProps, resourcesDirBufferedModel);
+		btnCommonProps = new JButton("Browse...");
+		btnCommonProps.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser;
+				if (resourcesDirBufferedModel.getValue() != null
+						&& !"".equals(resourcesDirBufferedModel.getValue())) {
+					String fileName = preferencesBean.getResourcesDir()
+							.replace("\\", "\\\\");
+					fileChooser = new JFileChooser(fileName);
+				} else {
+					fileChooser = new JFileChooser(new File(System
+							.getProperty("user.home")));
+				}
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				int selected = fileChooser
+						.showOpenDialog(PreferencesDialog.this);
+				if (selected == JFileChooser.APPROVE_OPTION) {
+					resourcesDirBufferedModel.setValue(fileChooser
+							.getSelectedFile().getAbsolutePath());
+				}
+
+			}
+		});
+		metadataDefaultsPanel.add(btnCommonProps, "9, 3, 3, 1");
+
+		JLabel lblName = new JLabel("Name");
+		metadataDefaultsPanel.add(lblName, "1, 5, right, default");
+
+		txtName = new JTextField();
+		Bindings.bind(txtName, presentationModel
 				.getBufferedModel(PreferencesBean.NAME_PROPERTY));
-		metadataDefaultsPanel.add(nameTextField, "3, 3, 9, 1, fill, default");
-		nameTextField.setColumns(10);
+		metadataDefaultsPanel.add(txtName, "3, 5, 9, 1, fill, default");
+		txtName.setColumns(10);
 
 		JLabel lblOrganisation = new JLabel("Organisation");
-		metadataDefaultsPanel.add(lblOrganisation, "1, 5, right, default");
+		metadataDefaultsPanel.add(lblOrganisation, "1, 7, right, default");
 
 		organizationTextField = new JTextField();
 		Bindings.bind(organizationTextField, presentationModel
 				.getBufferedModel(PreferencesBean.ORGANIZATION_PROPERTY));
 		metadataDefaultsPanel.add(organizationTextField,
-				"3, 5, 9, 1, fill, default");
+				"3, 7, 9, 1, fill, default");
 		organizationTextField.setColumns(10);
 
+		JComponent datasetSeparator = builder.addSeparator("Dataset",
+				CC.xyw(1, 9, 12));
+		metadataDefaultsPanel.add(datasetSeparator, CC.xyw(1, 11, 12));
+
 		JLabel lblEmail = new JLabel("E-mail");
-		metadataDefaultsPanel.add(lblEmail, "1, 7, right, default");
+		metadataDefaultsPanel.add(lblEmail, "1, 9, right, default");
 
 		txtEmail = new JTextField();
 		Bindings.bind(txtEmail, presentationModel
 				.getBufferedModel(PreferencesBean.EMAIL_PROPERTY));
-		metadataDefaultsPanel.add(txtEmail, "3, 7, 9, 1, fill, default");
+		metadataDefaultsPanel.add(txtEmail, "3, 9, 9, 1, fill, default");
 		txtEmail.setColumns(10);
-
-		JComponent datasetSeparator = builder.addSeparator("Dataset",
-				CC.xyw(1, 9, 12));
-		metadataDefaultsPanel.add(datasetSeparator, CC.xyw(1, 9, 12));
 
 		JLabel lblDefaultProjection = new JLabel("Default projection");
 		metadataDefaultsPanel
-				.add(lblDefaultProjection, "1, 11, right, default");
+				.add(lblDefaultProjection, "1, 13, right, default");
 
 		txtDefaultprojection = new JTextField();
 		Bindings.bind(txtDefaultprojection, presentationModel
 				.getBufferedModel(PreferencesBean.DEFAULT_PROYECTION_PROPERTY));
 		metadataDefaultsPanel.add(txtDefaultprojection,
-				"3, 11, 3, 1, fill, default");
+				"3, 13, 3, 1, fill, default");
 		txtDefaultprojection.setColumns(10);
 
 		lblMinX = new JLabel("Min X");
-		metadataDefaultsPanel.add(lblMinX, "3, 13");
+		metadataDefaultsPanel.add(lblMinX, "3, 15");
 
 		lblMinY = new JLabel("Min Y");
-		metadataDefaultsPanel.add(lblMinY, "5, 13");
+		metadataDefaultsPanel.add(lblMinY, "5, 15");
 
 		lblMaxX = new JLabel("Max X");
-		metadataDefaultsPanel.add(lblMaxX, "7, 13");
+		metadataDefaultsPanel.add(lblMaxX, "7, 15");
 
 		lblMaxY = new JLabel("Max Y");
-		metadataDefaultsPanel.add(lblMaxY, "9, 13");
+		metadataDefaultsPanel.add(lblMaxY, "9, 15");
 
 		JLabel lblDefaultBoundingBox = new JLabel("Default bounding box");
 		metadataDefaultsPanel.add(lblDefaultBoundingBox,
-				"1, 15, right, default");
+				"1, 17, right, default");
 
 		NumberFormat nf = DecimalFormat.getInstance(Locale.ENGLISH);
 		nf.setMinimumFractionDigits(1);
@@ -274,25 +313,25 @@ public class PreferencesDialog extends JDialog {
 		Bindings.bind(txtMinx, presentationModel
 				.getBufferedModel(PreferencesBean.MINX_PROPERTY));
 		txtMinx.setToolTipText("Min X");
-		metadataDefaultsPanel.add(txtMinx, "3, 15, fill, default");
+		metadataDefaultsPanel.add(txtMinx, "3, 17, fill, default");
 
 		txtMiny = new ImprovedFormattedTextField(nf);
 		Bindings.bind(txtMiny, presentationModel
 				.getBufferedModel(PreferencesBean.MINY_PROPERTY));
 		txtMiny.setToolTipText("Min Y");
-		metadataDefaultsPanel.add(txtMiny, "5, 15, fill, default");
+		metadataDefaultsPanel.add(txtMiny, "5, 17, fill, default");
 
 		txtMaxx = new ImprovedFormattedTextField(nf);
 		Bindings.bind(txtMaxx, presentationModel
 				.getBufferedModel(PreferencesBean.MAXX_PROPERTY));
 		txtMaxx.setToolTipText("Max X");
-		metadataDefaultsPanel.add(txtMaxx, "7, 15, fill, default");
+		metadataDefaultsPanel.add(txtMaxx, "7, 17, fill, default");
 
 		txtMaxy = new ImprovedFormattedTextField(nf);
 		Bindings.bind(txtMaxy, presentationModel
 				.getBufferedModel(PreferencesBean.MAXY_PROPERTY));
 		txtMaxy.setToolTipText("Max X");
-		metadataDefaultsPanel.add(txtMaxy, "9, 15, fill, default");
+		metadataDefaultsPanel.add(txtMaxy, "9, 17, fill, default");
 
 		// The builder holds the layout container that we now return.
 		return metadataDefaultsPanel;
@@ -327,9 +366,9 @@ public class PreferencesDialog extends JDialog {
 		BufferedValueModel genInSepDirBufferedModel = presentationModel
 				.getBufferedModel(PreferencesBean.GENERATE_IN_SEPARATE_DIR_PROPERTY);
 		Bindings.bind(chckbxGenerateinseparatedir, genInSepDirBufferedModel);
-		
+
 		chckbxGenerateinseparatedir.addItemListener(new ItemListener() {
-			
+
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -341,7 +380,7 @@ public class PreferencesDialog extends JDialog {
 				}
 			}
 		});
-		
+
 		outputPanel.add(chckbxGenerateinseparatedir, "1, 3, right, default");
 
 		lblSeparatedir = new JLabel("Generate metadata in a separate directory");
@@ -352,7 +391,8 @@ public class PreferencesDialog extends JDialog {
 
 		txtOutputpath = new JTextField();
 		txtOutputpath.setEditable(false);
-		final BufferedValueModel outputDirectoryBufferedModel = presentationModel.getBufferedModel(PreferencesBean.OUTPUT_DIR_PROPERTY);
+		final BufferedValueModel outputDirectoryBufferedModel = presentationModel
+				.getBufferedModel(PreferencesBean.OUTPUT_DIR_PROPERTY);
 		Bindings.bind(txtOutputpath, outputDirectoryBufferedModel);
 		outputPanel.add(txtOutputpath, "3, 5, fill, default");
 		txtOutputpath.setColumns(10);
@@ -366,17 +406,18 @@ public class PreferencesDialog extends JDialog {
 					if (outputDir.exists()) {
 						fChsrOutputDir.setCurrentDirectory(outputDir);
 					} else {
-						fChsrOutputDir.setCurrentDirectory(new File(System.getProperty("user.home")));
+						fChsrOutputDir.setCurrentDirectory(new File(System
+								.getProperty("user.home")));
 					}
 				}
 				int selected = fChsrOutputDir
 						.showOpenDialog(PreferencesDialog.this);
 				if (selected == JFileChooser.APPROVE_OPTION) {
-					outputDirectoryBufferedModel.setValue(fChsrOutputDir.getSelectedFile()
-							.getAbsolutePath());
+					outputDirectoryBufferedModel.setValue(fChsrOutputDir
+							.getSelectedFile().getAbsolutePath());
 				}
 			}
-			
+
 		});
 		if (!genInSepDirBufferedModel.booleanValue()) {
 			txtOutputpath.setEnabled(false);
@@ -397,6 +438,53 @@ public class PreferencesDialog extends JDialog {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			String resourcesDir = (String) resourcesDirBufferedModel.getValue();
+			if (resourcesDir == null || resourcesDir.equals("")) {
+				JOptionPane
+						.showMessageDialog(
+								PreferencesDialog.this,
+								"Please select the directory where metadata-properties.csv is located.",
+								"Common metadata warning.",
+								JOptionPane.WARNING_MESSAGE);
+				return;
+			} else {
+				File resourcesDirFile = new File(resourcesDir.replace("\\",
+						"\\\\"));
+				boolean error = false;
+				if (resourcesDirFile.isDirectory()) {
+					File[] result = resourcesDirFile
+							.listFiles(new FileFilter() {
+
+								@Override
+								public boolean accept(File pathname) {
+									String path = pathname.getAbsolutePath()
+											.toLowerCase();
+									if (path.endsWith(File.separator
+											+ "metadata-properties.csv")) {
+										return true;
+									} else {
+										return false;
+									}
+								}
+							});
+					if (result.length == 0) {
+						error = true;
+					}
+				} else {
+					error = true;
+				}
+
+				if (error) {
+					JOptionPane
+							.showMessageDialog(
+									PreferencesDialog.this,
+									"The selected directory doesn't contain the file \nmetadata-properties.csv",
+									"Common metadata warning.",
+									JOptionPane.WARNING_MESSAGE);
+					return;
+				}
+			}
+
 			trigger.triggerCommit();
 			prefs.putDouble(PREF_MINX,
 					preferencesBean.getMinx() == null ? -180.0d
@@ -421,8 +509,15 @@ public class PreferencesDialog extends JDialog {
 							: preferencesBean.getDefaultProjection());
 			prefs.put(PREF_NAME, preferencesBean.getName() == null ? ""
 					: preferencesBean.getName());
-			prefs.putBoolean(PREF_GENERATE_IN_SEPARATE_DIR, preferencesBean.getGenerateInSeparateDir() == null ? false : preferencesBean.getGenerateInSeparateDir());
-			prefs.put(PREF_OUTPUT_DIR, preferencesBean.getOutputDir() == null ? "" : preferencesBean.getOutputDir());
+			prefs.putBoolean(PREF_GENERATE_IN_SEPARATE_DIR, preferencesBean
+					.getGenerateInSeparateDir() == null ? false
+					: preferencesBean.getGenerateInSeparateDir());
+			prefs.put(PREF_OUTPUT_DIR,
+					preferencesBean.getOutputDir() == null ? ""
+							: preferencesBean.getOutputDir());
+			prefs.put(PREF_RESOURCES_DIR,
+					preferencesBean.getResourcesDir() == null ? ""
+							: preferencesBean.getResourcesDir());
 			try {
 				prefs.flush();
 			} catch (BackingStoreException e1) {

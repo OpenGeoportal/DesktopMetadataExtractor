@@ -20,33 +20,33 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="start_0.1/lib/advancedPersistentLookupLib-1.0.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/commons-collections-3.2.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/gdal.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/gt-api-8.5.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/gt-epsg-hsql-8.5.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/gt-metadata-8.5.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/gt-opengis-8.5.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/gt-referencing-8.5.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/hsqldb-1.8.0.7.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/jai_core-1.1.3.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/jakarta-oro-2.0.8.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/jaxen-1.1.1.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/jboss-serialization.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/jsr-275-1.0-beta-2.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/jts-1.12.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/org.talend.sdi.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/systemRoutines.jar" sourcepath="start_0.1/start/items/tufts_metadata_generator/code"/>
-	<classpathentry kind="lib" path="start_0.1/lib/talend_file_enhanced_20070724.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/talendcsv.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/trove.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/userRoutines.jar"/>
-	<classpathentry kind="lib" path="start_0.1/lib/vecmath-1.3.2.jar"/>
-	<classpathentry kind="lib" path="start_0.1/start/cleanup_job_0_1.jar"/>
-	<classpathentry kind="lib" path="start_0.1/start/rasterjob_0_1.jar"/>
-	<classpathentry kind="lib" path="start_0.1/start/start_0_1.jar" sourcepath="start_0.1/start/src"/>
-	<classpathentry kind="lib" path="start_0.1/start/vectorjob_0_1.jar" sourcepath="start_0.1/start/src"/>
+	<classpathentry kind="lib" path="Start/lib/advancedPersistentLookupLib-1.0.jar"/>
+	<classpathentry kind="lib" path="Start/lib/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="Start/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="Start/lib/gdal.jar"/>
+	<classpathentry kind="lib" path="Start/lib/gt-api-8.5.jar"/>
+	<classpathentry kind="lib" path="Start/lib/gt-epsg-hsql-8.5.jar"/>
+	<classpathentry kind="lib" path="Start/lib/gt-metadata-8.5.jar"/>
+	<classpathentry kind="lib" path="Start/lib/gt-opengis-8.5.jar"/>
+	<classpathentry kind="lib" path="Start/lib/gt-referencing-8.5.jar"/>
+	<classpathentry kind="lib" path="Start/lib/hsqldb-1.8.0.7.jar"/>
+	<classpathentry kind="lib" path="Start/lib/jai_core-1.1.3.jar"/>
+	<classpathentry kind="lib" path="Start/lib/jakarta-oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="Start/lib/jaxen-1.1.1.jar"/>
+	<classpathentry kind="lib" path="Start/lib/jboss-serialization.jar"/>
+	<classpathentry kind="lib" path="Start/lib/jsr-275-1.0-beta-2.jar"/>
+	<classpathentry kind="lib" path="Start/lib/jts-1.12.jar"/>
+	<classpathentry kind="lib" path="Start/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="Start/lib/org.talend.sdi.jar"/>
+	<classpathentry kind="lib" path="Start/lib/systemRoutines.jar" sourcepath="Start/src"/>
+	<classpathentry kind="lib" path="Start/lib/talend_file_enhanced_20070724.jar"/>
+	<classpathentry kind="lib" path="Start/lib/talendcsv.jar"/>
+	<classpathentry kind="lib" path="Start/lib/trove.jar"/>
+	<classpathentry kind="lib" path="Start/lib/userRoutines.jar"/>
+	<classpathentry kind="lib" path="Start/lib/vecmath-1.3.2.jar"/>
+	<classpathentry kind="lib" path="Start/cleanup_job_0_1.jar" sourcepath="Start/src"/>
+	<classpathentry kind="lib" path="Start/rasterjob_0_1.jar" sourcepath="Start/src"/>
+	<classpathentry kind="lib" path="Start/start_0_1.jar" sourcepath="Start/src"/>
+	<classpathentry kind="lib" path="Start/vectorjob_0_1.jar" sourcepath="Start/src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
