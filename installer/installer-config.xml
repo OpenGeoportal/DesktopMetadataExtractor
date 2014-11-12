@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<installation version="1.0">
+	<info>
+		<appname>Tufts metadata extractor</appname>
+		<appversion>1.0</appversion>
+		<authors>
+			<author email="gis-support@elist.tufts.edu" name="Tufts University"/>
+		</authors>
+		<url>http://geodata.tufts.edu/</url>
+		<uninstaller name="Uninstaller.jar" write="yes"/>
+		<requiresjdk>no</requiresjdk>
+		<writeinstallationinformation>no</writeinstallationinformation>
+		<pack200/>
+		<run-privileged condition="izpack.windowsinstall.vista|izpack.windowsinstall.7"/>
+	</info>
+	<guiprefs height="480" resizable="no" width="640">
+		<modifier key="useFlags" value="yes"/>
+		<modifier key="langDisplayType" value="default"/>
+		<modifier key="useHeadingPanel" value="yes"/>
+		<modifier key="headingLineCount" value="1"/>
+		<laf name="substance">
+			<os family="windows"/>
+			<os family="unix"/>
+			<param name="variant" value="mist-silver"/>
+		</laf>
+		<laf name="substance">
+			<os family="mac"/>
+			<param name="variant" value="mist-aqua"/>
+		</laf>
+		<modifier key="useHeadingPanel" value="yes"/>
+	</guiprefs>
+	<locale>
+		<langpack iso3="eng"/>
+	</locale>
+	<resources>
+		<res id="Heading.image" src="./OGPLogo.png"/>
+	</resources>
+	<panels>
+		<panel classname="CheckedHelloPanel"/>
+		<panel classname="PacksPanel"/>
+		<panel classname="TargetPanel"/>
+		<panel classname="InstallPanel"/>
+		<panel classname="SimpleFinishPanel"/>
+	</panels>
+	<packs>
+		<pack name="Core" preselected="yes" required="yes">
+			<description>Java application and libraries</description>
+			<file override="update" src=".\java" targetdir="$INSTALL_PATH/"/>
+			<!--
+            <singlefile src=".\metadata-extractor.exe" target="$INSTALL_PATH/metadata-extractor.exe" override="update" ><os family="Windows"/></singlefile><executable targetfile="$INSTALL_PATH/metadata-extractor.exe" ><os family="Windows"/></executable>-->
+			<file override="update" src="_resources" targetdir="$INSTALL_PATH/"/>
+		</pack>
+		<pack name="Native libraries" parent="Core" preselected="yes" required="yes">
+			<description>Native GDAL libraries</description>
+			<file override="update" src=".\native\macos" targetdir="$INSTALL_PATH/native">
+				<os family="Mac"/>
+			</file>
+			<fileset dir=".\native\windows\x64" includes="**/*" override="update" targetdir="$INSTALL_PATH/native">
+				<os arch="amd64" family="Windows"/>
+			</fileset>
+			<fileset dir=".\native\windows\i386" includes="**/*" override="update" targetdir="$INSTALL_PATH/native">
+				<os arch="x86" family="Windows"/>
+			</fileset>
+			<file override="update" src=".\native\linux" targetdir="$INSTALL_PATH/native">
+				<os family="Unix"/>
+			</file>
+		</pack>
+	</packs>
+</installation>
