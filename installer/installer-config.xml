@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <installation version="1.0">
 	<info>
-		<appname>Tufts metadata extractor</appname>
+		<appname>OpenGeoPortal metadata extractor</appname>
 		<appversion>1.0</appversion>
 		<authors>
 			<author email="gis-support@elist.tufts.edu" name="Tufts University"/>
@@ -44,14 +44,14 @@
 	</panels>
 	<packs>
 		<pack name="Core" preselected="yes" required="yes">
-			<description>Java application and libraries</description>
+			<description>Metadata extractor</description>
 			<file override="update" src=".\java" targetdir="$INSTALL_PATH/"/>
 			<!--
             <singlefile src=".\metadata-extractor.exe" target="$INSTALL_PATH/metadata-extractor.exe" override="update" ><os family="Windows"/></singlefile><executable targetfile="$INSTALL_PATH/metadata-extractor.exe" ><os family="Windows"/></executable>-->
 			<file override="update" src="_resources" targetdir="$INSTALL_PATH/"/>
 		</pack>
-		<pack name="Native libraries" parent="Core" preselected="yes" required="yes">
-			<description>Native GDAL libraries</description>
+		<pack name="GDAL libraries" parent="Core" preselected="yes" required="no">
+			<description>GDAL libraries for your operating system. Not required if you already have GDAL installed.</description>
 			<file override="update" src=".\native\macos" targetdir="$INSTALL_PATH/native">
 				<os family="Mac"/>
 			</file>

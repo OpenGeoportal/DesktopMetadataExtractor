@@ -1,1 +1,1 @@
-These are the x32 native libraries.
+These are the Windows x32 version of the GDAL libraries.
