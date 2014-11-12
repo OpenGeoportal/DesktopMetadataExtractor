@@ -28,7 +28,7 @@
 	<property name="javaVersion" value="1.5.0" /> <!-- Minimum version required -->
 	<property name="jre_url" value="http://java.sun.com/javase/downloads" />
 	<property name="OS" value="Compiled on ${os.name} (${osys})" />
-	<property name="propsdir" value="../.props" />
+	<property name="propsdir" value="../build/props" />
 	<property name="ant.build.javac.target" value="1.5"/>
 	<property name="debugOn" value="on"/> <!-- on off true false yes no -->
 
@@ -49,17 +49,17 @@
 		<delete	dir ="${propsdir}" />
 		<mkdir	dir ="${propsdir}" />
 
-		<exec executable="git" dir=".." output="git.properties">
+		<exec executable="git" dir=".." output="${propsdir}/git.properties">
 		    <arg value="remote" />
 		    <arg value="-v" />
 		</exec>
-		<property prefix="git" file="git.properties"/>
+		<property prefix="git" file="${propsdir}/git.properties"/>
 		
-		<exec executable="git" dir=".." output="git2.properties">
+		<exec executable="git" dir=".." output="${propsdir}/git2.properties">
 		    <arg value="log" />
 		    <arg value="--max-count=1" />
 		</exec>
-		<property prefix="git2" file="git2.properties"/>
+		<property prefix="git2" file="${propsdir}/git2.properties"/>
 	
 		<!-- Update the properties file -->
 		<propertyfile
@@ -116,17 +116,17 @@
 
         <property file="${propsdir}/app.prop"/>
 
-        <delete dir="../mdextractor-${release}"/>
-        <mkdir  dir="../mdextractor-${release}"/>
+        <delete dir="../build/mdextractor-${release}"/>
+        <mkdir  dir="../build/mdextractor-${release}"/>
 
         <echo message="Building platform independent installer on ${osys} using IzPack"/>
 
         <izpack	input="${propsdir}/installer-config.xml"
-            output="../mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar"
+            output="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar"
                     installerType="standard"
                     basedir="${basedir}"/>
 
-        <checksum file="../mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar" forceOverwrite="yes"/>
+        <checksum file="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar" forceOverwrite="yes"/>
 
     </target>
 
@@ -140,14 +140,14 @@
 		<echo message="Building Windows installer on ${osys} using launch4j"/>
 
 		<launch4j configFile="${basedir}/launch4j/launch4jConfig.xml"
-			jar="../mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar"
-			outfile="../mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe"
+			jar="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar"
+			outfile="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe"
 			txtFileVersion="${version}-${subVersion}-${date}" 
 			txtProductVersion="${version}-${subVersion}" 
 			fileVersion="${version}.0" 
 			productVersion="${version}.0"/>
 
-	<checksum file="../mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe" forceOverwrite="yes"/>
+	<checksum file="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe" forceOverwrite="yes"/>
 		
 	</target>
 
