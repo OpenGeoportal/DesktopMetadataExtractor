@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="tuft-metadata-gui">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../local/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="tuft-metadata-gui.classpath">
+        <pathelement location="lib/jgoodies-looks-2.6.0.jar"/>
+        <pathelement location="lib/jgoodies-common-1.8.0.jar"/>
+        <pathelement location="lib/jgoodies-binding-2.10.0.jar"/>
+        <pathelement location="forms-1.3.0.jar"/>
+        <pathelement location="bin"/>
+        <pathelement location="Start/lib/advancedPersistentLookupLib-1.0.jar"/>
+        <pathelement location="Start/lib/commons-collections-3.2.jar"/>
+        <pathelement location="Start/lib/dom4j-1.6.1.jar"/>
+        <pathelement location="Start/lib/gdal.jar"/>
+        <pathelement location="Start/lib/gt-api-8.5.jar"/>
+        <pathelement location="Start/lib/gt-epsg-hsql-8.5.jar"/>
+        <pathelement location="Start/lib/gt-metadata-8.5.jar"/>
+        <pathelement location="Start/lib/gt-opengis-8.5.jar"/>
+        <pathelement location="Start/lib/gt-referencing-8.5.jar"/>
+        <pathelement location="Start/lib/hsqldb-1.8.0.7.jar"/>
+        <pathelement location="Start/lib/jai_core-1.1.3.jar"/>
+        <pathelement location="Start/lib/jakarta-oro-2.0.8.jar"/>
+        <pathelement location="Start/lib/jaxen-1.1.1.jar"/>
+        <pathelement location="Start/lib/jboss-serialization.jar"/>
+        <pathelement location="Start/lib/jsr-275-1.0-beta-2.jar"/>
+        <pathelement location="Start/lib/jts-1.12.jar"/>
+        <pathelement location="Start/lib/log4j-1.2.15.jar"/>
+        <pathelement location="Start/lib/org.talend.sdi.jar"/>
+        <pathelement location="Start/lib/systemRoutines.jar"/>
+        <pathelement location="Start/lib/talend_file_enhanced_20070724.jar"/>
+        <pathelement location="Start/lib/talendcsv.jar"/>
+        <pathelement location="Start/lib/trove.jar"/>
+        <pathelement location="Start/lib/userRoutines.jar"/>
+        <pathelement location="Start/lib/vecmath-1.3.2.jar"/>
+        <pathelement location="Start/cleanup_job_0_1.jar"/>
+        <pathelement location="Start/rasterjob_0_1.jar"/>
+        <pathelement location="Start/start_0_1.jar"/>
+        <pathelement location="Start/vectorjob_0_1.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="resources">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <src path="resources"/>
+            <classpath refid="tuft-metadata-gui.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="BufferingPresentationModelExample">
+        <java classname="net.geocat.example1.BufferingPresentationModelExample" failonerror="true" fork="yes">
+            <classpath refid="tuft-metadata-gui.classpath"/>
+        </java>
+    </target>
+    <target name="ExternalJobStarter">
+        <java classname="net.geocat.example1.ExternalJobStarter" failonerror="true" fork="yes">
+            <classpath refid="tuft-metadata-gui.classpath"/>
+        </java>
+    </target>
+    <target name="MainPanel">
+        <java classname="net.geocat.mdextractor.gui.MainPanel" failonerror="true" fork="yes">
+            <classpath refid="tuft-metadata-gui.classpath"/>
+        </java>
+    </target>
+    <target name="MetadataExtractorFrame">
+        <java classname="net.geocat.mdextractor.gui.MetadataExtractorFrame" failonerror="true" fork="yes">
+            <classpath refid="tuft-metadata-gui.classpath"/>
+        </java>
+    </target>
+    <target name="SpanExample">
+        <java classname="net.geocat.example1.SpanExample" failonerror="true" fork="yes">
+            <classpath refid="tuft-metadata-gui.classpath"/>
+        </java>
+    </target>
+</project>
