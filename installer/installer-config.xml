@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <installation version="1.0">
 	<info>
-		<appname>OpenGeoPortal metadata extractor</appname>
+		<appname>OpenGeoPortal Metadata Extractor</appname>
 		<appversion>1.0</appversion>
 		<authors>
-			<author email="gis-support@elist.tufts.edu" name="Tufts University"/>
+			<author name="Tufts University" email="gis-support@elist.tufts.edu"/>
+			<author name="GeoCat BV" email="info@geocat.net"/>
 		</authors>
 		<url>http://geodata.tufts.edu/</url>
 		<uninstaller name="Uninstaller.jar" write="yes"/>
@@ -13,7 +14,7 @@
 		<pack200/>
 		<run-privileged condition="izpack.windowsinstall.vista|izpack.windowsinstall.7"/>
 	</info>
-	<guiprefs height="480" resizable="no" width="640">
+	<guiprefs height="600" resizable="no" width="800">
 		<modifier key="useFlags" value="yes"/>
 		<modifier key="langDisplayType" value="default"/>
 		<modifier key="useHeadingPanel" value="yes"/>
@@ -21,47 +22,61 @@
 		<laf name="substance">
 			<os family="windows"/>
 			<os family="unix"/>
-			<param name="variant" value="mist-silver"/>
-		</laf>
-		<laf name="substance">
 			<os family="mac"/>
-			<param name="variant" value="mist-aqua"/>
 		</laf>
+		<modifier value="true" key="showDebugWindow" />
 		<modifier key="useHeadingPanel" value="yes"/>
 	</guiprefs>
 	<locale>
 		<langpack iso3="eng"/>
 	</locale>
 	<resources>
-		<res id="Heading.image" src="./OGPLogo.png"/>
+		<res id="Heading.image"                src="OGPLogo.png"/>
+<!--		<res id="Installer.image"          	   src="installer.png"/> -->
+		<res id="shortcutSpec.xml"         	   src="windows-shortcuts.xml"/>
+		<res id="Unix_shortcutSpec.xml"        src="unix-shortcuts.xml"/>
+		<res id="Win_shortcutSpec.xml"         src="windows-shortcuts.xml"/>
 	</resources>
 	<panels>
-		<panel classname="CheckedHelloPanel"/>
-		<panel classname="PacksPanel"/>
-		<panel classname="TargetPanel"/>
-		<panel classname="InstallPanel"/>
-		<panel classname="SimpleFinishPanel"/>
+		<panel classname="CheckedHelloPanel" id="checkedHelloPanel"/>
+		<panel classname="PacksPanel" id="packsPanel"/>
+		<panel classname="TargetPanel" id="TargetPanel"/>
+		<panel classname="InstallPanel" id="installPanel"/>
+		<panel classname="ShortcutPanel" id="shortcutPanel"/>
+		<panel classname="SimpleFinishPanel" id="simpleFinishPanel"/>
 	</panels>
+
+	<!-- =================================================================================== -->
+	
+	<native type="izpack" name="ShellLink.dll" />
+	
+	<!-- =================================================================================== -->
+	
 	<packs>
-		<pack name="Metadata extractor" preselected="yes" required="yes">
+		<pack id="core" name="Metadata extractor" preselected="yes" required="yes">
 			<description>An application to extract metadata from geospatial data files and generate ISO19115 metadata XML documents for a metadata catalog.</description>
-			<file override="update" src=".\java" targetdir="$INSTALL_PATH/"/>
 			<!--
             <singlefile src=".\metadata-extractor.exe" target="$INSTALL_PATH/metadata-extractor.exe" override="update" ><os family="Windows"/></singlefile><executable targetfile="$INSTALL_PATH/metadata-extractor.exe" ><os family="Windows"/></executable>-->
+			<file override="update" src="bin" targetdir="$INSTALL_PATH/"/>
+			<file override="update" src="lib" targetdir="$INSTALL_PATH/"/>
 			<file override="update" src="_resources" targetdir="$INSTALL_PATH/"/>
+            <singlefile target="$INSTALL_PATH/metadata-extractor.jar" src="metadata-extractor.jar" override="true"/>
+
+			<executable targetfile="$INSTALL_PATH/bin/start_mdextractor.sh" />
 		</pack>
-		<pack name="GDAL libraries" parent="Core" preselected="yes" required="no">
+		
+		<pack id="gdal" name="GDAL libraries" preselected="yes" required="no">
 			<description>GDAL libraries for your operating system. Not required if you already have GDAL installed.</description>
-			<file override="update" src=".\native\macos" targetdir="$INSTALL_PATH/native">
+			<file src=".\native\macos" targetdir="$INSTALL_PATH/native" override="update">
 				<os family="Mac"/>
 			</file>
-			<fileset dir=".\native\windows\x64" includes="**/*" override="update" targetdir="$INSTALL_PATH/native">
+			<fileset dir=".\native\windows\x64" includes="**/*" targetdir="$INSTALL_PATH/native" override="update">
 				<os arch="amd64" family="Windows"/>
 			</fileset>
-			<fileset dir=".\native\windows\i386" includes="**/*" override="update" targetdir="$INSTALL_PATH/native">
+			<fileset dir=".\native\windows\i386" includes="**/*" targetdir="$INSTALL_PATH/native" override="update">
 				<os arch="x86" family="Windows"/>
 			</fileset>
-			<file override="update" src=".\native\linux" targetdir="$INSTALL_PATH/native">
+			<file src=".\native\linux" targetdir="$INSTALL_PATH/native" override="update">
 				<os family="Unix"/>
 			</file>
 		</pack>

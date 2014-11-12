@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<shortcuts>
+
+	<!-- =================================================================================== -->
+  <skipIfNotSupported/>
+  <programGroup defaultName="Metadata extractor" location="applications"/>
+
+  <!-- =================================================================================== -->
+	<!-- Metadata extractor -->
+   
+	<shortcut
+		os="windows"
+		name="Metadata extractor" 
+		description="This starts the Metadata extractor"
+		programGroup="yes"
+		desktop="no"
+		startup="no"
+		target="$INSTALL_PATH/../bin/start_mdextractor.bat"
+		initialState="noShow"
+		workingDirectory="$INSTALL_PATH/"
+		type="Application"
+		iconFile="$INSTALL_PATH/bin/ico/ogplogo.ico"
+		iconIndex="0" 
+		encoding="UTF-8">
+		<createForPack name="Core"/>
+   </shortcut>
+   	
+  <!-- =================================================================================== -->
+  <!-- Readme -->
+  
+  <shortcut 
+		os="windows"
+		name="Release notes " 
+		description="Metadata extractor Readme file "
+		target="$INSTALL_PATH\README.md"
+		commandLine="" 
+		workingDirectory="$INSTALL_PATH" 
+		iconFile="$INSTALL_PATH/bin/ico/text.ico" 
+		iconIndex="0" 
+		initialState="normal" 
+		programGroup="yes"
+		startup="no">
+		<createForPack name="Core"/>
+  </shortcut>
+  
+	<!-- =================================================================================== -->
+	<!-- Uninstall -->
+      
+   <shortcut
+		os="windows"
+		name="Uninstaller"
+		programGroup="yes"
+		desktop="no"
+		target="java"
+		commandLine="-jar &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
+		initialState="noShow"
+		iconFile="$INSTALL_PATH/bin/ico/uninst.ico"
+		iconIndex="0" 
+		type="Application"
+		encoding="UTF-8">
+   </shortcut>
+   
+	<!-- =================================================================================== -->
+   
+</shortcuts>
