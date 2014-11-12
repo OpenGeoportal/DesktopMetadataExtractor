@@ -50,8 +50,13 @@
             <singlefile src=".\metadata-extractor.exe" target="$INSTALL_PATH/metadata-extractor.exe" override="update" ><os family="Windows"/></singlefile><executable targetfile="$INSTALL_PATH/metadata-extractor.exe" ><os family="Windows"/></executable>-->
 			<file override="update" src="_resources" targetdir="$INSTALL_PATH/"/>
 		</pack>
+<<<<<<< HEAD
 		<pack name="GDAL libraries" parent="Core" preselected="yes" required="no">
 			<description>GDAL libraries for your operating system. Not required if you already have GDAL installed.</description>
+=======
+		<!-- <pack name="Native libraries" parent="Core" preselected="yes" required="yes">
+			<description>Native GDAL libraries</description>
+>>>>>>> FETCH_HEAD
 			<file override="update" src=".\native\macos" targetdir="$INSTALL_PATH/native">
 				<os family="Mac"/>
 			</file>
@@ -64,6 +69,6 @@
 			<file override="update" src=".\native\linux" targetdir="$INSTALL_PATH/native">
 				<os family="Unix"/>
 			</file>
-		</pack>
+		</pack> -->
 	</packs>
 </installation>
