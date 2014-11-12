@@ -1,0 +1,1 @@
+These are the Windows x64 version of the GDAL libraries.
