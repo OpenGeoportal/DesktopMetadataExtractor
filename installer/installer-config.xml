@@ -49,10 +49,10 @@
 
 	<!-- =================================================================================== -->
 	
-	<native type="izpack" name="native/izpack/ShellLink.dll">
+	<native type="izpack" name="ShellLink.dll">
 		<os family="windows" arch="x86"/>
 	</native>
-	<native type="izpack" name="native/izpack/ShellLink_x64.dll">
+	<native type="izpack" name="ShellLink_x64.dll">
 		<os family="windows" arch="amd64"/>
 	</native>
 	
