@@ -3,13 +3,13 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="tuft-metadata-gui">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="metadata-extractor-gui">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../local/eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-    <path id="tuft-metadata-gui.classpath">
+    <path id="metadata-extractor-gui.classpath">
         <pathelement location="lib/jgoodies-looks-2.6.0.jar"/>
         <pathelement location="lib/jgoodies-common-1.8.0.jar"/>
         <pathelement location="lib/jgoodies-binding-2.10.0.jar"/>
@@ -68,7 +68,7 @@
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <src path="resources"/>
-            <classpath refid="tuft-metadata-gui.classpath"/>
+            <classpath refid="metadata-extractor-gui.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
@@ -84,30 +84,5 @@
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
-    </target>
-    <target name="BufferingPresentationModelExample">
-        <java classname="net.geocat.example1.BufferingPresentationModelExample" failonerror="true" fork="yes">
-            <classpath refid="tuft-metadata-gui.classpath"/>
-        </java>
-    </target>
-    <target name="ExternalJobStarter">
-        <java classname="net.geocat.example1.ExternalJobStarter" failonerror="true" fork="yes">
-            <classpath refid="tuft-metadata-gui.classpath"/>
-        </java>
-    </target>
-    <target name="MainPanel">
-        <java classname="net.geocat.mdextractor.gui.MainPanel" failonerror="true" fork="yes">
-            <classpath refid="tuft-metadata-gui.classpath"/>
-        </java>
-    </target>
-    <target name="MetadataExtractorFrame">
-        <java classname="net.geocat.mdextractor.gui.MetadataExtractorFrame" failonerror="true" fork="yes">
-            <classpath refid="tuft-metadata-gui.classpath"/>
-        </java>
-    </target>
-    <target name="SpanExample">
-        <java classname="net.geocat.example1.SpanExample" failonerror="true" fork="yes">
-            <classpath refid="tuft-metadata-gui.classpath"/>
-        </java>
     </target>
 </project>
