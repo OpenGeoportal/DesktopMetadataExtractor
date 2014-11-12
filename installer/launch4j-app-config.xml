@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>metadata-extractor.jar</jar>
-  <outfile>metadata-extractor.exe</outfile>
+  <jar>%EXEDIR%/metadata-extractor.jar</jar>
+  <outfile>%EXEDIR%/metadata-extractor.exe</outfile>
   <errTitle>Java runtime not found</errTitle>
   <cmdLine></cmdLine>
   <chdir>./java</chdir>

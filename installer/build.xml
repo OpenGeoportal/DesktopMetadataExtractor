@@ -106,7 +106,7 @@
 	<target name="installer" depends="setProperties">
 
         <ant dir="." target="jarinstall"  />
-<!--		<ant dir="." target="wininstall"  />	-->
+		<ant dir="." target="wininstall"  />
 
 	</target>
 
