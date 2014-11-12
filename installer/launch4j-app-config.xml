@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\JuanLuis\Documents\Projects\tufts-eclipse-workspace\tuft-metadata-gui\installer\java\metadata-extractor.jar</jar>
-  <outfile>C:\Users\JuanLuis\Documents\Projects\tufts-eclipse-workspace\tuft-metadata-gui\installer\metadata-extractor.exe</outfile>
+  <jar>metadata-extractor.jar</jar>
+  <outfile>metadata-extractor.exe</outfile>
   <errTitle>Java runtime not found</errTitle>
   <cmdLine></cmdLine>
   <chdir>./java</chdir>
@@ -18,38 +18,38 @@
   <classPath>
     <mainClass>net.geocat.tufts.mdextractor.gui.MetadataExtractorFrame</mainClass>
     <cp>.</cp>
-    <cp>metadata-extractor_lib/jgoodies-looks-2.6.0.jar</cp>
-    <cp>metadata-extractor_lib/jgoodies-common-1.8.0.jar</cp>
-    <cp>metadata-extractor_lib/jgoodies-binding-2.10.0.jar</cp>
-    <cp>metadata-extractor_lib/forms-1.3.0.jar</cp>
-    <cp>metadata-extractor_lib/advancedPersistentLookupLib-1.0.jar</cp>
-    <cp>metadata-extractor_lib/commons-collections-3.2.jar</cp>
-    <cp>metadata-extractor_lib/dom4j-1.6.1.jar</cp>
-    <cp>../native/gdal.jar</cp>
-    <cp>metadata-extractor_lib/jts-1.12.jar</cp>
-    <cp>metadata-extractor_lib/vecmath-1.3.2.jar</cp>
-    <cp>metadata-extractor_lib/jsr-275-1.0-beta-2.jar</cp>
-    <cp>metadata-extractor_lib/jai_core-1.1.3.jar</cp>
-    <cp>metadata-extractor_lib/gt-opengis-8.5.jar</cp>
-    <cp>metadata-extractor_lib/gt-metadata-8.5.jar</cp>
-    <cp>metadata-extractor_lib/gt-referencing-8.5.jar</cp>
-    <cp>metadata-extractor_lib/gt-api-8.5.jar</cp>
-    <cp>metadata-extractor_lib/hsqldb-1.8.0.7.jar</cp>
-    <cp>metadata-extractor_lib/gt-epsg-hsql-8.5.jar</cp>
-    <cp>metadata-extractor_lib/jakarta-oro-2.0.8.jar</cp>
-    <cp>metadata-extractor_lib/jaxen-1.1.1.jar</cp>
-    <cp>metadata-extractor_lib/jboss-serialization.jar</cp>
-    <cp>metadata-extractor_lib/log4j-1.2.15.jar</cp>
-    <cp>metadata-extractor_lib/org.talend.sdi.jar</cp>
-    <cp>metadata-extractor_lib/systemRoutines.jar</cp>
-    <cp>metadata-extractor_lib/talend_file_enhanced_20070724.jar</cp>
-    <cp>metadata-extractor_lib/talendcsv.jar</cp>
-    <cp>metadata-extractor_lib/trove.jar</cp>
-    <cp>metadata-extractor_lib/userRoutines.jar</cp>
-    <cp>metadata-extractor_lib/cleanup_job_0_1.jar</cp>
-    <cp>metadata-extractor_lib/rasterjob_0_1.jar</cp>
-    <cp>metadata-extractor_lib/start_0_1.jar</cp>
-    <cp>metadata-extractor_lib/vectorjob_0_1.jar</cp>
+    <cp>lib/jgoodies-looks-2.6.0.jar</cp>
+    <cp>lib/jgoodies-common-1.8.0.jar</cp>
+    <cp>lib/jgoodies-binding-2.10.0.jar</cp>
+    <cp>lib/forms-1.3.0.jar</cp>
+    <cp>lib/advancedPersistentLookupLib-1.0.jar</cp>
+    <cp>lib/commons-collections-3.2.jar</cp>
+    <cp>lib/dom4j-1.6.1.jar</cp>
+    <cp>native/gdal.jar</cp>
+    <cp>lib/jts-1.12.jar</cp>
+    <cp>lib/vecmath-1.3.2.jar</cp>
+    <cp>lib/jsr-275-1.0-beta-2.jar</cp>
+    <cp>lib/jai_core-1.1.3.jar</cp>
+    <cp>lib/gt-opengis-8.5.jar</cp>
+    <cp>lib/gt-metadata-8.5.jar</cp>
+    <cp>lib/gt-referencing-8.5.jar</cp>
+    <cp>lib/gt-api-8.5.jar</cp>
+    <cp>lib/hsqldb-1.8.0.7.jar</cp>
+    <cp>lib/gt-epsg-hsql-8.5.jar</cp>
+    <cp>lib/jakarta-oro-2.0.8.jar</cp>
+    <cp>lib/jaxen-1.1.1.jar</cp>
+    <cp>lib/jboss-serialization.jar</cp>
+    <cp>lib/log4j-1.2.15.jar</cp>
+    <cp>lib/org.talend.sdi.jar</cp>
+    <cp>lib/systemRoutines.jar</cp>
+    <cp>lib/talend_file_enhanced_20070724.jar</cp>
+    <cp>lib/talendcsv.jar</cp>
+    <cp>lib/trove.jar</cp>
+    <cp>lib/userRoutines.jar</cp>
+    <cp>lib/cleanup_job_0_1.jar</cp>
+    <cp>lib/rasterjob_0_1.jar</cp>
+    <cp>lib/start_0_1.jar</cp>
+    <cp>lib/vectorjob_0_1.jar</cp>
   </classPath>
   <jre>
     <path></path>

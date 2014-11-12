@@ -1,1 +1,0 @@
-These are the Windows x32 version of the GDAL libraries.
