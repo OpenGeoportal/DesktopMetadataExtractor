@@ -23,7 +23,6 @@
 		iconFile="$INSTALL_PATH/bin/ico/ogplogo.ico"
 		iconIndex="0" 
 		encoding="UTF-8">
-		<createForPack id="core"/>
    </shortcut>
    	
   <!-- =================================================================================== -->
@@ -41,7 +40,6 @@
 		initialState="normal" 
 		programGroup="yes"
 		startup="no">
-		<createForPack id="core"/>
   </shortcut>
   
 	<!-- =================================================================================== -->
