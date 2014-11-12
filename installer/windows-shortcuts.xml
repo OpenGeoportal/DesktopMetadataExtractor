@@ -16,14 +16,13 @@
 		programGroup="yes"
 		desktop="no"
 		startup="no"
-		target="$INSTALL_PATH/../bin/start_mdextractor.bat"
+		target="$INSTALL_PATH/bin/start_mdextractor.bat"
 		initialState="noShow"
 		workingDirectory="$INSTALL_PATH/"
 		type="Application"
 		iconFile="$INSTALL_PATH/bin/ico/ogplogo.ico"
 		iconIndex="0" 
 		encoding="UTF-8">
-		<createForPack name="Core"/>
    </shortcut>
    	
   <!-- =================================================================================== -->
@@ -41,7 +40,6 @@
 		initialState="normal" 
 		programGroup="yes"
 		startup="no">
-		<createForPack name="Core"/>
   </shortcut>
   
 	<!-- =================================================================================== -->
