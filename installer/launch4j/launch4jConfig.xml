@@ -5,35 +5,33 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>0</headerType>
-  <jar>../mdextractor-1.0.0/mdextractor-install-1.0.0-0</jar>
-  <outfile>../mdextractor-1.0.0/mdextractor-install-1.0.0-0.exe</outfile>
+  <jar>../../build/mdextractor-1.0.0/mdextractor-install-1.0.0-SNAPSHOT.jar</jar>
+  <outfile>../../build/mdextractor-1.0.0/mdextractor-install-1.0.0-SNAPSHOT.exe</outfile>
   <errTitle>Metadata Extractor Installation Error</errTitle>
-  <jarArgs></jarArgs>
-  <chdir></chdir>
+  <chdir>.</chdir>
   <customProcName>false</customProcName>
   <stayAlive>false</stayAlive>
-  <icon>../release/bin/ico/ogplogo.ico</icon>
+  <icon>../../release/bin/ico/ogplogo.ico</icon>
   <jre>
     <minVersion>1.6.0</minVersion>
     <initialHeapSize>256</initialHeapSize>
     <maxHeapSize>1024</maxHeapSize>
-    <args></args>
   </jre>
   <splash>
-    <file>splash.png</file>
+    <file>../splash.png</file>
     <waitForWindow>true</waitForWindow>
     <timeout>60</timeout>
     <timeoutErr>true</timeoutErr>
   </splash>
   <versionInfo>
-    <fileVersion>1.0.0-0</fileVersion>
+    <fileVersion>1.0.0.0</fileVersion>
     <txtFileVersion>1.0.0-0</txtFileVersion>
     <fileDescription>Metadata Extractor Windows Installer</fileDescription>
     <copyright>GeoCat (http://www.geocat.net)</copyright>
-    <productVersion>1.0.0-0</productVersion>
+    <productVersion>1.0.0.0</productVersion>
     <txtProductVersion>1.0.0-0</txtProductVersion>
     <productName>Metadata Extractor</productName>
-    <companyName></companyName>
+    <companyName>GeoCat BV</companyName>
     <internalName>mdextractor-install-1.0.0-0.jar</internalName>
     <originalFilename>mdextractor-install-1.0.0-0.exe</originalFilename>
   </versionInfo>

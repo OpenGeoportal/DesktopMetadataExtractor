@@ -41,7 +41,7 @@
 	<taskdef name="launch4j"
 	        classname="net.sf.launch4j.ant.Launch4jTask"
 	        classpath="launch4j/${osys}/launch4j.jar:launch4j/${osys}/lib/xstream.jar"/>
-
+	        
 	<!-- =================================================================================== -->
 
     <target name="setProperties">
@@ -106,7 +106,7 @@
 	<target name="installer" depends="setProperties">
 
         <ant dir="." target="jarinstall"  />
-<!--		<ant dir="." target="wininstall"  />	-->
+		<ant dir="." target="wininstall"  />
 
 	</target>
 
@@ -140,15 +140,15 @@
 		<echo message="Building Windows installer on ${osys} using launch4j"/>
 
 		<launch4j configFile="${basedir}/launch4j/launch4jConfig.xml"
-			jar="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar"
-			outfile="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe"
+			jar="${basedir}/../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.jar"
+			outfile="${basedir}/../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe"
 			txtFileVersion="${version}-${subVersion}-${date}" 
 			txtProductVersion="${version}-${subVersion}" 
 			fileVersion="${version}.0" 
 			productVersion="${version}.0"/>
-
-	<checksum file="../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe" forceOverwrite="yes"/>
+			
+		<checksum file="${basedir}/../build/mdextractor-${release}/mdextractor-install-${release}-${subVersion}.exe" forceOverwrite="yes"/>
 		
 	</target>
-
+	
 </project>
