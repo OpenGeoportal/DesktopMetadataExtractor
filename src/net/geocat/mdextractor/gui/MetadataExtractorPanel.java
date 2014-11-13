@@ -1,4 +1,4 @@
-package net.geocat.tufts.mdextractor.gui;
+package net.geocat.mdextractor.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,8 +23,8 @@ import javax.swing.SwingWorker.StateValue;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 
-import net.geocat.tufts.guicomponents.TalendWorker;
-import net.geocat.tufts.mdextractor.gui.model.PreferencesBean;
+import net.geocat.mdextractor.gui.model.PreferencesBean;
+import net.geocat.mdextractor.guicomponents.TalendWorker;
 
 import com.jgoodies.binding.adapter.Bindings;
 import com.jgoodies.binding.list.SelectionInList;

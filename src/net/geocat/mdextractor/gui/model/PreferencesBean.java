@@ -1,4 +1,4 @@
-package net.geocat.tufts.mdextractor.gui.model;
+package net.geocat.mdextractor.gui.model;
 
 import com.jgoodies.binding.beans.Model;
 

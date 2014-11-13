@@ -1,4 +1,4 @@
-package net.geocat.tufts.mdextractor.gui.menu;
+package net.geocat.mdextractor.gui.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import net.geocat.tufts.mdextractor.gui.PreferencesDialog;
+import net.geocat.mdextractor.gui.PreferencesDialog;
 
 public class MetadataExtractorMenu extends JMenuBar {
 	private static final long serialVersionUID = 6647356239315428741L;

@@ -1,4 +1,4 @@
-package net.geocat.tufts.mdextractor.gui;
+package net.geocat.mdextractor.gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import net.geocat.tufts.mdextractor.gui.menu.MetadataExtractorMenu;
+import net.geocat.mdextractor.gui.menu.MetadataExtractorMenu;
 
 public class MetadataExtractorFrame extends JFrame {
 

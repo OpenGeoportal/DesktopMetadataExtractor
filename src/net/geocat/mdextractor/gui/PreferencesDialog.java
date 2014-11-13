@@ -1,4 +1,4 @@
-package net.geocat.tufts.mdextractor.gui;
+package net.geocat.mdextractor.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -33,8 +33,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import net.geocat.tufts.guicomponents.ImprovedFormattedTextField;
-import net.geocat.tufts.mdextractor.gui.model.PreferencesBean;
+import net.geocat.mdextractor.gui.model.PreferencesBean;
+import net.geocat.mdextractor.guicomponents.ImprovedFormattedTextField;
 
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.Bindings;
