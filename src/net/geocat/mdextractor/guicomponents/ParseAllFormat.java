@@ -1,4 +1,4 @@
-package net.geocat.tufts.guicomponents;
+package net.geocat.mdextractor.guicomponents;
 
 import java.text.AttributedCharacterIterator;
 import java.text.FieldPosition;

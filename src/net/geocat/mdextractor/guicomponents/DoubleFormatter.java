@@ -1,4 +1,4 @@
-package net.geocat.tufts.guicomponents;
+package net.geocat.mdextractor.guicomponents;
 
 import java.text.Format;
 import java.text.ParseException;

@@ -1,4 +1,4 @@
-package net.geocat.tufts.mdextractor.gui;
+package net.geocat.mdextractor.gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

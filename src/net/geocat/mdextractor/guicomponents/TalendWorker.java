@@ -1,4 +1,4 @@
-package net.geocat.tufts.guicomponents;
+package net.geocat.mdextractor.guicomponents;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
-import net.geocat.tufts.mdextractor.gui.model.PreferencesBean;
+import net.geocat.mdextractor.gui.model.PreferencesBean;
 import tufts_metadata_generator.start_0_1.Start;
 
 public class TalendWorker extends SwingWorker<String, String> {
