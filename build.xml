@@ -142,7 +142,6 @@
 		<echo message="Build Classpath: ${dep_cp}" />
 		<echo message="Manifest Classpath: ${manifest.classpath}" />
 
-		<delete dir="bin" />
 
 	</target>
 	
