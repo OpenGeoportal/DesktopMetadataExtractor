@@ -12,7 +12,7 @@
   <chdir></chdir>
   <customProcName>false</customProcName>
   <stayAlive>false</stayAlive>
-  <icon>../installer.ico</icon>
+  <icon>../release/bin/ico/ogplogo.ico</icon>
   <jre>
     <minVersion>1.6.0</minVersion>
     <initialHeapSize>256</initialHeapSize>
@@ -20,7 +20,7 @@
     <args></args>
   </jre>
   <splash>
-    <file>../splash.bmp</file>
+    <file>splash.png</file>
     <waitForWindow>true</waitForWindow>
     <timeout>60</timeout>
     <timeoutErr>true</timeoutErr>
