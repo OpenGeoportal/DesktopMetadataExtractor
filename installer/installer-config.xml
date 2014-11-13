@@ -75,7 +75,7 @@
 			<executable targetfile="$INSTALL_PATH/bin/start_mdextractor.sh" />
 		</pack>
 		
-		<pack id="gdal" name="GDAL libraries" preselected="yes" required="no">
+<!--		<pack id="gdal" name="GDAL libraries" preselected="yes" required="no">
 			<description>GDAL libraries for your operating system. Not required if you already have GDAL installed.</description>
 			<file src="../release/native/macos" targetdir="$INSTALL_PATH/native" override="update">
 				<os family="mac"/>
@@ -89,6 +89,6 @@
 			<file src="../release/native/linux" targetdir="$INSTALL_PATH/native" override="update">
 				<os family="unix"/>
 			</file>
-		</pack>
+		</pack> -->
 	</packs>
 </installation>

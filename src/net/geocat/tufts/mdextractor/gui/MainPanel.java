@@ -41,7 +41,7 @@ public class MainPanel extends JPanel {
 				try {
 					JFrame frame = new JFrame("Test metadata generator");
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setBounds(100, 100, 570, 340);
+					frame.setBounds(100, 100, 600, 400);
 					frame.getContentPane().add(new MainPanel(),
 							BorderLayout.CENTER);
 

@@ -128,7 +128,7 @@ public class PreferencesDialog extends JDialog {
 				"EPSG:4326"));
 		preferencesBean.setGenerateInSeparateDir(prefs.getBoolean(
 				PREF_GENERATE_IN_SEPARATE_DIR, Boolean.FALSE));
-		preferencesBean.setResourcesDir(prefs.get(PREF_RESOURCES_DIR, null));
+		preferencesBean.setResourcesDir(prefs.get(PREF_RESOURCES_DIR, null)); //JT: This should default to _resources
 		if (prefs.getBoolean(PREF_GENERATE_IN_SEPARATE_DIR, Boolean.FALSE) == true) {
 			preferencesBean.setOutputDir(prefs.get(PREF_OUTPUT_DIR, null));
 		}
@@ -138,16 +138,16 @@ public class PreferencesDialog extends JDialog {
 				preferencesBean, this.trigger);
 
 		// Init frame
-		setResizable(false);
+		setResizable(true);
 		setModalityType(ModalityType.APPLICATION_MODAL);
 		setModal(true);
-		setAlwaysOnTop(true);
+		setAlwaysOnTop(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(
 				PreferencesDialog.class
 						.getResource("/img/16x16/preferences-system.png")));
 		setTitle("Preferences");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 535, 340);
+		setBounds(100, 100, 600, 340);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.putClientProperty("jgoodies.noContentBorder", Boolean.TRUE);

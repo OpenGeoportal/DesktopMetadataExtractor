@@ -22,9 +22,15 @@ public class MetadataExtractorFrame extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+        String osName=System.getProperty("os.name");
 				try {
-					UIManager
-							.setLookAndFeel("com.jgoodies.looks.windows.WindowsLookAndFeel");
+          if (osName.startsWith("Windows")) {
+            UIManager.setLookAndFeel("com.jgoodies.looks.windows.WindowsLookAndFeel");
+          } else if (osName.startsWith("Mac")) {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+          } else {
+            UIManager.setLookAndFeel("com.jgoodies.looks.plastic.PlasticLookAndFeel");
+          }
 					MetadataExtractorFrame frame = new MetadataExtractorFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -50,7 +56,7 @@ public class MetadataExtractorFrame extends JFrame {
 	private void initUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 400);
 
 		MetadataExtractorMenu menuBar = new MetadataExtractorMenu();
 		menuBar.setPreferencesFrame(preferencesFrame);
