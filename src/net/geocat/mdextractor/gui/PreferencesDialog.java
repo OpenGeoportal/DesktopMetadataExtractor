@@ -12,6 +12,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.FileFilter;
+import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -128,7 +129,12 @@ public class PreferencesDialog extends JDialog {
 				"EPSG:4326"));
 		preferencesBean.setGenerateInSeparateDir(prefs.getBoolean(
 				PREF_GENERATE_IN_SEPARATE_DIR, Boolean.FALSE));
-		preferencesBean.setResourcesDir(prefs.get(PREF_RESOURCES_DIR, null)); //JT: This should default to _resources
+		preferencesBean.setResourcesDir(prefs.get(PREF_RESOURCES_DIR, null)); // JT:
+																				// This
+																				// should
+																				// default
+																				// to
+																				// _resources
 		if (prefs.getBoolean(PREF_GENERATE_IN_SEPARATE_DIR, Boolean.FALSE) == true) {
 			preferencesBean.setOutputDir(prefs.get(PREF_OUTPUT_DIR, null));
 		}
@@ -225,22 +231,29 @@ public class PreferencesDialog extends JDialog {
 				JFileChooser fileChooser;
 				if (resourcesDirBufferedModel.getValue() != null
 						&& !"".equals(resourcesDirBufferedModel.getValue())) {
-					String fileName = preferencesBean.getResourcesDir()
-							.replace("\\", "\\\\");
+					String fileName = ((String) resourcesDirBufferedModel
+							.getValue()).replace("\\", "\\\\");
 					fileChooser = new JFileChooser(fileName);
 				} else {
-					fileChooser = new JFileChooser(new File(System
-							.getProperty("user.home")));
+					File mainJarPath = getMetadataPropertiesFolder();
+					fileChooser = new JFileChooser(mainJarPath);
 				}
-				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				int selected = fileChooser
-						.showOpenDialog(PreferencesDialog.this);
+				fileChooser
+						.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+				int selected = fileChooser.showDialog(PreferencesDialog.this,
+						"Select Directory");
+
 				if (selected == JFileChooser.APPROVE_OPTION) {
-					resourcesDirBufferedModel.setValue(fileChooser
-							.getSelectedFile().getAbsolutePath());
+					File selectedFile = fileChooser.getSelectedFile();
+					if (!selectedFile.isDirectory()) {
+						selectedFile = selectedFile.getParentFile();
+					}
+					resourcesDirBufferedModel.setValue(selectedFile
+							.getAbsolutePath());
 				}
 
 			}
+
 		});
 		metadataDefaultsPanel.add(btnCommonProps, "9, 3, 3, 1");
 
@@ -428,6 +441,24 @@ public class PreferencesDialog extends JDialog {
 		return outputPanel;
 	}
 
+	public File getMetadataPropertiesFolder() {
+		File mainJarPath = null;
+		try {
+			mainJarPath = new File(PreferencesDialog.class
+					.getProtectionDomain().getCodeSource().getLocation()
+					.toURI().getPath());
+			mainJarPath = mainJarPath.getParentFile();
+			mainJarPath = new File(mainJarPath.getAbsolutePath()
+					+ "/_resources");
+			if (!mainJarPath.exists() || !mainJarPath.isDirectory()) {
+				mainJarPath = new File(System.getProperty("user.home"));
+			}
+		} catch (URISyntaxException e1) {
+			mainJarPath = new File(System.getProperty("user.home"));
+		}
+		return mainJarPath;
+	}
+
 	class SaveAction extends AbstractAction {
 
 		private static final long serialVersionUID = -6488510217216397069L;
@@ -439,50 +470,44 @@ public class PreferencesDialog extends JDialog {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String resourcesDir = (String) resourcesDirBufferedModel.getValue();
+
 			if (resourcesDir == null || resourcesDir.equals("")) {
+				resourcesDir = getMetadataPropertiesFolder().getAbsolutePath();
+				resourcesDirBufferedModel.setValue(resourcesDir);
+			}
+
+			File resourcesDirFile = new File(resourcesDir.replace("\\", "\\\\"));
+			boolean error = false;
+
+			if (resourcesDirFile.isDirectory()) {
+				File[] result = resourcesDirFile.listFiles(new FileFilter() {
+
+					@Override
+					public boolean accept(File pathname) {
+						String path = pathname.getAbsolutePath().toLowerCase();
+						if (path.endsWith(File.separator
+								+ "metadata-properties.csv")) {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				});
+				if (result.length == 0) {
+					error = true;
+				}
+			} else {
+				error = true;
+			}
+
+			if (error) {
 				JOptionPane
 						.showMessageDialog(
 								PreferencesDialog.this,
-								"Please select the directory where metadata-properties.csv is located.",
+								"The selected directory doesn't contain the file \nmetadata-properties.csv",
 								"Common metadata warning.",
 								JOptionPane.WARNING_MESSAGE);
 				return;
-			} else {
-				File resourcesDirFile = new File(resourcesDir.replace("\\",
-						"\\\\"));
-				boolean error = false;
-				if (resourcesDirFile.isDirectory()) {
-					File[] result = resourcesDirFile
-							.listFiles(new FileFilter() {
-
-								@Override
-								public boolean accept(File pathname) {
-									String path = pathname.getAbsolutePath()
-											.toLowerCase();
-									if (path.endsWith(File.separator
-											+ "metadata-properties.csv")) {
-										return true;
-									} else {
-										return false;
-									}
-								}
-							});
-					if (result.length == 0) {
-						error = true;
-					}
-				} else {
-					error = true;
-				}
-
-				if (error) {
-					JOptionPane
-							.showMessageDialog(
-									PreferencesDialog.this,
-									"The selected directory doesn't contain the file \nmetadata-properties.csv",
-									"Common metadata warning.",
-									JOptionPane.WARNING_MESSAGE);
-					return;
-				}
 			}
 
 			trigger.triggerCommit();
