@@ -44,9 +44,9 @@ public class MetadataExtractorFrame extends JFrame {
 						JOptionPane
 								.showMessageDialog(
 										null,
-										"GDAL bindings cannot be found. Please check that GDAL is in your path variable",
+										"GDAL bindings cannot be found. Please check that GDAL is in your path variable. "
+										+ "Metadata extraction can fail.",
 										"GDAL error", JOptionPane.ERROR_MESSAGE);
-						return;
 					}
 					MetadataExtractorFrame frame = new MetadataExtractorFrame();
 					frame.setVisible(true);
