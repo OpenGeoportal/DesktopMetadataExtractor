@@ -16,7 +16,7 @@
 		programGroup="yes"
 		desktop="no"
 		startup="no"
-		target="$INSTALL_PATH/bin/start_mdextractor.bat"
+		target="$INSTALL_PATH/metadata-extractor.exe"
 		initialState="noShow"
 		workingDirectory="$INSTALL_PATH/"
 		type="Application"

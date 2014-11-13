@@ -1,6 +1,7 @@
 # Directories #
 /build/
 /bin/
+/dist/
 target/
  
 # OS Files #

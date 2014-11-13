@@ -1,0 +1,38 @@
+<!-- The properties 'jar', 'outfile', 'fileVersion', 'txtFileVersion', 
+     'productVersion' and 'txtProductVersion' are overruled by the 
+     installer build.xml file -->
+
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>0</headerType>
+  <jar>../../dist/metadata-extractor.jar</jar>
+  <outfile>../../dist/metadata-extractor.exe</outfile>
+  <errTitle>Metadata Extractor Error</errTitle>
+  <chdir>.</chdir>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <icon>../../release/bin/ico/ogplogo.ico</icon>
+  <jre>
+    <minVersion>1.7.0</minVersion>
+    <initialHeapSize>256</initialHeapSize>
+    <maxHeapSize>1024</maxHeapSize>
+  </jre>
+  <splash>
+    <file>../splash.png</file>
+    <waitForWindow>true</waitForWindow>
+    <timeout>60</timeout>
+    <timeoutErr>true</timeoutErr>
+  </splash>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0-0</txtFileVersion>
+    <fileDescription>Metadata Extractor for Windows</fileDescription>
+    <copyright>GeoCat (http://www.geocat.net)</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0-0</txtProductVersion>
+    <productName>Metadata Extractor</productName>
+    <companyName>GeoCat BV</companyName>
+    <internalName>metadata-extractor.jar</internalName>
+    <originalFilename>metadata-extractor.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig>

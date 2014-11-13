@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
 <installation version="1.0">
 	<info>
-		<appname>Metadata_Extractor</appname>
+		<appname>MetadataExtractor</appname>
 		<appversion>@version@ @subVersion@</appversion>
 		<authors>
 			<author name="Tufts University" email="gis-support@elist.tufts.edu"/>
@@ -61,17 +61,16 @@
 	<packs>
 		<pack id="core" name="Metadata extractor" preselected="yes" required="yes">
 			<description>An application to extract metadata from geospatial data files and generate ISO19115 metadata XML documents for a metadata catalog.</description>
-			<!--
-            <singlefile src=".\metadata-extractor.exe" target="$INSTALL_PATH/metadata-extractor.exe" override="update" ><os family="Windows"/></singlefile><executable targetfile="$INSTALL_PATH/metadata-extractor.exe" ><os family="Windows"/></executable>-->
+            <singlefile src="../dist/metadata-extractor.exe" target="$INSTALL_PATH/metadata-extractor.exe" override="update" >
+            	<os family="Windows"/>
+            </singlefile>
+            <executable targetfile="$INSTALL_PATH/metadata-extractor.exe" >
+            	<os family="Windows"/>
+            </executable>-->
+            <singlefile src="../dist/metadata-extractor.jar" target="$INSTALL_PATH/metadata-extractor.jar" override="true"/>
 			<fileset dir="../release/bin"   targetdir="$INSTALL_PATH/bin"/>
 			<fileset dir="../release/_resources"   targetdir="$INSTALL_PATH/_resources"/>
-<!--			<fileset dir="../Start/lib" targetdir="$INSTALL_PATH/lib" override="update"/> -->
-			<fileset dir="../lib" targetdir="$INSTALL_PATH/lib" override="update"/>
-<!--            <singlefile src="../Start/cleanup_job_0_1.jar" target="$INSTALL_PATH/lib/cleanup_job_0_1.jar" override="true"/>
-            <singlefile src="../Start/rasterjob_0_1.jar" target="$INSTALL_PATH/lib/rasterjob_0_1.jar" override="true"/>
-            <singlefile src="../Start/vectorjob_0_1.jar" target="$INSTALL_PATH/lib/vectorjob_0_1.jar" override="true"/>
-            <singlefile src="../Start/start_0_1.jar" target="$INSTALL_PATH/lib/start_0_1.jar" override="true"/> -->
-            <singlefile src="../lib/metadata-extractor.jar" target="$INSTALL_PATH/metadata-extractor.jar" override="true"/>
+			<fileset dir="../dist/lib" targetdir="$INSTALL_PATH/lib" override="update"/>
 
 			<executable targetfile="$INSTALL_PATH/bin/start_mdextractor.sh" />
 		</pack>
