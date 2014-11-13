@@ -65,13 +65,13 @@
             <singlefile src=".\metadata-extractor.exe" target="$INSTALL_PATH/metadata-extractor.exe" override="update" ><os family="Windows"/></singlefile><executable targetfile="$INSTALL_PATH/metadata-extractor.exe" ><os family="Windows"/></executable>-->
 			<fileset dir="../release/bin"   targetdir="$INSTALL_PATH/bin"/>
 			<fileset dir="../release/_resources"   targetdir="$INSTALL_PATH/_resources"/>
-			<fileset dir="../Start/lib" targetdir="$INSTALL_PATH/lib" override="update"/>
+<!--			<fileset dir="../Start/lib" targetdir="$INSTALL_PATH/lib" override="update"/> -->
 			<fileset dir="../lib" targetdir="$INSTALL_PATH/lib" override="update"/>
-            <singlefile src="../Start/cleanup_job_0_1.jar" target="$INSTALL_PATH/lib/cleanup_job_0_1.jar" override="true"/>
+<!--            <singlefile src="../Start/cleanup_job_0_1.jar" target="$INSTALL_PATH/lib/cleanup_job_0_1.jar" override="true"/>
             <singlefile src="../Start/rasterjob_0_1.jar" target="$INSTALL_PATH/lib/rasterjob_0_1.jar" override="true"/>
             <singlefile src="../Start/vectorjob_0_1.jar" target="$INSTALL_PATH/lib/vectorjob_0_1.jar" override="true"/>
-            <singlefile src="../Start/start_0_1.jar" target="$INSTALL_PATH/lib/start_0_1.jar" override="true"/>
-            <singlefile src="../Start/metadata-extractor.jar" target="$INSTALL_PATH/metadata-extractor.jar" override="true"/>
+            <singlefile src="../Start/start_0_1.jar" target="$INSTALL_PATH/lib/start_0_1.jar" override="true"/> -->
+            <singlefile src="../lib/metadata-extractor.jar" target="$INSTALL_PATH/metadata-extractor.jar" override="true"/>
 
 			<executable targetfile="$INSTALL_PATH/bin/start_mdextractor.sh" />
 		</pack>
@@ -79,16 +79,16 @@
 		<pack id="gdal" name="GDAL libraries" preselected="yes" required="no">
 			<description>GDAL libraries for your operating system. Not required if you already have GDAL installed.</description>
 			<file src="../release/native/macos" targetdir="$INSTALL_PATH/native" override="update">
-				<os family="Mac"/>
+				<os family="mac"/>
 			</file>
 			<fileset dir="../release/native/windows/x64" includes="**/*" targetdir="$INSTALL_PATH/native" override="update">
-				<os arch="amd64" family="Windows"/>
+				<os arch="amd64" family="windows"/>
 			</fileset>
 			<fileset dir="../release/native/windows/i386" includes="**/*" targetdir="$INSTALL_PATH/native" override="update">
-				<os arch="x86" family="Windows"/>
+				<os arch="x86" family="windows"/>
 			</fileset>
 			<file src="../release/native/linux" targetdir="$INSTALL_PATH/native" override="update">
-				<os family="Unix"/>
+				<os family="unix"/>
 			</file>
 		</pack>
 	</packs>
