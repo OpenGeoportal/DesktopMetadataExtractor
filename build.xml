@@ -82,6 +82,7 @@
 		<!-- Create the distribution directory -->
 		<mkdir dir="${dist}" />
 		<mkdir dir="${dist}/lib" />
+		<mkdir dir="${bin}" />
 		<copy includeemptydirs="false" todir="bin">
 			<fileset dir="src">
 				<exclude name="**/*.java" />

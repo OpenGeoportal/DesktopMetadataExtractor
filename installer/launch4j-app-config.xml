@@ -16,7 +16,7 @@
   <icon></icon>
   <var>GDAL_DATA=&quot;%EXEDIR%/native/gdal-data&quot;</var>
   <classPath>
-    <mainClass>net.geocat.tufts.mdextractor.gui.MetadataExtractorFrame</mainClass>
+    <mainClass>net.geocat.mdextractor.gui.MetadataExtractorFrame</mainClass>
     <cp>.</cp>
     <cp>lib/jgoodies-looks-2.6.0.jar</cp>
     <cp>lib/jgoodies-common-1.8.0.jar</cp>
