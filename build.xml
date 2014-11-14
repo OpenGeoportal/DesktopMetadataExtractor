@@ -149,5 +149,7 @@
 	<target name="exe" depends="dist">
 		<launch4j configFile="./installer/launch4j/l4jcMdExtractor.xml" />
 	</target>
+	
+	<include />
 
 </project>
