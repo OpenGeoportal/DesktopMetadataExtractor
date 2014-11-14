@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -22,6 +24,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingWorker.StateValue;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import net.geocat.mdextractor.gui.model.PreferencesBean;
 import net.geocat.mdextractor.guicomponents.TalendWorker;
@@ -37,6 +40,10 @@ import com.jgoodies.forms.layout.RowSpec;
 public class MetadataExtractorPanel extends JPanel {
 
 	private static final long serialVersionUID = -4180494189643130908L;
+	private static final String[] RASTER_EXTENSIONS = new String[] { "tif",
+			"tiff", "ecw", "asc" };
+	private static final String[] VECTOR_EXTENSIONS = new String[] { "kml",
+			"shp", "mif", "tab", "gml", "dxf" };
 	private List<String> datasetList;
 	private JFileChooser fileChooser;
 	private PreferencesBean preferencesBean;
@@ -53,7 +60,15 @@ public class MetadataExtractorPanel extends JPanel {
 		this.preferencesBean = preferencesBean;
 		datasetList = new ArrayListModel<String>();
 		fileChooser = new JFileChooser();
-		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		List<String> allExtensionsList = new ArrayList<>(
+				Arrays.asList(RASTER_EXTENSIONS));
+		allExtensionsList.addAll(Arrays.asList(VECTOR_EXTENSIONS));
+		FileNameExtensionFilter geoFileFilter = new FileNameExtensionFilter(
+				"Geographical raster and vector files",
+				allExtensionsList.toArray(new String[] {}));
+		fileChooser.setFileFilter(geoFileFilter);
+		fileChooser.setMultiSelectionEnabled(true);
 
 		setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("default:grow"),
@@ -77,10 +92,12 @@ public class MetadataExtractorPanel extends JPanel {
 				int returnValue = fileChooser
 						.showOpenDialog(MetadataExtractorPanel.this);
 				if (returnValue == JFileChooser.APPROVE_OPTION) {
-					File selectedFile = fileChooser.getSelectedFile();
-					String filePath = selectedFile.getAbsolutePath();
-					if (!datasetList.contains(filePath)) {
-						datasetList.add(filePath);
+					File[] selectedFiles = fileChooser.getSelectedFiles();
+					for (File selectedFile : selectedFiles) {
+						String filePath = selectedFile.getAbsolutePath();
+						if (!datasetList.contains(filePath)) {
+							datasetList.add(filePath);
+						}
 					}
 				}
 			}
@@ -144,7 +161,8 @@ public class MetadataExtractorPanel extends JPanel {
 
 	private void generateMetadata() {
 
-		worker = new TalendWorker(preferencesBean, datasetList, progressBar);
+		worker = new TalendWorker(preferencesBean, datasetList, progressBar,
+				RASTER_EXTENSIONS, VECTOR_EXTENSIONS);
 
 		worker.addPropertyChangeListener(new PropertyChangeListener() {
 
@@ -220,4 +238,5 @@ public class MetadataExtractorPanel extends JPanel {
 			}
 		}
 	}
+
 }

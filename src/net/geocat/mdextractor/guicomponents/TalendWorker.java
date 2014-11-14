@@ -7,13 +7,17 @@ import java.util.List;
 
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import net.geocat.mdextractor.gui.model.PreferencesBean;
+import tufts_metadata_generator.rasterjob_0_1.RasterJob;
 import tufts_metadata_generator.start_0_1.Start;
+import tufts_metadata_generator.vectorjob_0_1.VectorJob;
 
 public class TalendWorker extends SwingWorker<String, String> {
 	private static final String CONTEXT_PARAM_PREFIX = "--context_param ";
 	private static final String PARAM_DATA_DIR = "dataDir";
+	private static final String PARAM_FILE = "file";
 	private static final String PARAM_DEFAULT_PROJ = "defaultProjection";
 	private static final String PARAM_DEFAULT_MINX = "defaultXMin";
 	private static final String PARAM_DEFAULT_MINY = "defaultYMin";
@@ -26,21 +30,27 @@ public class TalendWorker extends SwingWorker<String, String> {
 	private static final String PARAM_MD_ORGANIZATION = "mdOrganization";
 	private static final String PARAM_MD_EMAIL = "mdEmail";
 	private PreferencesBean preferences;
-	private List<String> inputDirectoryList;
+	private List<String> inputList;
 	private JProgressBar progressBar;
+	private FileNameExtensionFilter rasterFilter;
+	private FileNameExtensionFilter vectorFilter;
 
 	public TalendWorker(PreferencesBean preferences,
-			List<String> inputDirectoryList, JProgressBar progressBar) {
+			List<String> inputDirectoryList, JProgressBar progressBar,
+			String[] rasterExtensions, String[] vectorExtensions) {
 		this.preferences = preferences;
-		this.inputDirectoryList = Collections
-				.unmodifiableList(inputDirectoryList);
+		this.inputList = Collections.unmodifiableList(inputDirectoryList);
 		this.progressBar = progressBar;
+		rasterFilter = new FileNameExtensionFilter("Raster files",
+				rasterExtensions);
+		vectorFilter = new FileNameExtensionFilter("Raster files",
+				vectorExtensions);
 
 	}
 
 	@Override
 	protected String doInBackground() throws Exception {
-		Start talendJob = new Start();
+
 		List<String> argumentList = new ArrayList<>();
 		argumentList.add(CONTEXT_PARAM_PREFIX + PARAM_DEFAULT_PROJ + "="
 				+ preferences.getDefaultProjection());
@@ -84,18 +94,57 @@ public class TalendWorker extends SwingWorker<String, String> {
 
 		int i = 1;
 		int percentage = 0;
-		for (String directory : inputDirectoryList) {
+		for (String currentElement : inputList) {
 			if (!isCancelled()) {
-				publish(directory);
-				String escapedDirectory = directory.replace("\\", "\\\\");
+				publish(currentElement);
+				String escapedFilename = currentElement.replace("\\", "\\\\");
+				File currentElementAsFile = new File(currentElement);
+				// Copy common arguments into a new list
 				List<String> arguments = new ArrayList<>(argumentList);
-				arguments.add(CONTEXT_PARAM_PREFIX + PARAM_DATA_DIR + "="
-						+ escapedDirectory + "/");
-				String[][] results = talendJob.runJob(arguments
-						.toArray(new String[] {}));
-				for (String[] ss : results) {
-					for (String s : ss) {
-						System.out.println(s);
+				if (currentElementAsFile.isDirectory()) {
+					// Process directory
+					arguments.add(CONTEXT_PARAM_PREFIX + PARAM_DATA_DIR + "="
+							+ escapedFilename + "/");
+
+					Start folderJob = new Start();
+					String[][] results = folderJob.runJob(arguments
+							.toArray(new String[] {}));
+					for (String[] ss : results) {
+						for (String s : ss) {
+							System.out.println(String.format(
+									"Processed  %s folder with return values",
+									escapedFilename, s));
+						}
+					}
+				} else if (vectorFilter.accept(currentElementAsFile)) {
+					// Process vector file					
+					arguments.add(CONTEXT_PARAM_PREFIX + PARAM_FILE + "="
+							+ escapedFilename);
+					VectorJob vectorJob = new VectorJob();
+					String[][] results = vectorJob.runJob(arguments
+							.toArray(new String[] {}));
+					for (String[] ss : results) {
+						for (String s : ss) {
+							System.out
+									.println(String
+											.format("Processed vector file %s with return values %s",
+													escapedFilename, s));
+						}
+					}
+				} else if (rasterFilter.accept(currentElementAsFile)) {
+					// Process raster file
+					arguments.add(CONTEXT_PARAM_PREFIX + PARAM_FILE + "="
+							+ escapedFilename);
+					RasterJob rasterJob = new RasterJob();
+					String[][] results = rasterJob.runJob(arguments
+							.toArray(new String[] {}));
+					for (String[] ss : results) {
+						for (String s : ss) {
+							System.out
+									.println(String
+											.format("Processed raster file %s with return values %s",
+													escapedFilename, s));
+						}
 					}
 				}
 
