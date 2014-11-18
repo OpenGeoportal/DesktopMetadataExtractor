@@ -34,13 +34,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
-import org.omg.PortableInterceptor.SUCCESSFUL;
-
 import net.geocat.mdextractor.gui.model.PreferencesBean;
 import net.geocat.mdextractor.guicomponents.ImprovedFormattedTextField;
+
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.jgoodies.binding.PresentationModel;
 import com.jgoodies.binding.adapter.Bindings;
@@ -53,7 +51,6 @@ import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-import com.sun.org.apache.bcel.internal.classfile.PMGClass;
 
 public class PreferencesDialog extends JDialog {
 
