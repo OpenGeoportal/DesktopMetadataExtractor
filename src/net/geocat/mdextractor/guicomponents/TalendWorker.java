@@ -63,11 +63,11 @@ public class TalendWorker extends SwingWorker<String, String> {
 		argumentList.add(CONTEXT_PARAM_PREFIX + PARAM_DEFAULT_MAXY + "="
 				+ preferences.getMiny());
 		argumentList.add(CONTEXT_PARAM_PREFIX + PARAM_MD_EMAIL + "="
-				+ preferences.getEmail());
+				+ preferences.getMdEmail());
 		argumentList.add(CONTEXT_PARAM_PREFIX + PARAM_MD_NAME + "="
-				+ preferences.getName());
+				+ preferences.getMdIndividualName());
 		argumentList.add(CONTEXT_PARAM_PREFIX + PARAM_MD_ORGANIZATION + "="
-				+ preferences.getOrganization());
+				+ preferences.getMdOrganisation());
 
 		String resourceDir = preferences.getResourcesDir();
 		resourceDir = resourceDir.replace("\\", "\\\\");

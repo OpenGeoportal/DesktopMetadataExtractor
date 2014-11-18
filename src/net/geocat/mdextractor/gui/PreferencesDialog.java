@@ -104,6 +104,40 @@ public class PreferencesDialog extends JDialog {
 	private JButton btnCommonProps;
 
 	private BufferedValueModel resourcesDirBufferedModel;
+	private JLabel lblMdPositionName;
+	private JTextField textMdPositionName;
+	private JLabel lblMdVoice;
+	private JTextField textMdVoice;
+	private JLabel lblMdDeliveryPoint;
+	private JTextField textMdDeliveryPoint;
+	private JLabel lblMdCity;
+	private JTextField textMdCity;
+	private JLabel lblMdAdministativeArea;
+	private JTextField textMdAdministrativeArea;
+	private JLabel lblMdPostalCode;
+	private JTextField textMdPostalCode;
+	private JLabel lblMdCountry;
+	private JTextField textMdCountry;
+	private JLabel lblIndividualName;
+	private JLabel label;
+	private JLabel lblOrganisation;
+	private JLabel lblEmail;
+	private JLabel lblVoice;
+	private JLabel lblDeliveryPoint;
+	private JTextField textIndividualName;
+	private JTextField textOrganisation;
+	private JTextField txtTextemail;
+	private JTextField textPosition;
+	private JTextField textVoice;
+	private JTextField textDeliveryPoint;
+	private JLabel lblCity;
+	private JTextField textCity;
+	private JLabel lblAdministrativeArea;
+	private JTextField textAdministrativeArea;
+	private JLabel lblPostalCode;
+	private JTextField textPostalCode;
+	private JLabel lblCountry;
+	private JTextField textCountry;
 
 	/**
 	 * Create the frame.
@@ -122,9 +156,9 @@ public class PreferencesDialog extends JDialog {
 		preferencesBean.setMaxx(prefs.getDouble(PREF_MAXX, 180.0d));
 		preferencesBean.setMiny(prefs.getDouble(PREF_MINY, -90.0d));
 		preferencesBean.setMaxy(prefs.getDouble(PREF_MAXY, 90.0d));
-		preferencesBean.setEmail(prefs.get(PREF_EMAIL, null));
-		preferencesBean.setName(prefs.get(PREF_NAME, null));
-		preferencesBean.setOrganization(prefs.get(PREF_ORGANIZATION, null));
+		preferencesBean.setMdEmail(prefs.get(PREF_EMAIL, null));
+		preferencesBean.setMdIndividualName(prefs.get(PREF_NAME, null));
+		preferencesBean.setMdOrganisation(prefs.get(PREF_ORGANIZATION, null));
 		preferencesBean.setDefaultProjection(prefs.get(PREF_DEFAULT_PROJECTION,
 				"EPSG:4326"));
 		preferencesBean.setGenerateInSeparateDir(prefs.getBoolean(
@@ -153,7 +187,7 @@ public class PreferencesDialog extends JDialog {
 						.getResource("/img/16x16/preferences-system.png")));
 		setTitle("Preferences");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 600, 340);
+		setBounds(100, 100, 600, 590);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.putClientProperty("jgoodies.noContentBorder", Boolean.TRUE);
@@ -189,37 +223,76 @@ public class PreferencesDialog extends JDialog {
 				ColumnSpec.decode("right:default"),
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
 				FormFactory.GROWING_BUTTON_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.BUTTON_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.BUTTON_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC, FormFactory.BUTTON_COLSPEC,
-				FormFactory.GLUE_COLSPEC, FormFactory.PREF_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC, }, new RowSpec[] {
-				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.UNRELATED_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.LINE_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.NARROW_LINE_GAP_ROWSPEC,
-				FormFactory.PREF_ROWSPEC, FormFactory.PARAGRAPH_GAP_ROWSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.BUTTON_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("right:max(50dlu;pref)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.GROWING_BUTTON_COLSPEC,
+				FormFactory.GROWING_BUTTON_COLSPEC,
+				FormFactory.GLUE_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,},
+			new RowSpec[] {
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.UNRELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.UNRELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.PREF_ROWSPEC,
+				FormFactory.UNRELATED_GAP_ROWSPEC,
 				FormFactory.GLUE_ROWSPEC,
-				RowSpec.decode("bottom:max(17dlu;pref)"), });
+				RowSpec.decode("bottom:max(17dlu;pref)"),});
 		metadataDefaultsPanel.setLayout(fl_metadataDefaultsPanel);
 
 		DefaultFormBuilder builder = new DefaultFormBuilder(
 				fl_metadataDefaultsPanel);
 
+		JComponent commonSeparator = builder.addSeparator("Commont properties",
+				CC.xyw(1, 1, 12));
+		metadataDefaultsPanel.add(commonSeparator, CC.xyw(1, 1, 12));
+		
 		JComponent metadataSeparator = builder.addSeparator("Metadata contact",
 				CC.xyw(1, 1, 12));
-		metadataDefaultsPanel.add(metadataSeparator, CC.xyw(1, 1, 12));
+		metadataDefaultsPanel.add(metadataSeparator, CC.xyw(1, 5, 12));
+		JComponent dataSeparator = builder.addSeparator("Data contact",
+				CC.xyw(1, 1, 12));
+		metadataDefaultsPanel.add(dataSeparator, CC.xyw(1, 17, 12));
 
 		lblCommonProperties = new JLabel("Common properties");
 		metadataDefaultsPanel.add(lblCommonProperties, "1, 3, right, default");
 
 		txtCommonProps = new JTextField();
 		txtCommonProps.setEditable(false);
-		metadataDefaultsPanel.add(txtCommonProps, "3, 3, 5, 1, fill, default");
+		metadataDefaultsPanel.add(txtCommonProps, "3, 3, 7, 1, fill, default");
 		txtCommonProps.setColumns(10);
 
 		resourcesDirBufferedModel = presentationModel
@@ -255,66 +328,13 @@ public class PreferencesDialog extends JDialog {
 			}
 
 		});
-		metadataDefaultsPanel.add(btnCommonProps, "9, 3, 3, 1");
+		metadataDefaultsPanel.add(btnCommonProps, "10, 3, 2, 1");
 
-		JLabel lblName = new JLabel("Name");
-		metadataDefaultsPanel.add(lblName, "1, 5, right, default");
-
-		txtName = new JTextField();
-		Bindings.bind(txtName, presentationModel
-				.getBufferedModel(PreferencesBean.NAME_PROPERTY));
-		metadataDefaultsPanel.add(txtName, "3, 5, 9, 1, fill, default");
-		txtName.setColumns(10);
-
-		JLabel lblOrganisation = new JLabel("Organisation");
-		metadataDefaultsPanel.add(lblOrganisation, "1, 7, right, default");
-
-		organizationTextField = new JTextField();
-		Bindings.bind(organizationTextField, presentationModel
-				.getBufferedModel(PreferencesBean.ORGANIZATION_PROPERTY));
-		metadataDefaultsPanel.add(organizationTextField,
-				"3, 7, 9, 1, fill, default");
-		organizationTextField.setColumns(10);
-
+		
 		JComponent datasetSeparator = builder.addSeparator("Dataset",
 				CC.xyw(1, 9, 12));
-		metadataDefaultsPanel.add(datasetSeparator, CC.xyw(1, 11, 12));
-
-		JLabel lblEmail = new JLabel("E-mail");
-		metadataDefaultsPanel.add(lblEmail, "1, 9, right, default");
-
-		txtEmail = new JTextField();
-		Bindings.bind(txtEmail, presentationModel
-				.getBufferedModel(PreferencesBean.EMAIL_PROPERTY));
-		metadataDefaultsPanel.add(txtEmail, "3, 9, 9, 1, fill, default");
-		txtEmail.setColumns(10);
-
-		JLabel lblDefaultProjection = new JLabel("Default projection");
-		metadataDefaultsPanel
-				.add(lblDefaultProjection, "1, 13, right, default");
-
-		txtDefaultprojection = new JTextField();
-		Bindings.bind(txtDefaultprojection, presentationModel
-				.getBufferedModel(PreferencesBean.DEFAULT_PROYECTION_PROPERTY));
-		metadataDefaultsPanel.add(txtDefaultprojection,
-				"3, 13, 3, 1, fill, default");
-		txtDefaultprojection.setColumns(10);
-
-		lblMinX = new JLabel("Min X");
-		metadataDefaultsPanel.add(lblMinX, "3, 15");
-
-		lblMinY = new JLabel("Min Y");
-		metadataDefaultsPanel.add(lblMinY, "5, 15");
-
-		lblMaxX = new JLabel("Max X");
-		metadataDefaultsPanel.add(lblMaxX, "7, 15");
-
-		lblMaxY = new JLabel("Max Y");
-		metadataDefaultsPanel.add(lblMaxY, "9, 15");
-
-		JLabel lblDefaultBoundingBox = new JLabel("Default bounding box");
-		metadataDefaultsPanel.add(lblDefaultBoundingBox,
-				"1, 17, right, default");
+		metadataDefaultsPanel.add(datasetSeparator, CC.xyw(1, 29, 12));
+		
 
 		NumberFormat nf = DecimalFormat.getInstance(Locale.ENGLISH);
 		nf.setMinimumFractionDigits(1);
@@ -322,29 +342,203 @@ public class PreferencesDialog extends JDialog {
 		nf.setMinimumIntegerDigits(1);
 		nf.setMaximumIntegerDigits(3);
 		nf.setGroupingUsed(false);
-		txtMinx = new ImprovedFormattedTextField(nf);
-		Bindings.bind(txtMinx, presentationModel
-				.getBufferedModel(PreferencesBean.MINX_PROPERTY));
-		txtMinx.setToolTipText("Min X");
-		metadataDefaultsPanel.add(txtMinx, "3, 17, fill, default");
 
-		txtMiny = new ImprovedFormattedTextField(nf);
-		Bindings.bind(txtMiny, presentationModel
-				.getBufferedModel(PreferencesBean.MINY_PROPERTY));
-		txtMiny.setToolTipText("Min Y");
-		metadataDefaultsPanel.add(txtMiny, "5, 17, fill, default");
+		JLabel lblMdIndividualName = new JLabel("Name");
+		metadataDefaultsPanel.add(lblMdIndividualName, "1, 7, right, default");
 
-		txtMaxx = new ImprovedFormattedTextField(nf);
-		Bindings.bind(txtMaxx, presentationModel
-				.getBufferedModel(PreferencesBean.MAXX_PROPERTY));
-		txtMaxx.setToolTipText("Max X");
-		metadataDefaultsPanel.add(txtMaxx, "7, 17, fill, default");
-
-		txtMaxy = new ImprovedFormattedTextField(nf);
-		Bindings.bind(txtMaxy, presentationModel
-				.getBufferedModel(PreferencesBean.MAXY_PROPERTY));
-		txtMaxy.setToolTipText("Max X");
-		metadataDefaultsPanel.add(txtMaxy, "9, 17, fill, default");
+		txtName = new JTextField();
+		Bindings.bind(txtName, presentationModel
+				.getBufferedModel(PreferencesBean.MD_INDIVIDUAL_NAME_PROPERTY));
+		metadataDefaultsPanel.add(txtName, "3, 7, 3, 1, fill, default");
+		txtName.setColumns(10);
+		
+				JLabel lblMdOrganisation = new JLabel("Organisation");
+				metadataDefaultsPanel.add(lblMdOrganisation, "7, 7, right, default");
+				
+						organizationTextField = new JTextField();
+						Bindings.bind(organizationTextField, presentationModel
+								.getBufferedModel(PreferencesBean.MD_ORGANISATION_PROPERTY));
+						metadataDefaultsPanel.add(organizationTextField,
+								"9, 7, 3, 1, fill, default");
+						organizationTextField.setColumns(10);
+				
+				lblMdPositionName = new JLabel("Position");
+				metadataDefaultsPanel.add(lblMdPositionName, "1, 9, right, default");
+				
+				textMdPositionName = new JTextField();
+				metadataDefaultsPanel.add(textMdPositionName, "3, 9, 3, 1, fill, default");
+				textMdPositionName.setColumns(10);
+				
+						JLabel lblMdEmail = new JLabel("E-mail");
+						metadataDefaultsPanel.add(lblMdEmail, "7, 9, right, default");
+				
+						txtEmail = new JTextField();
+						Bindings.bind(txtEmail, presentationModel
+								.getBufferedModel(PreferencesBean.MD_EMAIL_PROPERTY));
+						metadataDefaultsPanel.add(txtEmail, "9, 9, 3, 1, fill, default");
+						txtEmail.setColumns(10);
+				
+				lblMdVoice = new JLabel("Phone");
+				metadataDefaultsPanel.add(lblMdVoice, "1, 11, right, default");
+				
+				textMdVoice = new JTextField();
+				metadataDefaultsPanel.add(textMdVoice, "3, 11, 3, 1, fill, default");
+				textMdVoice.setColumns(10);
+		
+		lblMdDeliveryPoint = new JLabel("Address");
+		metadataDefaultsPanel.add(lblMdDeliveryPoint, "7, 11, right, default");
+		
+		textMdDeliveryPoint = new JTextField();
+		metadataDefaultsPanel.add(textMdDeliveryPoint, "9, 11, 3, 1, fill, default");
+		textMdDeliveryPoint.setColumns(10);
+		
+		lblMdCity = new JLabel("City");
+		metadataDefaultsPanel.add(lblMdCity, "1, 13, right, default");
+		
+		textMdCity = new JTextField();
+		metadataDefaultsPanel.add(textMdCity, "3, 13, 3, 1, fill, default");
+		textMdCity.setColumns(10);
+		
+		lblMdAdministativeArea = new JLabel("Admin. Area");
+		metadataDefaultsPanel.add(lblMdAdministativeArea, "7, 13, right, default");
+		
+		textMdAdministrativeArea = new JTextField();
+		metadataDefaultsPanel.add(textMdAdministrativeArea, "9, 13, 3, 1, fill, default");
+		textMdAdministrativeArea.setColumns(10);
+		
+		lblMdPostalCode = new JLabel("Postal code");
+		metadataDefaultsPanel.add(lblMdPostalCode, "1, 15, right, default");
+		
+		textMdPostalCode = new JTextField();
+		metadataDefaultsPanel.add(textMdPostalCode, "3, 15, 3, 1, fill, default");
+		textMdPostalCode.setColumns(10);
+		
+		lblMdCountry = new JLabel("Country");
+		metadataDefaultsPanel.add(lblMdCountry, "7, 15, right, default");
+		
+		textMdCountry = new JTextField();
+		metadataDefaultsPanel.add(textMdCountry, "9, 15, 3, 1, fill, default");
+		textMdCountry.setColumns(10);
+		
+		lblIndividualName = new JLabel("Name");
+		metadataDefaultsPanel.add(lblIndividualName, "1, 19, right, default");
+		
+		textIndividualName = new JTextField();
+		metadataDefaultsPanel.add(textIndividualName, "3, 19, 3, 1, fill, default");
+		textIndividualName.setColumns(10);
+		
+		lblOrganisation = new JLabel("Organisation");
+		metadataDefaultsPanel.add(lblOrganisation, "7, 19, right, default");
+		
+		textOrganisation = new JTextField();
+		metadataDefaultsPanel.add(textOrganisation, "9, 19, 3, 1, fill, default");
+		textOrganisation.setColumns(10);
+		
+		label = new JLabel("Position");
+		metadataDefaultsPanel.add(label, "1, 21, right, default");
+		
+		textPosition = new JTextField();
+		metadataDefaultsPanel.add(textPosition, "3, 21, 3, 1, fill, default");
+		textPosition.setColumns(10);
+		
+		lblEmail = new JLabel("E-mail");
+		metadataDefaultsPanel.add(lblEmail, "7, 21, right, default");
+		
+		txtTextemail = new JTextField();
+		metadataDefaultsPanel.add(txtTextemail, "9, 21, 3, 1, fill, default");
+		txtTextemail.setColumns(10);
+		
+		lblVoice = new JLabel("Phone");
+		metadataDefaultsPanel.add(lblVoice, "1, 23, right, default");
+		
+		textVoice = new JTextField();
+		metadataDefaultsPanel.add(textVoice, "3, 23, 3, 1, fill, default");
+		textVoice.setColumns(10);
+		
+		lblDeliveryPoint = new JLabel("Address");
+		metadataDefaultsPanel.add(lblDeliveryPoint, "7, 23, right, default");
+		
+		textDeliveryPoint = new JTextField();
+		metadataDefaultsPanel.add(textDeliveryPoint, "9, 23, 3, 1, fill, default");
+		textDeliveryPoint.setColumns(10);
+								
+								lblCity = new JLabel("City");
+								metadataDefaultsPanel.add(lblCity, "1, 25, right, default");
+								
+								textCity = new JTextField();
+								metadataDefaultsPanel.add(textCity, "3, 25, 3, 1, fill, default");
+								textCity.setColumns(10);
+								
+								lblAdministrativeArea = new JLabel("Admin. Area");
+								metadataDefaultsPanel.add(lblAdministrativeArea, "7, 25, right, default");
+								
+								textAdministrativeArea = new JTextField();
+								metadataDefaultsPanel.add(textAdministrativeArea, "9, 25, 3, 1, fill, default");
+								textAdministrativeArea.setColumns(10);
+								
+								lblPostalCode = new JLabel("Postal code");
+								metadataDefaultsPanel.add(lblPostalCode, "1, 27, right, default");
+								
+								textPostalCode = new JTextField();
+								textPostalCode.setColumns(10);
+								metadataDefaultsPanel.add(textPostalCode, "3, 27, 3, 1, fill, default");
+								
+								lblCountry = new JLabel("Country");
+								metadataDefaultsPanel.add(lblCountry, "7, 27, right, default");
+								
+								textCountry = new JTextField();
+								metadataDefaultsPanel.add(textCountry, "9, 27, 3, 1, fill, default");
+								textCountry.setColumns(10);
+								
+										JLabel lblDefaultProjection = new JLabel("Default projection");
+										metadataDefaultsPanel
+												.add(lblDefaultProjection, "1, 31, right, default");
+						
+								txtDefaultprojection = new JTextField();
+								Bindings.bind(txtDefaultprojection, presentationModel
+										.getBufferedModel(PreferencesBean.DEFAULT_PROYECTION_PROPERTY));
+								metadataDefaultsPanel.add(txtDefaultprojection,
+										"3, 31, 3, 1, fill, default");
+								txtDefaultprojection.setColumns(10);
+						
+								JLabel lblDefaultBoundingBox = new JLabel("Default bounding box");
+								metadataDefaultsPanel.add(lblDefaultBoundingBox,
+										"1, 33, right, default");
+						
+								lblMinX = new JLabel("Min X");
+								metadataDefaultsPanel.add(lblMinX, "3, 33");
+						
+								lblMinY = new JLabel("Min Y");
+								metadataDefaultsPanel.add(lblMinY, "5, 33");
+						
+								lblMaxX = new JLabel("Max X");
+								metadataDefaultsPanel.add(lblMaxX, "7, 33, left, default");
+				
+						lblMaxY = new JLabel("Max Y");
+						metadataDefaultsPanel.add(lblMaxY, "9, 33");
+						txtMinx = new ImprovedFormattedTextField(nf);
+						Bindings.bind(txtMinx, presentationModel
+								.getBufferedModel(PreferencesBean.MINX_PROPERTY));
+						txtMinx.setToolTipText("Min X");
+						metadataDefaultsPanel.add(txtMinx, "3, 35, fill, default");
+								
+										txtMiny = new ImprovedFormattedTextField(nf);
+										Bindings.bind(txtMiny, presentationModel
+												.getBufferedModel(PreferencesBean.MINY_PROPERTY));
+										txtMiny.setToolTipText("Min Y");
+										metadataDefaultsPanel.add(txtMiny, "5, 35, fill, default");
+										
+												txtMaxx = new ImprovedFormattedTextField(nf);
+												Bindings.bind(txtMaxx, presentationModel
+														.getBufferedModel(PreferencesBean.MAXX_PROPERTY));
+												txtMaxx.setToolTipText("Max X");
+												metadataDefaultsPanel.add(txtMaxx, "7, 35, fill, default");
+										
+												txtMaxy = new ImprovedFormattedTextField(nf);
+												Bindings.bind(txtMaxy, presentationModel
+														.getBufferedModel(PreferencesBean.MAXY_PROPERTY));
+												txtMaxy.setToolTipText("Max X");
+												metadataDefaultsPanel.add(txtMaxy, "9, 35, fill, default");
 
 		// The builder holds the layout container that we now return.
 		return metadataDefaultsPanel;
@@ -371,9 +565,9 @@ public class PreferencesDialog extends JDialog {
 
 		DefaultFormBuilder builder = new DefaultFormBuilder(fl_outputPanel);
 
-		JComponent metadataSeparator = builder.addSeparator("Output details",
+		JComponent outputDetailsSeparator = builder.addSeparator("Output details",
 				CC.xyw(1, 1, 5));
-		outputPanel.add(metadataSeparator, CC.xyw(1, 1, 5));
+		outputPanel.add(outputDetailsSeparator, CC.xyw(1, 1, 5));
 
 		chckbxGenerateinseparatedir = new JCheckBox("");
 		BufferedValueModel genInSepDirBufferedModel = presentationModel
@@ -524,16 +718,16 @@ public class PreferencesDialog extends JDialog {
 					PREF_MAXY,
 					preferencesBean.getMaxy() == null ? 90.0d : preferencesBean
 							.getMaxy());
-			prefs.put(PREF_EMAIL, preferencesBean.getEmail() == null ? ""
-					: preferencesBean.getEmail());
+			prefs.put(PREF_EMAIL, preferencesBean.getMdEmail() == null ? ""
+					: preferencesBean.getMdEmail());
 			prefs.put(PREF_ORGANIZATION,
-					preferencesBean.getOrganization() == null ? ""
-							: preferencesBean.getOrganization());
+					preferencesBean.getMdOrganisation() == null ? ""
+							: preferencesBean.getMdOrganisation());
 			prefs.put(PREF_DEFAULT_PROJECTION,
 					preferencesBean.getDefaultProjection() == null ? ""
 							: preferencesBean.getDefaultProjection());
-			prefs.put(PREF_NAME, preferencesBean.getName() == null ? ""
-					: preferencesBean.getName());
+			prefs.put(PREF_NAME, preferencesBean.getMdIndividualName() == null ? ""
+					: preferencesBean.getMdIndividualName());
 			prefs.putBoolean(PREF_GENERATE_IN_SEPARATE_DIR, preferencesBean
 					.getGenerateInSeparateDir() == null ? false
 					: preferencesBean.getGenerateInSeparateDir());
