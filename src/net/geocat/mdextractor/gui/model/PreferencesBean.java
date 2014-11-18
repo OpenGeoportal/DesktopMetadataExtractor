@@ -28,7 +28,7 @@ public class PreferencesBean extends Model {
 	public static final String ADMIN_AREA_PROPERTY = "adminArea";
 	public static final String POSTAL_CODE_PROPERTY = "postalCode";
 	public static final String COUNTRY_PROPERTY = "country";
-	public static final String EMAIL_PROPERTY = "mdEmail";
+	public static final String EMAIL_PROPERTY = "email";
 
 	/* Geo properties */
 	public static final String DEFAULT_PROYECTION_PROPERTY = "defaultProjection";

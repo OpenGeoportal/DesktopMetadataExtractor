@@ -148,7 +148,7 @@ public class PreferencesDialog extends JDialog {
 						.getResource("/img/16x16/preferences-system.png")));
 		setTitle("Preferences");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 600, 590);
+		setBounds(100, 100, 690, 590);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.putClientProperty("jgoodies.noContentBorder", Boolean.TRUE);
@@ -439,7 +439,7 @@ public class PreferencesDialog extends JDialog {
 		metadataDefaultsPanel.add(lblMdPostalCode, "1, 15, right, default");
 
 		txtMdPostalCode = new JTextField();
-		Bindings.bind(txtPostalCode, presentationModel
+		Bindings.bind(txtMdPostalCode, presentationModel
 				.getBufferedModel(PreferencesBean.MD_POSTAL_CODE_PROPERTY));
 		metadataDefaultsPanel
 				.add(txtMdPostalCode, "3, 15, 3, 1, fill, default");
@@ -579,7 +579,7 @@ public class PreferencesDialog extends JDialog {
 		Bindings.bind(txtMinx, presentationModel
 				.getBufferedModel(PreferencesBean.MINX_PROPERTY));
 		txtMinx.setToolTipText("Min X");
-		metadataDefaultsPanel.add(txtMinx, "3, 35, fill, default");
+		metadataDefaultsPanel.add(txtMinx, "3, 35");
 
 		txtMiny = new ImprovedFormattedTextField(nf);
 		Bindings.bind(txtMiny, presentationModel
