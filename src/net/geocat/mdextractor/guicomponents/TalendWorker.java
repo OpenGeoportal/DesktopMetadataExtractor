@@ -41,7 +41,7 @@ public class TalendWorker extends SwingWorker<String, String> {
 	private static final String PARAM_MD_EMAIL = "mdEmail";
 
 	private static final String PARAM_INDIVIDUAL_NAME = "individualName";
-	private static final String PARAM_ORGANISATION = "organisation";
+	private static final String PARAM_ORGANISATION = "organisationName";
 	private static final String PARAM_POSITION_NAME = "positionName";
 	private static final String PARAM_VOICE = "voice";
 	private static final String PARAM_DELIVERY_POINT = "deliveryPoint";
