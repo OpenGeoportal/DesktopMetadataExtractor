@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default">
+  <context confirmationNeeded="false" name="Default">
+    <contextParameter comment="" name="administrativeArea" prompt="administrativeArea?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="city" prompt="city?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="country" prompt="country?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="Directory where data files are" name="dataDir" prompt="dataDir?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Directory" value="C:/Users/JuanLuis/Documents/Projects/tufts/sample-data/"/>
+    <contextParameter comment="" name="defaultProjection" prompt="defaultProjection?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;EPSG:4326&quot;"/>
+    <contextParameter comment="" name="defaultXMax" prompt="defaultXMax?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;180&quot;"/>
+    <contextParameter comment="" name="defaultXMin" prompt="defaultXMin?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;-180&quot;"/>
+    <contextParameter comment="" name="defaultYMax" prompt="defaultYMax?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;90&quot;"/>
+    <contextParameter comment="" name="defaultYMin" prompt="defaultYMin?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;-90&quot;"/>
+    <contextParameter comment="" name="deliveryPoint" prompt="deliveryPoint?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="email" prompt="email?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="generateMetadataInSeparateDir" prompt="generateMetadataInSeparateDir?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Boolean" value="true"/>
+    <contextParameter comment="" name="individualName" prompt="individualName?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="The logs directory" name="logDirectory" prompt="logDirectory?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Directory" value="C:/temp/mdGenerator/logs"/>
+    <contextParameter comment="" name="mdAdministrativeArea" prompt="mdAdministrativeArea?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdCity" prompt="mdCity?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdCountry" prompt="mdCountry?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdDeliveryPoint" prompt="mdDeliveryPoint?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdEmail" prompt="mdEmail?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdIndividualName" prompt="mdIndividualName?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdOrganisation" prompt="mdOrganisation?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdPositionName" prompt="mdPositionName?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdPostalCode" prompt="mdPostalCode?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="mdVoice" prompt="mdVoice?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="Directory where metadata is generated if generateMetadataInSeparateDir is true" name="metadataDir" prompt="metadataDir?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Directory" value="c:/temp/mdGenerator/metadata"/>
+    <contextParameter comment="" name="organisationName" prompt="organisationName?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="positionName" prompt="positionName?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="" name="postalCode" prompt="postalCode?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+    <contextParameter comment="List of extensions used by raster files as RegExp" name="rasterExtensions" prompt="rasterExtensions?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;.*\\.tif|.*\\.tiff|.*\\.ecw|.*\\.asc&quot;"/>
+    <contextParameter comment="Directory where configuration files are" name="resourceDir" prompt="resourceDir?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Directory" value="C:/Users/JuanLuis/Documents/Projects/tufts/sample-data/_resources/"/>
+    <contextParameter comment="true if you want to scan raster files" name="scanRaster" prompt="scanRaster?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Boolean" value="true"/>
+    <contextParameter comment="true if you want to scan vector files" name="scanVector" prompt="scanVector?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Boolean" value="true"/>
+    <contextParameter comment="" name="titlePrefixRaster" prompt="titlePrefixRaster?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;Raster file &quot;"/>
+    <contextParameter comment="Prefix used to create the tile of vector metadata" name="titlePrefixVector" prompt="titlePrefixVector?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;Vector file &quot;"/>
+    <contextParameter comment="List of extensions used by vector files as RegEx" name="vectorExtensions" prompt="vectorExtensions?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;.*\\.kml|.*\\.shp|.*\\.mif|.*\\.tab|.*\\.gml|.*\\.dxf&quot;"/>
+    <contextParameter comment="" name="voice" prompt="voice?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
+  </context>
+  <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value=""/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="0RMsyjmybrE="/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;C:/Users/JuanLuis/Documents/Projects/tufts/workspace-tufts-metadata-editor/.metadata&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_10"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="0RMsyjmybrE="/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value=""/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value=""/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value=""/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value=""/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value=""/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value=""/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value=""/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value=""/>
+    <routinesParameter id="_fTsWMC1SEeStmZi-VHNfUA" name="DataOperation"/>
+    <routinesParameter id="_fUeZUC1SEeStmZi-VHNfUA" name="Mathematical"/>
+    <routinesParameter id="_fVlzoC1SEeStmZi-VHNfUA" name="Numeric"/>
+    <routinesParameter id="_fWNesC1SEeStmZi-VHNfUA" name="Relational"/>
+    <routinesParameter id="_fWgZoC1SEeStmZi-VHNfUA" name="StringHandling"/>
+    <routinesParameter id="_fWytgC1SEeStmZi-VHNfUA" name="TalendDataGenerator"/>
+    <routinesParameter id="_fXFBYC1SEeStmZi-VHNfUA" name="TalendDate"/>
+    <routinesParameter id="_fXXVQC1SEeStmZi-VHNfUA" name="TalendString"/>
+    <routinesParameter id="_fXf4IC1SEeStmZi-VHNfUA" name="GeometryOperation"/>
+    <routinesParameter id="_fXvIsC1SEeStmZi-VHNfUA" name="GeometryUtility"/>
+    <routinesParameter id="_fX9LIC1SEeStmZi-VHNfUA" name="GeoOperation"/>
+    <routinesParameter id="_fYG8IC1SEeStmZi-VHNfUA" name="OpenStreetMap"/>
+    <routinesParameter id="_NukzgAnLEeKr_IP06R0Uyw" name="Utility"/>
+  </parameters>
+  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="96">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="TEXT" name="LABEL" value="begin"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="64" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="Cleanup_job"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_lMNkkC1ZEeStmZi-VHNfUA"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="true"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="false"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS"/>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_1"/>
+  </node>
+  <node componentName="tLoop" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLoop_1"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="RADIO" name="FORLOOP" value="true"/>
+    <elementParameter field="RADIO" name="WHILELOOP" value="false"/>
+    <elementParameter field="TEXT" name="FROM" value="1"/>
+    <elementParameter field="TEXT" name="TO" value="1"/>
+    <elementParameter field="TEXT" name="STEP" value="1"/>
+    <elementParameter field="CHECK" name="INCREASE" value="true"/>
+    <elementParameter field="TEXT" name="DECLARATION" value="int i=0"/>
+    <elementParameter field="TEXT" name="CONDITION" value="i&lt;10"/>
+    <elementParameter field="TEXT" name="ITERATION" value="i++"/>
+    <elementParameter field="TEXT" name="LABEL" value="callScan"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tFileList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileList_4"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="DIRECTORY" name="DIRECTORY" value="context.dataDir"/>
+    <elementParameter field="CLOSED_LIST" name="LIST_MODE" value="FILES"/>
+    <elementParameter field="CHECK" name="INCLUDSUBDIR" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="CASE_SENSITIVE" value="NO"/>
+    <elementParameter field="CHECK" name="ERROR" value="false"/>
+    <elementParameter field="CHECK" name="GLOBEXPRESSIONS" value="false"/>
+    <elementParameter field="TABLE" name="FILES">
+      <elementValue elementRef="FILEMASK" value="context.vectorExtensions"/>
+    </elementParameter>
+    <elementParameter field="RADIO" name="ORDER_BY_NOTHING" value="true"/>
+    <elementParameter field="RADIO" name="ORDER_BY_FILENAME" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_BY_FILESIZE" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_BY_MODIFIEDDATE" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_ACTION_ASC" value="true"/>
+    <elementParameter field="RADIO" name="ORDER_ACTION_DESC" value="false"/>
+    <elementParameter field="CHECK" name="IFEXCLUDE" value="false"/>
+    <elementParameter field="TEXT" name="EXCLUDEFILEMASK" value="&quot;*.txt&quot;"/>
+    <elementParameter field="CHECK" name="FORMAT_FILEPATH_TO_SLASH" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="listVectorFiles"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_2"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="VectorJob"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_Ajo80C1nEeStmZi-VHNfUA"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS">
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="file"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="((String)globalMap.get(&quot;tFileList_4_CURRENT_FILEPATH&quot;))"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_2"/>
+  </node>
+  <node componentName="tFileList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileList_1"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="DIRECTORY" name="DIRECTORY" value="context.dataDir"/>
+    <elementParameter field="CLOSED_LIST" name="LIST_MODE" value="FILES"/>
+    <elementParameter field="CHECK" name="INCLUDSUBDIR" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="CASE_SENSITIVE" value="NO"/>
+    <elementParameter field="CHECK" name="ERROR" value="false"/>
+    <elementParameter field="CHECK" name="GLOBEXPRESSIONS" value="false"/>
+    <elementParameter field="TABLE" name="FILES">
+      <elementValue elementRef="FILEMASK" value="context.rasterExtensions"/>
+    </elementParameter>
+    <elementParameter field="RADIO" name="ORDER_BY_NOTHING" value="true"/>
+    <elementParameter field="RADIO" name="ORDER_BY_FILENAME" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_BY_FILESIZE" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_BY_MODIFIEDDATE" value="false"/>
+    <elementParameter field="RADIO" name="ORDER_ACTION_ASC" value="true"/>
+    <elementParameter field="RADIO" name="ORDER_ACTION_DESC" value="false"/>
+    <elementParameter field="CHECK" name="IFEXCLUDE" value="false"/>
+    <elementParameter field="TEXT" name="EXCLUDEFILEMASK" value="&quot;*.txt&quot;"/>
+    <elementParameter field="CHECK" name="FORMAT_FILEPATH_TO_SLASH" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="listRasterFiles"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tRunJob" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_3"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="CHECK" name="USE_DYNAMIC_JOB" value="false"/>
+    <elementParameter field="TEXT" name="CONTEXT_JOB" value=""/>
+    <elementParameter field="PROCESS_TYPE" name="PROCESS" value="RasterJob"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_PROCESS" value="_uBWLQC3zEeStmZi-VHNfUA"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_VERSION" value="Latest"/>
+    <elementParameter field="TECHNICAL" name="PROCESS:PROCESS_TYPE_CONTEXT" value="Default"/>
+    <elementParameter field="TEXT" name="CONTEXT_NAME" value="Default"/>
+    <elementParameter field="CHECK" name="USE_INDEPENDENT_PROCESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_CHILD_ERROR" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_WHOLE_CONTEXT" value="true"/>
+    <elementParameter field="TABLE" name="CONTEXTPARAMS">
+      <elementValue elementRef="PARAM_NAME_COLUMN" value="file"/>
+      <elementValue elementRef="PARAM_VALUE_COLUMN" value="((String)globalMap.get(&quot;tFileList_1_CURRENT_FILEPATH&quot;))"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PROPAGATE_CHILD_RESULT" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_PARAMETER" value="false"/>
+    <elementParameter field="CHECK" name="TRANSMIT_ORIGINAL_CONTEXT" value="true"/>
+    <elementParameter field="TEXT" name="LABEL" value="__PROCESS__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRunJob_3"/>
+  </node>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRunJob_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tRunJob_1" offsetLabelX="0" offsetLabelY="0" source="tRunJob_1" target="tLoop_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2"/>
+  </connection>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tLoop_1" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tLoop_1" target="tFileList_1">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.scanRaster"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If2"/>
+  </connection>
+  <connection connectorName="RUN_IF" label="If" lineStyle="6" metaname="tLoop_1" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tLoop_1" target="tFileList_4">
+    <elementParameter field="MEMO_JAVA" name="CONDITION" value="context.scanVector"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="If1"/>
+  </connection>
+  <connection connectorName="ITERATE" label="Iterate" lineStyle="7" metaname="tFileList_4" offsetLabelX="0" offsetLabelY="0" source="tFileList_4" target="tRunJob_2">
+    <elementParameter field="CHECK" name="ENABLE_PARALLEL" value="false"/>
+    <elementParameter field="TEXT" name="NUMBER_PARALLEL" value="2"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="iterate1"/>
+  </connection>
+  <connection connectorName="ITERATE" label="Iterate" lineStyle="7" metaname="tFileList_1" offsetLabelX="0" offsetLabelY="0" source="tFileList_1" target="tRunJob_3">
+    <elementParameter field="CHECK" name="ENABLE_PARALLEL" value="false"/>
+    <elementParameter field="TEXT" name="NUMBER_PARALLEL" value="2"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="iterate2"/>
+  </connection>
+  <subjob>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1"/>
+    <elementParameter field="TEXT" name="SUBJOB_TITLE" value="Start job"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tRunJob_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLoop_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileList_4"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileList_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+</talendfile:ProcessType>

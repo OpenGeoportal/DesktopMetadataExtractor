@@ -10,13 +10,13 @@
 	<!-- =================================================================================== -->
 
 	<condition property="osys" value="macosx">
-		<os family="mac"/>
+		<os family="mac" />
 	</condition>
 	<condition property="osys" value="win">
-			<os family="windows"/>
+		<os family="windows" />
 	</condition>
 	<condition property="osys" value="unix">
-			<os family="unix"/>
+		<os family="unix" />
 	</condition>
 
 	<!-- =================================================================================== -->
@@ -33,18 +33,16 @@
 
 	<!-- =================================================================================== -->
 
-	<taskdef name="launch4j"
-	    classname="net.sf.launch4j.ant.Launch4jTask"
-	    classpath="installer/launch4j/${osys}/launch4j.jar:installer/launch4j/${osys}/lib/xstream.jar"/>
+	<taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask" classpath="installer/launch4j/${osys}/launch4j.jar:installer/launch4j/${osys}/lib/xstream.jar" />
 
 	<!-- =================================================================================== -->
 
 	<path id="metadata-extractor-gui.classpath">
-		<pathelement location="lib/commons-lang3-3.3.2.jar"/>
 		<pathelement location="lib/jgoodies-looks-2.6.0.jar" />
 		<pathelement location="lib/jgoodies-common-1.8.0.jar" />
 		<pathelement location="lib/jgoodies-binding-2.10.0.jar" />
 		<pathelement location="lib/forms-1.3.0.jar" />
+		<pathelement location="lib/commons-lang3-3.3.2.jar" />
 		<pathelement location="bin" />
 		<pathelement location="Start/lib/advancedPersistentLookupLib-1.0.jar" />
 		<pathelement location="Start/lib/commons-collections-3.2.jar" />
@@ -74,8 +72,9 @@
 		<pathelement location="Start/rasterjob_0_1.jar" />
 		<pathelement location="Start/start_0_1.jar" />
 		<pathelement location="Start/vectorjob_0_1.jar" />
+
 	</path>
-	
+
 	<!-- =================================================================================== -->
 
 	<target name="init">
@@ -95,16 +94,16 @@
 			</fileset>
 		</copy>
 	</target>
-	
+
 	<target name="clean">
 		<delete dir="bin" />
 		<delete dir="dist" />
 	</target>
-	
+
 	<target depends="clean" name="cleanall" />
-	
+
 	<target depends="build-project" name="build" />
-	
+
 	<target depends="init" name="build-project">
 		<echo message="${ant.project.name}: ${ant.file}" />
 		<javac debug="true" debuglevel="${debuglevel}" destdir="${bin}" includeantruntime="false" source="${source}" target="${target}">
@@ -146,7 +145,7 @@
 
 
 	</target>
-	
+
 	<target name="exe" depends="dist">
 		<launch4j configFile="./installer/launch4j/l4jcMdExtractor.xml" />
 	</target>

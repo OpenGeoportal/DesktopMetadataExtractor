@@ -10,12 +10,12 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.apache.commons.lang3.StringUtils;
-
+import metadata_generator.rasterjob_0_1.RasterJob;
+import metadata_generator.start_0_1.Start;
+import metadata_generator.vectorjob_0_1.VectorJob;
 import net.geocat.mdextractor.gui.model.PreferencesBean;
-import tufts_metadata_generator.rasterjob_0_1.RasterJob;
-import tufts_metadata_generator.start_0_1.Start;
-import tufts_metadata_generator.vectorjob_0_1.VectorJob;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class TalendWorker extends SwingWorker<String, String> {
 	private static final String CONTEXT_PARAM_PREFIX = "--context_param ";
