@@ -17,6 +17,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JuanLuis/Documents/Projects/tufts-eclipse-workspace/metadata-extractor-gui/lib/forms-1.3.0.jar" sourcepath="forms-1.3.0-src.zip"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.3.2.jar" sourcepath="C:/Users/JuanLuis/local/libs/commons-lang3-3.3.2-bin/commons-lang3-3.3.2/src"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
@@ -38,15 +39,15 @@
 	<classpathentry kind="lib" path="Start/lib/jts-1.12.jar"/>
 	<classpathentry kind="lib" path="Start/lib/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="Start/lib/org.talend.sdi.jar"/>
-	<classpathentry kind="lib" path="Start/lib/systemRoutines.jar" sourcepath="Start/src"/>
+	<classpathentry kind="lib" path="Start/lib/systemRoutines.jar"/>
 	<classpathentry kind="lib" path="Start/lib/talend_file_enhanced_20070724.jar"/>
 	<classpathentry kind="lib" path="Start/lib/talendcsv.jar"/>
 	<classpathentry kind="lib" path="Start/lib/trove.jar"/>
 	<classpathentry kind="lib" path="Start/lib/userRoutines.jar"/>
 	<classpathentry kind="lib" path="Start/lib/vecmath-1.3.2.jar"/>
-	<classpathentry kind="lib" path="Start/cleanup_job_0_1.jar" sourcepath="Start/src"/>
-	<classpathentry kind="lib" path="Start/rasterjob_0_1.jar" sourcepath="Start/src"/>
-	<classpathentry kind="lib" path="Start/start_0_1.jar" sourcepath="Start/src"/>
-	<classpathentry kind="lib" path="Start/vectorjob_0_1.jar" sourcepath="Start/src"/>
+	<classpathentry kind="lib" path="Start/cleanup_job_0_1.jar"/>
+	<classpathentry kind="lib" path="Start/rasterjob_0_1.jar"/>
+	<classpathentry kind="lib" path="Start/start_0_1.jar"/>
+	<classpathentry kind="lib" path="Start/vectorjob_0_1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

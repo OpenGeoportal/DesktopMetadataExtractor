@@ -40,6 +40,33 @@ public class Document implements java.io.Serializable{
 
         return this.doc.asXML();
     }
+    /**
+     * Format XML String by a OutputFormat object
+     * (Used in tAdvancedFileOutputXML )
+     * 
+     * @param format
+     * @return the formatted time string.
+     * 
+     */
+    public String formatXMLString(org.dom4j.io.OutputFormat format){
+
+		if (this.doc == null){
+			return null;
+		}
+		java.io.OutputStream outputStream = new java.io.ByteArrayOutputStream();
+		org.dom4j.io.XMLWriter writer;
+		try {
+			writer = new org.dom4j.io.XMLWriter(outputStream, format);
+			writer.write(this.doc);
+			writer.close();
+		} catch (java.io.IOException e) {
+			System.err.println("Format the XML document error.");
+			return this.doc.asXML();
+		}
+
+		return outputStream.toString();
+	
+    }
 
     /**
      * lookup document action
