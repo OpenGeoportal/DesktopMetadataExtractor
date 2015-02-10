@@ -98,12 +98,6 @@ public class VectorJob implements TalendJob {
 
 		public void synchronizeContext() {
 
-			if (file != null) {
-
-				this.setProperty("file", file.toString());
-
-			}
-
 			if (administrativeArea != null) {
 
 				this.setProperty("administrativeArea",
@@ -157,6 +151,12 @@ public class VectorJob implements TalendJob {
 			if (defaultYMin != null) {
 
 				this.setProperty("defaultYMin", defaultYMin.toString());
+
+			}
+
+			if (file != null) {
+
+				this.setProperty("file", file.toString());
 
 			}
 
@@ -332,12 +332,6 @@ public class VectorJob implements TalendJob {
 
 		}
 
-		public String file;
-
-		public String getFile() {
-			return this.file;
-		}
-
 		public String administrativeArea;
 
 		public String getAdministrativeArea() {
@@ -390,6 +384,12 @@ public class VectorJob implements TalendJob {
 
 		public String getDefaultYMin() {
 			return this.defaultYMin;
+		}
+
+		public String file;
+
+		public String getFile() {
+			return this.file;
 		}
 
 		public String deliveryPoint;
@@ -784,6 +784,39 @@ public class VectorJob implements TalendJob {
 		sOGRInfoInput_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tNormalize_1_error(java.lang.Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		sOGRInfoInput_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tExtractDelimitedFields_3_error(java.lang.Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		sOGRInfoInput_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tLogRow_2_error(java.lang.Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		sOGRInfoInput_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tAdvancedFileOutputXML_2_error(java.lang.Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
@@ -876,6 +909,2146 @@ public class VectorJob implements TalendJob {
 				.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(),
 				ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public static class row3Struct implements
+			routines.system.IPersistableRow<row3Struct> {
+		final static byte[] commonByteArrayLock_METADATA_GENERATOR_VectorJob = new byte[0];
+		static byte[] commonByteArray_METADATA_GENERATOR_VectorJob = new byte[0];
+
+		public String mdIdentifier;
+
+		public String getMdIdentifier() {
+			return this.mdIdentifier;
+		}
+
+		public String mdLanguage;
+
+		public String getMdLanguage() {
+			return this.mdLanguage;
+		}
+
+		public String mdCharacterSetCode;
+
+		public String getMdCharacterSetCode() {
+			return this.mdCharacterSetCode;
+		}
+
+		public String ciRoleCode;
+
+		public String getCiRoleCode() {
+			return this.ciRoleCode;
+		}
+
+		public String mdOrganisation;
+
+		public String getMdOrganisation() {
+			return this.mdOrganisation;
+		}
+
+		public String mdVoice;
+
+		public String getMdVoice() {
+			return this.mdVoice;
+		}
+
+		public String mdIndividualName;
+
+		public String getMdIndividualName() {
+			return this.mdIndividualName;
+		}
+
+		public String mdPositionName;
+
+		public String getMdPositionName() {
+			return this.mdPositionName;
+		}
+
+		public String mdDeliveryPoint;
+
+		public String getMdDeliveryPoint() {
+			return this.mdDeliveryPoint;
+		}
+
+		public String mdCity;
+
+		public String getMdCity() {
+			return this.mdCity;
+		}
+
+		public String mdAdministrativeArea;
+
+		public String getMdAdministrativeArea() {
+			return this.mdAdministrativeArea;
+		}
+
+		public String mdPostalCode;
+
+		public String getMdPostalCode() {
+			return this.mdPostalCode;
+		}
+
+		public String mdCountry;
+
+		public String getMdCountry() {
+			return this.mdCountry;
+		}
+
+		public String mdEmail;
+
+		public String getMdEmail() {
+			return this.mdEmail;
+		}
+
+		public String mdDate;
+
+		public String getMdDate() {
+			return this.mdDate;
+		}
+
+		public String title;
+
+		public String getTitle() {
+			return this.title;
+		}
+
+		public String organisationName;
+
+		public String getOrganisationName() {
+			return this.organisationName;
+		}
+
+		public String voice;
+
+		public String getVoice() {
+			return this.voice;
+		}
+
+		public String email;
+
+		public String getEmail() {
+			return this.email;
+		}
+
+		public String individualName;
+
+		public String getIndividualName() {
+			return this.individualName;
+		}
+
+		public String positionName;
+
+		public String getPositionName() {
+			return this.positionName;
+		}
+
+		public String deliveryPoint;
+
+		public String getDeliveryPoint() {
+			return this.deliveryPoint;
+		}
+
+		public String city;
+
+		public String getCity() {
+			return this.city;
+		}
+
+		public String administrativeArea;
+
+		public String getAdministrativeArea() {
+			return this.administrativeArea;
+		}
+
+		public String postalCode;
+
+		public String getPostalCode() {
+			return this.postalCode;
+		}
+
+		public String country;
+
+		public String getCountry() {
+			return this.country;
+		}
+
+		public String spatialRepresentationType;
+
+		public String getSpatialRepresentationType() {
+			return this.spatialRepresentationType;
+		}
+
+		public String scaleDenominator;
+
+		public String getScaleDenominator() {
+			return this.scaleDenominator;
+		}
+
+		public String topicCategoryCode;
+
+		public String getTopicCategoryCode() {
+			return this.topicCategoryCode;
+		}
+
+		public String west;
+
+		public String getWest() {
+			return this.west;
+		}
+
+		public String east;
+
+		public String getEast() {
+			return this.east;
+		}
+
+		public String south;
+
+		public String getSouth() {
+			return this.south;
+		}
+
+		public String north;
+
+		public String getNorth() {
+			return this.north;
+		}
+
+		public String mdMaintenanceFrequencyCode;
+
+		public String getMdMaintenanceFrequencyCode() {
+			return this.mdMaintenanceFrequencyCode;
+		}
+
+		public String keyword;
+
+		public String getKeyword() {
+			return this.keyword;
+		}
+
+		public String keyword2;
+
+		public String getKeyword2() {
+			return this.keyword2;
+		}
+
+		public String keyworkd1_theme;
+
+		public String getKeyworkd1_theme() {
+			return this.keyworkd1_theme;
+		}
+
+		public String keyword2_theme;
+
+		public String getKeyword2_theme() {
+			return this.keyword2_theme;
+		}
+
+		public String useConstraints;
+
+		public String getUseConstraints() {
+			return this.useConstraints;
+		}
+
+		public String scopeCode;
+
+		public String getScopeCode() {
+			return this.scopeCode;
+		}
+
+		public String lineage;
+
+		public String getLineage() {
+			return this.lineage;
+		}
+
+		public String srs;
+
+		public String getSrs() {
+			return this.srs;
+		}
+
+		public String columnsDef;
+
+		public String getColumnsDef() {
+			return this.columnsDef;
+		}
+
+		public String layerName;
+
+		public String getLayerName() {
+			return this.layerName;
+		}
+
+		public String colName;
+
+		public String getColName() {
+			return this.colName;
+		}
+
+		public String colType;
+
+		public String getColType() {
+			return this.colType;
+		}
+
+		public String colPrecision;
+
+		public String getColPrecision() {
+			return this.colPrecision;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_METADATA_GENERATOR_VectorJob.length) {
+					if (length < 1024
+							&& commonByteArray_METADATA_GENERATOR_VectorJob.length == 0) {
+						commonByteArray_METADATA_GENERATOR_VectorJob = new byte[1024];
+					} else {
+						commonByteArray_METADATA_GENERATOR_VectorJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_METADATA_GENERATOR_VectorJob, 0,
+						length);
+				strReturn = new String(
+						commonByteArray_METADATA_GENERATOR_VectorJob, 0,
+						length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos)
+				throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_METADATA_GENERATOR_VectorJob) {
+
+				try {
+
+					int length = 0;
+
+					this.mdIdentifier = readString(dis);
+
+					this.mdLanguage = readString(dis);
+
+					this.mdCharacterSetCode = readString(dis);
+
+					this.ciRoleCode = readString(dis);
+
+					this.mdOrganisation = readString(dis);
+
+					this.mdVoice = readString(dis);
+
+					this.mdIndividualName = readString(dis);
+
+					this.mdPositionName = readString(dis);
+
+					this.mdDeliveryPoint = readString(dis);
+
+					this.mdCity = readString(dis);
+
+					this.mdAdministrativeArea = readString(dis);
+
+					this.mdPostalCode = readString(dis);
+
+					this.mdCountry = readString(dis);
+
+					this.mdEmail = readString(dis);
+
+					this.mdDate = readString(dis);
+
+					this.title = readString(dis);
+
+					this.organisationName = readString(dis);
+
+					this.voice = readString(dis);
+
+					this.email = readString(dis);
+
+					this.individualName = readString(dis);
+
+					this.positionName = readString(dis);
+
+					this.deliveryPoint = readString(dis);
+
+					this.city = readString(dis);
+
+					this.administrativeArea = readString(dis);
+
+					this.postalCode = readString(dis);
+
+					this.country = readString(dis);
+
+					this.spatialRepresentationType = readString(dis);
+
+					this.scaleDenominator = readString(dis);
+
+					this.topicCategoryCode = readString(dis);
+
+					this.west = readString(dis);
+
+					this.east = readString(dis);
+
+					this.south = readString(dis);
+
+					this.north = readString(dis);
+
+					this.mdMaintenanceFrequencyCode = readString(dis);
+
+					this.keyword = readString(dis);
+
+					this.keyword2 = readString(dis);
+
+					this.keyworkd1_theme = readString(dis);
+
+					this.keyword2_theme = readString(dis);
+
+					this.useConstraints = readString(dis);
+
+					this.scopeCode = readString(dis);
+
+					this.lineage = readString(dis);
+
+					this.srs = readString(dis);
+
+					this.columnsDef = readString(dis);
+
+					this.layerName = readString(dis);
+
+					this.colName = readString(dis);
+
+					this.colType = readString(dis);
+
+					this.colPrecision = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.mdIdentifier, dos);
+
+				// String
+
+				writeString(this.mdLanguage, dos);
+
+				// String
+
+				writeString(this.mdCharacterSetCode, dos);
+
+				// String
+
+				writeString(this.ciRoleCode, dos);
+
+				// String
+
+				writeString(this.mdOrganisation, dos);
+
+				// String
+
+				writeString(this.mdVoice, dos);
+
+				// String
+
+				writeString(this.mdIndividualName, dos);
+
+				// String
+
+				writeString(this.mdPositionName, dos);
+
+				// String
+
+				writeString(this.mdDeliveryPoint, dos);
+
+				// String
+
+				writeString(this.mdCity, dos);
+
+				// String
+
+				writeString(this.mdAdministrativeArea, dos);
+
+				// String
+
+				writeString(this.mdPostalCode, dos);
+
+				// String
+
+				writeString(this.mdCountry, dos);
+
+				// String
+
+				writeString(this.mdEmail, dos);
+
+				// String
+
+				writeString(this.mdDate, dos);
+
+				// String
+
+				writeString(this.title, dos);
+
+				// String
+
+				writeString(this.organisationName, dos);
+
+				// String
+
+				writeString(this.voice, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.individualName, dos);
+
+				// String
+
+				writeString(this.positionName, dos);
+
+				// String
+
+				writeString(this.deliveryPoint, dos);
+
+				// String
+
+				writeString(this.city, dos);
+
+				// String
+
+				writeString(this.administrativeArea, dos);
+
+				// String
+
+				writeString(this.postalCode, dos);
+
+				// String
+
+				writeString(this.country, dos);
+
+				// String
+
+				writeString(this.spatialRepresentationType, dos);
+
+				// String
+
+				writeString(this.scaleDenominator, dos);
+
+				// String
+
+				writeString(this.topicCategoryCode, dos);
+
+				// String
+
+				writeString(this.west, dos);
+
+				// String
+
+				writeString(this.east, dos);
+
+				// String
+
+				writeString(this.south, dos);
+
+				// String
+
+				writeString(this.north, dos);
+
+				// String
+
+				writeString(this.mdMaintenanceFrequencyCode, dos);
+
+				// String
+
+				writeString(this.keyword, dos);
+
+				// String
+
+				writeString(this.keyword2, dos);
+
+				// String
+
+				writeString(this.keyworkd1_theme, dos);
+
+				// String
+
+				writeString(this.keyword2_theme, dos);
+
+				// String
+
+				writeString(this.useConstraints, dos);
+
+				// String
+
+				writeString(this.scopeCode, dos);
+
+				// String
+
+				writeString(this.lineage, dos);
+
+				// String
+
+				writeString(this.srs, dos);
+
+				// String
+
+				writeString(this.columnsDef, dos);
+
+				// String
+
+				writeString(this.layerName, dos);
+
+				// String
+
+				writeString(this.colName, dos);
+
+				// String
+
+				writeString(this.colType, dos);
+
+				// String
+
+				writeString(this.colPrecision, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("mdIdentifier=" + mdIdentifier);
+			sb.append(",mdLanguage=" + mdLanguage);
+			sb.append(",mdCharacterSetCode=" + mdCharacterSetCode);
+			sb.append(",ciRoleCode=" + ciRoleCode);
+			sb.append(",mdOrganisation=" + mdOrganisation);
+			sb.append(",mdVoice=" + mdVoice);
+			sb.append(",mdIndividualName=" + mdIndividualName);
+			sb.append(",mdPositionName=" + mdPositionName);
+			sb.append(",mdDeliveryPoint=" + mdDeliveryPoint);
+			sb.append(",mdCity=" + mdCity);
+			sb.append(",mdAdministrativeArea=" + mdAdministrativeArea);
+			sb.append(",mdPostalCode=" + mdPostalCode);
+			sb.append(",mdCountry=" + mdCountry);
+			sb.append(",mdEmail=" + mdEmail);
+			sb.append(",mdDate=" + mdDate);
+			sb.append(",title=" + title);
+			sb.append(",organisationName=" + organisationName);
+			sb.append(",voice=" + voice);
+			sb.append(",email=" + email);
+			sb.append(",individualName=" + individualName);
+			sb.append(",positionName=" + positionName);
+			sb.append(",deliveryPoint=" + deliveryPoint);
+			sb.append(",city=" + city);
+			sb.append(",administrativeArea=" + administrativeArea);
+			sb.append(",postalCode=" + postalCode);
+			sb.append(",country=" + country);
+			sb.append(",spatialRepresentationType=" + spatialRepresentationType);
+			sb.append(",scaleDenominator=" + scaleDenominator);
+			sb.append(",topicCategoryCode=" + topicCategoryCode);
+			sb.append(",west=" + west);
+			sb.append(",east=" + east);
+			sb.append(",south=" + south);
+			sb.append(",north=" + north);
+			sb.append(",mdMaintenanceFrequencyCode="
+					+ mdMaintenanceFrequencyCode);
+			sb.append(",keyword=" + keyword);
+			sb.append(",keyword2=" + keyword2);
+			sb.append(",keyworkd1_theme=" + keyworkd1_theme);
+			sb.append(",keyword2_theme=" + keyword2_theme);
+			sb.append(",useConstraints=" + useConstraints);
+			sb.append(",scopeCode=" + scopeCode);
+			sb.append(",lineage=" + lineage);
+			sb.append(",srs=" + srs);
+			sb.append(",columnsDef=" + columnsDef);
+			sb.append(",layerName=" + layerName);
+			sb.append(",colName=" + colName);
+			sb.append(",colType=" + colType);
+			sb.append(",colPrecision=" + colPrecision);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row3Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(),
+						object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row4Struct implements
+			routines.system.IPersistableRow<row4Struct> {
+		final static byte[] commonByteArrayLock_METADATA_GENERATOR_VectorJob = new byte[0];
+		static byte[] commonByteArray_METADATA_GENERATOR_VectorJob = new byte[0];
+
+		public String mdIdentifier;
+
+		public String getMdIdentifier() {
+			return this.mdIdentifier;
+		}
+
+		public String mdLanguage;
+
+		public String getMdLanguage() {
+			return this.mdLanguage;
+		}
+
+		public String mdCharacterSetCode;
+
+		public String getMdCharacterSetCode() {
+			return this.mdCharacterSetCode;
+		}
+
+		public String ciRoleCode;
+
+		public String getCiRoleCode() {
+			return this.ciRoleCode;
+		}
+
+		public String mdOrganisation;
+
+		public String getMdOrganisation() {
+			return this.mdOrganisation;
+		}
+
+		public String mdVoice;
+
+		public String getMdVoice() {
+			return this.mdVoice;
+		}
+
+		public String mdIndividualName;
+
+		public String getMdIndividualName() {
+			return this.mdIndividualName;
+		}
+
+		public String mdPositionName;
+
+		public String getMdPositionName() {
+			return this.mdPositionName;
+		}
+
+		public String mdDeliveryPoint;
+
+		public String getMdDeliveryPoint() {
+			return this.mdDeliveryPoint;
+		}
+
+		public String mdCity;
+
+		public String getMdCity() {
+			return this.mdCity;
+		}
+
+		public String mdAdministrativeArea;
+
+		public String getMdAdministrativeArea() {
+			return this.mdAdministrativeArea;
+		}
+
+		public String mdPostalCode;
+
+		public String getMdPostalCode() {
+			return this.mdPostalCode;
+		}
+
+		public String mdCountry;
+
+		public String getMdCountry() {
+			return this.mdCountry;
+		}
+
+		public String mdEmail;
+
+		public String getMdEmail() {
+			return this.mdEmail;
+		}
+
+		public String mdDate;
+
+		public String getMdDate() {
+			return this.mdDate;
+		}
+
+		public String title;
+
+		public String getTitle() {
+			return this.title;
+		}
+
+		public String organisationName;
+
+		public String getOrganisationName() {
+			return this.organisationName;
+		}
+
+		public String voice;
+
+		public String getVoice() {
+			return this.voice;
+		}
+
+		public String email;
+
+		public String getEmail() {
+			return this.email;
+		}
+
+		public String individualName;
+
+		public String getIndividualName() {
+			return this.individualName;
+		}
+
+		public String positionName;
+
+		public String getPositionName() {
+			return this.positionName;
+		}
+
+		public String deliveryPoint;
+
+		public String getDeliveryPoint() {
+			return this.deliveryPoint;
+		}
+
+		public String city;
+
+		public String getCity() {
+			return this.city;
+		}
+
+		public String administrativeArea;
+
+		public String getAdministrativeArea() {
+			return this.administrativeArea;
+		}
+
+		public String postalCode;
+
+		public String getPostalCode() {
+			return this.postalCode;
+		}
+
+		public String country;
+
+		public String getCountry() {
+			return this.country;
+		}
+
+		public String spatialRepresentationType;
+
+		public String getSpatialRepresentationType() {
+			return this.spatialRepresentationType;
+		}
+
+		public String scaleDenominator;
+
+		public String getScaleDenominator() {
+			return this.scaleDenominator;
+		}
+
+		public String topicCategoryCode;
+
+		public String getTopicCategoryCode() {
+			return this.topicCategoryCode;
+		}
+
+		public String west;
+
+		public String getWest() {
+			return this.west;
+		}
+
+		public String east;
+
+		public String getEast() {
+			return this.east;
+		}
+
+		public String south;
+
+		public String getSouth() {
+			return this.south;
+		}
+
+		public String north;
+
+		public String getNorth() {
+			return this.north;
+		}
+
+		public String mdMaintenanceFrequencyCode;
+
+		public String getMdMaintenanceFrequencyCode() {
+			return this.mdMaintenanceFrequencyCode;
+		}
+
+		public String keyword;
+
+		public String getKeyword() {
+			return this.keyword;
+		}
+
+		public String keyword2;
+
+		public String getKeyword2() {
+			return this.keyword2;
+		}
+
+		public String keyworkd1_theme;
+
+		public String getKeyworkd1_theme() {
+			return this.keyworkd1_theme;
+		}
+
+		public String keyword2_theme;
+
+		public String getKeyword2_theme() {
+			return this.keyword2_theme;
+		}
+
+		public String useConstraints;
+
+		public String getUseConstraints() {
+			return this.useConstraints;
+		}
+
+		public String scopeCode;
+
+		public String getScopeCode() {
+			return this.scopeCode;
+		}
+
+		public String lineage;
+
+		public String getLineage() {
+			return this.lineage;
+		}
+
+		public String srs;
+
+		public String getSrs() {
+			return this.srs;
+		}
+
+		public String columnsDef;
+
+		public String getColumnsDef() {
+			return this.columnsDef;
+		}
+
+		public String layerName;
+
+		public String getLayerName() {
+			return this.layerName;
+		}
+
+		public String colName;
+
+		public String getColName() {
+			return this.colName;
+		}
+
+		public String colType;
+
+		public String getColType() {
+			return this.colType;
+		}
+
+		public String colPrecision;
+
+		public String getColPrecision() {
+			return this.colPrecision;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_METADATA_GENERATOR_VectorJob.length) {
+					if (length < 1024
+							&& commonByteArray_METADATA_GENERATOR_VectorJob.length == 0) {
+						commonByteArray_METADATA_GENERATOR_VectorJob = new byte[1024];
+					} else {
+						commonByteArray_METADATA_GENERATOR_VectorJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_METADATA_GENERATOR_VectorJob, 0,
+						length);
+				strReturn = new String(
+						commonByteArray_METADATA_GENERATOR_VectorJob, 0,
+						length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos)
+				throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_METADATA_GENERATOR_VectorJob) {
+
+				try {
+
+					int length = 0;
+
+					this.mdIdentifier = readString(dis);
+
+					this.mdLanguage = readString(dis);
+
+					this.mdCharacterSetCode = readString(dis);
+
+					this.ciRoleCode = readString(dis);
+
+					this.mdOrganisation = readString(dis);
+
+					this.mdVoice = readString(dis);
+
+					this.mdIndividualName = readString(dis);
+
+					this.mdPositionName = readString(dis);
+
+					this.mdDeliveryPoint = readString(dis);
+
+					this.mdCity = readString(dis);
+
+					this.mdAdministrativeArea = readString(dis);
+
+					this.mdPostalCode = readString(dis);
+
+					this.mdCountry = readString(dis);
+
+					this.mdEmail = readString(dis);
+
+					this.mdDate = readString(dis);
+
+					this.title = readString(dis);
+
+					this.organisationName = readString(dis);
+
+					this.voice = readString(dis);
+
+					this.email = readString(dis);
+
+					this.individualName = readString(dis);
+
+					this.positionName = readString(dis);
+
+					this.deliveryPoint = readString(dis);
+
+					this.city = readString(dis);
+
+					this.administrativeArea = readString(dis);
+
+					this.postalCode = readString(dis);
+
+					this.country = readString(dis);
+
+					this.spatialRepresentationType = readString(dis);
+
+					this.scaleDenominator = readString(dis);
+
+					this.topicCategoryCode = readString(dis);
+
+					this.west = readString(dis);
+
+					this.east = readString(dis);
+
+					this.south = readString(dis);
+
+					this.north = readString(dis);
+
+					this.mdMaintenanceFrequencyCode = readString(dis);
+
+					this.keyword = readString(dis);
+
+					this.keyword2 = readString(dis);
+
+					this.keyworkd1_theme = readString(dis);
+
+					this.keyword2_theme = readString(dis);
+
+					this.useConstraints = readString(dis);
+
+					this.scopeCode = readString(dis);
+
+					this.lineage = readString(dis);
+
+					this.srs = readString(dis);
+
+					this.columnsDef = readString(dis);
+
+					this.layerName = readString(dis);
+
+					this.colName = readString(dis);
+
+					this.colType = readString(dis);
+
+					this.colPrecision = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.mdIdentifier, dos);
+
+				// String
+
+				writeString(this.mdLanguage, dos);
+
+				// String
+
+				writeString(this.mdCharacterSetCode, dos);
+
+				// String
+
+				writeString(this.ciRoleCode, dos);
+
+				// String
+
+				writeString(this.mdOrganisation, dos);
+
+				// String
+
+				writeString(this.mdVoice, dos);
+
+				// String
+
+				writeString(this.mdIndividualName, dos);
+
+				// String
+
+				writeString(this.mdPositionName, dos);
+
+				// String
+
+				writeString(this.mdDeliveryPoint, dos);
+
+				// String
+
+				writeString(this.mdCity, dos);
+
+				// String
+
+				writeString(this.mdAdministrativeArea, dos);
+
+				// String
+
+				writeString(this.mdPostalCode, dos);
+
+				// String
+
+				writeString(this.mdCountry, dos);
+
+				// String
+
+				writeString(this.mdEmail, dos);
+
+				// String
+
+				writeString(this.mdDate, dos);
+
+				// String
+
+				writeString(this.title, dos);
+
+				// String
+
+				writeString(this.organisationName, dos);
+
+				// String
+
+				writeString(this.voice, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.individualName, dos);
+
+				// String
+
+				writeString(this.positionName, dos);
+
+				// String
+
+				writeString(this.deliveryPoint, dos);
+
+				// String
+
+				writeString(this.city, dos);
+
+				// String
+
+				writeString(this.administrativeArea, dos);
+
+				// String
+
+				writeString(this.postalCode, dos);
+
+				// String
+
+				writeString(this.country, dos);
+
+				// String
+
+				writeString(this.spatialRepresentationType, dos);
+
+				// String
+
+				writeString(this.scaleDenominator, dos);
+
+				// String
+
+				writeString(this.topicCategoryCode, dos);
+
+				// String
+
+				writeString(this.west, dos);
+
+				// String
+
+				writeString(this.east, dos);
+
+				// String
+
+				writeString(this.south, dos);
+
+				// String
+
+				writeString(this.north, dos);
+
+				// String
+
+				writeString(this.mdMaintenanceFrequencyCode, dos);
+
+				// String
+
+				writeString(this.keyword, dos);
+
+				// String
+
+				writeString(this.keyword2, dos);
+
+				// String
+
+				writeString(this.keyworkd1_theme, dos);
+
+				// String
+
+				writeString(this.keyword2_theme, dos);
+
+				// String
+
+				writeString(this.useConstraints, dos);
+
+				// String
+
+				writeString(this.scopeCode, dos);
+
+				// String
+
+				writeString(this.lineage, dos);
+
+				// String
+
+				writeString(this.srs, dos);
+
+				// String
+
+				writeString(this.columnsDef, dos);
+
+				// String
+
+				writeString(this.layerName, dos);
+
+				// String
+
+				writeString(this.colName, dos);
+
+				// String
+
+				writeString(this.colType, dos);
+
+				// String
+
+				writeString(this.colPrecision, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("mdIdentifier=" + mdIdentifier);
+			sb.append(",mdLanguage=" + mdLanguage);
+			sb.append(",mdCharacterSetCode=" + mdCharacterSetCode);
+			sb.append(",ciRoleCode=" + ciRoleCode);
+			sb.append(",mdOrganisation=" + mdOrganisation);
+			sb.append(",mdVoice=" + mdVoice);
+			sb.append(",mdIndividualName=" + mdIndividualName);
+			sb.append(",mdPositionName=" + mdPositionName);
+			sb.append(",mdDeliveryPoint=" + mdDeliveryPoint);
+			sb.append(",mdCity=" + mdCity);
+			sb.append(",mdAdministrativeArea=" + mdAdministrativeArea);
+			sb.append(",mdPostalCode=" + mdPostalCode);
+			sb.append(",mdCountry=" + mdCountry);
+			sb.append(",mdEmail=" + mdEmail);
+			sb.append(",mdDate=" + mdDate);
+			sb.append(",title=" + title);
+			sb.append(",organisationName=" + organisationName);
+			sb.append(",voice=" + voice);
+			sb.append(",email=" + email);
+			sb.append(",individualName=" + individualName);
+			sb.append(",positionName=" + positionName);
+			sb.append(",deliveryPoint=" + deliveryPoint);
+			sb.append(",city=" + city);
+			sb.append(",administrativeArea=" + administrativeArea);
+			sb.append(",postalCode=" + postalCode);
+			sb.append(",country=" + country);
+			sb.append(",spatialRepresentationType=" + spatialRepresentationType);
+			sb.append(",scaleDenominator=" + scaleDenominator);
+			sb.append(",topicCategoryCode=" + topicCategoryCode);
+			sb.append(",west=" + west);
+			sb.append(",east=" + east);
+			sb.append(",south=" + south);
+			sb.append(",north=" + north);
+			sb.append(",mdMaintenanceFrequencyCode="
+					+ mdMaintenanceFrequencyCode);
+			sb.append(",keyword=" + keyword);
+			sb.append(",keyword2=" + keyword2);
+			sb.append(",keyworkd1_theme=" + keyworkd1_theme);
+			sb.append(",keyword2_theme=" + keyword2_theme);
+			sb.append(",useConstraints=" + useConstraints);
+			sb.append(",scopeCode=" + scopeCode);
+			sb.append(",lineage=" + lineage);
+			sb.append(",srs=" + srs);
+			sb.append(",columnsDef=" + columnsDef);
+			sb.append(",layerName=" + layerName);
+			sb.append(",colName=" + colName);
+			sb.append(",colType=" + colType);
+			sb.append(",colPrecision=" + colPrecision);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row4Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(),
+						object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row2Struct implements
+			routines.system.IPersistableRow<row2Struct> {
+		final static byte[] commonByteArrayLock_METADATA_GENERATOR_VectorJob = new byte[0];
+		static byte[] commonByteArray_METADATA_GENERATOR_VectorJob = new byte[0];
+
+		public String mdIdentifier;
+
+		public String getMdIdentifier() {
+			return this.mdIdentifier;
+		}
+
+		public String mdLanguage;
+
+		public String getMdLanguage() {
+			return this.mdLanguage;
+		}
+
+		public String mdCharacterSetCode;
+
+		public String getMdCharacterSetCode() {
+			return this.mdCharacterSetCode;
+		}
+
+		public String ciRoleCode;
+
+		public String getCiRoleCode() {
+			return this.ciRoleCode;
+		}
+
+		public String mdOrganisation;
+
+		public String getMdOrganisation() {
+			return this.mdOrganisation;
+		}
+
+		public String mdVoice;
+
+		public String getMdVoice() {
+			return this.mdVoice;
+		}
+
+		public String mdIndividualName;
+
+		public String getMdIndividualName() {
+			return this.mdIndividualName;
+		}
+
+		public String mdPositionName;
+
+		public String getMdPositionName() {
+			return this.mdPositionName;
+		}
+
+		public String mdDeliveryPoint;
+
+		public String getMdDeliveryPoint() {
+			return this.mdDeliveryPoint;
+		}
+
+		public String mdCity;
+
+		public String getMdCity() {
+			return this.mdCity;
+		}
+
+		public String mdAdministrativeArea;
+
+		public String getMdAdministrativeArea() {
+			return this.mdAdministrativeArea;
+		}
+
+		public String mdPostalCode;
+
+		public String getMdPostalCode() {
+			return this.mdPostalCode;
+		}
+
+		public String mdCountry;
+
+		public String getMdCountry() {
+			return this.mdCountry;
+		}
+
+		public String mdEmail;
+
+		public String getMdEmail() {
+			return this.mdEmail;
+		}
+
+		public String mdDate;
+
+		public String getMdDate() {
+			return this.mdDate;
+		}
+
+		public String title;
+
+		public String getTitle() {
+			return this.title;
+		}
+
+		public String organisationName;
+
+		public String getOrganisationName() {
+			return this.organisationName;
+		}
+
+		public String voice;
+
+		public String getVoice() {
+			return this.voice;
+		}
+
+		public String email;
+
+		public String getEmail() {
+			return this.email;
+		}
+
+		public String individualName;
+
+		public String getIndividualName() {
+			return this.individualName;
+		}
+
+		public String positionName;
+
+		public String getPositionName() {
+			return this.positionName;
+		}
+
+		public String deliveryPoint;
+
+		public String getDeliveryPoint() {
+			return this.deliveryPoint;
+		}
+
+		public String city;
+
+		public String getCity() {
+			return this.city;
+		}
+
+		public String administrativeArea;
+
+		public String getAdministrativeArea() {
+			return this.administrativeArea;
+		}
+
+		public String postalCode;
+
+		public String getPostalCode() {
+			return this.postalCode;
+		}
+
+		public String country;
+
+		public String getCountry() {
+			return this.country;
+		}
+
+		public String spatialRepresentationType;
+
+		public String getSpatialRepresentationType() {
+			return this.spatialRepresentationType;
+		}
+
+		public String scaleDenominator;
+
+		public String getScaleDenominator() {
+			return this.scaleDenominator;
+		}
+
+		public String topicCategoryCode;
+
+		public String getTopicCategoryCode() {
+			return this.topicCategoryCode;
+		}
+
+		public String west;
+
+		public String getWest() {
+			return this.west;
+		}
+
+		public String east;
+
+		public String getEast() {
+			return this.east;
+		}
+
+		public String south;
+
+		public String getSouth() {
+			return this.south;
+		}
+
+		public String north;
+
+		public String getNorth() {
+			return this.north;
+		}
+
+		public String mdMaintenanceFrequencyCode;
+
+		public String getMdMaintenanceFrequencyCode() {
+			return this.mdMaintenanceFrequencyCode;
+		}
+
+		public String keyword;
+
+		public String getKeyword() {
+			return this.keyword;
+		}
+
+		public String keyword2;
+
+		public String getKeyword2() {
+			return this.keyword2;
+		}
+
+		public String keyworkd1_theme;
+
+		public String getKeyworkd1_theme() {
+			return this.keyworkd1_theme;
+		}
+
+		public String keyword2_theme;
+
+		public String getKeyword2_theme() {
+			return this.keyword2_theme;
+		}
+
+		public String useConstraints;
+
+		public String getUseConstraints() {
+			return this.useConstraints;
+		}
+
+		public String scopeCode;
+
+		public String getScopeCode() {
+			return this.scopeCode;
+		}
+
+		public String lineage;
+
+		public String getLineage() {
+			return this.lineage;
+		}
+
+		public String srs;
+
+		public String getSrs() {
+			return this.srs;
+		}
+
+		public String columnsDef;
+
+		public String getColumnsDef() {
+			return this.columnsDef;
+		}
+
+		public String layerName;
+
+		public String getLayerName() {
+			return this.layerName;
+		}
+
+		public String bands;
+
+		public String getBands() {
+			return this.bands;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_METADATA_GENERATOR_VectorJob.length) {
+					if (length < 1024
+							&& commonByteArray_METADATA_GENERATOR_VectorJob.length == 0) {
+						commonByteArray_METADATA_GENERATOR_VectorJob = new byte[1024];
+					} else {
+						commonByteArray_METADATA_GENERATOR_VectorJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_METADATA_GENERATOR_VectorJob, 0,
+						length);
+				strReturn = new String(
+						commonByteArray_METADATA_GENERATOR_VectorJob, 0,
+						length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos)
+				throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_METADATA_GENERATOR_VectorJob) {
+
+				try {
+
+					int length = 0;
+
+					this.mdIdentifier = readString(dis);
+
+					this.mdLanguage = readString(dis);
+
+					this.mdCharacterSetCode = readString(dis);
+
+					this.ciRoleCode = readString(dis);
+
+					this.mdOrganisation = readString(dis);
+
+					this.mdVoice = readString(dis);
+
+					this.mdIndividualName = readString(dis);
+
+					this.mdPositionName = readString(dis);
+
+					this.mdDeliveryPoint = readString(dis);
+
+					this.mdCity = readString(dis);
+
+					this.mdAdministrativeArea = readString(dis);
+
+					this.mdPostalCode = readString(dis);
+
+					this.mdCountry = readString(dis);
+
+					this.mdEmail = readString(dis);
+
+					this.mdDate = readString(dis);
+
+					this.title = readString(dis);
+
+					this.organisationName = readString(dis);
+
+					this.voice = readString(dis);
+
+					this.email = readString(dis);
+
+					this.individualName = readString(dis);
+
+					this.positionName = readString(dis);
+
+					this.deliveryPoint = readString(dis);
+
+					this.city = readString(dis);
+
+					this.administrativeArea = readString(dis);
+
+					this.postalCode = readString(dis);
+
+					this.country = readString(dis);
+
+					this.spatialRepresentationType = readString(dis);
+
+					this.scaleDenominator = readString(dis);
+
+					this.topicCategoryCode = readString(dis);
+
+					this.west = readString(dis);
+
+					this.east = readString(dis);
+
+					this.south = readString(dis);
+
+					this.north = readString(dis);
+
+					this.mdMaintenanceFrequencyCode = readString(dis);
+
+					this.keyword = readString(dis);
+
+					this.keyword2 = readString(dis);
+
+					this.keyworkd1_theme = readString(dis);
+
+					this.keyword2_theme = readString(dis);
+
+					this.useConstraints = readString(dis);
+
+					this.scopeCode = readString(dis);
+
+					this.lineage = readString(dis);
+
+					this.srs = readString(dis);
+
+					this.columnsDef = readString(dis);
+
+					this.layerName = readString(dis);
+
+					this.bands = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.mdIdentifier, dos);
+
+				// String
+
+				writeString(this.mdLanguage, dos);
+
+				// String
+
+				writeString(this.mdCharacterSetCode, dos);
+
+				// String
+
+				writeString(this.ciRoleCode, dos);
+
+				// String
+
+				writeString(this.mdOrganisation, dos);
+
+				// String
+
+				writeString(this.mdVoice, dos);
+
+				// String
+
+				writeString(this.mdIndividualName, dos);
+
+				// String
+
+				writeString(this.mdPositionName, dos);
+
+				// String
+
+				writeString(this.mdDeliveryPoint, dos);
+
+				// String
+
+				writeString(this.mdCity, dos);
+
+				// String
+
+				writeString(this.mdAdministrativeArea, dos);
+
+				// String
+
+				writeString(this.mdPostalCode, dos);
+
+				// String
+
+				writeString(this.mdCountry, dos);
+
+				// String
+
+				writeString(this.mdEmail, dos);
+
+				// String
+
+				writeString(this.mdDate, dos);
+
+				// String
+
+				writeString(this.title, dos);
+
+				// String
+
+				writeString(this.organisationName, dos);
+
+				// String
+
+				writeString(this.voice, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.individualName, dos);
+
+				// String
+
+				writeString(this.positionName, dos);
+
+				// String
+
+				writeString(this.deliveryPoint, dos);
+
+				// String
+
+				writeString(this.city, dos);
+
+				// String
+
+				writeString(this.administrativeArea, dos);
+
+				// String
+
+				writeString(this.postalCode, dos);
+
+				// String
+
+				writeString(this.country, dos);
+
+				// String
+
+				writeString(this.spatialRepresentationType, dos);
+
+				// String
+
+				writeString(this.scaleDenominator, dos);
+
+				// String
+
+				writeString(this.topicCategoryCode, dos);
+
+				// String
+
+				writeString(this.west, dos);
+
+				// String
+
+				writeString(this.east, dos);
+
+				// String
+
+				writeString(this.south, dos);
+
+				// String
+
+				writeString(this.north, dos);
+
+				// String
+
+				writeString(this.mdMaintenanceFrequencyCode, dos);
+
+				// String
+
+				writeString(this.keyword, dos);
+
+				// String
+
+				writeString(this.keyword2, dos);
+
+				// String
+
+				writeString(this.keyworkd1_theme, dos);
+
+				// String
+
+				writeString(this.keyword2_theme, dos);
+
+				// String
+
+				writeString(this.useConstraints, dos);
+
+				// String
+
+				writeString(this.scopeCode, dos);
+
+				// String
+
+				writeString(this.lineage, dos);
+
+				// String
+
+				writeString(this.srs, dos);
+
+				// String
+
+				writeString(this.columnsDef, dos);
+
+				// String
+
+				writeString(this.layerName, dos);
+
+				// String
+
+				writeString(this.bands, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("mdIdentifier=" + mdIdentifier);
+			sb.append(",mdLanguage=" + mdLanguage);
+			sb.append(",mdCharacterSetCode=" + mdCharacterSetCode);
+			sb.append(",ciRoleCode=" + ciRoleCode);
+			sb.append(",mdOrganisation=" + mdOrganisation);
+			sb.append(",mdVoice=" + mdVoice);
+			sb.append(",mdIndividualName=" + mdIndividualName);
+			sb.append(",mdPositionName=" + mdPositionName);
+			sb.append(",mdDeliveryPoint=" + mdDeliveryPoint);
+			sb.append(",mdCity=" + mdCity);
+			sb.append(",mdAdministrativeArea=" + mdAdministrativeArea);
+			sb.append(",mdPostalCode=" + mdPostalCode);
+			sb.append(",mdCountry=" + mdCountry);
+			sb.append(",mdEmail=" + mdEmail);
+			sb.append(",mdDate=" + mdDate);
+			sb.append(",title=" + title);
+			sb.append(",organisationName=" + organisationName);
+			sb.append(",voice=" + voice);
+			sb.append(",email=" + email);
+			sb.append(",individualName=" + individualName);
+			sb.append(",positionName=" + positionName);
+			sb.append(",deliveryPoint=" + deliveryPoint);
+			sb.append(",city=" + city);
+			sb.append(",administrativeArea=" + administrativeArea);
+			sb.append(",postalCode=" + postalCode);
+			sb.append(",country=" + country);
+			sb.append(",spatialRepresentationType=" + spatialRepresentationType);
+			sb.append(",scaleDenominator=" + scaleDenominator);
+			sb.append(",topicCategoryCode=" + topicCategoryCode);
+			sb.append(",west=" + west);
+			sb.append(",east=" + east);
+			sb.append(",south=" + south);
+			sb.append(",north=" + north);
+			sb.append(",mdMaintenanceFrequencyCode="
+					+ mdMaintenanceFrequencyCode);
+			sb.append(",keyword=" + keyword);
+			sb.append(",keyword2=" + keyword2);
+			sb.append(",keyworkd1_theme=" + keyworkd1_theme);
+			sb.append(",keyword2_theme=" + keyword2_theme);
+			sb.append(",useConstraints=" + useConstraints);
+			sb.append(",scopeCode=" + scopeCode);
+			sb.append(",lineage=" + lineage);
+			sb.append(",srs=" + srs);
+			sb.append(",columnsDef=" + columnsDef);
+			sb.append(",layerName=" + layerName);
+			sb.append(",bands=" + bands);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(),
+						object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
 
 	}
 
@@ -1298,6 +3471,24 @@ public class VectorJob implements TalendJob {
 			return this.srs;
 		}
 
+		public String columnsDef;
+
+		public String getColumnsDef() {
+			return this.columnsDef;
+		}
+
+		public String layerName;
+
+		public String getLayerName() {
+			return this.layerName;
+		}
+
+		public String bands;
+
+		public String getBands() {
+			return this.bands;
+		}
+
 		private String readString(ObjectInputStream dis) throws IOException {
 			String strReturn = null;
 			int length = 0;
@@ -1424,6 +3615,12 @@ public class VectorJob implements TalendJob {
 					this.lineage = readString(dis);
 
 					this.srs = readString(dis);
+
+					this.columnsDef = readString(dis);
+
+					this.layerName = readString(dis);
+
+					this.bands = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1605,6 +3802,18 @@ public class VectorJob implements TalendJob {
 
 				writeString(this.srs, dos);
 
+				// String
+
+				writeString(this.columnsDef, dos);
+
+				// String
+
+				writeString(this.layerName, dos);
+
+				// String
+
+				writeString(this.bands, dos);
+
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
@@ -1659,6 +3868,9 @@ public class VectorJob implements TalendJob {
 			sb.append(",scopeCode=" + scopeCode);
 			sb.append(",lineage=" + lineage);
 			sb.append(",srs=" + srs);
+			sb.append(",columnsDef=" + columnsDef);
+			sb.append(",layerName=" + layerName);
+			sb.append(",bands=" + bands);
 			sb.append("]");
 
 			return sb.toString();
@@ -3249,6 +5461,9 @@ public class VectorJob implements TalendJob {
 				layerRowStruct fromActualFile = layerRow;
 				loggerStruct logger = new loggerStruct();
 				iso19115_3Struct iso19115_3 = new iso19115_3Struct();
+				row2Struct row2 = new row2Struct();
+				row4Struct row4 = new row4Struct();
+				row4Struct row3 = row4;
 
 				/**
 				 * [tFlowToIterate_1 begin ] start
@@ -3750,7 +5965,7 @@ public class VectorJob implements TalendJob {
 								+ "/"
 								+ new java.io.File(context.file).getName()
 								: context.file)
-								+ "_md_iso19115-3-.xml";
+								+ "_md_iso19115-3.xml";
 						Boolean alreadyExistsFile_tAFOX_2 = new java.io.File(
 								fileName_tAFOX_2).exists();
 						fileName_tAFOX_2 = new java.io.File(fileName_tAFOX_2)
@@ -3778,19 +5993,6 @@ public class VectorJob implements TalendJob {
 									.mkdirs();
 							needRoot_tAFOX_2 = true;
 						}
-
-						int currentRowCount_tAFOX_2 = 0;
-						int currentFileCount_tAFOX_2 = 0;
-						String suffix_tAFOX_2 = "";
-
-						if (fileName_tAFOX_2.substring(
-								fileName_tAFOX_2.lastIndexOf("/")).lastIndexOf(
-								".") > 0) {
-							suffix_tAFOX_2 = fileName_tAFOX_2
-									.substring(fileName_tAFOX_2
-											.lastIndexOf("."));
-						}
-						fileName_tAFOX_2 = file_tAFOX_2 + "0" + suffix_tAFOX_2;
 
 						java.util.List<java.util.List<String>> groupbyList_tAFOX_2 = new java.util.ArrayList<java.util.List<String>>();
 						java.util.Map<String, String> valueMap_tAFOX_2 = new java.util.HashMap<String, String>();
@@ -3924,6 +6126,272 @@ public class VectorJob implements TalendJob {
 
 						/**
 						 * [tAdvancedFileOutputXML_2 begin ] stop
+						 */
+
+						/**
+						 * [tLogRow_2 begin ] start
+						 */
+
+						ok_Hash.put("tLogRow_2", false);
+						start_Hash.put("tLogRow_2", System.currentTimeMillis());
+
+						currentComponent = "tLogRow_2";
+
+						int tos_count_tLogRow_2 = 0;
+
+						// /////////////////////
+
+						final String OUTPUT_FIELD_SEPARATOR_tLogRow_2 = "|";
+						java.io.PrintStream consoleOut_tLogRow_2 = null;
+
+						StringBuilder sbHeader_tLogRow_2 = new StringBuilder();
+
+						sbHeader_tLogRow_2.append("mdIdentifier");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdLanguage");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdCharacterSetCode");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("ciRoleCode");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdOrganisation");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdVoice");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdIndividualName");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdPositionName");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdDeliveryPoint");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdCity");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdAdministrativeArea");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdPostalCode");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdCountry");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdEmail");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdDate");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("title");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("organisationName");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("voice");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("email");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("individualName");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("positionName");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("deliveryPoint");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("city");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("administrativeArea");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("postalCode");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("country");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("spatialRepresentationType");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("scaleDenominator");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("topicCategoryCode");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("west");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("east");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("south");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("north");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("mdMaintenanceFrequencyCode");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("keyword");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("keyword2");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("keyworkd1_theme");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("keyword2_theme");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("useConstraints");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("scopeCode");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("lineage");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("srs");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("columnsDef");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("layerName");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("colName");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("colType");
+
+						sbHeader_tLogRow_2.append("\t");
+
+						sbHeader_tLogRow_2.append("colPrecision");
+
+						if (globalMap.get("tLogRow_CONSOLE") != null) {
+							consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap
+									.get("tLogRow_CONSOLE");
+						} else {
+							consoleOut_tLogRow_2 = new java.io.PrintStream(
+									new java.io.BufferedOutputStream(System.out));
+							globalMap.put("tLogRow_CONSOLE",
+									consoleOut_tLogRow_2);
+						}
+
+						consoleOut_tLogRow_2.println(sbHeader_tLogRow_2
+								.toString());
+						consoleOut_tLogRow_2.flush();
+
+						StringBuilder strBuffer_tLogRow_2 = null;
+						int nb_line_tLogRow_2 = 0;
+						// /////////////////////
+
+						/**
+						 * [tLogRow_2 begin ] stop
+						 */
+
+						/**
+						 * [tExtractDelimitedFields_3 begin ] start
+						 */
+
+						ok_Hash.put("tExtractDelimitedFields_3", false);
+						start_Hash.put("tExtractDelimitedFields_3",
+								System.currentTimeMillis());
+
+						currentComponent = "tExtractDelimitedFields_3";
+
+						int tos_count_tExtractDelimitedFields_3 = 0;
+
+						int nb_line_tExtractDelimitedFields_3 = 0;
+
+						/**
+						 * [tExtractDelimitedFields_3 begin ] stop
+						 */
+
+						/**
+						 * [tNormalize_1 begin ] start
+						 */
+
+						ok_Hash.put("tNormalize_1", false);
+						start_Hash.put("tNormalize_1",
+								System.currentTimeMillis());
+
+						currentComponent = "tNormalize_1";
+
+						int tos_count_tNormalize_1 = 0;
+
+						int nb_line_tNormalize_1 = 0;
+						String tmp_tNormalize_1 = null;
+						StringBuilder currentRecord_tNormalize_1 = null;
+						String[] normalizeRecord_tNormalize_1 = null;
+						java.util.Set<String> recordSet_tNormalize_1 = new java.util.HashSet<String>();
+
+						/**
+						 * [tNormalize_1 begin ] stop
 						 */
 
 						/**
@@ -4967,6 +7435,9 @@ public class VectorJob implements TalendJob {
 										iso19115_3_tmp.scopeCode = null;
 										iso19115_3_tmp.lineage = null;
 										iso19115_3_tmp.srs = Var.srs;
+										iso19115_3_tmp.columnsDef = fromActualFile.columns_def;
+										iso19115_3_tmp.layerName = fromActualFile.layer_name;
+										iso19115_3_tmp.bands = null;
 										iso19115_3 = iso19115_3_tmp;
 										// ###############################
 
@@ -5023,3115 +7494,4357 @@ public class VectorJob implements TalendJob {
 									if (iso19115_3 != null) {
 
 										/**
-										 * [tAdvancedFileOutputXML_2 main ]
-										 * start
+										 * [tNormalize_1 main ] start
 										 */
 
-										currentComponent = "tAdvancedFileOutputXML_2";
+										currentComponent = "tNormalize_1";
 
-										nb_line_tAFOX_2++;
-										valueMap_tAFOX_2.clear();
-										valueMap_tAFOX_2
-												.put("mdIdentifier",
-														(iso19115_3.mdIdentifier != null ? iso19115_3.mdIdentifier
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdLanguage",
-														(iso19115_3.mdLanguage != null ? iso19115_3.mdLanguage
-																.toString()
-																: "eng"));
-										valueMap_tAFOX_2
-												.put("mdCharacterSetCode",
-														(iso19115_3.mdCharacterSetCode != null ? iso19115_3.mdCharacterSetCode
-																.toString()
-																: "utf-8"));
-										valueMap_tAFOX_2
-												.put("ciRoleCode",
-														(iso19115_3.ciRoleCode != null ? iso19115_3.ciRoleCode
-																.toString()
-																: "pointOfContact"));
-										valueMap_tAFOX_2
-												.put("mdOrganisation",
-														(iso19115_3.mdOrganisation != null ? iso19115_3.mdOrganisation
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdVoice",
-														(iso19115_3.mdVoice != null ? iso19115_3.mdVoice
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdIndividualName",
-														(iso19115_3.mdIndividualName != null ? iso19115_3.mdIndividualName
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdPositionName",
-														(iso19115_3.mdPositionName != null ? iso19115_3.mdPositionName
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdDeliveryPoint",
-														(iso19115_3.mdDeliveryPoint != null ? iso19115_3.mdDeliveryPoint
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdCity",
-														(iso19115_3.mdCity != null ? iso19115_3.mdCity
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdAdministrativeArea",
-														(iso19115_3.mdAdministrativeArea != null ? iso19115_3.mdAdministrativeArea
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdPostalCode",
-														(iso19115_3.mdPostalCode != null ? iso19115_3.mdPostalCode
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdCountry",
-														(iso19115_3.mdCountry != null ? iso19115_3.mdCountry
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdEmail",
-														(iso19115_3.mdEmail != null ? iso19115_3.mdEmail
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdDate",
-														(iso19115_3.mdDate != null ? iso19115_3.mdDate
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("title",
-														(iso19115_3.title != null ? iso19115_3.title
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("organisationName",
-														(iso19115_3.organisationName != null ? iso19115_3.organisationName
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("voice",
-														(iso19115_3.voice != null ? iso19115_3.voice
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("email",
-														(iso19115_3.email != null ? iso19115_3.email
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("individualName",
-														(iso19115_3.individualName != null ? iso19115_3.individualName
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("positionName",
-														(iso19115_3.positionName != null ? iso19115_3.positionName
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("deliveryPoint",
-														(iso19115_3.deliveryPoint != null ? iso19115_3.deliveryPoint
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("city",
-														(iso19115_3.city != null ? iso19115_3.city
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("administrativeArea",
-														(iso19115_3.administrativeArea != null ? iso19115_3.administrativeArea
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("postalCode",
-														(iso19115_3.postalCode != null ? iso19115_3.postalCode
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("country",
-														(iso19115_3.country != null ? iso19115_3.country
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("spatialRepresentationType",
-														(iso19115_3.spatialRepresentationType != null ? iso19115_3.spatialRepresentationType
-																.toString()
-																: "vector"));
-										valueMap_tAFOX_2
-												.put("scaleDenominator",
-														(iso19115_3.scaleDenominator != null ? iso19115_3.scaleDenominator
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("topicCategoryCode",
-														(iso19115_3.topicCategoryCode != null ? iso19115_3.topicCategoryCode
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("west",
-														(iso19115_3.west != null ? iso19115_3.west
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("east",
-														(iso19115_3.east != null ? iso19115_3.east
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("south",
-														(iso19115_3.south != null ? iso19115_3.south
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("north",
-														(iso19115_3.north != null ? iso19115_3.north
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("mdMaintenanceFrequencyCode",
-														(iso19115_3.mdMaintenanceFrequencyCode != null ? iso19115_3.mdMaintenanceFrequencyCode
-																.toString()
-																: "asNeeded"));
-										valueMap_tAFOX_2
-												.put("keyword",
-														(iso19115_3.keyword != null ? iso19115_3.keyword
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("keyword2",
-														(iso19115_3.keyword2 != null ? iso19115_3.keyword2
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("keyworkd1_theme",
-														(iso19115_3.keyworkd1_theme != null ? iso19115_3.keyworkd1_theme
-																.toString()
-																: "theme"));
-										valueMap_tAFOX_2
-												.put("keyword2_theme",
-														(iso19115_3.keyword2_theme != null ? iso19115_3.keyword2_theme
-																.toString()
-																: "place"));
-										valueMap_tAFOX_2
-												.put("useConstraints",
-														(iso19115_3.useConstraints != null ? iso19115_3.useConstraints
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("scopeCode",
-														(iso19115_3.scopeCode != null ? iso19115_3.scopeCode
-																.toString()
-																: "dataset"));
-										valueMap_tAFOX_2
-												.put("lineage",
-														(iso19115_3.lineage != null ? iso19115_3.lineage
-																.toString()
-																: null));
-										valueMap_tAFOX_2
-												.put("srs",
-														(iso19115_3.srs != null ? iso19115_3.srs
-																.toString()
-																: "EPSG:4326"));
-										org.dom4j.Element subTreeRootParent_tAFOX_2 = null;
+										normalizeRecord_tNormalize_1 = new String[1];
+										if (iso19115_3.columnsDef != null) {
+											if ("".equals(iso19115_3.columnsDef)) {
+												normalizeRecord_tNormalize_1[0] = "";
+											} else {
 
-										// build root xml tree
-										if (needRoot_tAFOX_2) {
-											needRoot_tAFOX_2 = false;
-											if (orders_tAFOX_2.length > 0) {
-												orders_tAFOX_2[0] = 0;
-											}
-											org.dom4j.Element root_tAFOX_2 = doc_tAFOX_2
-													.addElement("mdb:MD_Metadata");
-											root_tAFOX_2
-													.addNamespace(
-															"mrl",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrl/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mrd",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrd/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mco",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mco/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mmi",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mmi/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"gml",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.opengis.net/gml/3.2"));
-											root_tAFOX_2
-													.addNamespace(
-															"gex",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/gex/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mri",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mri/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mrs",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrs/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"cit",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/cit/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"lan",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/lan/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"gco",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/2005/gco"));
-											root_tAFOX_2
-													.addNamespace(
-															"mcc",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mcc/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mdb",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mdb/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"xsi",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.w3.org/2001/XMLSchema-instance"));
-											root_tAFOX_2
-													.addAttribute(
-															"xsi:schemaLocation",
-															"http://www.isotc211.org/namespace/mdb/1.0/2014-07-11 ../schema.xsd");
-											root_tAFOX_2
-													.setName("mdb:MD_Metadata");
-											org.dom4j.Element root_0_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_0_tAFOX_2 = root_tAFOX_2
-														.addElement("metadataIdentifier");
-											} else {
-												root_0_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:metadataIdentifier");
-											}
-											root_0_tAFOX_2
-													.setName("mdb:metadataIdentifier");
-											org.dom4j.Element root_0_0_tAFOX_2;
-											if (root_0_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_0_0_tAFOX_2 = root_0_tAFOX_2
-														.addElement("MD_Identifier");
-											} else {
-												root_0_0_tAFOX_2 = root_0_tAFOX_2
-														.addElement("mcc:MD_Identifier");
-											}
-											root_0_0_tAFOX_2
-													.setName("mcc:MD_Identifier");
-											org.dom4j.Element root_0_0_0_tAFOX_2;
-											if (root_0_0_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_0_0_0_tAFOX_2 = root_0_0_tAFOX_2
-														.addElement("code");
-											} else {
-												root_0_0_0_tAFOX_2 = root_0_0_tAFOX_2
-														.addElement("mcc:code");
-											}
-											root_0_0_0_tAFOX_2
-													.setName("mcc:code");
-											org.dom4j.Element root_0_0_0_0_tAFOX_2;
-											if (root_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_0_0_0_0_tAFOX_2 = root_0_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_0_0_0_0_tAFOX_2 = root_0_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdIdentifier") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdIdentifier"));
-											}
-											root_0_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_0_0_1_tAFOX_2;
-											if (root_0_0_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_0_0_1_tAFOX_2 = root_0_0_tAFOX_2
-														.addElement("codeSpace");
-											} else {
-												root_0_0_1_tAFOX_2 = root_0_0_tAFOX_2
-														.addElement("mcc:codeSpace");
-											}
-											root_0_0_1_tAFOX_2
-													.setName("mcc:codeSpace");
-											org.dom4j.Element root_0_0_1_0_tAFOX_2;
-											if (root_0_0_1_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_0_0_1_0_tAFOX_2 = root_0_0_1_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_0_0_1_0_tAFOX_2 = root_0_0_1_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											nestXMLTool_tAFOX_2.parseAndAdd(
-													root_0_0_1_0_tAFOX_2,
-													"urn:uuid");
+												normalizeRecord_tNormalize_1 = iso19115_3.columnsDef
+														.split("\\|", -1);
 
-											root_0_0_1_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_1_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_1_tAFOX_2 = root_tAFOX_2
-														.addElement("defaultLocale");
-											} else {
-												root_1_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:defaultLocale");
 											}
-											root_1_tAFOX_2
-													.setName("mdb:defaultLocale");
-											org.dom4j.Element root_1_0_tAFOX_2;
-											if (root_1_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_1_0_tAFOX_2 = root_1_tAFOX_2
-														.addElement("PT_Locale");
-											} else {
-												root_1_0_tAFOX_2 = root_1_tAFOX_2
-														.addElement("lan:PT_Locale");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdLanguage") != null) {
-												root_1_0_tAFOX_2
-														.addAttribute(
-																"id",
-																valueMap_tAFOX_2
-																		.get("mdLanguage"));
-											}
-											root_1_0_tAFOX_2
-													.setName("lan:PT_Locale");
-											org.dom4j.Element root_1_0_0_tAFOX_2;
-											if (root_1_0_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_1_0_0_tAFOX_2 = root_1_0_tAFOX_2
-														.addElement("language");
-											} else {
-												root_1_0_0_tAFOX_2 = root_1_0_tAFOX_2
-														.addElement("lan:language");
-											}
-											root_1_0_0_tAFOX_2
-													.setName("lan:language");
-											org.dom4j.Element root_1_0_0_0_tAFOX_2;
-											if (root_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_1_0_0_0_tAFOX_2 = root_1_0_0_tAFOX_2
-														.addElement("LanguageCode");
-											} else {
-												root_1_0_0_0_tAFOX_2 = root_1_0_0_tAFOX_2
-														.addElement("lan:LanguageCode");
-											}
-											root_1_0_0_0_tAFOX_2
-													.addAttribute("codeList",
-															"http://www.loc.gov/standards/iso639-2/");
-											if (valueMap_tAFOX_2
-													.get("mdLanguage") != null) {
-												root_1_0_0_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("mdLanguage"));
-											}
-											root_1_0_0_0_tAFOX_2
-													.setName("lan:LanguageCode");
-											org.dom4j.Element root_1_0_1_tAFOX_2;
-											if (root_1_0_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_1_0_1_tAFOX_2 = root_1_0_tAFOX_2
-														.addElement("characterEncoding");
-											} else {
-												root_1_0_1_tAFOX_2 = root_1_0_tAFOX_2
-														.addElement("lan:characterEncoding");
-											}
-											root_1_0_1_tAFOX_2
-													.setName("lan:characterEncoding");
-											org.dom4j.Element root_1_0_1_0_tAFOX_2;
-											if (root_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_1_0_1_0_tAFOX_2 = root_1_0_1_tAFOX_2
-														.addElement("MD_CharacterSetCode");
-											} else {
-												root_1_0_1_0_tAFOX_2 = root_1_0_1_tAFOX_2
-														.addElement("lan:MD_CharacterSetCode");
-											}
-											root_1_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode");
-											if (valueMap_tAFOX_2
-													.get("mdCharacterSetCode") != null) {
-												root_1_0_1_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("mdCharacterSetCode"));
-											}
-											root_1_0_1_0_tAFOX_2
-													.setName("lan:MD_CharacterSetCode");
-											org.dom4j.Element root_2_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_2_tAFOX_2 = root_tAFOX_2
-														.addElement("contact");
-											} else {
-												root_2_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:contact");
-											}
-											root_2_tAFOX_2
-													.setName("mdb:contact");
-											org.dom4j.Element root_2_0_tAFOX_2;
-											if (root_2_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_tAFOX_2 = root_2_tAFOX_2
-														.addElement("CI_Responsibility");
-											} else {
-												root_2_0_tAFOX_2 = root_2_tAFOX_2
-														.addElement("cit:CI_Responsibility");
-											}
-											root_2_0_tAFOX_2
-													.setName("cit:CI_Responsibility");
-											org.dom4j.Element root_2_0_0_tAFOX_2;
-											if (root_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_0_tAFOX_2 = root_2_0_tAFOX_2
-														.addElement("role");
-											} else {
-												root_2_0_0_tAFOX_2 = root_2_0_tAFOX_2
-														.addElement("cit:role");
-											}
-											root_2_0_0_tAFOX_2
-													.setName("cit:role");
-											org.dom4j.Element root_2_0_0_0_tAFOX_2;
-											if (root_2_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_0_0_tAFOX_2 = root_2_0_0_tAFOX_2
-														.addElement("CI_RoleCode");
-											} else {
-												root_2_0_0_0_tAFOX_2 = root_2_0_0_tAFOX_2
-														.addElement("cit:CI_RoleCode");
-											}
-											root_2_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode");
-											if (valueMap_tAFOX_2
-													.get("ciRoleCode") != null) {
-												root_2_0_0_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("ciRoleCode"));
-											}
-											root_2_0_0_0_tAFOX_2
-													.setName("cit:CI_RoleCode");
-											org.dom4j.Element root_2_0_1_tAFOX_2;
-											if (root_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_tAFOX_2 = root_2_0_tAFOX_2
-														.addElement("party");
-											} else {
-												root_2_0_1_tAFOX_2 = root_2_0_tAFOX_2
-														.addElement("cit:party");
-											}
-											root_2_0_1_tAFOX_2
-													.setName("cit:party");
-											org.dom4j.Element root_2_0_1_0_tAFOX_2;
-											if (root_2_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_tAFOX_2 = root_2_0_1_tAFOX_2
-														.addElement("CI_Organisation");
-											} else {
-												root_2_0_1_0_tAFOX_2 = root_2_0_1_tAFOX_2
-														.addElement("cit:CI_Organisation");
-											}
-											root_2_0_1_0_tAFOX_2
-													.setName("cit:CI_Organisation");
-											org.dom4j.Element root_2_0_1_0_0_tAFOX_2;
-											if (root_2_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_0_tAFOX_2 = root_2_0_1_0_tAFOX_2
-														.addElement("name");
-											} else {
-												root_2_0_1_0_0_tAFOX_2 = root_2_0_1_0_tAFOX_2
-														.addElement("cit:name");
-											}
-											root_2_0_1_0_0_tAFOX_2
-													.setName("cit:name");
-											org.dom4j.Element root_2_0_1_0_0_0_tAFOX_2;
-											if (root_2_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdOrganisation") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdOrganisation"));
-											}
-											root_2_0_1_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_1_tAFOX_2;
-											if (root_2_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_tAFOX_2 = root_2_0_1_0_tAFOX_2
-														.addElement("contactInfo");
-											} else {
-												root_2_0_1_0_1_tAFOX_2 = root_2_0_1_0_tAFOX_2
-														.addElement("cit:contactInfo");
-											}
-											root_2_0_1_0_1_tAFOX_2
-													.setName("cit:contactInfo");
-											org.dom4j.Element root_2_0_1_0_1_0_tAFOX_2;
-											if (root_2_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_tAFOX_2
-														.addElement("CI_Contact");
-											} else {
-												root_2_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_tAFOX_2
-														.addElement("cit:CI_Contact");
-											}
-											root_2_0_1_0_1_0_tAFOX_2
-													.setName("cit:CI_Contact");
-											org.dom4j.Element root_2_0_1_0_1_0_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
-														.addElement("phone");
-											} else {
-												root_2_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
-														.addElement("cit:phone");
-											}
-											root_2_0_1_0_1_0_0_tAFOX_2
-													.setName("cit:phone");
-											org.dom4j.Element root_2_0_1_0_1_0_0_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_tAFOX_2
-														.addElement("CI_Telephone");
-											} else {
-												root_2_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_tAFOX_2
-														.addElement("cit:CI_Telephone");
-											}
-											root_2_0_1_0_1_0_0_0_tAFOX_2
-													.setName("cit:CI_Telephone");
-											org.dom4j.Element root_2_0_1_0_1_0_0_0_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("number");
-											} else {
-												root_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:number");
-											}
-											root_2_0_1_0_1_0_0_0_0_tAFOX_2
-													.setName("cit:number");
-											org.dom4j.Element root_2_0_1_0_1_0_0_0_0_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("mdVoice") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_1_0_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdVoice"));
-											}
-											root_2_0_1_0_1_0_0_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_1_0_0_0_1_tAFOX_2;
-											if (root_2_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("numberType");
-											} else {
-												root_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:numberType");
-											}
-											root_2_0_1_0_1_0_0_0_1_tAFOX_2
-													.setName("cit:numberType");
-											org.dom4j.Element root_2_0_1_0_1_0_0_0_1_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_0_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_1_tAFOX_2
-														.addElement("CI_TelephoneTypeCode");
-											} else {
-												root_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_1_tAFOX_2
-														.addElement("cit:CI_TelephoneTypeCode");
-											}
-											root_2_0_1_0_1_0_0_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_TelephoneTypeCode");
-											root_2_0_1_0_1_0_0_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"voice");
-											root_2_0_1_0_1_0_0_0_1_0_tAFOX_2
-													.setName("cit:CI_TelephoneTypeCode");
-											org.dom4j.Element root_2_0_1_0_1_0_1_tAFOX_2;
-											if (root_2_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
-														.addElement("address");
-											} else {
-												root_2_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
-														.addElement("cit:address");
-											}
-											root_2_0_1_0_1_0_1_tAFOX_2
-													.setName("cit:address");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_tAFOX_2
-														.addElement("CI_Address");
-											} else {
-												root_2_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_tAFOX_2
-														.addElement("cit:CI_Address");
-											}
-											root_2_0_1_0_1_0_1_0_tAFOX_2
-													.setName("cit:CI_Address");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("deliveryPoint");
-											} else {
-												root_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("cit:deliveryPoint");
-											}
-											root_2_0_1_0_1_0_1_0_0_tAFOX_2
-													.setName("cit:deliveryPoint");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_0_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdDeliveryPoint") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_1_0_1_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdDeliveryPoint"));
-											}
-											root_2_0_1_0_1_0_1_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_1_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("city");
-											} else {
-												root_2_0_1_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("cit:city");
-											}
-											root_2_0_1_0_1_0_1_0_1_tAFOX_2
-													.setName("cit:city");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_1_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_1_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_1_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("mdCity") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_1_0_1_0_1_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdCity"));
-											}
-											root_2_0_1_0_1_0_1_0_1_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_2_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_0_2_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("administrativeArea");
-											} else {
-												root_2_0_1_0_1_0_1_0_2_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("cit:administrativeArea");
-											}
-											root_2_0_1_0_1_0_1_0_2_tAFOX_2
-													.setName("cit:administrativeArea");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_2_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_2_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_1_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_2_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_1_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_2_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdAdministrativeArea") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_1_0_1_0_2_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdAdministrativeArea"));
-											}
-											root_2_0_1_0_1_0_1_0_2_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_3_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_0_3_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("postalCode");
-											} else {
-												root_2_0_1_0_1_0_1_0_3_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("cit:postalCode");
-											}
-											root_2_0_1_0_1_0_1_0_3_tAFOX_2
-													.setName("cit:postalCode");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_3_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_3_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_1_0_1_0_3_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_3_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_1_0_1_0_3_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_3_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdPostalCode") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_1_0_1_0_3_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdPostalCode"));
-											}
-											root_2_0_1_0_1_0_1_0_3_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_4_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_0_4_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("country");
-											} else {
-												root_2_0_1_0_1_0_1_0_4_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("cit:country");
-											}
-											root_2_0_1_0_1_0_1_0_4_tAFOX_2
-													.setName("cit:country");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_4_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_4_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_1_0_1_0_4_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_4_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_1_0_1_0_4_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_4_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdCountry") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_1_0_1_0_4_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdCountry"));
-											}
-											root_2_0_1_0_1_0_1_0_4_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_5_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_1_0_1_0_5_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("electronicMailAddress");
-											} else {
-												root_2_0_1_0_1_0_1_0_5_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("cit:electronicMailAddress");
-											}
-											root_2_0_1_0_1_0_1_0_5_tAFOX_2
-													.setName("cit:electronicMailAddress");
-											org.dom4j.Element root_2_0_1_0_1_0_1_0_5_0_tAFOX_2;
-											if (root_2_0_1_0_1_0_1_0_5_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_1_0_1_0_5_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_5_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_1_0_1_0_5_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_5_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("mdEmail") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_1_0_1_0_5_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdEmail"));
-											}
-											root_2_0_1_0_1_0_1_0_5_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_2_tAFOX_2;
-											if (root_2_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_2_tAFOX_2 = root_2_0_1_0_tAFOX_2
-														.addElement("individual");
-											} else {
-												root_2_0_1_0_2_tAFOX_2 = root_2_0_1_0_tAFOX_2
-														.addElement("cit:individual");
-											}
-											root_2_0_1_0_2_tAFOX_2
-													.setName("cit:individual");
-											org.dom4j.Element root_2_0_1_0_2_0_tAFOX_2;
-											if (root_2_0_1_0_2_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_2_tAFOX_2
-														.addElement("CI_Individual");
-											} else {
-												root_2_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_2_tAFOX_2
-														.addElement("cit:CI_Individual");
-											}
-											root_2_0_1_0_2_0_tAFOX_2
-													.setName("cit:CI_Individual");
-											org.dom4j.Element root_2_0_1_0_2_0_0_tAFOX_2;
-											if (root_2_0_1_0_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_2_0_0_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
-														.addElement("name");
-											} else {
-												root_2_0_1_0_2_0_0_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
-														.addElement("cit:name");
-											}
-											root_2_0_1_0_2_0_0_tAFOX_2
-													.setName("cit:name");
-											org.dom4j.Element root_2_0_1_0_2_0_0_0_tAFOX_2;
-											if (root_2_0_1_0_2_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_2_0_0_0_tAFOX_2 = root_2_0_1_0_2_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_2_0_0_0_tAFOX_2 = root_2_0_1_0_2_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdIndividualName") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_2_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdIndividualName"));
-											}
-											root_2_0_1_0_2_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_2_0_1_0_2_0_1_tAFOX_2;
-											if (root_2_0_1_0_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_2_0_1_0_2_0_1_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
-														.addElement("positionName");
-											} else {
-												root_2_0_1_0_2_0_1_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
-														.addElement("cit:positionName");
-											}
-											root_2_0_1_0_2_0_1_tAFOX_2
-													.setName("cit:positionName");
-											org.dom4j.Element root_2_0_1_0_2_0_1_0_tAFOX_2;
-											if (root_2_0_1_0_2_0_1_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_2_0_1_0_2_0_1_0_tAFOX_2 = root_2_0_1_0_2_0_1_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_2_0_1_0_2_0_1_0_tAFOX_2 = root_2_0_1_0_2_0_1_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdPositionName") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_2_0_1_0_2_0_1_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdPositionName"));
-											}
-											root_2_0_1_0_2_0_1_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_3_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_3_tAFOX_2 = root_tAFOX_2
-														.addElement("dateInfo");
-											} else {
-												root_3_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:dateInfo");
-											}
-											root_3_tAFOX_2
-													.setName("mdb:dateInfo");
-											org.dom4j.Element root_3_0_tAFOX_2;
-											if (root_3_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_3_0_tAFOX_2 = root_3_tAFOX_2
-														.addElement("CI_Date");
-											} else {
-												root_3_0_tAFOX_2 = root_3_tAFOX_2
-														.addElement("cit:CI_Date");
-											}
-											root_3_0_tAFOX_2
-													.setName("cit:CI_Date");
-											org.dom4j.Element root_3_0_0_tAFOX_2;
-											if (root_3_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_3_0_0_tAFOX_2 = root_3_0_tAFOX_2
-														.addElement("date");
-											} else {
-												root_3_0_0_tAFOX_2 = root_3_0_tAFOX_2
-														.addElement("cit:date");
-											}
-											root_3_0_0_tAFOX_2
-													.setName("cit:date");
-											org.dom4j.Element root_3_0_0_0_tAFOX_2;
-											if (root_3_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_3_0_0_0_tAFOX_2 = root_3_0_0_tAFOX_2
-														.addElement("DateTime");
-											} else {
-												root_3_0_0_0_tAFOX_2 = root_3_0_0_tAFOX_2
-														.addElement("gco:DateTime");
-											}
-											if (valueMap_tAFOX_2.get("mdDate") != null) {
-												nestXMLTool_tAFOX_2.setText(
-														root_3_0_0_0_tAFOX_2,
-														valueMap_tAFOX_2
-																.get("mdDate"));
-											}
-											root_3_0_0_0_tAFOX_2
-													.setName("gco:DateTime");
-											org.dom4j.Element root_3_0_1_tAFOX_2;
-											if (root_3_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_3_0_1_tAFOX_2 = root_3_0_tAFOX_2
-														.addElement("dateType");
-											} else {
-												root_3_0_1_tAFOX_2 = root_3_0_tAFOX_2
-														.addElement("cit:dateType");
-											}
-											root_3_0_1_tAFOX_2
-													.setName("cit:dateType");
-											org.dom4j.Element root_3_0_1_0_tAFOX_2;
-											if (root_3_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_3_0_1_0_tAFOX_2 = root_3_0_1_tAFOX_2
-														.addElement("CI_DateTypeCode");
-											} else {
-												root_3_0_1_0_tAFOX_2 = root_3_0_1_tAFOX_2
-														.addElement("cit:CI_DateTypeCode");
-											}
-											root_3_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode");
-											root_3_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"creation");
-											root_3_0_1_0_tAFOX_2
-													.setName("cit:CI_DateTypeCode");
-											org.dom4j.Element root_4_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_4_tAFOX_2 = root_tAFOX_2
-														.addElement("metadataStandard");
-											} else {
-												root_4_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:metadataStandard");
-											}
-											root_4_tAFOX_2
-													.setName("mdb:metadataStandard");
-											org.dom4j.Element root_4_0_tAFOX_2;
-											if (root_4_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_4_0_tAFOX_2 = root_4_tAFOX_2
-														.addElement("CI_Citation");
-											} else {
-												root_4_0_tAFOX_2 = root_4_tAFOX_2
-														.addElement("cit:CI_Citation");
-											}
-											root_4_0_tAFOX_2
-													.setName("cit:CI_Citation");
-											org.dom4j.Element root_4_0_0_tAFOX_2;
-											if (root_4_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_4_0_0_tAFOX_2 = root_4_0_tAFOX_2
-														.addElement("title");
-											} else {
-												root_4_0_0_tAFOX_2 = root_4_0_tAFOX_2
-														.addElement("cit:title");
-											}
-											root_4_0_0_tAFOX_2
-													.setName("cit:title");
-											org.dom4j.Element root_4_0_0_0_tAFOX_2;
-											if (root_4_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_4_0_0_0_tAFOX_2 = root_4_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_4_0_0_0_tAFOX_2 = root_4_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											nestXMLTool_tAFOX_2.parseAndAdd(
-													root_4_0_0_0_tAFOX_2,
-													"ISO 19115-3");
+										}
+										int lastNoEmptyIndex_tNormalize_1 = normalizeRecord_tNormalize_1.length;
 
-											root_4_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_5_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_5_tAFOX_2 = root_tAFOX_2
-														.addElement("referenceSystemInfo");
-											} else {
-												root_5_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:referenceSystemInfo");
-											}
-											root_5_tAFOX_2
-													.setName("mdb:referenceSystemInfo");
-											org.dom4j.Element root_5_0_tAFOX_2;
-											if (root_5_tAFOX_2
-													.getNamespaceForPrefix("mrs") == null) {
-												root_5_0_tAFOX_2 = root_5_tAFOX_2
-														.addElement("MD_ReferenceSystem");
-											} else {
-												root_5_0_tAFOX_2 = root_5_tAFOX_2
-														.addElement("mrs:MD_ReferenceSystem");
-											}
-											root_5_0_tAFOX_2
-													.setName("mrs:MD_ReferenceSystem");
-											org.dom4j.Element root_5_0_0_tAFOX_2;
-											if (root_5_0_tAFOX_2
-													.getNamespaceForPrefix("mrs") == null) {
-												root_5_0_0_tAFOX_2 = root_5_0_tAFOX_2
-														.addElement("referenceSystemIdentifier");
-											} else {
-												root_5_0_0_tAFOX_2 = root_5_0_tAFOX_2
-														.addElement("mrs:referenceSystemIdentifier");
-											}
-											root_5_0_0_tAFOX_2
-													.setName("mrs:referenceSystemIdentifier");
-											org.dom4j.Element root_5_0_0_0_tAFOX_2;
-											if (root_5_0_0_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_5_0_0_0_tAFOX_2 = root_5_0_0_tAFOX_2
-														.addElement("MD_Identifier");
-											} else {
-												root_5_0_0_0_tAFOX_2 = root_5_0_0_tAFOX_2
-														.addElement("mcc:MD_Identifier");
-											}
-											root_5_0_0_0_tAFOX_2
-													.setName("mcc:MD_Identifier");
-											org.dom4j.Element root_5_0_0_0_0_tAFOX_2;
-											if (root_5_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_5_0_0_0_0_tAFOX_2 = root_5_0_0_0_tAFOX_2
-														.addElement("code");
-											} else {
-												root_5_0_0_0_0_tAFOX_2 = root_5_0_0_0_tAFOX_2
-														.addElement("mcc:code");
-											}
-											root_5_0_0_0_0_tAFOX_2
-													.setName("mcc:code");
-											org.dom4j.Element root_5_0_0_0_0_0_tAFOX_2;
-											if (root_5_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_5_0_0_0_0_0_tAFOX_2 = root_5_0_0_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_5_0_0_0_0_0_tAFOX_2 = root_5_0_0_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("srs") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_5_0_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("srs"));
-											}
-											root_5_0_0_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_6_tAFOX_2 = root_tAFOX_2
-														.addElement("identificationInfo");
-											} else {
-												root_6_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:identificationInfo");
-											}
-											root_6_tAFOX_2
-													.setName("mdb:identificationInfo");
-											org.dom4j.Element root_6_0_tAFOX_2;
-											if (root_6_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_tAFOX_2 = root_6_tAFOX_2
-														.addElement("MD_DataIdentification");
-											} else {
-												root_6_0_tAFOX_2 = root_6_tAFOX_2
-														.addElement("mri:MD_DataIdentification");
-											}
-											subTreeRootParent_tAFOX_2 = root_6_0_tAFOX_2;
-											root_6_0_tAFOX_2
-													.setName("mri:MD_DataIdentification");
-											org.dom4j.Element root_6_0_0_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_0_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("citation");
-											} else {
-												root_6_0_0_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:citation");
-											}
-											root_6_0_0_tAFOX_2
-													.setName("mri:citation");
-											org.dom4j.Element root_6_0_0_0_tAFOX_2;
-											if (root_6_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_tAFOX_2 = root_6_0_0_tAFOX_2
-														.addElement("CI_Citation");
-											} else {
-												root_6_0_0_0_tAFOX_2 = root_6_0_0_tAFOX_2
-														.addElement("cit:CI_Citation");
-											}
-											root_6_0_0_0_tAFOX_2
-													.setName("cit:CI_Citation");
-											org.dom4j.Element root_6_0_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_0_tAFOX_2 = root_6_0_0_0_tAFOX_2
-														.addElement("title");
-											} else {
-												root_6_0_0_0_0_tAFOX_2 = root_6_0_0_0_tAFOX_2
-														.addElement("cit:title");
-											}
-											root_6_0_0_0_0_tAFOX_2
-													.setName("cit:title");
-											org.dom4j.Element root_6_0_0_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("title") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("title"));
-											}
-											root_6_0_0_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_0_0_1_tAFOX_2;
-											if (root_6_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_1_tAFOX_2 = root_6_0_0_0_tAFOX_2
-														.addElement("date");
-											} else {
-												root_6_0_0_0_1_tAFOX_2 = root_6_0_0_0_tAFOX_2
-														.addElement("cit:date");
-											}
-											root_6_0_0_0_1_tAFOX_2
-													.setName("cit:date");
-											org.dom4j.Element root_6_0_0_0_1_0_tAFOX_2;
-											if (root_6_0_0_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_1_tAFOX_2
-														.addElement("CI_Date");
-											} else {
-												root_6_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_1_tAFOX_2
-														.addElement("cit:CI_Date");
-											}
-											root_6_0_0_0_1_0_tAFOX_2
-													.setName("cit:CI_Date");
-											org.dom4j.Element root_6_0_0_0_1_0_0_tAFOX_2;
-											if (root_6_0_0_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_1_0_0_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
-														.addElement("date");
-											} else {
-												root_6_0_0_0_1_0_0_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
-														.addElement("cit:date");
-											}
-											root_6_0_0_0_1_0_0_tAFOX_2
-													.setName("cit:date");
-											org.dom4j.Element root_6_0_0_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_0_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_1_0_0_tAFOX_2
-														.addElement("Date");
-											} else {
-												root_6_0_0_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_1_0_0_tAFOX_2
-														.addElement("gco:Date");
-											}
-											if (valueMap_tAFOX_2.get("mdDate") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_0_0_1_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("mdDate"));
-											}
-											root_6_0_0_0_1_0_0_0_tAFOX_2
-													.setName("gco:Date");
-											org.dom4j.Element root_6_0_0_0_1_0_1_tAFOX_2;
-											if (root_6_0_0_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_1_0_1_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
-														.addElement("dateType");
-											} else {
-												root_6_0_0_0_1_0_1_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
-														.addElement("cit:dateType");
-											}
-											root_6_0_0_0_1_0_1_tAFOX_2
-													.setName("cit:dateType");
-											org.dom4j.Element root_6_0_0_0_1_0_1_0_tAFOX_2;
-											if (root_6_0_0_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_1_0_1_tAFOX_2
-														.addElement("CI_DateTypeCode");
-											} else {
-												root_6_0_0_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_1_0_1_tAFOX_2
-														.addElement("cit:CI_DateTypeCode");
-											}
-											root_6_0_0_0_1_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode");
-											root_6_0_0_0_1_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"publication");
-											root_6_0_0_0_1_0_1_0_tAFOX_2
-													.setName("cit:CI_DateTypeCode");
-											org.dom4j.Element root_6_0_0_0_2_tAFOX_2;
-											if (root_6_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_tAFOX_2 = root_6_0_0_0_tAFOX_2
-														.addElement("citedResponsibleParty");
-											} else {
-												root_6_0_0_0_2_tAFOX_2 = root_6_0_0_0_tAFOX_2
-														.addElement("cit:citedResponsibleParty");
-											}
-											root_6_0_0_0_2_tAFOX_2
-													.setName("cit:citedResponsibleParty");
-											org.dom4j.Element root_6_0_0_0_2_0_tAFOX_2;
-											if (root_6_0_0_0_2_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_tAFOX_2 = root_6_0_0_0_2_tAFOX_2
-														.addElement("CI_Responsibility");
-											} else {
-												root_6_0_0_0_2_0_tAFOX_2 = root_6_0_0_0_2_tAFOX_2
-														.addElement("cit:CI_Responsibility");
-											}
-											root_6_0_0_0_2_0_tAFOX_2
-													.setName("cit:CI_Responsibility");
-											org.dom4j.Element root_6_0_0_0_2_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
-														.addElement("role");
-											} else {
-												root_6_0_0_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
-														.addElement("cit:role");
-											}
-											root_6_0_0_0_2_0_0_tAFOX_2
-													.setName("cit:role");
-											org.dom4j.Element root_6_0_0_0_2_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_0_tAFOX_2
-														.addElement("CI_RoleCode");
-											} else {
-												root_6_0_0_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_0_tAFOX_2
-														.addElement("cit:CI_RoleCode");
-											}
-											root_6_0_0_0_2_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode");
-											root_6_0_0_0_2_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"originator");
-											root_6_0_0_0_2_0_0_0_tAFOX_2
-													.setName("cit:CI_RoleCode");
-											org.dom4j.Element root_6_0_0_0_2_0_1_tAFOX_2;
-											if (root_6_0_0_0_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
-														.addElement("party");
-											} else {
-												root_6_0_0_0_2_0_1_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
-														.addElement("cit:party");
-											}
-											root_6_0_0_0_2_0_1_tAFOX_2
-													.setName("cit:party");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_tAFOX_2
-														.addElement("CI_Organisation");
-											} else {
-												root_6_0_0_0_2_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_tAFOX_2
-														.addElement("cit:CI_Organisation");
-											}
-											root_6_0_0_0_2_0_1_0_tAFOX_2
-													.setName("cit:CI_Organisation");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
-														.addElement("name");
-											} else {
-												root_6_0_0_0_2_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
-														.addElement("cit:name");
-											}
-											root_6_0_0_0_2_0_1_0_0_tAFOX_2
-													.setName("cit:name");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_0_0_2_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_0_0_2_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("organisationName") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_0_0_2_0_1_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("organisationName"));
-											}
-											root_6_0_0_0_2_0_1_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
-														.addElement("contactInfo");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
-														.addElement("cit:contactInfo");
-											}
-											root_6_0_0_0_2_0_1_0_1_tAFOX_2
-													.setName("cit:contactInfo");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_tAFOX_2
-														.addElement("CI_Contact");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_tAFOX_2
-														.addElement("cit:CI_Contact");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
-													.setName("cit:CI_Contact");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
-														.addElement("phone");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
-														.addElement("cit:phone");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
-													.setName("cit:phone");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
-														.addElement("CI_Telephone");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
-														.addElement("cit:CI_Telephone");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
-													.setName("cit:CI_Telephone");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("number");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:number");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
-													.setName("cit:number");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("voice") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("voice"));
-											}
-											root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("numberType");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:numberType");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
-													.setName("cit:numberType");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
-														.addElement("CI_TelephoneTypeCode");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
-														.addElement("cit:CI_TelephoneTypeCode");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_TelephoneTypeCode");
-											root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"voice");
-											root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2
-													.setName("cit:CI_TelephoneTypeCode");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
-														.addElement("address");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
-														.addElement("cit:address");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
-													.setName("cit:address");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
-														.addElement("CI_Address");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
-														.addElement("cit:CI_Address");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
-													.setName("cit:CI_Address");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("electronicMailAddress");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
-														.addElement("cit:electronicMailAddress");
-											}
-											root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
-													.setName("cit:electronicMailAddress");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("email") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("email"));
-											}
-											root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_2_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_2_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
-														.addElement("individual");
-											} else {
-												root_6_0_0_0_2_0_1_0_2_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
-														.addElement("cit:individual");
-											}
-											root_6_0_0_0_2_0_1_0_2_tAFOX_2
-													.setName("cit:individual");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_2_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_2_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_2_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_tAFOX_2
-														.addElement("CI_Individual");
-											} else {
-												root_6_0_0_0_2_0_1_0_2_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_tAFOX_2
-														.addElement("cit:CI_Individual");
-											}
-											root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
-													.setName("cit:CI_Individual");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
-														.addElement("name");
-											} else {
-												root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
-														.addElement("cit:name");
-											}
-											root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
-													.setName("cit:name");
-											org.dom4j.Element root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2;
-											if (root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("individualName") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("individualName"));
-											}
-											root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_1_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_1_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("abstract");
-											} else {
-												root_6_0_1_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:abstract");
-											}
-											root_6_0_1_tAFOX_2
-													.setName("mri:abstract");
-											org.dom4j.Element root_6_0_1_0_tAFOX_2;
-											if (root_6_0_1_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_1_0_tAFOX_2 = root_6_0_1_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_1_0_tAFOX_2 = root_6_0_1_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											root_6_0_1_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_2_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_2_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("purpose");
-											} else {
-												root_6_0_2_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:purpose");
-											}
-											root_6_0_2_tAFOX_2
-													.setName("mri:purpose");
-											org.dom4j.Element root_6_0_2_0_tAFOX_2;
-											if (root_6_0_2_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_2_0_tAFOX_2 = root_6_0_2_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_2_0_tAFOX_2 = root_6_0_2_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											root_6_0_2_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_3_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_3_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("status");
-											} else {
-												root_6_0_3_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:status");
-											}
-											root_6_0_3_tAFOX_2
-													.setName("mri:status");
-											org.dom4j.Element root_6_0_3_0_tAFOX_2;
-											if (root_6_0_3_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_6_0_3_0_tAFOX_2 = root_6_0_3_tAFOX_2
-														.addElement("MD_ProgressCode");
-											} else {
-												root_6_0_3_0_tAFOX_2 = root_6_0_3_tAFOX_2
-														.addElement("mcc:MD_ProgressCode");
-											}
-											root_6_0_3_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ProgressCode");
-											root_6_0_3_0_tAFOX_2.addAttribute(
-													"codeListValue",
-													"completed");
-											root_6_0_3_0_tAFOX_2
-													.setName("mcc:MD_ProgressCode");
-											org.dom4j.Element root_6_0_4_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_4_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("pointOfContact");
-											} else {
-												root_6_0_4_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:pointOfContact");
-											}
-											root_6_0_4_tAFOX_2
-													.setName("mri:pointOfContact");
-											org.dom4j.Element root_6_0_4_0_tAFOX_2;
-											if (root_6_0_4_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_tAFOX_2 = root_6_0_4_tAFOX_2
-														.addElement("CI_Responsibility");
-											} else {
-												root_6_0_4_0_tAFOX_2 = root_6_0_4_tAFOX_2
-														.addElement("cit:CI_Responsibility");
-											}
-											root_6_0_4_0_tAFOX_2
-													.setName("cit:CI_Responsibility");
-											org.dom4j.Element root_6_0_4_0_0_tAFOX_2;
-											if (root_6_0_4_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_0_tAFOX_2 = root_6_0_4_0_tAFOX_2
-														.addElement("role");
-											} else {
-												root_6_0_4_0_0_tAFOX_2 = root_6_0_4_0_tAFOX_2
-														.addElement("cit:role");
-											}
-											root_6_0_4_0_0_tAFOX_2
-													.setName("cit:role");
-											org.dom4j.Element root_6_0_4_0_0_0_tAFOX_2;
-											if (root_6_0_4_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_0_0_tAFOX_2 = root_6_0_4_0_0_tAFOX_2
-														.addElement("CI_RoleCode");
-											} else {
-												root_6_0_4_0_0_0_tAFOX_2 = root_6_0_4_0_0_tAFOX_2
-														.addElement("cit:CI_RoleCode");
-											}
-											root_6_0_4_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode");
-											root_6_0_4_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"originator");
-											root_6_0_4_0_0_0_tAFOX_2
-													.setName("cit:CI_RoleCode");
-											org.dom4j.Element root_6_0_4_0_1_tAFOX_2;
-											if (root_6_0_4_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_tAFOX_2 = root_6_0_4_0_tAFOX_2
-														.addElement("party");
-											} else {
-												root_6_0_4_0_1_tAFOX_2 = root_6_0_4_0_tAFOX_2
-														.addElement("cit:party");
-											}
-											root_6_0_4_0_1_tAFOX_2
-													.setName("cit:party");
-											org.dom4j.Element root_6_0_4_0_1_0_tAFOX_2;
-											if (root_6_0_4_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_tAFOX_2 = root_6_0_4_0_1_tAFOX_2
-														.addElement("CI_Organisation");
-											} else {
-												root_6_0_4_0_1_0_tAFOX_2 = root_6_0_4_0_1_tAFOX_2
-														.addElement("cit:CI_Organisation");
-											}
-											root_6_0_4_0_1_0_tAFOX_2
-													.setName("cit:CI_Organisation");
-											org.dom4j.Element root_6_0_4_0_1_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
-														.addElement("name");
-											} else {
-												root_6_0_4_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
-														.addElement("cit:name");
-											}
-											root_6_0_4_0_1_0_0_tAFOX_2
-													.setName("cit:name");
-											org.dom4j.Element root_6_0_4_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("organisationName") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("organisationName"));
-											}
-											root_6_0_4_0_1_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_1_tAFOX_2;
-											if (root_6_0_4_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
-														.addElement("contactInfo");
-											} else {
-												root_6_0_4_0_1_0_1_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
-														.addElement("cit:contactInfo");
-											}
-											root_6_0_4_0_1_0_1_tAFOX_2
-													.setName("cit:contactInfo");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_tAFOX_2
-														.addElement("CI_Contact");
-											} else {
-												root_6_0_4_0_1_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_tAFOX_2
-														.addElement("cit:CI_Contact");
-											}
-											root_6_0_4_0_1_0_1_0_tAFOX_2
-													.setName("cit:CI_Contact");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_tAFOX_2
-														.addElement("address");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_tAFOX_2
-														.addElement("cit:address");
-											}
-											root_6_0_4_0_1_0_1_0_0_tAFOX_2
-													.setName("cit:address");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_tAFOX_2
-														.addElement("CI_Address");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_tAFOX_2
-														.addElement("cit:CI_Address");
-											}
-											root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-													.setName("cit:CI_Address");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("deliveryPoint");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:deliveryPoint");
-											}
-											root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
-													.setName("cit:deliveryPoint");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("deliveryPoint") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("deliveryPoint"));
-											}
-											root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("city");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:city");
-											}
-											root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
-													.setName("cit:city");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("city") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("city"));
-											}
-											root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("administrativeArea");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:administrativeArea");
-											}
-											root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
-													.setName("cit:administrativeArea");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("administrativeArea") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("administrativeArea"));
-											}
-											root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("postalCode");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:postalCode");
-											}
-											root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
-													.setName("cit:postalCode");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("postalCode") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("postalCode"));
-											}
-											root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("country");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:country");
-											}
-											root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
-													.setName("cit:country");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("country") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("country"));
-											}
-											root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("electronicMailAddress");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
-														.addElement("cit:electronicMailAddress");
-											}
-											root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
-													.setName("cit:electronicMailAddress");
-											org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("email") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("email"));
-											}
-											root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_2_tAFOX_2;
-											if (root_6_0_4_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_2_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
-														.addElement("individual");
-											} else {
-												root_6_0_4_0_1_0_2_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
-														.addElement("cit:individual");
-											}
-											root_6_0_4_0_1_0_2_tAFOX_2
-													.setName("cit:individual");
-											org.dom4j.Element root_6_0_4_0_1_0_2_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_2_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_2_tAFOX_2
-														.addElement("CI_Individual");
-											} else {
-												root_6_0_4_0_1_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_2_tAFOX_2
-														.addElement("cit:CI_Individual");
-											}
-											root_6_0_4_0_1_0_2_0_tAFOX_2
-													.setName("cit:CI_Individual");
-											org.dom4j.Element root_6_0_4_0_1_0_2_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_2_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
-														.addElement("name");
-											} else {
-												root_6_0_4_0_1_0_2_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
-														.addElement("cit:name");
-											}
-											root_6_0_4_0_1_0_2_0_0_tAFOX_2
-													.setName("cit:name");
-											org.dom4j.Element root_6_0_4_0_1_0_2_0_0_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_2_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("individualName") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_2_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("individualName"));
-											}
-											root_6_0_4_0_1_0_2_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_4_0_1_0_2_0_1_tAFOX_2;
-											if (root_6_0_4_0_1_0_2_0_tAFOX_2
-													.getNamespaceForPrefix("cit") == null) {
-												root_6_0_4_0_1_0_2_0_1_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
-														.addElement("positionName");
-											} else {
-												root_6_0_4_0_1_0_2_0_1_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
-														.addElement("cit:positionName");
-											}
-											root_6_0_4_0_1_0_2_0_1_tAFOX_2
-													.setName("cit:positionName");
-											org.dom4j.Element root_6_0_4_0_1_0_2_0_1_0_tAFOX_2;
-											if (root_6_0_4_0_1_0_2_0_1_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_4_0_1_0_2_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_1_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_4_0_1_0_2_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_1_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("positionName") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_4_0_1_0_2_0_1_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("positionName"));
-											}
-											root_6_0_4_0_1_0_2_0_1_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_5_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_5_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("spatialRepresentationType");
-											} else {
-												root_6_0_5_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:spatialRepresentationType");
-											}
-											root_6_0_5_tAFOX_2
-													.setName("mri:spatialRepresentationType");
-											org.dom4j.Element root_6_0_5_0_tAFOX_2;
-											if (root_6_0_5_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_6_0_5_0_tAFOX_2 = root_6_0_5_tAFOX_2
-														.addElement("MD_SpatialRepresentationTypeCode");
-											} else {
-												root_6_0_5_0_tAFOX_2 = root_6_0_5_tAFOX_2
-														.addElement("mcc:MD_SpatialRepresentationTypeCode");
-											}
-											root_6_0_5_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode");
-											if (valueMap_tAFOX_2
-													.get("spatialRepresentationType") != null) {
-												root_6_0_5_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("spatialRepresentationType"));
-											}
-											root_6_0_5_0_tAFOX_2
-													.setName("mcc:MD_SpatialRepresentationTypeCode");
-											org.dom4j.Element root_6_0_6_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_6_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("spatialResolution");
-											} else {
-												root_6_0_6_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:spatialResolution");
-											}
-											root_6_0_6_tAFOX_2
-													.setName("mri:spatialResolution");
-											org.dom4j.Element root_6_0_6_0_tAFOX_2;
-											if (root_6_0_6_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_6_0_tAFOX_2 = root_6_0_6_tAFOX_2
-														.addElement("MD_Resolution");
-											} else {
-												root_6_0_6_0_tAFOX_2 = root_6_0_6_tAFOX_2
-														.addElement("mri:MD_Resolution");
-											}
-											root_6_0_6_0_tAFOX_2
-													.setName("mri:MD_Resolution");
-											org.dom4j.Element root_6_0_6_0_0_tAFOX_2;
-											if (root_6_0_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_6_0_0_tAFOX_2 = root_6_0_6_0_tAFOX_2
-														.addElement("equivalentScale");
-											} else {
-												root_6_0_6_0_0_tAFOX_2 = root_6_0_6_0_tAFOX_2
-														.addElement("mri:equivalentScale");
-											}
-											root_6_0_6_0_0_tAFOX_2
-													.setName("mri:equivalentScale");
-											org.dom4j.Element root_6_0_6_0_0_0_tAFOX_2;
-											if (root_6_0_6_0_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_6_0_0_0_tAFOX_2 = root_6_0_6_0_0_tAFOX_2
-														.addElement("MD_RepresentativeFraction");
-											} else {
-												root_6_0_6_0_0_0_tAFOX_2 = root_6_0_6_0_0_tAFOX_2
-														.addElement("mri:MD_RepresentativeFraction");
-											}
-											root_6_0_6_0_0_0_tAFOX_2
-													.setName("mri:MD_RepresentativeFraction");
-											org.dom4j.Element root_6_0_6_0_0_0_0_tAFOX_2;
-											if (root_6_0_6_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_6_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_tAFOX_2
-														.addElement("denominator");
-											} else {
-												root_6_0_6_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_tAFOX_2
-														.addElement("mri:denominator");
-											}
-											root_6_0_6_0_0_0_0_tAFOX_2
-													.setName("mri:denominator");
-											org.dom4j.Element root_6_0_6_0_0_0_0_0_tAFOX_2;
-											if (root_6_0_6_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_6_0_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_0_tAFOX_2
-														.addElement("Integer");
-											} else {
-												root_6_0_6_0_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_0_tAFOX_2
-														.addElement("gco:Integer");
-											}
-											if (valueMap_tAFOX_2
-													.get("scaleDenominator") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_6_0_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("scaleDenominator"));
-											}
-											root_6_0_6_0_0_0_0_0_tAFOX_2
-													.setName("gco:Integer");
-											org.dom4j.Element root_6_0_7_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_7_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("topicCategory");
-											} else {
-												root_6_0_7_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:topicCategory");
-											}
-											root_6_0_7_tAFOX_2
-													.setName("mri:topicCategory");
-											org.dom4j.Element root_6_0_7_0_tAFOX_2;
-											if (root_6_0_7_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_7_0_tAFOX_2 = root_6_0_7_tAFOX_2
-														.addElement("MD_TopicCategoryCode");
-											} else {
-												root_6_0_7_0_tAFOX_2 = root_6_0_7_tAFOX_2
-														.addElement("mri:MD_TopicCategoryCode");
-											}
-											if (valueMap_tAFOX_2
-													.get("topicCategoryCode") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_7_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("topicCategoryCode"));
-											}
-											root_6_0_7_0_tAFOX_2
-													.setName("mri:MD_TopicCategoryCode");
-											org.dom4j.Element root_6_0_8_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_8_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("extent");
-											} else {
-												root_6_0_8_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:extent");
-											}
-											root_6_0_8_tAFOX_2
-													.setName("mri:extent");
-											org.dom4j.Element root_6_0_8_0_tAFOX_2;
-											if (root_6_0_8_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_tAFOX_2 = root_6_0_8_tAFOX_2
-														.addElement("EX_Extent");
-											} else {
-												root_6_0_8_0_tAFOX_2 = root_6_0_8_tAFOX_2
-														.addElement("gex:EX_Extent");
-											}
-											root_6_0_8_0_tAFOX_2
-													.setName("gex:EX_Extent");
-											org.dom4j.Element root_6_0_8_0_0_tAFOX_2;
-											if (root_6_0_8_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_0_tAFOX_2 = root_6_0_8_0_tAFOX_2
-														.addElement("temporalElement");
-											} else {
-												root_6_0_8_0_0_tAFOX_2 = root_6_0_8_0_tAFOX_2
-														.addElement("gex:temporalElement");
-											}
-											root_6_0_8_0_0_tAFOX_2
-													.setName("gex:temporalElement");
-											org.dom4j.Element root_6_0_8_0_0_0_tAFOX_2;
-											if (root_6_0_8_0_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_0_0_tAFOX_2 = root_6_0_8_0_0_tAFOX_2
-														.addElement("EX_TemporalExtent");
-											} else {
-												root_6_0_8_0_0_0_tAFOX_2 = root_6_0_8_0_0_tAFOX_2
-														.addElement("gex:EX_TemporalExtent");
-											}
-											root_6_0_8_0_0_0_tAFOX_2
-													.setName("gex:EX_TemporalExtent");
-											org.dom4j.Element root_6_0_8_0_0_0_0_tAFOX_2;
-											if (root_6_0_8_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_tAFOX_2
-														.addElement("extent");
-											} else {
-												root_6_0_8_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_tAFOX_2
-														.addElement("gex:extent");
-											}
-											root_6_0_8_0_0_0_0_tAFOX_2
-													.setName("gex:extent");
-											org.dom4j.Element root_6_0_8_0_0_0_0_0_tAFOX_2;
-											if (root_6_0_8_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gml") == null) {
-												root_6_0_8_0_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_0_tAFOX_2
-														.addElement("TimePeriod");
-											} else {
-												root_6_0_8_0_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_0_tAFOX_2
-														.addElement("gml:TimePeriod");
-											}
-											root_6_0_8_0_0_0_0_0_tAFOX_2
-													.setName("gml:TimePeriod");
-											org.dom4j.Element root_6_0_8_0_1_tAFOX_2;
-											if (root_6_0_8_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_tAFOX_2 = root_6_0_8_0_tAFOX_2
-														.addElement("geographicElement");
-											} else {
-												root_6_0_8_0_1_tAFOX_2 = root_6_0_8_0_tAFOX_2
-														.addElement("gex:geographicElement");
-											}
-											root_6_0_8_0_1_tAFOX_2
-													.setName("gex:geographicElement");
-											org.dom4j.Element root_6_0_8_0_1_0_tAFOX_2;
-											if (root_6_0_8_0_1_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_tAFOX_2 = root_6_0_8_0_1_tAFOX_2
-														.addElement("EX_GeographicBoundingBox");
-											} else {
-												root_6_0_8_0_1_0_tAFOX_2 = root_6_0_8_0_1_tAFOX_2
-														.addElement("gex:EX_GeographicBoundingBox");
-											}
-											root_6_0_8_0_1_0_tAFOX_2
-													.setName("gex:EX_GeographicBoundingBox");
-											org.dom4j.Element root_6_0_8_0_1_0_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_0_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("westBoundLongitude");
-											} else {
-												root_6_0_8_0_1_0_0_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("gex:westBoundLongitude");
-											}
-											root_6_0_8_0_1_0_0_tAFOX_2
-													.setName("gex:westBoundLongitude");
-											org.dom4j.Element root_6_0_8_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_0_0_tAFOX_2 = root_6_0_8_0_1_0_0_tAFOX_2
-														.addElement("Decimal");
-											} else {
-												root_6_0_8_0_1_0_0_0_tAFOX_2 = root_6_0_8_0_1_0_0_tAFOX_2
-														.addElement("gco:Decimal");
-											}
-											if (valueMap_tAFOX_2.get("west") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_8_0_1_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("west"));
-											}
-											root_6_0_8_0_1_0_0_0_tAFOX_2
-													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_8_0_1_0_1_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_1_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("eastBoundLongitude");
-											} else {
-												root_6_0_8_0_1_0_1_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("gex:eastBoundLongitude");
-											}
-											root_6_0_8_0_1_0_1_tAFOX_2
-													.setName("gex:eastBoundLongitude");
-											org.dom4j.Element root_6_0_8_0_1_0_1_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_1_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_1_0_tAFOX_2 = root_6_0_8_0_1_0_1_tAFOX_2
-														.addElement("Decimal");
-											} else {
-												root_6_0_8_0_1_0_1_0_tAFOX_2 = root_6_0_8_0_1_0_1_tAFOX_2
-														.addElement("gco:Decimal");
-											}
-											if (valueMap_tAFOX_2.get("east") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_8_0_1_0_1_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("east"));
-											}
-											root_6_0_8_0_1_0_1_0_tAFOX_2
-													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_8_0_1_0_2_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_2_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("southBoundLatitude");
-											} else {
-												root_6_0_8_0_1_0_2_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("gex:southBoundLatitude");
-											}
-											root_6_0_8_0_1_0_2_tAFOX_2
-													.setName("gex:southBoundLatitude");
-											org.dom4j.Element root_6_0_8_0_1_0_2_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_2_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_2_0_tAFOX_2 = root_6_0_8_0_1_0_2_tAFOX_2
-														.addElement("Decimal");
-											} else {
-												root_6_0_8_0_1_0_2_0_tAFOX_2 = root_6_0_8_0_1_0_2_tAFOX_2
-														.addElement("gco:Decimal");
-											}
-											if (valueMap_tAFOX_2.get("south") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_8_0_1_0_2_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("south"));
-											}
-											root_6_0_8_0_1_0_2_0_tAFOX_2
-													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_8_0_1_0_3_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_3_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("northBoundLatitude");
-											} else {
-												root_6_0_8_0_1_0_3_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
-														.addElement("gex:northBoundLatitude");
-											}
-											root_6_0_8_0_1_0_3_tAFOX_2
-													.setName("gex:northBoundLatitude");
-											org.dom4j.Element root_6_0_8_0_1_0_3_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_3_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_3_0_tAFOX_2 = root_6_0_8_0_1_0_3_tAFOX_2
-														.addElement("Decimal");
-											} else {
-												root_6_0_8_0_1_0_3_0_tAFOX_2 = root_6_0_8_0_1_0_3_tAFOX_2
-														.addElement("gco:Decimal");
-											}
-											if (valueMap_tAFOX_2.get("north") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_8_0_1_0_3_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("north"));
-											}
-											root_6_0_8_0_1_0_3_0_tAFOX_2
-													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_9_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("resourceMaintenance");
-											} else {
-												root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:resourceMaintenance");
-											}
-											root_6_0_9_tAFOX_2
-													.setName("mri:resourceMaintenance");
-											org.dom4j.Element root_6_0_9_0_tAFOX_2;
-											if (root_6_0_9_tAFOX_2
-													.getNamespaceForPrefix("mmi") == null) {
-												root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
-														.addElement("MD_MaintenanceInformation");
-											} else {
-												root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
-														.addElement("mmi:MD_MaintenanceInformation");
-											}
-											root_6_0_9_0_tAFOX_2
-													.setName("mmi:MD_MaintenanceInformation");
-											org.dom4j.Element root_6_0_9_0_0_tAFOX_2;
-											if (root_6_0_9_0_tAFOX_2
-													.getNamespaceForPrefix("mmi") == null) {
-												root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
-														.addElement("maintenanceAndUpdateFrequency");
-											} else {
-												root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
-														.addElement("mmi:maintenanceAndUpdateFrequency");
-											}
-											root_6_0_9_0_0_tAFOX_2
-													.setName("mmi:maintenanceAndUpdateFrequency");
-											org.dom4j.Element root_6_0_9_0_0_0_tAFOX_2;
-											if (root_6_0_9_0_0_tAFOX_2
-													.getNamespaceForPrefix("mmi") == null) {
-												root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
-														.addElement("MD_MaintenanceFrequencyCode");
-											} else {
-												root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
-														.addElement("mmi:MD_MaintenanceFrequencyCode");
-											}
-											root_6_0_9_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode");
-											root_6_0_9_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"asNeeded");
-											root_6_0_9_0_0_0_tAFOX_2
-													.setName("mmi:MD_MaintenanceFrequencyCode");
-											org.dom4j.Element root_6_0_10_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_10_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("descriptiveKeyworkds");
-											} else {
-												root_6_0_10_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:descriptiveKeyworkds");
-											}
-											root_6_0_10_tAFOX_2
-													.setName("mri:descriptiveKeyworkds");
-											org.dom4j.Element root_6_0_10_0_tAFOX_2;
-											if (root_6_0_10_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_10_0_tAFOX_2 = root_6_0_10_tAFOX_2
-														.addElement("MD_Keywords");
-											} else {
-												root_6_0_10_0_tAFOX_2 = root_6_0_10_tAFOX_2
-														.addElement("mri:MD_Keywords");
-											}
-											root_6_0_10_0_tAFOX_2
-													.setName("mri:MD_Keywords");
-											org.dom4j.Element root_6_0_10_0_0_tAFOX_2;
-											if (root_6_0_10_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_10_0_0_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("keyword");
-											} else {
-												root_6_0_10_0_0_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("mri:keyword");
-											}
-											root_6_0_10_0_0_tAFOX_2
-													.setName("mri:keyword");
-											org.dom4j.Element root_6_0_10_0_0_0_tAFOX_2;
-											if (root_6_0_10_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_10_0_0_0_tAFOX_2 = root_6_0_10_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_10_0_0_0_tAFOX_2 = root_6_0_10_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("keyword2") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_10_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("keyword2"));
-											}
-											root_6_0_10_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_10_0_1_tAFOX_2;
-											if (root_6_0_10_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_10_0_1_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("type");
-											} else {
-												root_6_0_10_0_1_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("mri:type");
-											}
-											root_6_0_10_0_1_tAFOX_2
-													.setName("mri:type");
-											org.dom4j.Element root_6_0_10_0_1_0_tAFOX_2;
-											if (root_6_0_10_0_1_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_10_0_1_0_tAFOX_2 = root_6_0_10_0_1_tAFOX_2
-														.addElement("MD_KeywordTypeCode");
-											} else {
-												root_6_0_10_0_1_0_tAFOX_2 = root_6_0_10_0_1_tAFOX_2
-														.addElement("mri:MD_KeywordTypeCode");
-											}
-											root_6_0_10_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode");
-											if (valueMap_tAFOX_2
-													.get("keyword2_theme") != null) {
-												root_6_0_10_0_1_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("keyword2_theme"));
-											}
-											root_6_0_10_0_1_0_tAFOX_2
-													.setName("mri:MD_KeywordTypeCode");
-											org.dom4j.Element root_6_0_11_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_11_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("resourceConstraints");
-											} else {
-												root_6_0_11_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:resourceConstraints");
-											}
-											root_6_0_11_tAFOX_2
-													.setName("mri:resourceConstraints");
-											org.dom4j.Element root_6_0_11_0_tAFOX_2;
-											if (root_6_0_11_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_11_0_tAFOX_2 = root_6_0_11_tAFOX_2
-														.addElement("MD_LegalConstraints");
-											} else {
-												root_6_0_11_0_tAFOX_2 = root_6_0_11_tAFOX_2
-														.addElement("mco:MD_LegalConstraints");
-											}
-											root_6_0_11_0_tAFOX_2
-													.setName("mco:MD_LegalConstraints");
-											org.dom4j.Element root_6_0_11_0_0_tAFOX_2;
-											if (root_6_0_11_0_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_11_0_0_tAFOX_2 = root_6_0_11_0_tAFOX_2
-														.addElement("accessConstraints");
-											} else {
-												root_6_0_11_0_0_tAFOX_2 = root_6_0_11_0_tAFOX_2
-														.addElement("mco:accessConstraints");
-											}
-											root_6_0_11_0_0_tAFOX_2
-													.setName("mco:accessConstraints");
-											org.dom4j.Element root_6_0_11_0_0_0_tAFOX_2;
-											if (root_6_0_11_0_0_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_11_0_0_0_tAFOX_2 = root_6_0_11_0_0_tAFOX_2
-														.addElement("MD_RestrictionCode");
-											} else {
-												root_6_0_11_0_0_0_tAFOX_2 = root_6_0_11_0_0_tAFOX_2
-														.addElement("mco:MD_RestrictionCode");
-											}
-											root_6_0_11_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode");
-											root_6_0_11_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"copyright");
-											root_6_0_11_0_0_0_tAFOX_2
-													.setName("mco:MD_RestrictionCode");
-											org.dom4j.Element root_6_0_11_0_1_tAFOX_2;
-											if (root_6_0_11_0_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_11_0_1_tAFOX_2 = root_6_0_11_0_tAFOX_2
-														.addElement("useConstraints");
-											} else {
-												root_6_0_11_0_1_tAFOX_2 = root_6_0_11_0_tAFOX_2
-														.addElement("mco:useConstraints");
-											}
-											root_6_0_11_0_1_tAFOX_2
-													.setName("mco:useConstraints");
-											org.dom4j.Element root_6_0_11_0_1_0_tAFOX_2;
-											if (root_6_0_11_0_1_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_11_0_1_0_tAFOX_2 = root_6_0_11_0_1_tAFOX_2
-														.addElement("MD_RestrictionCode");
-											} else {
-												root_6_0_11_0_1_0_tAFOX_2 = root_6_0_11_0_1_tAFOX_2
-														.addElement("mco:MD_RestrictionCode");
-											}
-											root_6_0_11_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode");
-											root_6_0_11_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"otherRestrictions");
-											root_6_0_11_0_1_0_tAFOX_2
-													.setName("mco:MD_RestrictionCode");
-											org.dom4j.Element root_6_0_11_0_2_tAFOX_2;
-											if (root_6_0_11_0_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_11_0_2_tAFOX_2 = root_6_0_11_0_tAFOX_2
-														.addElement("otherConstraints");
-											} else {
-												root_6_0_11_0_2_tAFOX_2 = root_6_0_11_0_tAFOX_2
-														.addElement("mco:otherConstraints");
-											}
-											root_6_0_11_0_2_tAFOX_2
-													.setName("mco:otherConstraints");
-											org.dom4j.Element root_6_0_11_0_2_0_tAFOX_2;
-											if (root_6_0_11_0_2_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_11_0_2_0_tAFOX_2 = root_6_0_11_0_2_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_11_0_2_0_tAFOX_2 = root_6_0_11_0_2_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2
-													.get("useConstraints") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_11_0_2_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("useConstraints"));
-											}
-											root_6_0_11_0_2_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_12_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_12_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("defaultLocale");
-											} else {
-												root_6_0_12_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:defaultLocale");
-											}
-											root_6_0_12_tAFOX_2
-													.setName("mri:defaultLocale");
-											org.dom4j.Element root_6_0_12_0_tAFOX_2;
-											if (root_6_0_12_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_12_0_tAFOX_2 = root_6_0_12_tAFOX_2
-														.addElement("PT_Locale");
-											} else {
-												root_6_0_12_0_tAFOX_2 = root_6_0_12_tAFOX_2
-														.addElement("lan:PT_Locale");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdLanguage") != null) {
-												root_6_0_12_0_tAFOX_2
-														.addAttribute(
-																"id",
-																valueMap_tAFOX_2
-																		.get("mdLanguage"));
-											}
-											root_6_0_12_0_tAFOX_2
-													.setName("lan:PT_Locale");
-											org.dom4j.Element root_6_0_12_0_0_tAFOX_2;
-											if (root_6_0_12_0_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_12_0_0_tAFOX_2 = root_6_0_12_0_tAFOX_2
-														.addElement("language");
-											} else {
-												root_6_0_12_0_0_tAFOX_2 = root_6_0_12_0_tAFOX_2
-														.addElement("lan:language");
-											}
-											root_6_0_12_0_0_tAFOX_2
-													.setName("lan:language");
-											org.dom4j.Element root_6_0_12_0_0_0_tAFOX_2;
-											if (root_6_0_12_0_0_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_12_0_0_0_tAFOX_2 = root_6_0_12_0_0_tAFOX_2
-														.addElement("LanguageCode");
-											} else {
-												root_6_0_12_0_0_0_tAFOX_2 = root_6_0_12_0_0_tAFOX_2
-														.addElement("lan:LanguageCode");
-											}
-											root_6_0_12_0_0_0_tAFOX_2
-													.addAttribute("codeList",
-															"http://www.loc.gov/standards/iso639-2/");
-											if (valueMap_tAFOX_2
-													.get("mdLanguage") != null) {
-												root_6_0_12_0_0_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("mdLanguage"));
-											}
-											root_6_0_12_0_0_0_tAFOX_2
-													.setName("lan:LanguageCode");
-											org.dom4j.Element root_6_0_12_0_1_tAFOX_2;
-											if (root_6_0_12_0_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
-														.addElement("characterEncoding");
-											} else {
-												root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
-														.addElement("lan:characterEncoding");
-											}
-											root_6_0_12_0_1_tAFOX_2
-													.setName("lan:characterEncoding");
-											org.dom4j.Element root_6_0_12_0_1_0_tAFOX_2;
-											if (root_6_0_12_0_1_tAFOX_2
-													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
-														.addElement("MD_CharacterSetCode");
-											} else {
-												root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
-														.addElement("lan:MD_CharacterSetCode");
-											}
-											root_6_0_12_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode");
-											if (valueMap_tAFOX_2
-													.get("mdCharacterSetCode") != null) {
-												root_6_0_12_0_1_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("mdCharacterSetCode"));
-											}
-											root_6_0_12_0_1_0_tAFOX_2
-													.setName("lan:MD_CharacterSetCode");
-											org.dom4j.Element root_6_0_13_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("supplementalInformation");
-											} else {
-												root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:supplementalInformation");
-											}
-											root_6_0_13_tAFOX_2
-													.setName("mri:supplementalInformation");
-											org.dom4j.Element root_6_0_13_0_tAFOX_2;
-											if (root_6_0_13_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											root_6_0_13_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_7_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_7_tAFOX_2 = root_tAFOX_2
-														.addElement("distributionInfo");
-											} else {
-												root_7_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:distributionInfo");
-											}
-											root_7_tAFOX_2
-													.setName("mdb:distributionInfo");
-											org.dom4j.Element root_7_0_tAFOX_2;
-											if (root_7_tAFOX_2
-													.getNamespaceForPrefix("mrd") == null) {
-												root_7_0_tAFOX_2 = root_7_tAFOX_2
-														.addElement("MD_Distribution");
-											} else {
-												root_7_0_tAFOX_2 = root_7_tAFOX_2
-														.addElement("mrd:MD_Distribution");
-											}
-											root_7_0_tAFOX_2
-													.setName("mrd:MD_Distribution");
-											org.dom4j.Element root_7_0_0_tAFOX_2;
-											if (root_7_0_tAFOX_2
-													.getNamespaceForPrefix("mrd") == null) {
-												root_7_0_0_tAFOX_2 = root_7_0_tAFOX_2
-														.addElement("transferOptions");
-											} else {
-												root_7_0_0_tAFOX_2 = root_7_0_tAFOX_2
-														.addElement("mrd:transferOptions");
-											}
-											root_7_0_0_tAFOX_2
-													.setName("mrd:transferOptions");
-											org.dom4j.Element root_7_0_0_0_tAFOX_2;
-											if (root_7_0_0_tAFOX_2
-													.getNamespaceForPrefix("mrd") == null) {
-												root_7_0_0_0_tAFOX_2 = root_7_0_0_tAFOX_2
-														.addElement("MD_DigitalTransferOptions");
-											} else {
-												root_7_0_0_0_tAFOX_2 = root_7_0_0_tAFOX_2
-														.addElement("mrd:MD_DigitalTransferOptions");
-											}
-											root_7_0_0_0_tAFOX_2
-													.setName("mrd:MD_DigitalTransferOptions");
-											org.dom4j.Element root_8_tAFOX_2;
-											if (root_tAFOX_2
-													.getNamespaceForPrefix("mdb") == null) {
-												root_8_tAFOX_2 = root_tAFOX_2
-														.addElement("resourceLineage");
-											} else {
-												root_8_tAFOX_2 = root_tAFOX_2
-														.addElement("mdb:resourceLineage");
-											}
-											root_8_tAFOX_2
-													.setName("mdb:resourceLineage");
-											org.dom4j.Element root_8_0_tAFOX_2;
-											if (root_8_tAFOX_2
-													.getNamespaceForPrefix("mrl") == null) {
-												root_8_0_tAFOX_2 = root_8_tAFOX_2
-														.addElement("LI_Lineage");
-											} else {
-												root_8_0_tAFOX_2 = root_8_tAFOX_2
-														.addElement("mrl:LI_Lineage");
-											}
-											root_8_0_tAFOX_2
-													.setName("mrl:LI_Lineage");
-											org.dom4j.Element root_8_0_0_tAFOX_2;
-											if (root_8_0_tAFOX_2
-													.getNamespaceForPrefix("mrl") == null) {
-												root_8_0_0_tAFOX_2 = root_8_0_tAFOX_2
-														.addElement("statement");
-											} else {
-												root_8_0_0_tAFOX_2 = root_8_0_tAFOX_2
-														.addElement("mrl:statement");
-											}
-											root_8_0_0_tAFOX_2.addAttribute(
-													"gco:nilReason", "missing");
-											root_8_0_0_tAFOX_2
-													.setName("mrl:statement");
-											org.dom4j.Element root_8_0_0_0_tAFOX_2;
-											if (root_8_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_8_0_0_0_tAFOX_2 = root_8_0_0_tAFOX_2
-														.addElement("CharacterString");
-											} else {
-												root_8_0_0_0_tAFOX_2 = root_8_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("lineage") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_8_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("lineage"));
-											}
-											root_8_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_8_0_1_tAFOX_2;
-											if (root_8_0_tAFOX_2
-													.getNamespaceForPrefix("mrl") == null) {
-												root_8_0_1_tAFOX_2 = root_8_0_tAFOX_2
-														.addElement("scope");
-											} else {
-												root_8_0_1_tAFOX_2 = root_8_0_tAFOX_2
-														.addElement("mrl:scope");
-											}
-											root_8_0_1_tAFOX_2
-													.setName("mrl:scope");
-											org.dom4j.Element root_8_0_1_0_tAFOX_2;
-											if (root_8_0_1_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_8_0_1_0_tAFOX_2 = root_8_0_1_tAFOX_2
-														.addElement("MD_Scope");
-											} else {
-												root_8_0_1_0_tAFOX_2 = root_8_0_1_tAFOX_2
-														.addElement("mcc:MD_Scope");
-											}
-											root_8_0_1_0_tAFOX_2
-													.setName("mcc:MD_Scope");
-											org.dom4j.Element root_8_0_1_0_0_tAFOX_2;
-											if (root_8_0_1_0_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_8_0_1_0_0_tAFOX_2 = root_8_0_1_0_tAFOX_2
-														.addElement("level");
-											} else {
-												root_8_0_1_0_0_tAFOX_2 = root_8_0_1_0_tAFOX_2
-														.addElement("mcc:level");
-											}
-											root_8_0_1_0_0_tAFOX_2
-													.setName("mcc:level");
-											org.dom4j.Element root_8_0_1_0_0_0_tAFOX_2;
-											if (root_8_0_1_0_0_tAFOX_2
-													.getNamespaceForPrefix("mcc") == null) {
-												root_8_0_1_0_0_0_tAFOX_2 = root_8_0_1_0_0_tAFOX_2
-														.addElement("MD_ScopeCode");
-											} else {
-												root_8_0_1_0_0_0_tAFOX_2 = root_8_0_1_0_0_tAFOX_2
-														.addElement("mcc:MD_ScopeCode");
-											}
-											root_8_0_1_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode");
-											if (valueMap_tAFOX_2
-													.get("scopeCode") != null) {
-												root_8_0_1_0_0_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("scopeCode"));
-											}
-											root_8_0_1_0_0_0_tAFOX_2
-													.setName("mcc:MD_ScopeCode");
-											root4Group_tAFOX_2 = subTreeRootParent_tAFOX_2;
-										} else {
-											subTreeRootParent_tAFOX_2 = root4Group_tAFOX_2;
-										}
-										// build group xml tree
-										// build loop xml tree
-										org.dom4j.Element loop_tAFOX_2;
-										if (subTreeRootParent_tAFOX_2
-												.getNamespaceForPrefix("mri") == null) {
-											loop_tAFOX_2 = org.dom4j.DocumentHelper
-													.createElement("descriptiveKeywords");
-										} else {
-											loop_tAFOX_2 = org.dom4j.DocumentHelper
-													.createElement("mri:descriptiveKeywords");
-										}
-										if (orders_tAFOX_2[0] == 0) {
-											orders_tAFOX_2[0] = 10;
-										}
-										if (1 < orders_tAFOX_2.length) {
-											orders_tAFOX_2[1] = 0;
-										}
-										subTreeRootParent_tAFOX_2.elements()
-												.add(orders_tAFOX_2[0]++,
-														loop_tAFOX_2);
-										loop_tAFOX_2
-												.setName("mri:descriptiveKeywords");
-										org.dom4j.Element loop_0_tAFOX_2;
-										if (loop_tAFOX_2
-												.getNamespaceForPrefix("mri") == null) {
-											loop_0_tAFOX_2 = loop_tAFOX_2
-													.addElement("MD_Keywords");
-										} else {
-											loop_0_tAFOX_2 = loop_tAFOX_2
-													.addElement("mri:MD_Keywords");
-										}
-										loop_0_tAFOX_2
-												.setName("mri:MD_Keywords");
-										org.dom4j.Element loop_0_0_tAFOX_2;
-										if (loop_0_tAFOX_2
-												.getNamespaceForPrefix("mri") == null) {
-											loop_0_0_tAFOX_2 = loop_0_tAFOX_2
-													.addElement("keyword");
-										} else {
-											loop_0_0_tAFOX_2 = loop_0_tAFOX_2
-													.addElement("mri:keyword");
-										}
-										loop_0_0_tAFOX_2.setName("mri:keyword");
-										org.dom4j.Element loop_0_0_0_tAFOX_2;
-										if (loop_0_0_tAFOX_2
-												.getNamespaceForPrefix("gco") == null) {
-											loop_0_0_0_tAFOX_2 = loop_0_0_tAFOX_2
-													.addElement("CharacterString");
-										} else {
-											loop_0_0_0_tAFOX_2 = loop_0_0_tAFOX_2
-													.addElement("gco:CharacterString");
-										}
-										if (valueMap_tAFOX_2.get("keyword") != null) {
-											nestXMLTool_tAFOX_2.setText(
-													loop_0_0_0_tAFOX_2,
+										for (int i_tNormalize_1 = 0; i_tNormalize_1 < lastNoEmptyIndex_tNormalize_1; i_tNormalize_1++) {
+
+											currentRecord_tNormalize_1 = new StringBuilder();
+											nb_line_tNormalize_1++;
+
+											row2.mdIdentifier = iso19115_3.mdIdentifier;
+
+											row2.mdLanguage = iso19115_3.mdLanguage;
+
+											row2.mdCharacterSetCode = iso19115_3.mdCharacterSetCode;
+
+											row2.ciRoleCode = iso19115_3.ciRoleCode;
+
+											row2.mdOrganisation = iso19115_3.mdOrganisation;
+
+											row2.mdVoice = iso19115_3.mdVoice;
+
+											row2.mdIndividualName = iso19115_3.mdIndividualName;
+
+											row2.mdPositionName = iso19115_3.mdPositionName;
+
+											row2.mdDeliveryPoint = iso19115_3.mdDeliveryPoint;
+
+											row2.mdCity = iso19115_3.mdCity;
+
+											row2.mdAdministrativeArea = iso19115_3.mdAdministrativeArea;
+
+											row2.mdPostalCode = iso19115_3.mdPostalCode;
+
+											row2.mdCountry = iso19115_3.mdCountry;
+
+											row2.mdEmail = iso19115_3.mdEmail;
+
+											row2.mdDate = iso19115_3.mdDate;
+
+											row2.title = iso19115_3.title;
+
+											row2.organisationName = iso19115_3.organisationName;
+
+											row2.voice = iso19115_3.voice;
+
+											row2.email = iso19115_3.email;
+
+											row2.individualName = iso19115_3.individualName;
+
+											row2.positionName = iso19115_3.positionName;
+
+											row2.deliveryPoint = iso19115_3.deliveryPoint;
+
+											row2.city = iso19115_3.city;
+
+											row2.administrativeArea = iso19115_3.administrativeArea;
+
+											row2.postalCode = iso19115_3.postalCode;
+
+											row2.country = iso19115_3.country;
+
+											row2.spatialRepresentationType = iso19115_3.spatialRepresentationType;
+
+											row2.scaleDenominator = iso19115_3.scaleDenominator;
+
+											row2.topicCategoryCode = iso19115_3.topicCategoryCode;
+
+											row2.west = iso19115_3.west;
+
+											row2.east = iso19115_3.east;
+
+											row2.south = iso19115_3.south;
+
+											row2.north = iso19115_3.north;
+
+											row2.mdMaintenanceFrequencyCode = iso19115_3.mdMaintenanceFrequencyCode;
+
+											row2.keyword = iso19115_3.keyword;
+
+											row2.keyword2 = iso19115_3.keyword2;
+
+											row2.keyworkd1_theme = iso19115_3.keyworkd1_theme;
+
+											row2.keyword2_theme = iso19115_3.keyword2_theme;
+
+											row2.useConstraints = iso19115_3.useConstraints;
+
+											row2.scopeCode = iso19115_3.scopeCode;
+
+											row2.lineage = iso19115_3.lineage;
+
+											row2.srs = iso19115_3.srs;
+
+											row2.columnsDef = normalizeRecord_tNormalize_1[i_tNormalize_1];
+
+											row2.layerName = iso19115_3.layerName;
+
+											row2.bands = iso19115_3.bands;
+
+											tos_count_tNormalize_1++;
+
+											/**
+											 * [tNormalize_1 main ] stop
+											 */
+
+											/**
+											 * [tExtractDelimitedFields_3 main ]
+											 * start
+											 */
+
+											currentComponent = "tExtractDelimitedFields_3";
+
+											row4 = null;
+
+											row4 = new row4Struct();
+											String field_tExtractDelimitedFields_3 = row2.columnsDef;
+											String[] newFields_tExtractDelimitedFields_3 = new String[0];
+											if (field_tExtractDelimitedFields_3 != null) {// C_01
+												try {
+													newFields_tExtractDelimitedFields_3 = field_tExtractDelimitedFields_3
+															.split("#", -1);
+													int length_tExtractDelimitedFields_3 = newFields_tExtractDelimitedFields_3.length;
+													row4.mdIdentifier = row2.mdIdentifier;
+													row4.mdLanguage = row2.mdLanguage;
+													row4.mdCharacterSetCode = row2.mdCharacterSetCode;
+													row4.ciRoleCode = row2.ciRoleCode;
+													row4.mdOrganisation = row2.mdOrganisation;
+													row4.mdVoice = row2.mdVoice;
+													row4.mdIndividualName = row2.mdIndividualName;
+													row4.mdPositionName = row2.mdPositionName;
+													row4.mdDeliveryPoint = row2.mdDeliveryPoint;
+													row4.mdCity = row2.mdCity;
+													row4.mdAdministrativeArea = row2.mdAdministrativeArea;
+													row4.mdPostalCode = row2.mdPostalCode;
+													row4.mdCountry = row2.mdCountry;
+													row4.mdEmail = row2.mdEmail;
+													row4.mdDate = row2.mdDate;
+													row4.title = row2.title;
+													row4.organisationName = row2.organisationName;
+													row4.voice = row2.voice;
+													row4.email = row2.email;
+													row4.individualName = row2.individualName;
+													row4.positionName = row2.positionName;
+													row4.deliveryPoint = row2.deliveryPoint;
+													row4.city = row2.city;
+													row4.administrativeArea = row2.administrativeArea;
+													row4.postalCode = row2.postalCode;
+													row4.country = row2.country;
+													row4.spatialRepresentationType = row2.spatialRepresentationType;
+													row4.scaleDenominator = row2.scaleDenominator;
+													row4.topicCategoryCode = row2.topicCategoryCode;
+													row4.west = row2.west;
+													row4.east = row2.east;
+													row4.south = row2.south;
+													row4.north = row2.north;
+													row4.mdMaintenanceFrequencyCode = row2.mdMaintenanceFrequencyCode;
+													row4.keyword = row2.keyword;
+													row4.keyword2 = row2.keyword2;
+													row4.keyworkd1_theme = row2.keyworkd1_theme;
+													row4.keyword2_theme = row2.keyword2_theme;
+													row4.useConstraints = row2.useConstraints;
+													row4.scopeCode = row2.scopeCode;
+													row4.lineage = row2.lineage;
+													row4.srs = row2.srs;
+													row4.columnsDef = row2.columnsDef;
+													row4.layerName = row2.layerName;
+													String temp_tExtractDelimitedFields_3 = null;
+													row4.colName = 0 >= length_tExtractDelimitedFields_3 ? ""
+															: newFields_tExtractDelimitedFields_3[0];
+													row4.colType = 1 >= length_tExtractDelimitedFields_3 ? ""
+															: newFields_tExtractDelimitedFields_3[1];
+													row4.colPrecision = 2 >= length_tExtractDelimitedFields_3 ? ""
+															: newFields_tExtractDelimitedFields_3[2];
+													nb_line_tExtractDelimitedFields_3++;
+												} catch (java.lang.Exception ex_tExtractDelimitedFields_3) {
+													System.err
+															.println(ex_tExtractDelimitedFields_3
+																	.getMessage());
+													row4 = null;
+												}
+
+												tos_count_tExtractDelimitedFields_3++;
+
+												/**
+												 * [tExtractDelimitedFields_3
+												 * main ] stop
+												 */
+												// Start of branch "row4"
+												if (row4 != null) {
+
+													/**
+													 * [tLogRow_2 main ] start
+													 */
+
+													currentComponent = "tLogRow_2";
+
+													// /////////////////////
+
+													strBuffer_tLogRow_2 = new StringBuilder();
+
+													if (row4.mdIdentifier != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdIdentifier));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdLanguage != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdLanguage));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdCharacterSetCode != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdCharacterSetCode));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.ciRoleCode != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.ciRoleCode));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdOrganisation != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdOrganisation));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdVoice != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdVoice));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdIndividualName != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdIndividualName));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdPositionName != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdPositionName));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdDeliveryPoint != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdDeliveryPoint));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdCity != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdCity));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdAdministrativeArea != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdAdministrativeArea));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdPostalCode != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdPostalCode));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdCountry != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdCountry));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdEmail != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdEmail));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdDate != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdDate));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.title != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.title));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.organisationName != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.organisationName));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.voice != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.voice));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.email != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.email));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.individualName != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.individualName));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.positionName != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.positionName));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.deliveryPoint != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.deliveryPoint));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.city != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.city));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.administrativeArea != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.administrativeArea));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.postalCode != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.postalCode));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.country != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.country));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.spatialRepresentationType != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.spatialRepresentationType));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.scaleDenominator != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.scaleDenominator));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.topicCategoryCode != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.topicCategoryCode));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.west != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.west));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.east != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.east));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.south != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.south));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.north != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.north));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.mdMaintenanceFrequencyCode != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.mdMaintenanceFrequencyCode));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.keyword != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.keyword));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.keyword2 != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.keyword2));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.keyworkd1_theme != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.keyworkd1_theme));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.keyword2_theme != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.keyword2_theme));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.useConstraints != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.useConstraints));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.scopeCode != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.scopeCode));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.lineage != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.lineage));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.srs != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.srs));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.columnsDef != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.columnsDef));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.layerName != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.layerName));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.colName != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.colName));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.colType != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.colType));
+
+													} //
+
+													strBuffer_tLogRow_2
+															.append("|");
+
+													if (row4.colPrecision != null) { //
+
+														strBuffer_tLogRow_2
+																.append(String
+																		.valueOf(row4.colPrecision));
+
+													} //
+
+													if (globalMap
+															.get("tLogRow_CONSOLE") != null) {
+														consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap
+																.get("tLogRow_CONSOLE");
+													} else {
+														consoleOut_tLogRow_2 = new java.io.PrintStream(
+																new java.io.BufferedOutputStream(
+																		System.out));
+														globalMap
+																.put("tLogRow_CONSOLE",
+																		consoleOut_tLogRow_2);
+													}
+
+													consoleOut_tLogRow_2
+															.println(strBuffer_tLogRow_2
+																	.toString());
+													consoleOut_tLogRow_2
+															.flush();
+													nb_line_tLogRow_2++;
+													// ////
+
+													// ////
+
+													// /////////////////////
+
+													row3 = row4;
+
+													tos_count_tLogRow_2++;
+
+													/**
+													 * [tLogRow_2 main ] stop
+													 */
+
+													/**
+													 * [tAdvancedFileOutputXML_2
+													 * main ] start
+													 */
+
+													currentComponent = "tAdvancedFileOutputXML_2";
+
+													nb_line_tAFOX_2++;
+													valueMap_tAFOX_2.clear();
 													valueMap_tAFOX_2
-															.get("keyword"));
-										}
-										loop_0_0_0_tAFOX_2
-												.setName("gco:CharacterString");
-										org.dom4j.Element loop_0_1_tAFOX_2;
-										if (loop_0_tAFOX_2
-												.getNamespaceForPrefix("mri") == null) {
-											loop_0_1_tAFOX_2 = loop_0_tAFOX_2
-													.addElement("type");
-										} else {
-											loop_0_1_tAFOX_2 = loop_0_tAFOX_2
-													.addElement("mri:type");
-										}
-										loop_0_1_tAFOX_2.setName("mri:type");
-										org.dom4j.Element loop_0_1_0_tAFOX_2;
-										if (loop_0_1_tAFOX_2
-												.getNamespaceForPrefix("mri") == null) {
-											loop_0_1_0_tAFOX_2 = loop_0_1_tAFOX_2
-													.addElement("MD_KeywordTypeCode");
-										} else {
-											loop_0_1_0_tAFOX_2 = loop_0_1_tAFOX_2
-													.addElement("mri:MD_KeywordTypeCode");
-										}
-										loop_0_1_0_tAFOX_2
-												.addAttribute(
-														"codeList",
-														"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode");
-										if (valueMap_tAFOX_2
-												.get("keyworkd1_theme") != null) {
-											loop_0_1_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															valueMap_tAFOX_2
-																	.get("keyworkd1_theme"));
-										}
-										loop_0_1_0_tAFOX_2
-												.setName("mri:MD_KeywordTypeCode");
-										currentRowCount_tAFOX_2++;
-										if (currentRowCount_tAFOX_2 == 1) {
-											needRoot_tAFOX_2 = true;
-											fileName_tAFOX_2 = file_tAFOX_2
-													+ currentFileCount_tAFOX_2
-													+ suffix_tAFOX_2;
-											currentRowCount_tAFOX_2 = 0;
-											currentFileCount_tAFOX_2++;
-											groupbyList_tAFOX_2.clear();
+															.put("mdIdentifier",
+																	(row4.mdIdentifier != null ? row4.mdIdentifier
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdLanguage",
+																	(row4.mdLanguage != null ? row4.mdLanguage
+																			.toString()
+																			: "eng"));
+													valueMap_tAFOX_2
+															.put("mdCharacterSetCode",
+																	(row4.mdCharacterSetCode != null ? row4.mdCharacterSetCode
+																			.toString()
+																			: "utf-8"));
+													valueMap_tAFOX_2
+															.put("ciRoleCode",
+																	(row4.ciRoleCode != null ? row4.ciRoleCode
+																			.toString()
+																			: "pointOfContact"));
+													valueMap_tAFOX_2
+															.put("mdOrganisation",
+																	(row4.mdOrganisation != null ? row4.mdOrganisation
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdVoice",
+																	(row4.mdVoice != null ? row4.mdVoice
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdIndividualName",
+																	(row4.mdIndividualName != null ? row4.mdIndividualName
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdPositionName",
+																	(row4.mdPositionName != null ? row4.mdPositionName
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdDeliveryPoint",
+																	(row4.mdDeliveryPoint != null ? row4.mdDeliveryPoint
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdCity",
+																	(row4.mdCity != null ? row4.mdCity
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdAdministrativeArea",
+																	(row4.mdAdministrativeArea != null ? row4.mdAdministrativeArea
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdPostalCode",
+																	(row4.mdPostalCode != null ? row4.mdPostalCode
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdCountry",
+																	(row4.mdCountry != null ? row4.mdCountry
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdEmail",
+																	(row4.mdEmail != null ? row4.mdEmail
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdDate",
+																	(row4.mdDate != null ? row4.mdDate
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("title",
+																	(row4.title != null ? row4.title
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("organisationName",
+																	(row4.organisationName != null ? row4.organisationName
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("voice",
+																	(row4.voice != null ? row4.voice
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("email",
+																	(row4.email != null ? row4.email
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("individualName",
+																	(row4.individualName != null ? row4.individualName
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("positionName",
+																	(row4.positionName != null ? row4.positionName
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("deliveryPoint",
+																	(row4.deliveryPoint != null ? row4.deliveryPoint
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("city",
+																	(row4.city != null ? row4.city
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("administrativeArea",
+																	(row4.administrativeArea != null ? row4.administrativeArea
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("postalCode",
+																	(row4.postalCode != null ? row4.postalCode
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("country",
+																	(row4.country != null ? row4.country
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("spatialRepresentationType",
+																	(row4.spatialRepresentationType != null ? row4.spatialRepresentationType
+																			.toString()
+																			: "vector"));
+													valueMap_tAFOX_2
+															.put("scaleDenominator",
+																	(row4.scaleDenominator != null ? row4.scaleDenominator
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("topicCategoryCode",
+																	(row4.topicCategoryCode != null ? row4.topicCategoryCode
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("west",
+																	(row4.west != null ? row4.west
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("east",
+																	(row4.east != null ? row4.east
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("south",
+																	(row4.south != null ? row4.south
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("north",
+																	(row4.north != null ? row4.north
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("mdMaintenanceFrequencyCode",
+																	(row4.mdMaintenanceFrequencyCode != null ? row4.mdMaintenanceFrequencyCode
+																			.toString()
+																			: "asNeeded"));
+													valueMap_tAFOX_2
+															.put("keyword",
+																	(row4.keyword != null ? row4.keyword
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("keyword2",
+																	(row4.keyword2 != null ? row4.keyword2
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("keyworkd1_theme",
+																	(row4.keyworkd1_theme != null ? row4.keyworkd1_theme
+																			.toString()
+																			: "theme"));
+													valueMap_tAFOX_2
+															.put("keyword2_theme",
+																	(row4.keyword2_theme != null ? row4.keyword2_theme
+																			.toString()
+																			: "place"));
+													valueMap_tAFOX_2
+															.put("useConstraints",
+																	(row4.useConstraints != null ? row4.useConstraints
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("scopeCode",
+																	(row4.scopeCode != null ? row4.scopeCode
+																			.toString()
+																			: "dataset"));
+													valueMap_tAFOX_2
+															.put("lineage",
+																	(row4.lineage != null ? row4.lineage
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("srs",
+																	(row4.srs != null ? row4.srs
+																			.toString()
+																			: "WGS 1984"));
+													valueMap_tAFOX_2
+															.put("columnsDef",
+																	(row4.columnsDef != null ? row4.columnsDef
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("layerName",
+																	(row4.layerName != null ? row4.layerName
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("colName",
+																	(row4.colName != null ? row4.colName
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("colType",
+																	(row4.colType != null ? row4.colType
+																			.toString()
+																			: null));
+													valueMap_tAFOX_2
+															.put("colPrecision",
+																	(row4.colPrecision != null ? row4.colPrecision
+																			.toString()
+																			: null));
+													org.dom4j.Element subTreeRootParent_tAFOX_2 = null;
 
-											java.io.FileOutputStream stream_tAFOX_2 = new java.io.FileOutputStream(
-													fileName_tAFOX_2);
-											org.dom4j.io.XMLWriter output_tAFOX_2 = new org.dom4j.io.XMLWriter(
-													stream_tAFOX_2,
-													format_tAFOX_2);
-											nestXMLTool_tAFOX_2
-													.replaceDefaultNameSpace(doc_tAFOX_2
-															.getRootElement());
-											output_tAFOX_2.write(doc_tAFOX_2);
-											output_tAFOX_2.close();
-											doc_tAFOX_2 = org.dom4j.DocumentHelper
-													.createDocument();
-											groupElementList_tAFOX_2.clear();
+													// build root xml tree
+													if (needRoot_tAFOX_2) {
+														needRoot_tAFOX_2 = false;
+														if (orders_tAFOX_2.length > 0) {
+															orders_tAFOX_2[0] = 0;
+														}
+														org.dom4j.Element root_tAFOX_2 = doc_tAFOX_2
+																.addElement("mdb:MD_Metadata");
+														root_tAFOX_2
+																.addNamespace(
+																		"mrl",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrl/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mrd",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrd/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mco",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mco/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mmi",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mmi/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"gml",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.opengis.net/gml/3.2"));
+														root_tAFOX_2
+																.addNamespace(
+																		"gex",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/gex/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mri",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mri/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mrs",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrs/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"cit",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/cit/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"lan",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/lan/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"gco",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/2005/gco"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mcc",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mcc/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mdb",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mdb/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addNamespace(
+																		"xsi",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.w3.org/2001/XMLSchema-instance"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mrc",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrc/1.0/2014-07-11"));
+														root_tAFOX_2
+																.addAttribute(
+																		"xsi:schemaLocation",
+																		"http://www.isotc211.org/namespace/mdb/1.0/2014-07-11 ../schema.xsd");
+														root_tAFOX_2
+																.setName("mdb:MD_Metadata");
+														org.dom4j.Element root_0_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_0_tAFOX_2 = root_tAFOX_2
+																	.addElement("metadataIdentifier");
+														} else {
+															root_0_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:metadataIdentifier");
+														}
+														root_0_tAFOX_2
+																.setName("mdb:metadataIdentifier");
+														org.dom4j.Element root_0_0_tAFOX_2;
+														if (root_0_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_0_0_tAFOX_2 = root_0_tAFOX_2
+																	.addElement("MD_Identifier");
+														} else {
+															root_0_0_tAFOX_2 = root_0_tAFOX_2
+																	.addElement("mcc:MD_Identifier");
+														}
+														root_0_0_tAFOX_2
+																.setName("mcc:MD_Identifier");
+														org.dom4j.Element root_0_0_0_tAFOX_2;
+														if (root_0_0_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_0_0_0_tAFOX_2 = root_0_0_tAFOX_2
+																	.addElement("code");
+														} else {
+															root_0_0_0_tAFOX_2 = root_0_0_tAFOX_2
+																	.addElement("mcc:code");
+														}
+														root_0_0_0_tAFOX_2
+																.setName("mcc:code");
+														org.dom4j.Element root_0_0_0_0_tAFOX_2;
+														if (root_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_0_0_0_0_tAFOX_2 = root_0_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_0_0_0_0_tAFOX_2 = root_0_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdIdentifier") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_0_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdIdentifier"));
+														}
+														root_0_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_0_0_1_tAFOX_2;
+														if (root_0_0_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_0_0_1_tAFOX_2 = root_0_0_tAFOX_2
+																	.addElement("codeSpace");
+														} else {
+															root_0_0_1_tAFOX_2 = root_0_0_tAFOX_2
+																	.addElement("mcc:codeSpace");
+														}
+														root_0_0_1_tAFOX_2
+																.setName("mcc:codeSpace");
+														org.dom4j.Element root_0_0_1_0_tAFOX_2;
+														if (root_0_0_1_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_0_0_1_0_tAFOX_2 = root_0_0_1_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_0_0_1_0_tAFOX_2 = root_0_0_1_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														nestXMLTool_tAFOX_2
+																.parseAndAdd(
+																		root_0_0_1_0_tAFOX_2,
+																		"urn:uuid");
+
+														root_0_0_1_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_1_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_1_tAFOX_2 = root_tAFOX_2
+																	.addElement("defaultLocale");
+														} else {
+															root_1_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:defaultLocale");
+														}
+														root_1_tAFOX_2
+																.setName("mdb:defaultLocale");
+														org.dom4j.Element root_1_0_tAFOX_2;
+														if (root_1_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_1_0_tAFOX_2 = root_1_tAFOX_2
+																	.addElement("PT_Locale");
+														} else {
+															root_1_0_tAFOX_2 = root_1_tAFOX_2
+																	.addElement("lan:PT_Locale");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdLanguage") != null) {
+															root_1_0_tAFOX_2
+																	.addAttribute(
+																			"id",
+																			valueMap_tAFOX_2
+																					.get("mdLanguage"));
+														}
+														root_1_0_tAFOX_2
+																.setName("lan:PT_Locale");
+														org.dom4j.Element root_1_0_0_tAFOX_2;
+														if (root_1_0_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_1_0_0_tAFOX_2 = root_1_0_tAFOX_2
+																	.addElement("language");
+														} else {
+															root_1_0_0_tAFOX_2 = root_1_0_tAFOX_2
+																	.addElement("lan:language");
+														}
+														root_1_0_0_tAFOX_2
+																.setName("lan:language");
+														org.dom4j.Element root_1_0_0_0_tAFOX_2;
+														if (root_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_1_0_0_0_tAFOX_2 = root_1_0_0_tAFOX_2
+																	.addElement("LanguageCode");
+														} else {
+															root_1_0_0_0_tAFOX_2 = root_1_0_0_tAFOX_2
+																	.addElement("lan:LanguageCode");
+														}
+														root_1_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://www.loc.gov/standards/iso639-2/");
+														if (valueMap_tAFOX_2
+																.get("mdLanguage") != null) {
+															root_1_0_0_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("mdLanguage"));
+														}
+														root_1_0_0_0_tAFOX_2
+																.setName("lan:LanguageCode");
+														org.dom4j.Element root_1_0_1_tAFOX_2;
+														if (root_1_0_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_1_0_1_tAFOX_2 = root_1_0_tAFOX_2
+																	.addElement("characterEncoding");
+														} else {
+															root_1_0_1_tAFOX_2 = root_1_0_tAFOX_2
+																	.addElement("lan:characterEncoding");
+														}
+														root_1_0_1_tAFOX_2
+																.setName("lan:characterEncoding");
+														org.dom4j.Element root_1_0_1_0_tAFOX_2;
+														if (root_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_1_0_1_0_tAFOX_2 = root_1_0_1_tAFOX_2
+																	.addElement("MD_CharacterSetCode");
+														} else {
+															root_1_0_1_0_tAFOX_2 = root_1_0_1_tAFOX_2
+																	.addElement("lan:MD_CharacterSetCode");
+														}
+														root_1_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode");
+														if (valueMap_tAFOX_2
+																.get("mdCharacterSetCode") != null) {
+															root_1_0_1_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("mdCharacterSetCode"));
+														}
+														root_1_0_1_0_tAFOX_2
+																.setName("lan:MD_CharacterSetCode");
+														org.dom4j.Element root_2_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_2_tAFOX_2 = root_tAFOX_2
+																	.addElement("contact");
+														} else {
+															root_2_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:contact");
+														}
+														root_2_tAFOX_2
+																.setName("mdb:contact");
+														org.dom4j.Element root_2_0_tAFOX_2;
+														if (root_2_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_tAFOX_2 = root_2_tAFOX_2
+																	.addElement("CI_Responsibility");
+														} else {
+															root_2_0_tAFOX_2 = root_2_tAFOX_2
+																	.addElement("cit:CI_Responsibility");
+														}
+														root_2_0_tAFOX_2
+																.setName("cit:CI_Responsibility");
+														org.dom4j.Element root_2_0_0_tAFOX_2;
+														if (root_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_0_tAFOX_2 = root_2_0_tAFOX_2
+																	.addElement("role");
+														} else {
+															root_2_0_0_tAFOX_2 = root_2_0_tAFOX_2
+																	.addElement("cit:role");
+														}
+														root_2_0_0_tAFOX_2
+																.setName("cit:role");
+														org.dom4j.Element root_2_0_0_0_tAFOX_2;
+														if (root_2_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_0_0_tAFOX_2 = root_2_0_0_tAFOX_2
+																	.addElement("CI_RoleCode");
+														} else {
+															root_2_0_0_0_tAFOX_2 = root_2_0_0_tAFOX_2
+																	.addElement("cit:CI_RoleCode");
+														}
+														root_2_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode");
+														if (valueMap_tAFOX_2
+																.get("ciRoleCode") != null) {
+															root_2_0_0_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("ciRoleCode"));
+														}
+														root_2_0_0_0_tAFOX_2
+																.setName("cit:CI_RoleCode");
+														org.dom4j.Element root_2_0_1_tAFOX_2;
+														if (root_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_tAFOX_2 = root_2_0_tAFOX_2
+																	.addElement("party");
+														} else {
+															root_2_0_1_tAFOX_2 = root_2_0_tAFOX_2
+																	.addElement("cit:party");
+														}
+														root_2_0_1_tAFOX_2
+																.setName("cit:party");
+														org.dom4j.Element root_2_0_1_0_tAFOX_2;
+														if (root_2_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_tAFOX_2 = root_2_0_1_tAFOX_2
+																	.addElement("CI_Organisation");
+														} else {
+															root_2_0_1_0_tAFOX_2 = root_2_0_1_tAFOX_2
+																	.addElement("cit:CI_Organisation");
+														}
+														root_2_0_1_0_tAFOX_2
+																.setName("cit:CI_Organisation");
+														org.dom4j.Element root_2_0_1_0_0_tAFOX_2;
+														if (root_2_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_0_tAFOX_2 = root_2_0_1_0_tAFOX_2
+																	.addElement("name");
+														} else {
+															root_2_0_1_0_0_tAFOX_2 = root_2_0_1_0_tAFOX_2
+																	.addElement("cit:name");
+														}
+														root_2_0_1_0_0_tAFOX_2
+																.setName("cit:name");
+														org.dom4j.Element root_2_0_1_0_0_0_tAFOX_2;
+														if (root_2_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdOrganisation") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdOrganisation"));
+														}
+														root_2_0_1_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_1_tAFOX_2;
+														if (root_2_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_tAFOX_2 = root_2_0_1_0_tAFOX_2
+																	.addElement("contactInfo");
+														} else {
+															root_2_0_1_0_1_tAFOX_2 = root_2_0_1_0_tAFOX_2
+																	.addElement("cit:contactInfo");
+														}
+														root_2_0_1_0_1_tAFOX_2
+																.setName("cit:contactInfo");
+														org.dom4j.Element root_2_0_1_0_1_0_tAFOX_2;
+														if (root_2_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_tAFOX_2
+																	.addElement("CI_Contact");
+														} else {
+															root_2_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_tAFOX_2
+																	.addElement("cit:CI_Contact");
+														}
+														root_2_0_1_0_1_0_tAFOX_2
+																.setName("cit:CI_Contact");
+														org.dom4j.Element root_2_0_1_0_1_0_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
+																	.addElement("phone");
+														} else {
+															root_2_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:phone");
+														}
+														root_2_0_1_0_1_0_0_tAFOX_2
+																.setName("cit:phone");
+														org.dom4j.Element root_2_0_1_0_1_0_0_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_tAFOX_2
+																	.addElement("CI_Telephone");
+														} else {
+															root_2_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_tAFOX_2
+																	.addElement("cit:CI_Telephone");
+														}
+														root_2_0_1_0_1_0_0_0_tAFOX_2
+																.setName("cit:CI_Telephone");
+														org.dom4j.Element root_2_0_1_0_1_0_0_0_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("number");
+														} else {
+															root_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:number");
+														}
+														root_2_0_1_0_1_0_0_0_0_tAFOX_2
+																.setName("cit:number");
+														org.dom4j.Element root_2_0_1_0_1_0_0_0_0_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdVoice") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_1_0_0_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdVoice"));
+														}
+														root_2_0_1_0_1_0_0_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_1_0_0_0_1_tAFOX_2;
+														if (root_2_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("numberType");
+														} else {
+															root_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:numberType");
+														}
+														root_2_0_1_0_1_0_0_0_1_tAFOX_2
+																.setName("cit:numberType");
+														org.dom4j.Element root_2_0_1_0_1_0_0_0_1_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_0_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_1_tAFOX_2
+																	.addElement("CI_TelephoneTypeCode");
+														} else {
+															root_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_0_0_1_tAFOX_2
+																	.addElement("cit:CI_TelephoneTypeCode");
+														}
+														root_2_0_1_0_1_0_0_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_TelephoneTypeCode");
+														root_2_0_1_0_1_0_0_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"voice");
+														root_2_0_1_0_1_0_0_0_1_0_tAFOX_2
+																.setName("cit:CI_TelephoneTypeCode");
+														org.dom4j.Element root_2_0_1_0_1_0_1_tAFOX_2;
+														if (root_2_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
+																	.addElement("address");
+														} else {
+															root_2_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:address");
+														}
+														root_2_0_1_0_1_0_1_tAFOX_2
+																.setName("cit:address");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_tAFOX_2
+																	.addElement("CI_Address");
+														} else {
+															root_2_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_tAFOX_2
+																	.addElement("cit:CI_Address");
+														}
+														root_2_0_1_0_1_0_1_0_tAFOX_2
+																.setName("cit:CI_Address");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("deliveryPoint");
+														} else {
+															root_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:deliveryPoint");
+														}
+														root_2_0_1_0_1_0_1_0_0_tAFOX_2
+																.setName("cit:deliveryPoint");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_0_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdDeliveryPoint") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_1_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdDeliveryPoint"));
+														}
+														root_2_0_1_0_1_0_1_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_1_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("city");
+														} else {
+															root_2_0_1_0_1_0_1_0_1_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:city");
+														}
+														root_2_0_1_0_1_0_1_0_1_tAFOX_2
+																.setName("cit:city");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_1_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_1_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_1_0_1_0_1_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_1_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdCity") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_1_0_1_0_1_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdCity"));
+														}
+														root_2_0_1_0_1_0_1_0_1_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_2_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_0_2_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("administrativeArea");
+														} else {
+															root_2_0_1_0_1_0_1_0_2_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:administrativeArea");
+														}
+														root_2_0_1_0_1_0_1_0_2_tAFOX_2
+																.setName("cit:administrativeArea");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_2_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_2_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_1_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_2_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_1_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_2_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdAdministrativeArea") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_1_0_1_0_2_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdAdministrativeArea"));
+														}
+														root_2_0_1_0_1_0_1_0_2_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_3_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_0_3_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("postalCode");
+														} else {
+															root_2_0_1_0_1_0_1_0_3_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:postalCode");
+														}
+														root_2_0_1_0_1_0_1_0_3_tAFOX_2
+																.setName("cit:postalCode");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_3_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_3_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_1_0_1_0_3_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_3_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_1_0_1_0_3_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_3_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdPostalCode") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_1_0_1_0_3_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdPostalCode"));
+														}
+														root_2_0_1_0_1_0_1_0_3_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_4_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_0_4_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("country");
+														} else {
+															root_2_0_1_0_1_0_1_0_4_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:country");
+														}
+														root_2_0_1_0_1_0_1_0_4_tAFOX_2
+																.setName("cit:country");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_4_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_4_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_1_0_1_0_4_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_4_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_1_0_1_0_4_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_4_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdCountry") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_1_0_1_0_4_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdCountry"));
+														}
+														root_2_0_1_0_1_0_1_0_4_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_5_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_1_0_1_0_5_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("electronicMailAddress");
+														} else {
+															root_2_0_1_0_1_0_1_0_5_tAFOX_2 = root_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:electronicMailAddress");
+														}
+														root_2_0_1_0_1_0_1_0_5_tAFOX_2
+																.setName("cit:electronicMailAddress");
+														org.dom4j.Element root_2_0_1_0_1_0_1_0_5_0_tAFOX_2;
+														if (root_2_0_1_0_1_0_1_0_5_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_1_0_1_0_5_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_5_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_1_0_1_0_5_0_tAFOX_2 = root_2_0_1_0_1_0_1_0_5_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdEmail") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_1_0_1_0_5_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdEmail"));
+														}
+														root_2_0_1_0_1_0_1_0_5_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_2_tAFOX_2;
+														if (root_2_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_2_tAFOX_2 = root_2_0_1_0_tAFOX_2
+																	.addElement("individual");
+														} else {
+															root_2_0_1_0_2_tAFOX_2 = root_2_0_1_0_tAFOX_2
+																	.addElement("cit:individual");
+														}
+														root_2_0_1_0_2_tAFOX_2
+																.setName("cit:individual");
+														org.dom4j.Element root_2_0_1_0_2_0_tAFOX_2;
+														if (root_2_0_1_0_2_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_2_tAFOX_2
+																	.addElement("CI_Individual");
+														} else {
+															root_2_0_1_0_2_0_tAFOX_2 = root_2_0_1_0_2_tAFOX_2
+																	.addElement("cit:CI_Individual");
+														}
+														root_2_0_1_0_2_0_tAFOX_2
+																.setName("cit:CI_Individual");
+														org.dom4j.Element root_2_0_1_0_2_0_0_tAFOX_2;
+														if (root_2_0_1_0_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_2_0_0_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
+																	.addElement("name");
+														} else {
+															root_2_0_1_0_2_0_0_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
+																	.addElement("cit:name");
+														}
+														root_2_0_1_0_2_0_0_tAFOX_2
+																.setName("cit:name");
+														org.dom4j.Element root_2_0_1_0_2_0_0_0_tAFOX_2;
+														if (root_2_0_1_0_2_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_2_0_0_0_tAFOX_2 = root_2_0_1_0_2_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_2_0_0_0_tAFOX_2 = root_2_0_1_0_2_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdIndividualName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_2_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdIndividualName"));
+														}
+														root_2_0_1_0_2_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_2_0_1_0_2_0_1_tAFOX_2;
+														if (root_2_0_1_0_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_2_0_1_0_2_0_1_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
+																	.addElement("positionName");
+														} else {
+															root_2_0_1_0_2_0_1_tAFOX_2 = root_2_0_1_0_2_0_tAFOX_2
+																	.addElement("cit:positionName");
+														}
+														root_2_0_1_0_2_0_1_tAFOX_2
+																.setName("cit:positionName");
+														org.dom4j.Element root_2_0_1_0_2_0_1_0_tAFOX_2;
+														if (root_2_0_1_0_2_0_1_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_2_0_1_0_2_0_1_0_tAFOX_2 = root_2_0_1_0_2_0_1_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_2_0_1_0_2_0_1_0_tAFOX_2 = root_2_0_1_0_2_0_1_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdPositionName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_2_0_1_0_2_0_1_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdPositionName"));
+														}
+														root_2_0_1_0_2_0_1_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_3_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_3_tAFOX_2 = root_tAFOX_2
+																	.addElement("dateInfo");
+														} else {
+															root_3_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:dateInfo");
+														}
+														root_3_tAFOX_2
+																.setName("mdb:dateInfo");
+														org.dom4j.Element root_3_0_tAFOX_2;
+														if (root_3_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_3_0_tAFOX_2 = root_3_tAFOX_2
+																	.addElement("CI_Date");
+														} else {
+															root_3_0_tAFOX_2 = root_3_tAFOX_2
+																	.addElement("cit:CI_Date");
+														}
+														root_3_0_tAFOX_2
+																.setName("cit:CI_Date");
+														org.dom4j.Element root_3_0_0_tAFOX_2;
+														if (root_3_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_3_0_0_tAFOX_2 = root_3_0_tAFOX_2
+																	.addElement("date");
+														} else {
+															root_3_0_0_tAFOX_2 = root_3_0_tAFOX_2
+																	.addElement("cit:date");
+														}
+														root_3_0_0_tAFOX_2
+																.setName("cit:date");
+														org.dom4j.Element root_3_0_0_0_tAFOX_2;
+														if (root_3_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_3_0_0_0_tAFOX_2 = root_3_0_0_tAFOX_2
+																	.addElement("DateTime");
+														} else {
+															root_3_0_0_0_tAFOX_2 = root_3_0_0_tAFOX_2
+																	.addElement("gco:DateTime");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdDate") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_3_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdDate"));
+														}
+														root_3_0_0_0_tAFOX_2
+																.setName("gco:DateTime");
+														org.dom4j.Element root_3_0_1_tAFOX_2;
+														if (root_3_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_3_0_1_tAFOX_2 = root_3_0_tAFOX_2
+																	.addElement("dateType");
+														} else {
+															root_3_0_1_tAFOX_2 = root_3_0_tAFOX_2
+																	.addElement("cit:dateType");
+														}
+														root_3_0_1_tAFOX_2
+																.setName("cit:dateType");
+														org.dom4j.Element root_3_0_1_0_tAFOX_2;
+														if (root_3_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_3_0_1_0_tAFOX_2 = root_3_0_1_tAFOX_2
+																	.addElement("CI_DateTypeCode");
+														} else {
+															root_3_0_1_0_tAFOX_2 = root_3_0_1_tAFOX_2
+																	.addElement("cit:CI_DateTypeCode");
+														}
+														root_3_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode");
+														root_3_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"creation");
+														root_3_0_1_0_tAFOX_2
+																.setName("cit:CI_DateTypeCode");
+														org.dom4j.Element root_4_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_4_tAFOX_2 = root_tAFOX_2
+																	.addElement("metadataStandard");
+														} else {
+															root_4_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:metadataStandard");
+														}
+														root_4_tAFOX_2
+																.setName("mdb:metadataStandard");
+														org.dom4j.Element root_4_0_tAFOX_2;
+														if (root_4_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_4_0_tAFOX_2 = root_4_tAFOX_2
+																	.addElement("CI_Citation");
+														} else {
+															root_4_0_tAFOX_2 = root_4_tAFOX_2
+																	.addElement("cit:CI_Citation");
+														}
+														root_4_0_tAFOX_2
+																.setName("cit:CI_Citation");
+														org.dom4j.Element root_4_0_0_tAFOX_2;
+														if (root_4_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_4_0_0_tAFOX_2 = root_4_0_tAFOX_2
+																	.addElement("title");
+														} else {
+															root_4_0_0_tAFOX_2 = root_4_0_tAFOX_2
+																	.addElement("cit:title");
+														}
+														root_4_0_0_tAFOX_2
+																.setName("cit:title");
+														org.dom4j.Element root_4_0_0_0_tAFOX_2;
+														if (root_4_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_4_0_0_0_tAFOX_2 = root_4_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_4_0_0_0_tAFOX_2 = root_4_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														nestXMLTool_tAFOX_2
+																.parseAndAdd(
+																		root_4_0_0_0_tAFOX_2,
+																		"ISO 19115-3");
+
+														root_4_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_5_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_5_tAFOX_2 = root_tAFOX_2
+																	.addElement("referenceSystemInfo");
+														} else {
+															root_5_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:referenceSystemInfo");
+														}
+														root_5_tAFOX_2
+																.setName("mdb:referenceSystemInfo");
+														org.dom4j.Element root_5_0_tAFOX_2;
+														if (root_5_tAFOX_2
+																.getNamespaceForPrefix("mrs") == null) {
+															root_5_0_tAFOX_2 = root_5_tAFOX_2
+																	.addElement("MD_ReferenceSystem");
+														} else {
+															root_5_0_tAFOX_2 = root_5_tAFOX_2
+																	.addElement("mrs:MD_ReferenceSystem");
+														}
+														root_5_0_tAFOX_2
+																.setName("mrs:MD_ReferenceSystem");
+														org.dom4j.Element root_5_0_0_tAFOX_2;
+														if (root_5_0_tAFOX_2
+																.getNamespaceForPrefix("mrs") == null) {
+															root_5_0_0_tAFOX_2 = root_5_0_tAFOX_2
+																	.addElement("referenceSystemIdentifier");
+														} else {
+															root_5_0_0_tAFOX_2 = root_5_0_tAFOX_2
+																	.addElement("mrs:referenceSystemIdentifier");
+														}
+														root_5_0_0_tAFOX_2
+																.setName("mrs:referenceSystemIdentifier");
+														org.dom4j.Element root_5_0_0_0_tAFOX_2;
+														if (root_5_0_0_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_5_0_0_0_tAFOX_2 = root_5_0_0_tAFOX_2
+																	.addElement("MD_Identifier");
+														} else {
+															root_5_0_0_0_tAFOX_2 = root_5_0_0_tAFOX_2
+																	.addElement("mcc:MD_Identifier");
+														}
+														root_5_0_0_0_tAFOX_2
+																.setName("mcc:MD_Identifier");
+														org.dom4j.Element root_5_0_0_0_0_tAFOX_2;
+														if (root_5_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_5_0_0_0_0_tAFOX_2 = root_5_0_0_0_tAFOX_2
+																	.addElement("code");
+														} else {
+															root_5_0_0_0_0_tAFOX_2 = root_5_0_0_0_tAFOX_2
+																	.addElement("mcc:code");
+														}
+														root_5_0_0_0_0_tAFOX_2
+																.setName("mcc:code");
+														org.dom4j.Element root_5_0_0_0_0_0_tAFOX_2;
+														if (root_5_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_5_0_0_0_0_0_tAFOX_2 = root_5_0_0_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_5_0_0_0_0_0_tAFOX_2 = root_5_0_0_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("srs") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_5_0_0_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("srs"));
+														}
+														root_5_0_0_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_6_tAFOX_2 = root_tAFOX_2
+																	.addElement("identificationInfo");
+														} else {
+															root_6_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:identificationInfo");
+														}
+														root_6_tAFOX_2
+																.setName("mdb:identificationInfo");
+														org.dom4j.Element root_6_0_tAFOX_2;
+														if (root_6_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_tAFOX_2 = root_6_tAFOX_2
+																	.addElement("MD_DataIdentification");
+														} else {
+															root_6_0_tAFOX_2 = root_6_tAFOX_2
+																	.addElement("mri:MD_DataIdentification");
+														}
+														root_6_0_tAFOX_2
+																.setName("mri:MD_DataIdentification");
+														org.dom4j.Element root_6_0_0_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_0_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("citation");
+														} else {
+															root_6_0_0_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:citation");
+														}
+														root_6_0_0_tAFOX_2
+																.setName("mri:citation");
+														org.dom4j.Element root_6_0_0_0_tAFOX_2;
+														if (root_6_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_tAFOX_2 = root_6_0_0_tAFOX_2
+																	.addElement("CI_Citation");
+														} else {
+															root_6_0_0_0_tAFOX_2 = root_6_0_0_tAFOX_2
+																	.addElement("cit:CI_Citation");
+														}
+														root_6_0_0_0_tAFOX_2
+																.setName("cit:CI_Citation");
+														org.dom4j.Element root_6_0_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_0_tAFOX_2 = root_6_0_0_0_tAFOX_2
+																	.addElement("title");
+														} else {
+															root_6_0_0_0_0_tAFOX_2 = root_6_0_0_0_tAFOX_2
+																	.addElement("cit:title");
+														}
+														root_6_0_0_0_0_tAFOX_2
+																.setName("cit:title");
+														org.dom4j.Element root_6_0_0_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("title") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_0_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("title"));
+														}
+														root_6_0_0_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_0_0_1_tAFOX_2;
+														if (root_6_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_1_tAFOX_2 = root_6_0_0_0_tAFOX_2
+																	.addElement("date");
+														} else {
+															root_6_0_0_0_1_tAFOX_2 = root_6_0_0_0_tAFOX_2
+																	.addElement("cit:date");
+														}
+														root_6_0_0_0_1_tAFOX_2
+																.setName("cit:date");
+														org.dom4j.Element root_6_0_0_0_1_0_tAFOX_2;
+														if (root_6_0_0_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_1_tAFOX_2
+																	.addElement("CI_Date");
+														} else {
+															root_6_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_1_tAFOX_2
+																	.addElement("cit:CI_Date");
+														}
+														root_6_0_0_0_1_0_tAFOX_2
+																.setName("cit:CI_Date");
+														org.dom4j.Element root_6_0_0_0_1_0_0_tAFOX_2;
+														if (root_6_0_0_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_1_0_0_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
+																	.addElement("date");
+														} else {
+															root_6_0_0_0_1_0_0_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
+																	.addElement("cit:date");
+														}
+														root_6_0_0_0_1_0_0_tAFOX_2
+																.setName("cit:date");
+														org.dom4j.Element root_6_0_0_0_1_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_0_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_1_0_0_tAFOX_2
+																	.addElement("Date");
+														} else {
+															root_6_0_0_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_1_0_0_tAFOX_2
+																	.addElement("gco:Date");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdDate") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_0_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("mdDate"));
+														}
+														root_6_0_0_0_1_0_0_0_tAFOX_2
+																.setName("gco:Date");
+														org.dom4j.Element root_6_0_0_0_1_0_1_tAFOX_2;
+														if (root_6_0_0_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_1_0_1_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
+																	.addElement("dateType");
+														} else {
+															root_6_0_0_0_1_0_1_tAFOX_2 = root_6_0_0_0_1_0_tAFOX_2
+																	.addElement("cit:dateType");
+														}
+														root_6_0_0_0_1_0_1_tAFOX_2
+																.setName("cit:dateType");
+														org.dom4j.Element root_6_0_0_0_1_0_1_0_tAFOX_2;
+														if (root_6_0_0_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_1_0_1_tAFOX_2
+																	.addElement("CI_DateTypeCode");
+														} else {
+															root_6_0_0_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_1_0_1_tAFOX_2
+																	.addElement("cit:CI_DateTypeCode");
+														}
+														root_6_0_0_0_1_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_DateTypeCode");
+														root_6_0_0_0_1_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"publication");
+														root_6_0_0_0_1_0_1_0_tAFOX_2
+																.setName("cit:CI_DateTypeCode");
+														org.dom4j.Element root_6_0_0_0_2_tAFOX_2;
+														if (root_6_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_tAFOX_2 = root_6_0_0_0_tAFOX_2
+																	.addElement("citedResponsibleParty");
+														} else {
+															root_6_0_0_0_2_tAFOX_2 = root_6_0_0_0_tAFOX_2
+																	.addElement("cit:citedResponsibleParty");
+														}
+														root_6_0_0_0_2_tAFOX_2
+																.setName("cit:citedResponsibleParty");
+														org.dom4j.Element root_6_0_0_0_2_0_tAFOX_2;
+														if (root_6_0_0_0_2_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_tAFOX_2 = root_6_0_0_0_2_tAFOX_2
+																	.addElement("CI_Responsibility");
+														} else {
+															root_6_0_0_0_2_0_tAFOX_2 = root_6_0_0_0_2_tAFOX_2
+																	.addElement("cit:CI_Responsibility");
+														}
+														root_6_0_0_0_2_0_tAFOX_2
+																.setName("cit:CI_Responsibility");
+														org.dom4j.Element root_6_0_0_0_2_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
+																	.addElement("role");
+														} else {
+															root_6_0_0_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
+																	.addElement("cit:role");
+														}
+														root_6_0_0_0_2_0_0_tAFOX_2
+																.setName("cit:role");
+														org.dom4j.Element root_6_0_0_0_2_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_0_tAFOX_2
+																	.addElement("CI_RoleCode");
+														} else {
+															root_6_0_0_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_0_tAFOX_2
+																	.addElement("cit:CI_RoleCode");
+														}
+														root_6_0_0_0_2_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode");
+														root_6_0_0_0_2_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"originator");
+														root_6_0_0_0_2_0_0_0_tAFOX_2
+																.setName("cit:CI_RoleCode");
+														org.dom4j.Element root_6_0_0_0_2_0_1_tAFOX_2;
+														if (root_6_0_0_0_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
+																	.addElement("party");
+														} else {
+															root_6_0_0_0_2_0_1_tAFOX_2 = root_6_0_0_0_2_0_tAFOX_2
+																	.addElement("cit:party");
+														}
+														root_6_0_0_0_2_0_1_tAFOX_2
+																.setName("cit:party");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_tAFOX_2
+																	.addElement("CI_Organisation");
+														} else {
+															root_6_0_0_0_2_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_tAFOX_2
+																	.addElement("cit:CI_Organisation");
+														}
+														root_6_0_0_0_2_0_1_0_tAFOX_2
+																.setName("cit:CI_Organisation");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
+																	.addElement("name");
+														} else {
+															root_6_0_0_0_2_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
+																	.addElement("cit:name");
+														}
+														root_6_0_0_0_2_0_1_0_0_tAFOX_2
+																.setName("cit:name");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_0_0_2_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_0_0_2_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("organisationName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_0_0_2_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("organisationName"));
+														}
+														root_6_0_0_0_2_0_1_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
+																	.addElement("contactInfo");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
+																	.addElement("cit:contactInfo");
+														}
+														root_6_0_0_0_2_0_1_0_1_tAFOX_2
+																.setName("cit:contactInfo");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_tAFOX_2
+																	.addElement("CI_Contact");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_tAFOX_2
+																	.addElement("cit:CI_Contact");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
+																.setName("cit:CI_Contact");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
+																	.addElement("phone");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:phone");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
+																.setName("cit:phone");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
+																	.addElement("CI_Telephone");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_tAFOX_2
+																	.addElement("cit:CI_Telephone");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
+																.setName("cit:CI_Telephone");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("number");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:number");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
+																.setName("cit:number");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("voice") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("voice"));
+														}
+														root_6_0_0_0_2_0_1_0_1_0_0_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("numberType");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:numberType");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
+																.setName("cit:numberType");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
+																	.addElement("CI_TelephoneTypeCode");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_0_0_1_tAFOX_2
+																	.addElement("cit:CI_TelephoneTypeCode");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_TelephoneTypeCode");
+														root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"voice");
+														root_6_0_0_0_2_0_1_0_1_0_0_0_1_0_tAFOX_2
+																.setName("cit:CI_TelephoneTypeCode");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
+																	.addElement("address");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:address");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
+																.setName("cit:address");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
+																	.addElement("CI_Address");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_tAFOX_2
+																	.addElement("cit:CI_Address");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
+																.setName("cit:CI_Address");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("electronicMailAddress");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:electronicMailAddress");
+														}
+														root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
+																.setName("cit:electronicMailAddress");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_1_0_1_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("email") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("email"));
+														}
+														root_6_0_0_0_2_0_1_0_1_0_1_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_2_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_2_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
+																	.addElement("individual");
+														} else {
+															root_6_0_0_0_2_0_1_0_2_tAFOX_2 = root_6_0_0_0_2_0_1_0_tAFOX_2
+																	.addElement("cit:individual");
+														}
+														root_6_0_0_0_2_0_1_0_2_tAFOX_2
+																.setName("cit:individual");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_2_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_2_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_2_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_tAFOX_2
+																	.addElement("CI_Individual");
+														} else {
+															root_6_0_0_0_2_0_1_0_2_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_tAFOX_2
+																	.addElement("cit:CI_Individual");
+														}
+														root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
+																.setName("cit:CI_Individual");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
+																	.addElement("name");
+														} else {
+															root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_tAFOX_2
+																	.addElement("cit:name");
+														}
+														root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
+																.setName("cit:name");
+														org.dom4j.Element root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2;
+														if (root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_0_0_2_0_1_0_2_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("individualName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("individualName"));
+														}
+														root_6_0_0_0_2_0_1_0_2_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_1_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_1_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("abstract");
+														} else {
+															root_6_0_1_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:abstract");
+														}
+														root_6_0_1_tAFOX_2
+																.setName("mri:abstract");
+														org.dom4j.Element root_6_0_1_0_tAFOX_2;
+														if (root_6_0_1_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_1_0_tAFOX_2 = root_6_0_1_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_1_0_tAFOX_2 = root_6_0_1_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														root_6_0_1_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_2_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_2_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("purpose");
+														} else {
+															root_6_0_2_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:purpose");
+														}
+														root_6_0_2_tAFOX_2
+																.setName("mri:purpose");
+														org.dom4j.Element root_6_0_2_0_tAFOX_2;
+														if (root_6_0_2_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_2_0_tAFOX_2 = root_6_0_2_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_2_0_tAFOX_2 = root_6_0_2_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														root_6_0_2_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_3_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_3_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("status");
+														} else {
+															root_6_0_3_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:status");
+														}
+														root_6_0_3_tAFOX_2
+																.setName("mri:status");
+														org.dom4j.Element root_6_0_3_0_tAFOX_2;
+														if (root_6_0_3_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_6_0_3_0_tAFOX_2 = root_6_0_3_tAFOX_2
+																	.addElement("MD_ProgressCode");
+														} else {
+															root_6_0_3_0_tAFOX_2 = root_6_0_3_tAFOX_2
+																	.addElement("mcc:MD_ProgressCode");
+														}
+														root_6_0_3_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_ProgressCode");
+														root_6_0_3_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"completed");
+														root_6_0_3_0_tAFOX_2
+																.setName("mcc:MD_ProgressCode");
+														org.dom4j.Element root_6_0_4_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_4_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("pointOfContact");
+														} else {
+															root_6_0_4_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:pointOfContact");
+														}
+														root_6_0_4_tAFOX_2
+																.setName("mri:pointOfContact");
+														org.dom4j.Element root_6_0_4_0_tAFOX_2;
+														if (root_6_0_4_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_tAFOX_2 = root_6_0_4_tAFOX_2
+																	.addElement("CI_Responsibility");
+														} else {
+															root_6_0_4_0_tAFOX_2 = root_6_0_4_tAFOX_2
+																	.addElement("cit:CI_Responsibility");
+														}
+														root_6_0_4_0_tAFOX_2
+																.setName("cit:CI_Responsibility");
+														org.dom4j.Element root_6_0_4_0_0_tAFOX_2;
+														if (root_6_0_4_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_0_tAFOX_2 = root_6_0_4_0_tAFOX_2
+																	.addElement("role");
+														} else {
+															root_6_0_4_0_0_tAFOX_2 = root_6_0_4_0_tAFOX_2
+																	.addElement("cit:role");
+														}
+														root_6_0_4_0_0_tAFOX_2
+																.setName("cit:role");
+														org.dom4j.Element root_6_0_4_0_0_0_tAFOX_2;
+														if (root_6_0_4_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_0_0_tAFOX_2 = root_6_0_4_0_0_tAFOX_2
+																	.addElement("CI_RoleCode");
+														} else {
+															root_6_0_4_0_0_0_tAFOX_2 = root_6_0_4_0_0_tAFOX_2
+																	.addElement("cit:CI_RoleCode");
+														}
+														root_6_0_4_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#CI_RoleCode");
+														root_6_0_4_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"originator");
+														root_6_0_4_0_0_0_tAFOX_2
+																.setName("cit:CI_RoleCode");
+														org.dom4j.Element root_6_0_4_0_1_tAFOX_2;
+														if (root_6_0_4_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_tAFOX_2 = root_6_0_4_0_tAFOX_2
+																	.addElement("party");
+														} else {
+															root_6_0_4_0_1_tAFOX_2 = root_6_0_4_0_tAFOX_2
+																	.addElement("cit:party");
+														}
+														root_6_0_4_0_1_tAFOX_2
+																.setName("cit:party");
+														org.dom4j.Element root_6_0_4_0_1_0_tAFOX_2;
+														if (root_6_0_4_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_tAFOX_2 = root_6_0_4_0_1_tAFOX_2
+																	.addElement("CI_Organisation");
+														} else {
+															root_6_0_4_0_1_0_tAFOX_2 = root_6_0_4_0_1_tAFOX_2
+																	.addElement("cit:CI_Organisation");
+														}
+														root_6_0_4_0_1_0_tAFOX_2
+																.setName("cit:CI_Organisation");
+														org.dom4j.Element root_6_0_4_0_1_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
+																	.addElement("name");
+														} else {
+															root_6_0_4_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
+																	.addElement("cit:name");
+														}
+														root_6_0_4_0_1_0_0_tAFOX_2
+																.setName("cit:name");
+														org.dom4j.Element root_6_0_4_0_1_0_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("organisationName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("organisationName"));
+														}
+														root_6_0_4_0_1_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_1_tAFOX_2;
+														if (root_6_0_4_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
+																	.addElement("contactInfo");
+														} else {
+															root_6_0_4_0_1_0_1_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
+																	.addElement("cit:contactInfo");
+														}
+														root_6_0_4_0_1_0_1_tAFOX_2
+																.setName("cit:contactInfo");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_tAFOX_2
+																	.addElement("CI_Contact");
+														} else {
+															root_6_0_4_0_1_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_tAFOX_2
+																	.addElement("cit:CI_Contact");
+														}
+														root_6_0_4_0_1_0_1_0_tAFOX_2
+																.setName("cit:CI_Contact");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_tAFOX_2
+																	.addElement("address");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_tAFOX_2
+																	.addElement("cit:address");
+														}
+														root_6_0_4_0_1_0_1_0_0_tAFOX_2
+																.setName("cit:address");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_tAFOX_2
+																	.addElement("CI_Address");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_tAFOX_2
+																	.addElement("cit:CI_Address");
+														}
+														root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																.setName("cit:CI_Address");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("deliveryPoint");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:deliveryPoint");
+														}
+														root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
+																.setName("cit:deliveryPoint");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("deliveryPoint") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("deliveryPoint"));
+														}
+														root_6_0_4_0_1_0_1_0_0_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("city");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:city");
+														}
+														root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
+																.setName("cit:city");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_1_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("city") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("city"));
+														}
+														root_6_0_4_0_1_0_1_0_0_0_1_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("administrativeArea");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:administrativeArea");
+														}
+														root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
+																.setName("cit:administrativeArea");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_2_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("administrativeArea") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("administrativeArea"));
+														}
+														root_6_0_4_0_1_0_1_0_0_0_2_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("postalCode");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:postalCode");
+														}
+														root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
+																.setName("cit:postalCode");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_3_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("postalCode") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("postalCode"));
+														}
+														root_6_0_4_0_1_0_1_0_0_0_3_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("country");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:country");
+														}
+														root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
+																.setName("cit:country");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_4_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("country") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("country"));
+														}
+														root_6_0_4_0_1_0_1_0_0_0_4_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("electronicMailAddress");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_tAFOX_2
+																	.addElement("cit:electronicMailAddress");
+														}
+														root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
+																.setName("cit:electronicMailAddress");
+														org.dom4j.Element root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2 = root_6_0_4_0_1_0_1_0_0_0_5_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("email") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("email"));
+														}
+														root_6_0_4_0_1_0_1_0_0_0_5_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_2_tAFOX_2;
+														if (root_6_0_4_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_2_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
+																	.addElement("individual");
+														} else {
+															root_6_0_4_0_1_0_2_tAFOX_2 = root_6_0_4_0_1_0_tAFOX_2
+																	.addElement("cit:individual");
+														}
+														root_6_0_4_0_1_0_2_tAFOX_2
+																.setName("cit:individual");
+														org.dom4j.Element root_6_0_4_0_1_0_2_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_2_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_2_tAFOX_2
+																	.addElement("CI_Individual");
+														} else {
+															root_6_0_4_0_1_0_2_0_tAFOX_2 = root_6_0_4_0_1_0_2_tAFOX_2
+																	.addElement("cit:CI_Individual");
+														}
+														root_6_0_4_0_1_0_2_0_tAFOX_2
+																.setName("cit:CI_Individual");
+														org.dom4j.Element root_6_0_4_0_1_0_2_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_2_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
+																	.addElement("name");
+														} else {
+															root_6_0_4_0_1_0_2_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
+																	.addElement("cit:name");
+														}
+														root_6_0_4_0_1_0_2_0_0_tAFOX_2
+																.setName("cit:name");
+														org.dom4j.Element root_6_0_4_0_1_0_2_0_0_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_2_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_2_0_0_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("individualName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_2_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("individualName"));
+														}
+														root_6_0_4_0_1_0_2_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_4_0_1_0_2_0_1_tAFOX_2;
+														if (root_6_0_4_0_1_0_2_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_6_0_4_0_1_0_2_0_1_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
+																	.addElement("positionName");
+														} else {
+															root_6_0_4_0_1_0_2_0_1_tAFOX_2 = root_6_0_4_0_1_0_2_0_tAFOX_2
+																	.addElement("cit:positionName");
+														}
+														root_6_0_4_0_1_0_2_0_1_tAFOX_2
+																.setName("cit:positionName");
+														org.dom4j.Element root_6_0_4_0_1_0_2_0_1_0_tAFOX_2;
+														if (root_6_0_4_0_1_0_2_0_1_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_4_0_1_0_2_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_1_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_4_0_1_0_2_0_1_0_tAFOX_2 = root_6_0_4_0_1_0_2_0_1_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("positionName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_4_0_1_0_2_0_1_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("positionName"));
+														}
+														root_6_0_4_0_1_0_2_0_1_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_5_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_5_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("spatialRepresentationType");
+														} else {
+															root_6_0_5_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:spatialRepresentationType");
+														}
+														root_6_0_5_tAFOX_2
+																.setName("mri:spatialRepresentationType");
+														org.dom4j.Element root_6_0_5_0_tAFOX_2;
+														if (root_6_0_5_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_6_0_5_0_tAFOX_2 = root_6_0_5_tAFOX_2
+																	.addElement("MD_SpatialRepresentationTypeCode");
+														} else {
+															root_6_0_5_0_tAFOX_2 = root_6_0_5_tAFOX_2
+																	.addElement("mcc:MD_SpatialRepresentationTypeCode");
+														}
+														root_6_0_5_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode");
+														if (valueMap_tAFOX_2
+																.get("spatialRepresentationType") != null) {
+															root_6_0_5_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("spatialRepresentationType"));
+														}
+														root_6_0_5_0_tAFOX_2
+																.setName("mcc:MD_SpatialRepresentationTypeCode");
+														org.dom4j.Element root_6_0_6_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_6_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("spatialResolution");
+														} else {
+															root_6_0_6_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:spatialResolution");
+														}
+														root_6_0_6_tAFOX_2
+																.setName("mri:spatialResolution");
+														org.dom4j.Element root_6_0_6_0_tAFOX_2;
+														if (root_6_0_6_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_6_0_tAFOX_2 = root_6_0_6_tAFOX_2
+																	.addElement("MD_Resolution");
+														} else {
+															root_6_0_6_0_tAFOX_2 = root_6_0_6_tAFOX_2
+																	.addElement("mri:MD_Resolution");
+														}
+														root_6_0_6_0_tAFOX_2
+																.setName("mri:MD_Resolution");
+														org.dom4j.Element root_6_0_6_0_0_tAFOX_2;
+														if (root_6_0_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_6_0_0_tAFOX_2 = root_6_0_6_0_tAFOX_2
+																	.addElement("equivalentScale");
+														} else {
+															root_6_0_6_0_0_tAFOX_2 = root_6_0_6_0_tAFOX_2
+																	.addElement("mri:equivalentScale");
+														}
+														root_6_0_6_0_0_tAFOX_2
+																.setName("mri:equivalentScale");
+														org.dom4j.Element root_6_0_6_0_0_0_tAFOX_2;
+														if (root_6_0_6_0_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_6_0_0_0_tAFOX_2 = root_6_0_6_0_0_tAFOX_2
+																	.addElement("MD_RepresentativeFraction");
+														} else {
+															root_6_0_6_0_0_0_tAFOX_2 = root_6_0_6_0_0_tAFOX_2
+																	.addElement("mri:MD_RepresentativeFraction");
+														}
+														root_6_0_6_0_0_0_tAFOX_2
+																.setName("mri:MD_RepresentativeFraction");
+														org.dom4j.Element root_6_0_6_0_0_0_0_tAFOX_2;
+														if (root_6_0_6_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_6_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_tAFOX_2
+																	.addElement("denominator");
+														} else {
+															root_6_0_6_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_tAFOX_2
+																	.addElement("mri:denominator");
+														}
+														root_6_0_6_0_0_0_0_tAFOX_2
+																.setName("mri:denominator");
+														org.dom4j.Element root_6_0_6_0_0_0_0_0_tAFOX_2;
+														if (root_6_0_6_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_6_0_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_0_tAFOX_2
+																	.addElement("Integer");
+														} else {
+															root_6_0_6_0_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_0_tAFOX_2
+																	.addElement("gco:Integer");
+														}
+														if (valueMap_tAFOX_2
+																.get("scaleDenominator") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_6_0_0_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("scaleDenominator"));
+														}
+														root_6_0_6_0_0_0_0_0_tAFOX_2
+																.setName("gco:Integer");
+														org.dom4j.Element root_6_0_7_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_7_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("topicCategory");
+														} else {
+															root_6_0_7_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:topicCategory");
+														}
+														root_6_0_7_tAFOX_2
+																.setName("mri:topicCategory");
+														org.dom4j.Element root_6_0_7_0_tAFOX_2;
+														if (root_6_0_7_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_7_0_tAFOX_2 = root_6_0_7_tAFOX_2
+																	.addElement("MD_TopicCategoryCode");
+														} else {
+															root_6_0_7_0_tAFOX_2 = root_6_0_7_tAFOX_2
+																	.addElement("mri:MD_TopicCategoryCode");
+														}
+														if (valueMap_tAFOX_2
+																.get("topicCategoryCode") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_7_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("topicCategoryCode"));
+														}
+														root_6_0_7_0_tAFOX_2
+																.setName("mri:MD_TopicCategoryCode");
+														org.dom4j.Element root_6_0_8_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_8_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("extent");
+														} else {
+															root_6_0_8_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:extent");
+														}
+														root_6_0_8_tAFOX_2
+																.setName("mri:extent");
+														org.dom4j.Element root_6_0_8_0_tAFOX_2;
+														if (root_6_0_8_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_tAFOX_2 = root_6_0_8_tAFOX_2
+																	.addElement("EX_Extent");
+														} else {
+															root_6_0_8_0_tAFOX_2 = root_6_0_8_tAFOX_2
+																	.addElement("gex:EX_Extent");
+														}
+														root_6_0_8_0_tAFOX_2
+																.setName("gex:EX_Extent");
+														org.dom4j.Element root_6_0_8_0_0_tAFOX_2;
+														if (root_6_0_8_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_0_tAFOX_2 = root_6_0_8_0_tAFOX_2
+																	.addElement("temporalElement");
+														} else {
+															root_6_0_8_0_0_tAFOX_2 = root_6_0_8_0_tAFOX_2
+																	.addElement("gex:temporalElement");
+														}
+														root_6_0_8_0_0_tAFOX_2
+																.setName("gex:temporalElement");
+														org.dom4j.Element root_6_0_8_0_0_0_tAFOX_2;
+														if (root_6_0_8_0_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_0_0_tAFOX_2 = root_6_0_8_0_0_tAFOX_2
+																	.addElement("EX_TemporalExtent");
+														} else {
+															root_6_0_8_0_0_0_tAFOX_2 = root_6_0_8_0_0_tAFOX_2
+																	.addElement("gex:EX_TemporalExtent");
+														}
+														root_6_0_8_0_0_0_tAFOX_2
+																.setName("gex:EX_TemporalExtent");
+														org.dom4j.Element root_6_0_8_0_0_0_0_tAFOX_2;
+														if (root_6_0_8_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_tAFOX_2
+																	.addElement("extent");
+														} else {
+															root_6_0_8_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_tAFOX_2
+																	.addElement("gex:extent");
+														}
+														root_6_0_8_0_0_0_0_tAFOX_2
+																.setName("gex:extent");
+														org.dom4j.Element root_6_0_8_0_0_0_0_0_tAFOX_2;
+														if (root_6_0_8_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("gml") == null) {
+															root_6_0_8_0_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_0_tAFOX_2
+																	.addElement("TimePeriod");
+														} else {
+															root_6_0_8_0_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_0_tAFOX_2
+																	.addElement("gml:TimePeriod");
+														}
+														root_6_0_8_0_0_0_0_0_tAFOX_2
+																.setName("gml:TimePeriod");
+														org.dom4j.Element root_6_0_8_0_1_tAFOX_2;
+														if (root_6_0_8_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_1_tAFOX_2 = root_6_0_8_0_tAFOX_2
+																	.addElement("geographicElement");
+														} else {
+															root_6_0_8_0_1_tAFOX_2 = root_6_0_8_0_tAFOX_2
+																	.addElement("gex:geographicElement");
+														}
+														root_6_0_8_0_1_tAFOX_2
+																.setName("gex:geographicElement");
+														org.dom4j.Element root_6_0_8_0_1_0_tAFOX_2;
+														if (root_6_0_8_0_1_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_1_0_tAFOX_2 = root_6_0_8_0_1_tAFOX_2
+																	.addElement("EX_GeographicBoundingBox");
+														} else {
+															root_6_0_8_0_1_0_tAFOX_2 = root_6_0_8_0_1_tAFOX_2
+																	.addElement("gex:EX_GeographicBoundingBox");
+														}
+														root_6_0_8_0_1_0_tAFOX_2
+																.setName("gex:EX_GeographicBoundingBox");
+														org.dom4j.Element root_6_0_8_0_1_0_0_tAFOX_2;
+														if (root_6_0_8_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_1_0_0_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("westBoundLongitude");
+														} else {
+															root_6_0_8_0_1_0_0_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("gex:westBoundLongitude");
+														}
+														root_6_0_8_0_1_0_0_tAFOX_2
+																.setName("gex:westBoundLongitude");
+														org.dom4j.Element root_6_0_8_0_1_0_0_0_tAFOX_2;
+														if (root_6_0_8_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_8_0_1_0_0_0_tAFOX_2 = root_6_0_8_0_1_0_0_tAFOX_2
+																	.addElement("Decimal");
+														} else {
+															root_6_0_8_0_1_0_0_0_tAFOX_2 = root_6_0_8_0_1_0_0_tAFOX_2
+																	.addElement("gco:Decimal");
+														}
+														if (valueMap_tAFOX_2
+																.get("west") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_8_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("west"));
+														}
+														root_6_0_8_0_1_0_0_0_tAFOX_2
+																.setName("gco:Decimal");
+														org.dom4j.Element root_6_0_8_0_1_0_1_tAFOX_2;
+														if (root_6_0_8_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_1_0_1_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("eastBoundLongitude");
+														} else {
+															root_6_0_8_0_1_0_1_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("gex:eastBoundLongitude");
+														}
+														root_6_0_8_0_1_0_1_tAFOX_2
+																.setName("gex:eastBoundLongitude");
+														org.dom4j.Element root_6_0_8_0_1_0_1_0_tAFOX_2;
+														if (root_6_0_8_0_1_0_1_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_8_0_1_0_1_0_tAFOX_2 = root_6_0_8_0_1_0_1_tAFOX_2
+																	.addElement("Decimal");
+														} else {
+															root_6_0_8_0_1_0_1_0_tAFOX_2 = root_6_0_8_0_1_0_1_tAFOX_2
+																	.addElement("gco:Decimal");
+														}
+														if (valueMap_tAFOX_2
+																.get("east") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_8_0_1_0_1_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("east"));
+														}
+														root_6_0_8_0_1_0_1_0_tAFOX_2
+																.setName("gco:Decimal");
+														org.dom4j.Element root_6_0_8_0_1_0_2_tAFOX_2;
+														if (root_6_0_8_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_1_0_2_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("southBoundLatitude");
+														} else {
+															root_6_0_8_0_1_0_2_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("gex:southBoundLatitude");
+														}
+														root_6_0_8_0_1_0_2_tAFOX_2
+																.setName("gex:southBoundLatitude");
+														org.dom4j.Element root_6_0_8_0_1_0_2_0_tAFOX_2;
+														if (root_6_0_8_0_1_0_2_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_8_0_1_0_2_0_tAFOX_2 = root_6_0_8_0_1_0_2_tAFOX_2
+																	.addElement("Decimal");
+														} else {
+															root_6_0_8_0_1_0_2_0_tAFOX_2 = root_6_0_8_0_1_0_2_tAFOX_2
+																	.addElement("gco:Decimal");
+														}
+														if (valueMap_tAFOX_2
+																.get("south") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_8_0_1_0_2_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("south"));
+														}
+														root_6_0_8_0_1_0_2_0_tAFOX_2
+																.setName("gco:Decimal");
+														org.dom4j.Element root_6_0_8_0_1_0_3_tAFOX_2;
+														if (root_6_0_8_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("gex") == null) {
+															root_6_0_8_0_1_0_3_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("northBoundLatitude");
+														} else {
+															root_6_0_8_0_1_0_3_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+																	.addElement("gex:northBoundLatitude");
+														}
+														root_6_0_8_0_1_0_3_tAFOX_2
+																.setName("gex:northBoundLatitude");
+														org.dom4j.Element root_6_0_8_0_1_0_3_0_tAFOX_2;
+														if (root_6_0_8_0_1_0_3_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_8_0_1_0_3_0_tAFOX_2 = root_6_0_8_0_1_0_3_tAFOX_2
+																	.addElement("Decimal");
+														} else {
+															root_6_0_8_0_1_0_3_0_tAFOX_2 = root_6_0_8_0_1_0_3_tAFOX_2
+																	.addElement("gco:Decimal");
+														}
+														if (valueMap_tAFOX_2
+																.get("north") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_8_0_1_0_3_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("north"));
+														}
+														root_6_0_8_0_1_0_3_0_tAFOX_2
+																.setName("gco:Decimal");
+														org.dom4j.Element root_6_0_9_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("resourceMaintenance");
+														} else {
+															root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:resourceMaintenance");
+														}
+														root_6_0_9_tAFOX_2
+																.setName("mri:resourceMaintenance");
+														org.dom4j.Element root_6_0_9_0_tAFOX_2;
+														if (root_6_0_9_tAFOX_2
+																.getNamespaceForPrefix("mmi") == null) {
+															root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
+																	.addElement("MD_MaintenanceInformation");
+														} else {
+															root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
+																	.addElement("mmi:MD_MaintenanceInformation");
+														}
+														root_6_0_9_0_tAFOX_2
+																.setName("mmi:MD_MaintenanceInformation");
+														org.dom4j.Element root_6_0_9_0_0_tAFOX_2;
+														if (root_6_0_9_0_tAFOX_2
+																.getNamespaceForPrefix("mmi") == null) {
+															root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
+																	.addElement("maintenanceAndUpdateFrequency");
+														} else {
+															root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
+																	.addElement("mmi:maintenanceAndUpdateFrequency");
+														}
+														root_6_0_9_0_0_tAFOX_2
+																.setName("mmi:maintenanceAndUpdateFrequency");
+														org.dom4j.Element root_6_0_9_0_0_0_tAFOX_2;
+														if (root_6_0_9_0_0_tAFOX_2
+																.getNamespaceForPrefix("mmi") == null) {
+															root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
+																	.addElement("MD_MaintenanceFrequencyCode");
+														} else {
+															root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
+																	.addElement("mmi:MD_MaintenanceFrequencyCode");
+														}
+														root_6_0_9_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode");
+														root_6_0_9_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"asNeeded");
+														root_6_0_9_0_0_0_tAFOX_2
+																.setName("mmi:MD_MaintenanceFrequencyCode");
+														org.dom4j.Element root_6_0_10_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_10_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("descriptiveKeywords");
+														} else {
+															root_6_0_10_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:descriptiveKeywords");
+														}
+														root_6_0_10_tAFOX_2
+																.setName("mri:descriptiveKeywords");
+														org.dom4j.Element root_6_0_10_0_tAFOX_2;
+														if (root_6_0_10_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_10_0_tAFOX_2 = root_6_0_10_tAFOX_2
+																	.addElement("MD_Keywords");
+														} else {
+															root_6_0_10_0_tAFOX_2 = root_6_0_10_tAFOX_2
+																	.addElement("mri:MD_Keywords");
+														}
+														root_6_0_10_0_tAFOX_2
+																.setName("mri:MD_Keywords");
+														org.dom4j.Element root_6_0_10_0_0_tAFOX_2;
+														if (root_6_0_10_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_10_0_0_tAFOX_2 = root_6_0_10_0_tAFOX_2
+																	.addElement("keyword");
+														} else {
+															root_6_0_10_0_0_tAFOX_2 = root_6_0_10_0_tAFOX_2
+																	.addElement("mri:keyword");
+														}
+														root_6_0_10_0_0_tAFOX_2
+																.setName("mri:keyword");
+														org.dom4j.Element root_6_0_10_0_0_0_tAFOX_2;
+														if (root_6_0_10_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_10_0_0_0_tAFOX_2 = root_6_0_10_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_10_0_0_0_tAFOX_2 = root_6_0_10_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("keyword") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_10_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("keyword"));
+														}
+														root_6_0_10_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_10_0_1_tAFOX_2;
+														if (root_6_0_10_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_10_0_1_tAFOX_2 = root_6_0_10_0_tAFOX_2
+																	.addElement("type");
+														} else {
+															root_6_0_10_0_1_tAFOX_2 = root_6_0_10_0_tAFOX_2
+																	.addElement("mri:type");
+														}
+														root_6_0_10_0_1_tAFOX_2
+																.setName("mri:type");
+														org.dom4j.Element root_6_0_10_0_1_0_tAFOX_2;
+														if (root_6_0_10_0_1_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_10_0_1_0_tAFOX_2 = root_6_0_10_0_1_tAFOX_2
+																	.addElement("MD_KeywordTypeCode");
+														} else {
+															root_6_0_10_0_1_0_tAFOX_2 = root_6_0_10_0_1_tAFOX_2
+																	.addElement("mri:MD_KeywordTypeCode");
+														}
+														root_6_0_10_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode");
+														if (valueMap_tAFOX_2
+																.get("keyworkd1_theme") != null) {
+															root_6_0_10_0_1_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("keyworkd1_theme"));
+														}
+														root_6_0_10_0_1_0_tAFOX_2
+																.setName("mri:MD_KeywordTypeCode");
+														org.dom4j.Element root_6_0_11_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_11_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("descriptiveKeyworkds");
+														} else {
+															root_6_0_11_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:descriptiveKeyworkds");
+														}
+														root_6_0_11_tAFOX_2
+																.setName("mri:descriptiveKeyworkds");
+														org.dom4j.Element root_6_0_11_0_tAFOX_2;
+														if (root_6_0_11_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_11_0_tAFOX_2 = root_6_0_11_tAFOX_2
+																	.addElement("MD_Keywords");
+														} else {
+															root_6_0_11_0_tAFOX_2 = root_6_0_11_tAFOX_2
+																	.addElement("mri:MD_Keywords");
+														}
+														root_6_0_11_0_tAFOX_2
+																.setName("mri:MD_Keywords");
+														org.dom4j.Element root_6_0_11_0_0_tAFOX_2;
+														if (root_6_0_11_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_11_0_0_tAFOX_2 = root_6_0_11_0_tAFOX_2
+																	.addElement("keyword");
+														} else {
+															root_6_0_11_0_0_tAFOX_2 = root_6_0_11_0_tAFOX_2
+																	.addElement("mri:keyword");
+														}
+														root_6_0_11_0_0_tAFOX_2
+																.setName("mri:keyword");
+														org.dom4j.Element root_6_0_11_0_0_0_tAFOX_2;
+														if (root_6_0_11_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_11_0_0_0_tAFOX_2 = root_6_0_11_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_11_0_0_0_tAFOX_2 = root_6_0_11_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("keyword2") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_11_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("keyword2"));
+														}
+														root_6_0_11_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_11_0_1_tAFOX_2;
+														if (root_6_0_11_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_11_0_1_tAFOX_2 = root_6_0_11_0_tAFOX_2
+																	.addElement("type");
+														} else {
+															root_6_0_11_0_1_tAFOX_2 = root_6_0_11_0_tAFOX_2
+																	.addElement("mri:type");
+														}
+														root_6_0_11_0_1_tAFOX_2
+																.setName("mri:type");
+														org.dom4j.Element root_6_0_11_0_1_0_tAFOX_2;
+														if (root_6_0_11_0_1_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_11_0_1_0_tAFOX_2 = root_6_0_11_0_1_tAFOX_2
+																	.addElement("MD_KeywordTypeCode");
+														} else {
+															root_6_0_11_0_1_0_tAFOX_2 = root_6_0_11_0_1_tAFOX_2
+																	.addElement("mri:MD_KeywordTypeCode");
+														}
+														root_6_0_11_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode");
+														if (valueMap_tAFOX_2
+																.get("keyword2_theme") != null) {
+															root_6_0_11_0_1_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("keyword2_theme"));
+														}
+														root_6_0_11_0_1_0_tAFOX_2
+																.setName("mri:MD_KeywordTypeCode");
+														org.dom4j.Element root_6_0_12_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_12_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("resourceConstraints");
+														} else {
+															root_6_0_12_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:resourceConstraints");
+														}
+														root_6_0_12_tAFOX_2
+																.setName("mri:resourceConstraints");
+														org.dom4j.Element root_6_0_12_0_tAFOX_2;
+														if (root_6_0_12_tAFOX_2
+																.getNamespaceForPrefix("mco") == null) {
+															root_6_0_12_0_tAFOX_2 = root_6_0_12_tAFOX_2
+																	.addElement("MD_LegalConstraints");
+														} else {
+															root_6_0_12_0_tAFOX_2 = root_6_0_12_tAFOX_2
+																	.addElement("mco:MD_LegalConstraints");
+														}
+														root_6_0_12_0_tAFOX_2
+																.setName("mco:MD_LegalConstraints");
+														org.dom4j.Element root_6_0_12_0_0_tAFOX_2;
+														if (root_6_0_12_0_tAFOX_2
+																.getNamespaceForPrefix("mco") == null) {
+															root_6_0_12_0_0_tAFOX_2 = root_6_0_12_0_tAFOX_2
+																	.addElement("accessConstraints");
+														} else {
+															root_6_0_12_0_0_tAFOX_2 = root_6_0_12_0_tAFOX_2
+																	.addElement("mco:accessConstraints");
+														}
+														root_6_0_12_0_0_tAFOX_2
+																.setName("mco:accessConstraints");
+														org.dom4j.Element root_6_0_12_0_0_0_tAFOX_2;
+														if (root_6_0_12_0_0_tAFOX_2
+																.getNamespaceForPrefix("mco") == null) {
+															root_6_0_12_0_0_0_tAFOX_2 = root_6_0_12_0_0_tAFOX_2
+																	.addElement("MD_RestrictionCode");
+														} else {
+															root_6_0_12_0_0_0_tAFOX_2 = root_6_0_12_0_0_tAFOX_2
+																	.addElement("mco:MD_RestrictionCode");
+														}
+														root_6_0_12_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode");
+														root_6_0_12_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"copyright");
+														root_6_0_12_0_0_0_tAFOX_2
+																.setName("mco:MD_RestrictionCode");
+														org.dom4j.Element root_6_0_12_0_1_tAFOX_2;
+														if (root_6_0_12_0_tAFOX_2
+																.getNamespaceForPrefix("mco") == null) {
+															root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
+																	.addElement("useConstraints");
+														} else {
+															root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
+																	.addElement("mco:useConstraints");
+														}
+														root_6_0_12_0_1_tAFOX_2
+																.setName("mco:useConstraints");
+														org.dom4j.Element root_6_0_12_0_1_0_tAFOX_2;
+														if (root_6_0_12_0_1_tAFOX_2
+																.getNamespaceForPrefix("mco") == null) {
+															root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
+																	.addElement("MD_RestrictionCode");
+														} else {
+															root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
+																	.addElement("mco:MD_RestrictionCode");
+														}
+														root_6_0_12_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode");
+														root_6_0_12_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeListValue",
+																		"otherRestrictions");
+														root_6_0_12_0_1_0_tAFOX_2
+																.setName("mco:MD_RestrictionCode");
+														org.dom4j.Element root_6_0_12_0_2_tAFOX_2;
+														if (root_6_0_12_0_tAFOX_2
+																.getNamespaceForPrefix("mco") == null) {
+															root_6_0_12_0_2_tAFOX_2 = root_6_0_12_0_tAFOX_2
+																	.addElement("otherConstraints");
+														} else {
+															root_6_0_12_0_2_tAFOX_2 = root_6_0_12_0_tAFOX_2
+																	.addElement("mco:otherConstraints");
+														}
+														root_6_0_12_0_2_tAFOX_2
+																.setName("mco:otherConstraints");
+														org.dom4j.Element root_6_0_12_0_2_0_tAFOX_2;
+														if (root_6_0_12_0_2_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_12_0_2_0_tAFOX_2 = root_6_0_12_0_2_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_12_0_2_0_tAFOX_2 = root_6_0_12_0_2_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("useConstraints") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_6_0_12_0_2_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("useConstraints"));
+														}
+														root_6_0_12_0_2_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_6_0_13_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("defaultLocale");
+														} else {
+															root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:defaultLocale");
+														}
+														root_6_0_13_tAFOX_2
+																.setName("mri:defaultLocale");
+														org.dom4j.Element root_6_0_13_0_tAFOX_2;
+														if (root_6_0_13_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
+																	.addElement("PT_Locale");
+														} else {
+															root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
+																	.addElement("lan:PT_Locale");
+														}
+														if (valueMap_tAFOX_2
+																.get("mdLanguage") != null) {
+															root_6_0_13_0_tAFOX_2
+																	.addAttribute(
+																			"id",
+																			valueMap_tAFOX_2
+																					.get("mdLanguage"));
+														}
+														root_6_0_13_0_tAFOX_2
+																.setName("lan:PT_Locale");
+														org.dom4j.Element root_6_0_13_0_0_tAFOX_2;
+														if (root_6_0_13_0_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_6_0_13_0_0_tAFOX_2 = root_6_0_13_0_tAFOX_2
+																	.addElement("language");
+														} else {
+															root_6_0_13_0_0_tAFOX_2 = root_6_0_13_0_tAFOX_2
+																	.addElement("lan:language");
+														}
+														root_6_0_13_0_0_tAFOX_2
+																.setName("lan:language");
+														org.dom4j.Element root_6_0_13_0_0_0_tAFOX_2;
+														if (root_6_0_13_0_0_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_6_0_13_0_0_0_tAFOX_2 = root_6_0_13_0_0_tAFOX_2
+																	.addElement("LanguageCode");
+														} else {
+															root_6_0_13_0_0_0_tAFOX_2 = root_6_0_13_0_0_tAFOX_2
+																	.addElement("lan:LanguageCode");
+														}
+														root_6_0_13_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://www.loc.gov/standards/iso639-2/");
+														if (valueMap_tAFOX_2
+																.get("mdLanguage") != null) {
+															root_6_0_13_0_0_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("mdLanguage"));
+														}
+														root_6_0_13_0_0_0_tAFOX_2
+																.setName("lan:LanguageCode");
+														org.dom4j.Element root_6_0_13_0_1_tAFOX_2;
+														if (root_6_0_13_0_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_6_0_13_0_1_tAFOX_2 = root_6_0_13_0_tAFOX_2
+																	.addElement("characterEncoding");
+														} else {
+															root_6_0_13_0_1_tAFOX_2 = root_6_0_13_0_tAFOX_2
+																	.addElement("lan:characterEncoding");
+														}
+														root_6_0_13_0_1_tAFOX_2
+																.setName("lan:characterEncoding");
+														org.dom4j.Element root_6_0_13_0_1_0_tAFOX_2;
+														if (root_6_0_13_0_1_tAFOX_2
+																.getNamespaceForPrefix("lan") == null) {
+															root_6_0_13_0_1_0_tAFOX_2 = root_6_0_13_0_1_tAFOX_2
+																	.addElement("MD_CharacterSetCode");
+														} else {
+															root_6_0_13_0_1_0_tAFOX_2 = root_6_0_13_0_1_tAFOX_2
+																	.addElement("lan:MD_CharacterSetCode");
+														}
+														root_6_0_13_0_1_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode");
+														if (valueMap_tAFOX_2
+																.get("mdCharacterSetCode") != null) {
+															root_6_0_13_0_1_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("mdCharacterSetCode"));
+														}
+														root_6_0_13_0_1_0_tAFOX_2
+																.setName("lan:MD_CharacterSetCode");
+														org.dom4j.Element root_6_0_14_tAFOX_2;
+														if (root_6_0_tAFOX_2
+																.getNamespaceForPrefix("mri") == null) {
+															root_6_0_14_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("supplementalInformation");
+														} else {
+															root_6_0_14_tAFOX_2 = root_6_0_tAFOX_2
+																	.addElement("mri:supplementalInformation");
+														}
+														root_6_0_14_tAFOX_2
+																.setName("mri:supplementalInformation");
+														org.dom4j.Element root_6_0_14_0_tAFOX_2;
+														if (root_6_0_14_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_6_0_14_0_tAFOX_2 = root_6_0_14_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_6_0_14_0_tAFOX_2 = root_6_0_14_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														root_6_0_14_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_7_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_7_tAFOX_2 = root_tAFOX_2
+																	.addElement("contentInfo");
+														} else {
+															root_7_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:contentInfo");
+														}
+														root_7_tAFOX_2
+																.setName("mdb:contentInfo");
+														org.dom4j.Element root_7_0_tAFOX_2;
+														if (root_7_tAFOX_2
+																.getNamespaceForPrefix("mrc") == null) {
+															root_7_0_tAFOX_2 = root_7_tAFOX_2
+																	.addElement("featureCatalogue");
+														} else {
+															root_7_0_tAFOX_2 = root_7_tAFOX_2
+																	.addElement("mrc:featureCatalogue");
+														}
+														root_7_0_tAFOX_2
+																.setName("mrc:featureCatalogue");
+														org.dom4j.Element root_7_0_0_tAFOX_2;
+														if (root_7_0_tAFOX_2
+																.getNamespaceForPrefix("gfc") == null) {
+															root_7_0_0_tAFOX_2 = root_7_0_tAFOX_2
+																	.addElement("FC_FeatureCatalogue");
+														} else {
+															root_7_0_0_tAFOX_2 = root_7_0_tAFOX_2
+																	.addElement("gfc:FC_FeatureCatalogue");
+														}
+														root_7_0_0_tAFOX_2
+																.addNamespace(
+																		"gfc",
+																		TalendString
+																				.replaceSpecialCharForXML("http://www.isotc211.org/namespace/gfc/1.1/2014-07-11"));
+														root_7_0_0_tAFOX_2
+																.setName("gfc:FC_FeatureCatalogue");
+														org.dom4j.Element root_7_0_0_0_tAFOX_2;
+														if (root_7_0_0_tAFOX_2
+																.getNamespaceForPrefix("gfc") == null) {
+															root_7_0_0_0_tAFOX_2 = root_7_0_0_tAFOX_2
+																	.addElement("producer");
+														} else {
+															root_7_0_0_0_tAFOX_2 = root_7_0_0_tAFOX_2
+																	.addElement("gfc:producer");
+														}
+														root_7_0_0_0_tAFOX_2
+																.setName("gfc:producer");
+														org.dom4j.Element root_7_0_0_0_0_tAFOX_2;
+														if (root_7_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_7_0_0_0_0_tAFOX_2 = root_7_0_0_0_tAFOX_2
+																	.addElement("CI_Responsibility");
+														} else {
+															root_7_0_0_0_0_tAFOX_2 = root_7_0_0_0_tAFOX_2
+																	.addElement("cit:CI_Responsibility");
+														}
+														root_7_0_0_0_0_tAFOX_2
+																.setName("cit:CI_Responsibility");
+														org.dom4j.Element root_7_0_0_0_0_0_tAFOX_2;
+														if (root_7_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_7_0_0_0_0_0_tAFOX_2 = root_7_0_0_0_0_tAFOX_2
+																	.addElement("role");
+														} else {
+															root_7_0_0_0_0_0_tAFOX_2 = root_7_0_0_0_0_tAFOX_2
+																	.addElement("cit:role");
+														}
+														root_7_0_0_0_0_0_tAFOX_2
+																.setName("cit:role");
+														org.dom4j.Element root_7_0_0_0_0_0_0_tAFOX_2;
+														if (root_7_0_0_0_0_0_tAFOX_2
+																.getNamespaceForPrefix("cit") == null) {
+															root_7_0_0_0_0_0_0_tAFOX_2 = root_7_0_0_0_0_0_tAFOX_2
+																	.addElement("CI_RoleCode");
+														} else {
+															root_7_0_0_0_0_0_0_tAFOX_2 = root_7_0_0_0_0_0_tAFOX_2
+																	.addElement("cit:CI_RoleCode");
+														}
+														root_7_0_0_0_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#CI_RoleCode");
+														root_7_0_0_0_0_0_0_tAFOX_2
+																.setName("cit:CI_RoleCode");
+														org.dom4j.Element root_7_0_0_1_tAFOX_2;
+														if (root_7_0_0_tAFOX_2
+																.getNamespaceForPrefix("gfc") == null) {
+															root_7_0_0_1_tAFOX_2 = root_7_0_0_tAFOX_2
+																	.addElement("featureType");
+														} else {
+															root_7_0_0_1_tAFOX_2 = root_7_0_0_tAFOX_2
+																	.addElement("gfc:featureType");
+														}
+														root_7_0_0_1_tAFOX_2
+																.setName("gfc:featureType");
+														org.dom4j.Element root_7_0_0_1_0_tAFOX_2;
+														if (root_7_0_0_1_tAFOX_2
+																.getNamespaceForPrefix("gfc") == null) {
+															root_7_0_0_1_0_tAFOX_2 = root_7_0_0_1_tAFOX_2
+																	.addElement("FC_FeatureType");
+														} else {
+															root_7_0_0_1_0_tAFOX_2 = root_7_0_0_1_tAFOX_2
+																	.addElement("gfc:FC_FeatureType");
+														}
+														subTreeRootParent_tAFOX_2 = root_7_0_0_1_0_tAFOX_2;
+														root_7_0_0_1_0_tAFOX_2
+																.setName("gfc:FC_FeatureType");
+														org.dom4j.Element root_7_0_0_1_0_0_tAFOX_2;
+														if (root_7_0_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("gfc") == null) {
+															root_7_0_0_1_0_0_tAFOX_2 = root_7_0_0_1_0_tAFOX_2
+																	.addElement("typeName");
+														} else {
+															root_7_0_0_1_0_0_tAFOX_2 = root_7_0_0_1_0_tAFOX_2
+																	.addElement("gfc:typeName");
+														}
+														root_7_0_0_1_0_0_tAFOX_2
+																.setName("gfc:typeName");
+														org.dom4j.Element root_7_0_0_1_0_0_0_tAFOX_2;
+														if (root_7_0_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_7_0_0_1_0_0_0_tAFOX_2 = root_7_0_0_1_0_0_tAFOX_2
+																	.addElement("LocalName");
+														} else {
+															root_7_0_0_1_0_0_0_tAFOX_2 = root_7_0_0_1_0_0_tAFOX_2
+																	.addElement("gco:LocalName");
+														}
+														if (valueMap_tAFOX_2
+																.get("layerName") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_7_0_0_1_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("layerName"));
+														}
+														root_7_0_0_1_0_0_0_tAFOX_2
+																.setName("gco:LocalName");
+														org.dom4j.Element root_7_0_0_1_0_1_tAFOX_2;
+														if (root_7_0_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("gfc") == null) {
+															root_7_0_0_1_0_1_tAFOX_2 = root_7_0_0_1_0_tAFOX_2
+																	.addElement("definition");
+														} else {
+															root_7_0_0_1_0_1_tAFOX_2 = root_7_0_0_1_0_tAFOX_2
+																	.addElement("gfc:definition");
+														}
+														root_7_0_0_1_0_1_tAFOX_2
+																.setName("gfc:definition");
+														org.dom4j.Element root_7_0_0_1_0_2_tAFOX_2;
+														if (root_7_0_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("gfc") == null) {
+															root_7_0_0_1_0_2_tAFOX_2 = root_7_0_0_1_0_tAFOX_2
+																	.addElement("isAbstract");
+														} else {
+															root_7_0_0_1_0_2_tAFOX_2 = root_7_0_0_1_0_tAFOX_2
+																	.addElement("gfc:isAbstract");
+														}
+														root_7_0_0_1_0_2_tAFOX_2
+																.setName("gfc:isAbstract");
+														org.dom4j.Element root_7_0_0_1_0_2_0_tAFOX_2;
+														if (root_7_0_0_1_0_2_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_7_0_0_1_0_2_0_tAFOX_2 = root_7_0_0_1_0_2_tAFOX_2
+																	.addElement("Boolean");
+														} else {
+															root_7_0_0_1_0_2_0_tAFOX_2 = root_7_0_0_1_0_2_tAFOX_2
+																	.addElement("gco:Boolean");
+														}
+														nestXMLTool_tAFOX_2
+																.parseAndAdd(
+																		root_7_0_0_1_0_2_0_tAFOX_2,
+																		"false");
+
+														root_7_0_0_1_0_2_0_tAFOX_2
+																.setName("gco:Boolean");
+														org.dom4j.Element root_8_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_8_tAFOX_2 = root_tAFOX_2
+																	.addElement("distributionInfo");
+														} else {
+															root_8_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:distributionInfo");
+														}
+														root_8_tAFOX_2
+																.setName("mdb:distributionInfo");
+														org.dom4j.Element root_8_0_tAFOX_2;
+														if (root_8_tAFOX_2
+																.getNamespaceForPrefix("mrd") == null) {
+															root_8_0_tAFOX_2 = root_8_tAFOX_2
+																	.addElement("MD_Distribution");
+														} else {
+															root_8_0_tAFOX_2 = root_8_tAFOX_2
+																	.addElement("mrd:MD_Distribution");
+														}
+														root_8_0_tAFOX_2
+																.setName("mrd:MD_Distribution");
+														org.dom4j.Element root_8_0_0_tAFOX_2;
+														if (root_8_0_tAFOX_2
+																.getNamespaceForPrefix("mrd") == null) {
+															root_8_0_0_tAFOX_2 = root_8_0_tAFOX_2
+																	.addElement("transferOptions");
+														} else {
+															root_8_0_0_tAFOX_2 = root_8_0_tAFOX_2
+																	.addElement("mrd:transferOptions");
+														}
+														root_8_0_0_tAFOX_2
+																.setName("mrd:transferOptions");
+														org.dom4j.Element root_8_0_0_0_tAFOX_2;
+														if (root_8_0_0_tAFOX_2
+																.getNamespaceForPrefix("mrd") == null) {
+															root_8_0_0_0_tAFOX_2 = root_8_0_0_tAFOX_2
+																	.addElement("MD_DigitalTransferOptions");
+														} else {
+															root_8_0_0_0_tAFOX_2 = root_8_0_0_tAFOX_2
+																	.addElement("mrd:MD_DigitalTransferOptions");
+														}
+														root_8_0_0_0_tAFOX_2
+																.setName("mrd:MD_DigitalTransferOptions");
+														org.dom4j.Element root_9_tAFOX_2;
+														if (root_tAFOX_2
+																.getNamespaceForPrefix("mdb") == null) {
+															root_9_tAFOX_2 = root_tAFOX_2
+																	.addElement("resourceLineage");
+														} else {
+															root_9_tAFOX_2 = root_tAFOX_2
+																	.addElement("mdb:resourceLineage");
+														}
+														root_9_tAFOX_2
+																.setName("mdb:resourceLineage");
+														org.dom4j.Element root_9_0_tAFOX_2;
+														if (root_9_tAFOX_2
+																.getNamespaceForPrefix("mrl") == null) {
+															root_9_0_tAFOX_2 = root_9_tAFOX_2
+																	.addElement("LI_Lineage");
+														} else {
+															root_9_0_tAFOX_2 = root_9_tAFOX_2
+																	.addElement("mrl:LI_Lineage");
+														}
+														root_9_0_tAFOX_2
+																.setName("mrl:LI_Lineage");
+														org.dom4j.Element root_9_0_0_tAFOX_2;
+														if (root_9_0_tAFOX_2
+																.getNamespaceForPrefix("mrl") == null) {
+															root_9_0_0_tAFOX_2 = root_9_0_tAFOX_2
+																	.addElement("statement");
+														} else {
+															root_9_0_0_tAFOX_2 = root_9_0_tAFOX_2
+																	.addElement("mrl:statement");
+														}
+														root_9_0_0_tAFOX_2
+																.addAttribute(
+																		"gco:nilReason",
+																		"missing");
+														root_9_0_0_tAFOX_2
+																.setName("mrl:statement");
+														org.dom4j.Element root_9_0_0_0_tAFOX_2;
+														if (root_9_0_0_tAFOX_2
+																.getNamespaceForPrefix("gco") == null) {
+															root_9_0_0_0_tAFOX_2 = root_9_0_0_tAFOX_2
+																	.addElement("CharacterString");
+														} else {
+															root_9_0_0_0_tAFOX_2 = root_9_0_0_tAFOX_2
+																	.addElement("gco:CharacterString");
+														}
+														if (valueMap_tAFOX_2
+																.get("lineage") != null) {
+															nestXMLTool_tAFOX_2
+																	.setText(
+																			root_9_0_0_0_tAFOX_2,
+																			valueMap_tAFOX_2
+																					.get("lineage"));
+														}
+														root_9_0_0_0_tAFOX_2
+																.setName("gco:CharacterString");
+														org.dom4j.Element root_9_0_1_tAFOX_2;
+														if (root_9_0_tAFOX_2
+																.getNamespaceForPrefix("mrl") == null) {
+															root_9_0_1_tAFOX_2 = root_9_0_tAFOX_2
+																	.addElement("scope");
+														} else {
+															root_9_0_1_tAFOX_2 = root_9_0_tAFOX_2
+																	.addElement("mrl:scope");
+														}
+														root_9_0_1_tAFOX_2
+																.setName("mrl:scope");
+														org.dom4j.Element root_9_0_1_0_tAFOX_2;
+														if (root_9_0_1_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_9_0_1_0_tAFOX_2 = root_9_0_1_tAFOX_2
+																	.addElement("MD_Scope");
+														} else {
+															root_9_0_1_0_tAFOX_2 = root_9_0_1_tAFOX_2
+																	.addElement("mcc:MD_Scope");
+														}
+														root_9_0_1_0_tAFOX_2
+																.setName("mcc:MD_Scope");
+														org.dom4j.Element root_9_0_1_0_0_tAFOX_2;
+														if (root_9_0_1_0_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_9_0_1_0_0_tAFOX_2 = root_9_0_1_0_tAFOX_2
+																	.addElement("level");
+														} else {
+															root_9_0_1_0_0_tAFOX_2 = root_9_0_1_0_tAFOX_2
+																	.addElement("mcc:level");
+														}
+														root_9_0_1_0_0_tAFOX_2
+																.setName("mcc:level");
+														org.dom4j.Element root_9_0_1_0_0_0_tAFOX_2;
+														if (root_9_0_1_0_0_tAFOX_2
+																.getNamespaceForPrefix("mcc") == null) {
+															root_9_0_1_0_0_0_tAFOX_2 = root_9_0_1_0_0_tAFOX_2
+																	.addElement("MD_ScopeCode");
+														} else {
+															root_9_0_1_0_0_0_tAFOX_2 = root_9_0_1_0_0_tAFOX_2
+																	.addElement("mcc:MD_ScopeCode");
+														}
+														root_9_0_1_0_0_0_tAFOX_2
+																.addAttribute(
+																		"codeList",
+																		"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_ScopeCode");
+														if (valueMap_tAFOX_2
+																.get("scopeCode") != null) {
+															root_9_0_1_0_0_0_tAFOX_2
+																	.addAttribute(
+																			"codeListValue",
+																			valueMap_tAFOX_2
+																					.get("scopeCode"));
+														}
+														root_9_0_1_0_0_0_tAFOX_2
+																.setName("mcc:MD_ScopeCode");
+														root4Group_tAFOX_2 = subTreeRootParent_tAFOX_2;
+													} else {
+														subTreeRootParent_tAFOX_2 = root4Group_tAFOX_2;
+													}
+													// build group xml tree
+													// build loop xml tree
+													org.dom4j.Element loop_tAFOX_2;
+													if (subTreeRootParent_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_tAFOX_2 = org.dom4j.DocumentHelper
+																.createElement("carrierOfCharacteristics");
+													} else {
+														loop_tAFOX_2 = org.dom4j.DocumentHelper
+																.createElement("gfc:carrierOfCharacteristics");
+													}
+													if (orders_tAFOX_2[0] == 0) {
+														orders_tAFOX_2[0] = 3;
+													}
+													if (1 < orders_tAFOX_2.length) {
+														orders_tAFOX_2[1] = 0;
+													}
+													subTreeRootParent_tAFOX_2
+															.elements()
+															.add(orders_tAFOX_2[0]++,
+																	loop_tAFOX_2);
+													loop_tAFOX_2
+															.setName("gfc:carrierOfCharacteristics");
+													org.dom4j.Element loop_0_tAFOX_2;
+													if (loop_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_tAFOX_2 = loop_tAFOX_2
+																.addElement("FC_FeatureAttribute");
+													} else {
+														loop_0_tAFOX_2 = loop_tAFOX_2
+																.addElement("gfc:FC_FeatureAttribute");
+													}
+													loop_0_tAFOX_2
+															.setName("gfc:FC_FeatureAttribute");
+													org.dom4j.Element loop_0_0_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("featureType");
+													} else {
+														loop_0_0_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:featureType");
+													}
+													loop_0_0_tAFOX_2
+															.setName("gfc:featureType");
+													org.dom4j.Element loop_0_0_0_tAFOX_2;
+													if (loop_0_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_0_tAFOX_2 = loop_0_0_tAFOX_2
+																.addElement("FC_FeatureType");
+													} else {
+														loop_0_0_0_tAFOX_2 = loop_0_0_tAFOX_2
+																.addElement("gfc:FC_FeatureType");
+													}
+													loop_0_0_0_tAFOX_2
+															.setName("gfc:FC_FeatureType");
+													org.dom4j.Element loop_0_0_0_0_tAFOX_2;
+													if (loop_0_0_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_0_0_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("typeName");
+													} else {
+														loop_0_0_0_0_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("gfc:typeName");
+													}
+													loop_0_0_0_0_tAFOX_2
+															.setName("gfc:typeName");
+													org.dom4j.Element loop_0_0_0_1_tAFOX_2;
+													if (loop_0_0_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_0_1_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("definition");
+													} else {
+														loop_0_0_0_1_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("gfc:definition");
+													}
+													loop_0_0_0_1_tAFOX_2
+															.setName("gfc:definition");
+													org.dom4j.Element loop_0_0_0_2_tAFOX_2;
+													if (loop_0_0_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_0_2_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("isAbstract");
+													} else {
+														loop_0_0_0_2_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("gfc:isAbstract");
+													}
+													loop_0_0_0_2_tAFOX_2
+															.setName("gfc:isAbstract");
+													org.dom4j.Element loop_0_0_0_2_0_tAFOX_2;
+													if (loop_0_0_0_2_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_0_0_2_0_tAFOX_2 = loop_0_0_0_2_tAFOX_2
+																.addElement("Boolean");
+													} else {
+														loop_0_0_0_2_0_tAFOX_2 = loop_0_0_0_2_tAFOX_2
+																.addElement("gco:Boolean");
+													}
+													nestXMLTool_tAFOX_2
+															.parseAndAdd(
+																	loop_0_0_0_2_0_tAFOX_2,
+																	"false");
+
+													loop_0_0_0_2_0_tAFOX_2
+															.setName("gco:Boolean");
+													org.dom4j.Element loop_0_1_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_1_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("constrainedBy");
+													} else {
+														loop_0_1_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:constrainedBy");
+													}
+													loop_0_1_tAFOX_2
+															.setName("gfc:constrainedBy");
+													org.dom4j.Element loop_0_1_0_tAFOX_2;
+													if (loop_0_1_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_1_0_tAFOX_2 = loop_0_1_tAFOX_2
+																.addElement("FC_Constraint");
+													} else {
+														loop_0_1_0_tAFOX_2 = loop_0_1_tAFOX_2
+																.addElement("gfc:FC_Constraint");
+													}
+													loop_0_1_0_tAFOX_2
+															.setName("gfc:FC_Constraint");
+													org.dom4j.Element loop_0_1_0_0_tAFOX_2;
+													if (loop_0_1_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_1_0_0_tAFOX_2 = loop_0_1_0_tAFOX_2
+																.addElement("description");
+													} else {
+														loop_0_1_0_0_tAFOX_2 = loop_0_1_0_tAFOX_2
+																.addElement("gfc:description");
+													}
+													loop_0_1_0_0_tAFOX_2
+															.addAttribute(
+																	"gco:nilReason",
+																	"missing");
+													loop_0_1_0_0_tAFOX_2
+															.setName("gfc:description");
+													org.dom4j.Element loop_0_1_0_0_0_tAFOX_2;
+													if (loop_0_1_0_0_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_1_0_0_0_tAFOX_2 = loop_0_1_0_0_tAFOX_2
+																.addElement("CharacterString");
+													} else {
+														loop_0_1_0_0_0_tAFOX_2 = loop_0_1_0_0_tAFOX_2
+																.addElement("gco:CharacterString");
+													}
+													loop_0_1_0_0_0_tAFOX_2
+															.setName("gco:CharacterString");
+													org.dom4j.Element loop_0_2_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_2_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("memberName");
+													} else {
+														loop_0_2_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:memberName");
+													}
+													loop_0_2_tAFOX_2
+															.setName("gfc:memberName");
+													org.dom4j.Element loop_0_2_0_tAFOX_2;
+													if (loop_0_2_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_2_0_tAFOX_2 = loop_0_2_tAFOX_2
+																.addElement("LocalName");
+													} else {
+														loop_0_2_0_tAFOX_2 = loop_0_2_tAFOX_2
+																.addElement("gco:LocalName");
+													}
+													if (valueMap_tAFOX_2
+															.get("colName") != null) {
+														nestXMLTool_tAFOX_2
+																.setText(
+																		loop_0_2_0_tAFOX_2,
+																		valueMap_tAFOX_2
+																				.get("colName"));
+													}
+													loop_0_2_0_tAFOX_2
+															.setName("gco:LocalName");
+													org.dom4j.Element loop_0_3_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_3_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("cardinality");
+													} else {
+														loop_0_3_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:cardinality");
+													}
+													loop_0_3_tAFOX_2
+															.addAttribute(
+																	"gco:nilReason",
+																	"missing");
+													loop_0_3_tAFOX_2
+															.setName("gfc:cardinality");
+													org.dom4j.Element loop_0_3_0_tAFOX_2;
+													if (loop_0_3_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_3_0_tAFOX_2 = loop_0_3_tAFOX_2
+																.addElement("CharacterString");
+													} else {
+														loop_0_3_0_tAFOX_2 = loop_0_3_tAFOX_2
+																.addElement("gco:CharacterString");
+													}
+													loop_0_3_0_tAFOX_2
+															.setName("gco:CharacterString");
+													org.dom4j.Element loop_0_4_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_4_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("valueType");
+													} else {
+														loop_0_4_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:valueType");
+													}
+													loop_0_4_tAFOX_2
+															.setName("gfc:valueType");
+													org.dom4j.Element loop_0_4_0_tAFOX_2;
+													if (loop_0_4_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_4_0_tAFOX_2 = loop_0_4_tAFOX_2
+																.addElement("TypeName");
+													} else {
+														loop_0_4_0_tAFOX_2 = loop_0_4_tAFOX_2
+																.addElement("gco:TypeName");
+													}
+													loop_0_4_0_tAFOX_2
+															.setName("gco:TypeName");
+													org.dom4j.Element loop_0_4_0_0_tAFOX_2;
+													if (loop_0_4_0_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_4_0_0_tAFOX_2 = loop_0_4_0_tAFOX_2
+																.addElement("aName");
+													} else {
+														loop_0_4_0_0_tAFOX_2 = loop_0_4_0_tAFOX_2
+																.addElement("gco:aName");
+													}
+													loop_0_4_0_0_tAFOX_2
+															.setName("gco:aName");
+													org.dom4j.Element loop_0_4_0_0_0_tAFOX_2;
+													if (loop_0_4_0_0_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_4_0_0_0_tAFOX_2 = loop_0_4_0_0_tAFOX_2
+																.addElement("CharacterString");
+													} else {
+														loop_0_4_0_0_0_tAFOX_2 = loop_0_4_0_0_tAFOX_2
+																.addElement("gco:CharacterString");
+													}
+													if (valueMap_tAFOX_2
+															.get("colType") != null) {
+														nestXMLTool_tAFOX_2
+																.setText(
+																		loop_0_4_0_0_0_tAFOX_2,
+																		valueMap_tAFOX_2
+																				.get("colType"));
+													}
+													loop_0_4_0_0_0_tAFOX_2
+															.setName("gco:CharacterString");
+													org.dom4j.Element loop_0_5_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_5_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("listedValue");
+													} else {
+														loop_0_5_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:listedValue");
+													}
+													loop_0_5_tAFOX_2
+															.setName("gfc:listedValue");
+
+													tos_count_tAdvancedFileOutputXML_2++;
+
+													/**
+													 * [tAdvancedFileOutputXML_2
+													 * main ] stop
+													 */
+
+												} // End of branch "row4"
+
+											} // C_01
+
+											// end for
 										}
-
-										tos_count_tAdvancedFileOutputXML_2++;
-
-										/**
-										 * [tAdvancedFileOutputXML_2 main ] stop
-										 */
 
 									} // End of branch "iso19115_3"
 
@@ -8230,25 +11943,74 @@ public class VectorJob implements TalendJob {
 						 */
 
 						/**
+						 * [tNormalize_1 end ] start
+						 */
+
+						currentComponent = "tNormalize_1";
+
+						globalMap.put("tNormalize_1_NB_LINE",
+								nb_line_tNormalize_1);
+
+						ok_Hash.put("tNormalize_1", true);
+						end_Hash.put("tNormalize_1", System.currentTimeMillis());
+
+						/**
+						 * [tNormalize_1 end ] stop
+						 */
+
+						/**
+						 * [tExtractDelimitedFields_3 end ] start
+						 */
+
+						currentComponent = "tExtractDelimitedFields_3";
+
+						globalMap.put("tExtractDelimitedFields_3_NB_LINE",
+								nb_line_tExtractDelimitedFields_3);
+
+						ok_Hash.put("tExtractDelimitedFields_3", true);
+						end_Hash.put("tExtractDelimitedFields_3",
+								System.currentTimeMillis());
+
+						/**
+						 * [tExtractDelimitedFields_3 end ] stop
+						 */
+
+						/**
+						 * [tLogRow_2 end ] start
+						 */
+
+						currentComponent = "tLogRow_2";
+
+						// ////
+						// ////
+						globalMap.put("tLogRow_2_NB_LINE", nb_line_tLogRow_2);
+
+						// /////////////////////
+
+						ok_Hash.put("tLogRow_2", true);
+						end_Hash.put("tLogRow_2", System.currentTimeMillis());
+
+						/**
+						 * [tLogRow_2 end ] stop
+						 */
+
+						/**
 						 * [tAdvancedFileOutputXML_2 end ] start
 						 */
 
 						currentComponent = "tAdvancedFileOutputXML_2";
 
-						if (currentRowCount_tAFOX_2 > 0) {
-							java.io.FileOutputStream stream_tAFOX_2 = new java.io.FileOutputStream(
-									file_tAFOX_2 + currentFileCount_tAFOX_2
-											+ suffix_tAFOX_2);
-							org.dom4j.io.XMLWriter output_tAFOX_2 = new org.dom4j.io.XMLWriter(
-									stream_tAFOX_2, format_tAFOX_2);
-							if (doc_tAFOX_2.getRootElement() != null) {
-								nestXMLTool_tAFOX_2
-										.replaceDefaultNameSpace(doc_tAFOX_2
-												.getRootElement());
-								output_tAFOX_2.write(doc_tAFOX_2);
-							}
-							output_tAFOX_2.close();
+						java.io.FileOutputStream stream_tAFOX_2 = new java.io.FileOutputStream(
+								fileName_tAFOX_2);
+						org.dom4j.io.XMLWriter output_tAFOX_2 = new org.dom4j.io.XMLWriter(
+								stream_tAFOX_2, format_tAFOX_2);
+						if (doc_tAFOX_2.getRootElement() != null) {
+							nestXMLTool_tAFOX_2
+									.replaceDefaultNameSpace(doc_tAFOX_2
+											.getRootElement());
+							output_tAFOX_2.write(doc_tAFOX_2);
 						}
+						output_tAFOX_2.close();
 						globalMap.put("tAdvancedFileOutputXML_2_NB_LINE",
 								nb_line_tAFOX_2);
 
@@ -8391,6 +12153,36 @@ public class VectorJob implements TalendJob {
 
 				/**
 				 * [tWarn_2 finally ] stop
+				 */
+
+				/**
+				 * [tNormalize_1 finally ] start
+				 */
+
+				currentComponent = "tNormalize_1";
+
+				/**
+				 * [tNormalize_1 finally ] stop
+				 */
+
+				/**
+				 * [tExtractDelimitedFields_3 finally ] start
+				 */
+
+				currentComponent = "tExtractDelimitedFields_3";
+
+				/**
+				 * [tExtractDelimitedFields_3 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_2 finally ] start
+				 */
+
+				currentComponent = "tLogRow_2";
+
+				/**
+				 * [tLogRow_2 finally ] stop
 				 */
 
 				/**
@@ -10165,7 +13957,6 @@ public class VectorJob implements TalendJob {
 			if (!context_param.isEmpty()) {
 				context.putAll(context_param);
 			}
-			context.file = (String) context.getProperty("file");
 			context.administrativeArea = (String) context
 					.getProperty("administrativeArea");
 			context.city = (String) context.getProperty("city");
@@ -10177,6 +13968,7 @@ public class VectorJob implements TalendJob {
 			context.defaultXMin = (String) context.getProperty("defaultXMin");
 			context.defaultYMax = (String) context.getProperty("defaultYMax");
 			context.defaultYMin = (String) context.getProperty("defaultYMin");
+			context.file = (String) context.getProperty("file");
 			context.deliveryPoint = (String) context
 					.getProperty("deliveryPoint");
 			context.email = (String) context.getProperty("email");
@@ -10239,9 +14031,6 @@ public class VectorJob implements TalendJob {
 
 		// get context value from parent directly
 		if (parentContextMap != null && !parentContextMap.isEmpty()) {
-			if (parentContextMap.containsKey("file")) {
-				context.file = (String) parentContextMap.get("file");
-			}
 			if (parentContextMap.containsKey("administrativeArea")) {
 				context.administrativeArea = (String) parentContextMap
 						.get("administrativeArea");
@@ -10274,6 +14063,9 @@ public class VectorJob implements TalendJob {
 			if (parentContextMap.containsKey("defaultYMin")) {
 				context.defaultYMin = (String) parentContextMap
 						.get("defaultYMin");
+			}
+			if (parentContextMap.containsKey("file")) {
+				context.file = (String) parentContextMap.get("file");
 			}
 			if (parentContextMap.containsKey("deliveryPoint")) {
 				context.deliveryPoint = (String) parentContextMap
@@ -10552,6 +14344,6 @@ public class VectorJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 311723 characters generated by Talend Open Studio for Data Integration on the
- * 29 de diciembre de 2014 18:07:17 CET
+ * 406663 characters generated by Talend Open Studio for Data Integration on the
+ * 10 de febrero de 2015 8:42:19 CET
  ************************************************************************************************/
