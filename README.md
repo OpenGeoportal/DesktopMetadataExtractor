@@ -27,3 +27,16 @@ Applications are created in the dist folder.
 
 
 **TODO:** Describe how to update the talend process for the GUI.
+
+Create the installer
+--------------------
+
+To create the exe and jar installers:
+
+```
+$ cd installer
+$ ant
+```
+
+The installers are created in the folder ```build```. For now doesn't include gdal, that is required to be installed manually.
+
