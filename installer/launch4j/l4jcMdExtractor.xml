@@ -18,7 +18,7 @@
     <maxHeapSize>1024</maxHeapSize>
   </jre>
   <splash>
-    <file>../splash.png</file>
+    <file>../splash.bmp</file>
     <waitForWindow>true</waitForWindow>
     <timeout>60</timeout>
     <timeoutErr>true</timeoutErr>
