@@ -6666,24 +6666,69 @@ public class RasterJob implements TalendJob {
 													.addElement("mdb:MD_Metadata");
 											root_tAFOX_2
 													.addNamespace(
-															"mrl",
+															"xsi",
 															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrl/1.0/2014-07-11"));
+																	.replaceSpecialCharForXML("http://www.w3.org/2001/XMLSchema-instance"));
 											root_tAFOX_2
 													.addNamespace(
-															"mrd",
+															"cit",
 															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrd/1.0/2014-07-11"));
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/cit/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"gex",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/gex/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"lan",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/lan/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"mcc",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mcc/1.0/2014-12-25"));
 											root_tAFOX_2
 													.addNamespace(
 															"mco",
 															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mco/1.0/2014-07-11"));
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mco/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"mdb",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mdb/1.0/2014-12-25"));
 											root_tAFOX_2
 													.addNamespace(
 															"mmi",
 															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mmi/1.0/2014-07-11"));
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mmi/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"mrd",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrd/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"mri",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mri/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"mrl",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrl/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"mrs",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrs/1.0/2014-12-25"));
+											root_tAFOX_2
+													.addNamespace(
+															"gco",
+															TalendString
+																	.replaceSpecialCharForXML("http://standards.iso.org/19139/gco/1.0/2014-12-25"));
 											root_tAFOX_2
 													.addNamespace(
 															"gml",
@@ -6691,58 +6736,13 @@ public class RasterJob implements TalendJob {
 																	.replaceSpecialCharForXML("http://www.opengis.net/gml/3.2"));
 											root_tAFOX_2
 													.addNamespace(
-															"gex",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/gex/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mri",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mri/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mrs",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrs/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"cit",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/cit/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"lan",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/lan/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"gco",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/2005/gco"));
-											root_tAFOX_2
-													.addNamespace(
-															"mcc",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mcc/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"mdb",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mdb/1.0/2014-07-11"));
-											root_tAFOX_2
-													.addNamespace(
-															"xsi",
-															TalendString
-																	.replaceSpecialCharForXML("http://www.w3.org/2001/XMLSchema-instance"));
-											root_tAFOX_2
-													.addNamespace(
 															"mrc",
 															TalendString
-																	.replaceSpecialCharForXML("http://www.isotc211.org/namespace/mrc/1.0/2014-07-11"));
+																	.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrc/1.0/2014-12-25/"));
 											root_tAFOX_2
 													.addAttribute(
 															"xsi:schemaLocation",
-															"http://www.isotc211.org/namespace/mdb/1.0/2014-07-11 ../schema.xsd");
+															"http://standards.iso.org/19115/-3/mdb/1.0/2014-12-25 ../schema.xsd");
 											root_tAFOX_2
 													.setName("mdb:MD_Metadata");
 											org.dom4j.Element root_0_tAFOX_2;
@@ -12094,6 +12094,6 @@ public class RasterJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 354566 characters generated by Talend Open Studio for Data Integration on the
- * 10 de febrero de 2015 8:42:05 CET
+ * 354584 characters generated by Talend Open Studio for Data Integration on the
+ * 24 de febrero de 2015 13:47:46 CET
  ************************************************************************************************/
