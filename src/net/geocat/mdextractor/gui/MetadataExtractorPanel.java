@@ -40,7 +40,9 @@ import com.jgoodies.forms.layout.RowSpec;
 public class MetadataExtractorPanel extends JPanel {
 
 	private static final long serialVersionUID = -4180494189643130908L;
-	private static final String[] RASTER_EXTENSIONS = new String[] { "tif", "tiff", "jp2", "sid", "ecw", "asc", "img", "hdr", "dat", "dem", "bil" };
+	private static final String[] RASTER_EXTENSIONS = new String[] { "tif",
+			"tiff", "jp2", "sid", "ecw", "asc", "img", "hdr", "dat", "dem",
+			"bil" };
 	private static final String[] VECTOR_EXTENSIONS = new String[] { "kml",
 			"shp", "mif", "tab", "gml", "dxf" };
 	private List<String> datasetList;
@@ -164,6 +166,7 @@ public class MetadataExtractorPanel extends JPanel {
 				RASTER_EXTENSIONS, VECTOR_EXTENSIONS);
 
 		worker.addPropertyChangeListener(new PropertyChangeListener() {
+			boolean error = false;
 
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
@@ -187,12 +190,24 @@ public class MetadataExtractorPanel extends JPanel {
 							e.printStackTrace();
 						} catch (ExecutionException e) {
 							e.printStackTrace();
-						} finally {
+						} catch (java.lang.UnsatisfiedLinkError e) {
+							e.printStackTrace();
+							error = true;
+						}
+						
+						finally {
 							worker = null;
 						}
-						JOptionPane.showMessageDialog(
+						
+						if (!error) {
+							JOptionPane.showMessageDialog(
 								MetadataExtractorPanel.this,
 								"Metadata extraction finished.");
+						} else {
+							JOptionPane
+							.showMessageDialog(MetadataExtractorPanel.this,
+									"An error ocurred while processing input data. Please check that GDAL and GDAL environment varaibles are properly configured in your system.");
+						}
 						break;
 					case STARTED:
 					case PENDING:

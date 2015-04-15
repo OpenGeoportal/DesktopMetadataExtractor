@@ -60,11 +60,24 @@ public class MetadataExtractorFrame extends JFrame {
 	public static boolean testGdalLibrary() {
 		boolean available = false;
 		try {
-			ogr.RegisterAll();
+//			ogr.RegisterAll();
+			org.gdal.ogr.ogr.RegisterAll();
 			available = true;
 		} catch (Error e) {
-
+			System.err.println("Error registering OGR libraries");
+			e.printStackTrace(System.err);
 		}
+		
+		if (available) {
+			try {
+				org.gdal.gdal.gdal.AllRegister();
+				available = true;
+			} catch (Error e) {
+				System.err.println("Error registering GDAL libraries");
+				e.printStackTrace(System.err);
+			}
+		}
+		
 		return available;
 	}
 
