@@ -40,8 +40,7 @@ import com.jgoodies.forms.layout.RowSpec;
 public class MetadataExtractorPanel extends JPanel {
 
 	private static final long serialVersionUID = -4180494189643130908L;
-	private static final String[] RASTER_EXTENSIONS = new String[] { "tif",
-			"tiff", "ecw", "asc" };
+	private static final String[] RASTER_EXTENSIONS = new String[] { "tif", "tiff", "jp2", "sid", "ecw", "asc", "img", "hdr", "dat", "dem", "bil" };
 	private static final String[] VECTOR_EXTENSIONS = new String[] { "kml",
 			"shp", "mif", "tab", "gml", "dxf" };
 	private List<String> datasetList;

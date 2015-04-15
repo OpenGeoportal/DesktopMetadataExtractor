@@ -146,7 +146,11 @@ public class TalendWorker extends SwingWorker<String, String> {
 				// Copy common arguments into a new list
 				List<String> arguments = new ArrayList<>(argumentList);
 				if (currentElementAsFile.isDirectory()) {
-					// Process directory
+					// First try to process the entire folder as a Vector and Raster format
+//					processVector(escapedFilename, arguments);
+//					processRaster(escapedFilename, arguments);
+					
+					// Process directory recursively with the start job.
 					addParameter(arguments, PARAM_DATA_DIR, escapedFilename
 							+ "/");
 
@@ -161,33 +165,10 @@ public class TalendWorker extends SwingWorker<String, String> {
 						}
 					}
 				} else if (vectorFilter.accept(currentElementAsFile)) {
-					// Process vector file
-					addParameter(arguments, PARAM_FILE, escapedFilename);
-					VectorJob vectorJob = new VectorJob();
-					String[][] results = vectorJob.runJob(arguments
-							.toArray(new String[] {}));
-					for (String[] ss : results) {
-						for (String s : ss) {
-							System.out
-									.println(String
-											.format("Processed vector file %s with return values %s",
-													escapedFilename, s));
-						}
-					}
+					processVector(escapedFilename, arguments);
 				} else if (rasterFilter.accept(currentElementAsFile)) {
 					// Process raster file
-					addParameter(arguments, PARAM_FILE, escapedFilename);
-					RasterJob rasterJob = new RasterJob();
-					String[][] results = rasterJob.runJob(arguments
-							.toArray(new String[] {}));
-					for (String[] ss : results) {
-						for (String s : ss) {
-							System.out
-									.println(String
-											.format("Processed raster file %s with return values %s",
-													escapedFilename, s));
-						}
-					}
+					processRaster(escapedFilename, arguments);
 				}
 
 				percentage = Math.min((i * 100) / argumentList.size(), 100);
@@ -200,6 +181,37 @@ public class TalendWorker extends SwingWorker<String, String> {
 		}
 
 		return "Finished";
+	}
+
+	private void processRaster(String escapedFilename, List<String> arguments) {
+		addParameter(arguments, PARAM_FILE, escapedFilename);
+		RasterJob rasterJob = new RasterJob();
+		String[][] results = rasterJob.runJob(arguments
+				.toArray(new String[] {}));
+		for (String[] ss : results) {
+			for (String s : ss) {
+				System.out
+						.println(String
+								.format("Processed raster file %s with return values %s",
+										escapedFilename, s));
+			}
+		}
+	}
+
+	private void processVector(String escapedFilename, List<String> arguments) {
+		// Process vector file
+		addParameter(arguments, PARAM_FILE, escapedFilename);
+		VectorJob vectorJob = new VectorJob();
+		String[][] results = vectorJob.runJob(arguments
+				.toArray(new String[] {}));
+		for (String[] ss : results) {
+			for (String s : ss) {
+				System.out
+						.println(String
+								.format("Processed vector file %s with return values %s",
+										escapedFilename, s));
+			}
+		}
 	}
 
 	@Override

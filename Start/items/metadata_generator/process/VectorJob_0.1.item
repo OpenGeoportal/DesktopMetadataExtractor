@@ -30,7 +30,7 @@
     <contextParameter comment="" name="organisationName" prompt="organisationName?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
     <contextParameter comment="" name="positionName" prompt="positionName?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
     <contextParameter comment="" name="postalCode" prompt="postalCode?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="null"/>
-    <contextParameter comment="List of extensions used by raster files as RegExp" name="rasterExtensions" prompt="rasterExtensions?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;.*\\.tif|.*\\.tiff|.*\\.ecw|.*\\.asc&quot;"/>
+    <contextParameter comment="List of extensions used by raster files as RegExp" name="rasterExtensions" prompt="rasterExtensions?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_String" value="&quot;.*\\.tif|.*\\.tiff|.*\\.jp2|.*\\.sid|.*\\.ecw|.*\\.asc|.*\\.img|.*\\.hdr|.*\\.dat|.*\\.dem&quot;"/>
     <contextParameter comment="Directory where configuration files are" name="resourceDir" prompt="resourceDir?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Directory" value="C:/Users/JuanLuis/Documents/Projects/tufts/sample-data/_resources/"/>
     <contextParameter comment="true if you want to scan raster files" name="scanRaster" prompt="scanRaster?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Boolean" value="true"/>
     <contextParameter comment="true if you want to scan vector files" name="scanVector" prompt="scanVector?" promptNeeded="false" repositoryContextId="_Ar7pEC1aEeStmZi-VHNfUA" type="id_Boolean" value="true"/>
@@ -318,6 +318,8 @@
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_1"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="CHECK" name="DUMMY" value="true"/>
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
@@ -482,7 +484,7 @@
       <column key="false" length="255" name="layer_name" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column key="false" length="255" name="error" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
-    <metadata comment="" connector="FLOW" label="metadata" name="iso19115_3">
+    <metadata comment="" label="metadata" name="iso19115_3">
       <column comment="" key="false" length="0" name="mdIdentifier" nullable="true" pattern="" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="&quot;eng&quot;" key="false" length="0" name="mdLanguage" nullable="true" pattern="" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column comment="" defaultValue="&quot;utf-8&quot;" key="false" length="0" name="mdCharacterSetCode" nullable="true" pattern="" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
@@ -530,7 +532,7 @@
       <column comment="" key="false" length="0" name="bands" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="dateStamp" expression="TalendDate.formatDate(&quot;yyyy-MM-dd'T'HH:mm:ss&quot;, TalendDate.getCurrentDate())  " type="id_String"/>
         <mapperTableEntries name="srs" expression="fromActualFile.epsg_code  == -1 ? context.defaultProjection : &quot;EPSG:&quot; + fromActualFile.epsg_code  " type="id_String"/>
@@ -768,21 +770,6 @@
         <mapperTableEntries name="mapFormat" type="id_String" nullable="true"/>
       </inputTables>
     </nodeData>
-  </node>
-  <node componentName="tWarn" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="451">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tWarn_2"/>
-    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
-    <elementParameter field="TEXT" name="MESSAGE" value="&quot;Dataset metadata record and feature catalog created for layer : &quot;+ logger.layer_name +&quot; from files : &quot; + logger.files + &quot; (driver &quot;+ logger.driver + &quot;)&quot;"/>
-    <elementParameter field="TEXT" name="CODE" value="1"/>
-    <elementParameter field="CLOSED_LIST" name="PRIORITY" value="3"/>
-    <elementParameter field="TEXT" name="LABEL" value="log"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tWarn_2">
-      <column key="false" length="50" name="driver" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
-      <column key="false" length="255" name="files" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
-      <column key="false" length="255" name="layer_name" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
-      <column key="false" length="255" name="error" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
-    </metadata>
   </node>
   <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="544" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFileInputDelimited_2"/>
@@ -1282,6 +1269,8 @@
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="1088" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tLogRow_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="CHECK" name="DUMMY" value="true"/>
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
@@ -1447,7 +1436,7 @@
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
     <elementParameter field="CHECK" name="USESTREAM" value="false"/>
     <elementParameter field="TEXT" name="STREAMNAME" value="outputStream"/>
-    <elementParameter field="FILE" name="FILENAME" value="(context.generateMetadataInSeparateDir ? context.metadataDir +&quot;/&quot; +  new java.io.File(context.file).getName() : context.file )  + &quot;_md_iso19115-3.xml&quot;"/>
+    <elementParameter field="FILE" name="FILENAME" value="(context.generateMetadataInSeparateDir ? context.metadataDir +&quot;/&quot; +  new java.io.File(context.file).getName() : context.file )  + &quot;_md_iso19115-3_&quot; + System.currentTimeMillis() + &quot;.xml&quot;"/>
     <elementParameter field="TABLE" name="ROOT">
       <elementValue elementRef="PATH" value="/mdb:MD_Metadata"/>
       <elementValue elementRef="COLUMN" value=""/>
@@ -4608,6 +4597,22 @@
       <column comment="" key="false" length="0" name="extra" nullable="true" pattern="" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
+  <node componentName="tWarn" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="451">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tWarn_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Users\JuanLuis\local\TOS_DI-Win32-20141024_1545-V5.6.0\configuration\lib\java"/>
+    <elementParameter field="TEXT" name="MESSAGE" value="&quot;Dataset metadata record and feature catalog created for layer : &quot;+ logger.layer_name +&quot; from files : &quot; + logger.files + &quot; (driver &quot;+ logger.driver + &quot;)&quot;"/>
+    <elementParameter field="TEXT" name="CODE" value="1"/>
+    <elementParameter field="CLOSED_LIST" name="PRIORITY" value="3"/>
+    <elementParameter field="TEXT" name="LABEL" value="log"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tWarn_2">
+      <column key="false" length="50" name="driver" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column key="false" length="255" name="files" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column key="false" length="255" name="layer_name" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column key="false" length="255" name="error" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
   <connection connectorName="FLOW" label="fileRow" lineStyle="0" metaname="sOGRInfoInput_1" offsetLabelX="14" offsetLabelY="8" source="sOGRInfoInput_1" target="tFlowToIterate_1">
     <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
       <elementValue elementRef="TRACE_COLUMN" value="driver"/>
@@ -5103,6 +5108,7 @@
       <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="logger"/>
   </connection>
   <connection connectorName="FLOW" label="iso19115_3" lineStyle="0" metaname="iso19115_3" offsetLabelX="0" offsetLabelY="0" outputId="3" source="tMap_1" target="tNormalize_1">
@@ -5797,6 +5803,11 @@
   </subjob>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tAdvancedFileOutputXML_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tWarn_2"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
   </subjob>

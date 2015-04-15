@@ -721,28 +721,6 @@ public class Start implements TalendJob {
 		tLoop_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tFileList_1_error(java.lang.Exception exception,
-			String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileList_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
-	public void tRunJob_3_error(java.lang.Exception exception,
-			String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tFileList_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
 	public void tFileList_4_error(java.lang.Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
@@ -763,6 +741,28 @@ public class Start implements TalendJob {
 		status = "failure";
 
 		tFileList_4_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFileList_1_error(java.lang.Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileList_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tRunJob_3_error(java.lang.Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileList_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tPrejob_1_onSubJobError(java.lang.Exception exception,
@@ -798,7 +798,7 @@ public class Start implements TalendJob {
 
 	}
 
-	public void tFileList_1_onSubJobError(java.lang.Exception exception,
+	public void tFileList_4_onSubJobError(java.lang.Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
@@ -809,7 +809,7 @@ public class Start implements TalendJob {
 
 	}
 
-	public void tFileList_4_onSubJobError(java.lang.Exception exception,
+	public void tFileList_1_onSubJobError(java.lang.Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
@@ -1169,14 +1169,14 @@ public class Start implements TalendJob {
 				ok_Hash.put("tLoop_1", true);
 				end_Hash.put("tLoop_1", System.currentTimeMillis());
 
-				if (context.scanRaster) {
-
-					tFileList_1Process(globalMap);
-				}
-
 				if (context.scanVector) {
 
 					tFileList_4Process(globalMap);
+				}
+
+				if (context.scanRaster) {
+
+					tFileList_1Process(globalMap);
 				}
 
 				/**
@@ -1215,441 +1215,6 @@ public class Start implements TalendJob {
 		}
 
 		globalMap.put("tLoop_1_SUBPROCESS_STATE", 1);
-	}
-
-	public void tFileList_1Process(final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-		globalMap.put("tFileList_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-
-			String currentMethodName = new java.lang.Exception()
-					.getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if (resumeEntryMethodName == null || resumeIt || globalResumeTicket) {// start
-																					// the
-																					// resume
-				globalResumeTicket = true;
-
-				/**
-				 * [tFileList_1 begin ] start
-				 */
-
-				int NB_ITERATE_tRunJob_3 = 0; // for statistics
-
-				ok_Hash.put("tFileList_1", false);
-				start_Hash.put("tFileList_1", System.currentTimeMillis());
-
-				currentComponent = "tFileList_1";
-
-				int tos_count_tFileList_1 = 0;
-
-				String directory_tFileList_1 = context.dataDir;
-				final java.util.List<String> maskList_tFileList_1 = new java.util.ArrayList<String>();
-				final java.util.List<java.util.regex.Pattern> patternList_tFileList_1 = new java.util.ArrayList<java.util.regex.Pattern>();
-				maskList_tFileList_1.add(context.rasterExtensions);
-				for (final String filemask_tFileList_1 : maskList_tFileList_1) {
-					String filemask_compile_tFileList_1 = filemask_tFileList_1;
-
-					java.util.regex.Pattern fileNamePattern_tFileList_1 = java.util.regex.Pattern
-							.compile(filemask_compile_tFileList_1,
-									java.util.regex.Pattern.CASE_INSENSITIVE);
-
-					patternList_tFileList_1.add(fileNamePattern_tFileList_1);
-				}
-				int NB_FILEtFileList_1 = 0;
-
-				final boolean case_sensitive_tFileList_1 = false;
-				final java.util.List<java.io.File> list_tFileList_1 = new java.util.ArrayList<java.io.File>();
-				final java.util.List<String> filePath_tFileList_1 = new java.util.ArrayList<String>();
-				java.io.File file_tFileList_1 = new java.io.File(
-						directory_tFileList_1);
-
-				file_tFileList_1.listFiles(new java.io.FilenameFilter() {
-					public boolean accept(java.io.File dir, String name) {
-						java.io.File file = new java.io.File(dir, name);
-
-						if (!file.isDirectory()) {
-
-							String fileName_tFileList_1 = file.getName();
-							for (final java.util.regex.Pattern fileNamePattern_tFileList_1 : patternList_tFileList_1) {
-								if (fileNamePattern_tFileList_1.matcher(
-										fileName_tFileList_1).matches()) {
-									if (!filePath_tFileList_1.contains(file
-											.getAbsolutePath())) {
-										list_tFileList_1.add(file);
-										filePath_tFileList_1.add(file
-												.getAbsolutePath());
-									}
-								}
-							}
-							return true;
-						} else {
-							file.listFiles(this);
-						}
-
-						return false;
-					}
-				});
-				java.util.Collections.sort(list_tFileList_1);
-
-				for (int i_tFileList_1 = 0; i_tFileList_1 < list_tFileList_1
-						.size(); i_tFileList_1++) {
-					java.io.File files_tFileList_1 = list_tFileList_1
-							.get(i_tFileList_1);
-					String fileName_tFileList_1 = files_tFileList_1.getName();
-
-					String currentFileName_tFileList_1 = files_tFileList_1
-							.getName();
-					String currentFilePath_tFileList_1 = files_tFileList_1
-							.getAbsolutePath();
-					String currentFileDirectory_tFileList_1 = files_tFileList_1
-							.getParent();
-					String currentFileExtension_tFileList_1 = null;
-
-					if (files_tFileList_1.getName().contains(".")
-							&& files_tFileList_1.isFile()) {
-						currentFileExtension_tFileList_1 = files_tFileList_1
-								.getName().substring(
-										files_tFileList_1.getName()
-												.lastIndexOf(".") + 1);
-					} else {
-						currentFileExtension_tFileList_1 = "";
-					}
-
-					NB_FILEtFileList_1++;
-					globalMap.put("tFileList_1_CURRENT_FILE",
-							currentFileName_tFileList_1);
-					globalMap.put("tFileList_1_CURRENT_FILEPATH",
-							currentFilePath_tFileList_1);
-					globalMap.put("tFileList_1_CURRENT_FILEDIRECTORY",
-							currentFileDirectory_tFileList_1);
-					globalMap.put("tFileList_1_CURRENT_FILEEXTENSION",
-							currentFileExtension_tFileList_1);
-					globalMap.put("tFileList_1_NB_FILE", NB_FILEtFileList_1);
-
-					/**
-					 * [tFileList_1 begin ] stop
-					 */
-
-					/**
-					 * [tFileList_1 main ] start
-					 */
-
-					currentComponent = "tFileList_1";
-
-					tos_count_tFileList_1++;
-
-					/**
-					 * [tFileList_1 main ] stop
-					 */
-					NB_ITERATE_tRunJob_3++;
-
-					/**
-					 * [tRunJob_3 begin ] start
-					 */
-
-					ok_Hash.put("tRunJob_3", false);
-					start_Hash.put("tRunJob_3", System.currentTimeMillis());
-
-					currentComponent = "tRunJob_3";
-
-					int tos_count_tRunJob_3 = 0;
-
-					/**
-					 * [tRunJob_3 begin ] stop
-					 */
-
-					/**
-					 * [tRunJob_3 main ] start
-					 */
-
-					currentComponent = "tRunJob_3";
-
-					java.util.List<String> paraList_tRunJob_3 = new java.util.ArrayList<String>();
-
-					paraList_tRunJob_3.add("--father_pid=" + pid);
-
-					paraList_tRunJob_3.add("--root_pid=" + rootPid);
-
-					paraList_tRunJob_3.add("--father_node=tRunJob_3");
-
-					paraList_tRunJob_3.add("--context=Default");
-
-					// for feature:10589
-
-					paraList_tRunJob_3.add("--stat_port=" + portStats);
-
-					if (resuming_logs_dir_path != null) {
-						paraList_tRunJob_3.add("--resuming_logs_dir_path="
-								+ resuming_logs_dir_path);
-					}
-					String childResumePath_tRunJob_3 = ResumeUtil
-							.getChildJobCheckPointPath(resuming_checkpoint_path);
-					String tRunJobName_tRunJob_3 = ResumeUtil
-							.getRighttRunJob(resuming_checkpoint_path);
-					if ("tRunJob_3".equals(tRunJobName_tRunJob_3)
-							&& childResumePath_tRunJob_3 != null) {
-						paraList_tRunJob_3
-								.add("--resuming_checkpoint_path="
-										+ ResumeUtil
-												.getChildJobCheckPointPath(resuming_checkpoint_path));
-					}
-					paraList_tRunJob_3.add("--parent_part_launcher=JOB:"
-							+ jobName + "/NODE:tRunJob_3");
-
-					java.util.Map<String, Object> parentContextMap_tRunJob_3 = new java.util.HashMap<String, Object>();
-
-					context.synchronizeContext();
-					java.util.Enumeration<?> propertyNames_tRunJob_3 = context
-							.propertyNames();
-					while (propertyNames_tRunJob_3.hasMoreElements()) {
-						String key_tRunJob_3 = (String) propertyNames_tRunJob_3
-								.nextElement();
-						Object value_tRunJob_3 = (Object) context
-								.get(key_tRunJob_3);
-						paraList_tRunJob_3.add("--context_param "
-								+ key_tRunJob_3 + "=" + value_tRunJob_3);
-					}
-
-					parentContextMap_tRunJob_3.put("administrativeArea",
-							context.administrativeArea);
-
-					parentContextMap_tRunJob_3.put("city", context.city);
-
-					parentContextMap_tRunJob_3.put("country", context.country);
-
-					parentContextMap_tRunJob_3.put("dataDir", context.dataDir);
-
-					parentContextMap_tRunJob_3.put("defaultProjection",
-							context.defaultProjection);
-
-					parentContextMap_tRunJob_3.put("defaultXMax",
-							context.defaultXMax);
-
-					parentContextMap_tRunJob_3.put("defaultXMin",
-							context.defaultXMin);
-
-					parentContextMap_tRunJob_3.put("defaultYMax",
-							context.defaultYMax);
-
-					parentContextMap_tRunJob_3.put("defaultYMin",
-							context.defaultYMin);
-
-					parentContextMap_tRunJob_3.put("deliveryPoint",
-							context.deliveryPoint);
-
-					parentContextMap_tRunJob_3.put("email", context.email);
-
-					parentContextMap_tRunJob_3.put(
-							"generateMetadataInSeparateDir",
-							context.generateMetadataInSeparateDir);
-
-					parentContextMap_tRunJob_3.put("individualName",
-							context.individualName);
-
-					parentContextMap_tRunJob_3.put("logDirectory",
-							context.logDirectory);
-
-					parentContextMap_tRunJob_3.put("mdAdministrativeArea",
-							context.mdAdministrativeArea);
-
-					parentContextMap_tRunJob_3.put("mdCity", context.mdCity);
-
-					parentContextMap_tRunJob_3.put("mdCountry",
-							context.mdCountry);
-
-					parentContextMap_tRunJob_3.put("mdDeliveryPoint",
-							context.mdDeliveryPoint);
-
-					parentContextMap_tRunJob_3.put("mdEmail", context.mdEmail);
-
-					parentContextMap_tRunJob_3.put("mdIndividualName",
-							context.mdIndividualName);
-
-					parentContextMap_tRunJob_3.put("mdOrganisation",
-							context.mdOrganisation);
-
-					parentContextMap_tRunJob_3.put("mdPositionName",
-							context.mdPositionName);
-
-					parentContextMap_tRunJob_3.put("mdPostalCode",
-							context.mdPostalCode);
-
-					parentContextMap_tRunJob_3.put("mdVoice", context.mdVoice);
-
-					parentContextMap_tRunJob_3.put("metadataDir",
-							context.metadataDir);
-
-					parentContextMap_tRunJob_3.put("organisationName",
-							context.organisationName);
-
-					parentContextMap_tRunJob_3.put("positionName",
-							context.positionName);
-
-					parentContextMap_tRunJob_3.put("postalCode",
-							context.postalCode);
-
-					parentContextMap_tRunJob_3.put("rasterExtensions",
-							context.rasterExtensions);
-
-					parentContextMap_tRunJob_3.put("resourceDir",
-							context.resourceDir);
-
-					parentContextMap_tRunJob_3.put("scanRaster",
-							context.scanRaster);
-
-					parentContextMap_tRunJob_3.put("scanVector",
-							context.scanVector);
-
-					parentContextMap_tRunJob_3.put("titlePrefixRaster",
-							context.titlePrefixRaster);
-
-					parentContextMap_tRunJob_3.put("titlePrefixVector",
-							context.titlePrefixVector);
-
-					parentContextMap_tRunJob_3.put("vectorExtensions",
-							context.vectorExtensions);
-
-					parentContextMap_tRunJob_3.put("voice", context.voice);
-
-					Object obj_tRunJob_3 = null;
-
-					obj_tRunJob_3 = ((String) globalMap
-							.get("tFileList_1_CURRENT_FILEPATH"));
-					paraList_tRunJob_3
-							.add("--context_param file="
-									+ RuntimeUtils
-											.tRunJobConvertContext(obj_tRunJob_3));
-					parentContextMap_tRunJob_3.put("file", obj_tRunJob_3);
-
-					metadata_generator.rasterjob_0_1.RasterJob childJob_tRunJob_3 = new metadata_generator.rasterjob_0_1.RasterJob();
-					// pass DataSources
-					java.util.Map<String, routines.system.TalendDataSource> talendDataSources_tRunJob_3 = (java.util.Map<String, routines.system.TalendDataSource>) globalMap
-							.get(KEY_DB_DATASOURCES);
-					if (null != talendDataSources_tRunJob_3) {
-						java.util.Map<String, javax.sql.DataSource> dataSources_tRunJob_3 = new java.util.HashMap<String, javax.sql.DataSource>();
-						for (java.util.Map.Entry<String, routines.system.TalendDataSource> talendDataSourceEntry_tRunJob_3 : talendDataSources_tRunJob_3
-								.entrySet()) {
-							dataSources_tRunJob_3.put(
-									talendDataSourceEntry_tRunJob_3.getKey(),
-									talendDataSourceEntry_tRunJob_3.getValue()
-											.getRawDataSource());
-						}
-						childJob_tRunJob_3
-								.setDataSources(dataSources_tRunJob_3);
-					}
-
-					childJob_tRunJob_3.parentContextMap = parentContextMap_tRunJob_3;
-
-					String[][] childReturn_tRunJob_3 = childJob_tRunJob_3
-							.runJob((String[]) paraList_tRunJob_3
-									.toArray(new String[paraList_tRunJob_3
-											.size()]));
-
-					errorCode = childJob_tRunJob_3.getErrorCode();
-
-					if (childJob_tRunJob_3.getErrorCode() == null) {
-						globalMap.put(
-								"tRunJob_3_CHILD_RETURN_CODE",
-								childJob_tRunJob_3.getStatus() != null
-										&& ("failure")
-												.equals(childJob_tRunJob_3
-														.getStatus()) ? 1 : 0);
-					} else {
-						globalMap.put("tRunJob_3_CHILD_RETURN_CODE",
-								childJob_tRunJob_3.getErrorCode());
-					}
-					if (childJob_tRunJob_3.getExceptionStackTrace() != null) {
-						globalMap.put("tRunJob_3_CHILD_EXCEPTION_STACKTRACE",
-								childJob_tRunJob_3.getExceptionStackTrace());
-					}
-
-					tos_count_tRunJob_3++;
-
-					/**
-					 * [tRunJob_3 main ] stop
-					 */
-
-					/**
-					 * [tRunJob_3 end ] start
-					 */
-
-					currentComponent = "tRunJob_3";
-
-					ok_Hash.put("tRunJob_3", true);
-					end_Hash.put("tRunJob_3", System.currentTimeMillis());
-
-					/**
-					 * [tRunJob_3 end ] stop
-					 */
-
-					/**
-					 * [tFileList_1 end ] start
-					 */
-
-					currentComponent = "tFileList_1";
-
-				}
-				globalMap.put("tFileList_1_NB_FILE", NB_FILEtFileList_1);
-
-				ok_Hash.put("tFileList_1", true);
-				end_Hash.put("tFileList_1", System.currentTimeMillis());
-
-				/**
-				 * [tFileList_1 end ] stop
-				 */
-			}// end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent,
-					globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tFileList_1 finally ] start
-				 */
-
-				currentComponent = "tFileList_1";
-
-				/**
-				 * [tFileList_1 finally ] stop
-				 */
-
-				/**
-				 * [tRunJob_3 finally ] start
-				 */
-
-				currentComponent = "tRunJob_3";
-
-				/**
-				 * [tRunJob_3 finally ] stop
-				 */
-
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tFileList_1_SUBPROCESS_STATE", 1);
 	}
 
 	public void tFileList_4Process(final java.util.Map<String, Object> globalMap)
@@ -1711,22 +1276,19 @@ public class Start implements TalendJob {
 					public boolean accept(java.io.File dir, String name) {
 						java.io.File file = new java.io.File(dir, name);
 
-						if (!file.isDirectory()) {
-
-							String fileName_tFileList_4 = file.getName();
-							for (final java.util.regex.Pattern fileNamePattern_tFileList_4 : patternList_tFileList_4) {
-								if (fileNamePattern_tFileList_4.matcher(
-										fileName_tFileList_4).matches()) {
-									if (!filePath_tFileList_4.contains(file
-											.getAbsolutePath())) {
-										list_tFileList_4.add(file);
-										filePath_tFileList_4.add(file
-												.getAbsolutePath());
-									}
+						String fileName_tFileList_4 = file.getName();
+						for (final java.util.regex.Pattern fileNamePattern_tFileList_4 : patternList_tFileList_4) {
+							if (fileNamePattern_tFileList_4.matcher(
+									fileName_tFileList_4).matches()) {
+								if (!filePath_tFileList_4.contains(file
+										.getAbsolutePath())) {
+									list_tFileList_4.add(file);
+									filePath_tFileList_4.add(file
+											.getAbsolutePath());
 								}
 							}
-							return true;
-						} else {
+						}
+						if (file.isDirectory()) {
 							file.listFiles(this);
 						}
 
@@ -2085,6 +1647,438 @@ public class Start implements TalendJob {
 		}
 
 		globalMap.put("tFileList_4_SUBPROCESS_STATE", 1);
+	}
+
+	public void tFileList_1Process(final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+		globalMap.put("tFileList_1_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+
+			String currentMethodName = new java.lang.Exception()
+					.getStackTrace()[0].getMethodName();
+			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
+			if (resumeEntryMethodName == null || resumeIt || globalResumeTicket) {// start
+																					// the
+																					// resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tFileList_1 begin ] start
+				 */
+
+				int NB_ITERATE_tRunJob_3 = 0; // for statistics
+
+				ok_Hash.put("tFileList_1", false);
+				start_Hash.put("tFileList_1", System.currentTimeMillis());
+
+				currentComponent = "tFileList_1";
+
+				int tos_count_tFileList_1 = 0;
+
+				String directory_tFileList_1 = context.dataDir;
+				final java.util.List<String> maskList_tFileList_1 = new java.util.ArrayList<String>();
+				final java.util.List<java.util.regex.Pattern> patternList_tFileList_1 = new java.util.ArrayList<java.util.regex.Pattern>();
+				maskList_tFileList_1.add(context.rasterExtensions);
+				for (final String filemask_tFileList_1 : maskList_tFileList_1) {
+					String filemask_compile_tFileList_1 = filemask_tFileList_1;
+
+					java.util.regex.Pattern fileNamePattern_tFileList_1 = java.util.regex.Pattern
+							.compile(filemask_compile_tFileList_1,
+									java.util.regex.Pattern.CASE_INSENSITIVE);
+
+					patternList_tFileList_1.add(fileNamePattern_tFileList_1);
+				}
+				int NB_FILEtFileList_1 = 0;
+
+				final boolean case_sensitive_tFileList_1 = false;
+				final java.util.List<java.io.File> list_tFileList_1 = new java.util.ArrayList<java.io.File>();
+				final java.util.List<String> filePath_tFileList_1 = new java.util.ArrayList<String>();
+				java.io.File file_tFileList_1 = new java.io.File(
+						directory_tFileList_1);
+
+				file_tFileList_1.listFiles(new java.io.FilenameFilter() {
+					public boolean accept(java.io.File dir, String name) {
+						java.io.File file = new java.io.File(dir, name);
+
+						String fileName_tFileList_1 = file.getName();
+						for (final java.util.regex.Pattern fileNamePattern_tFileList_1 : patternList_tFileList_1) {
+							if (fileNamePattern_tFileList_1.matcher(
+									fileName_tFileList_1).matches()) {
+								if (!filePath_tFileList_1.contains(file
+										.getAbsolutePath())) {
+									list_tFileList_1.add(file);
+									filePath_tFileList_1.add(file
+											.getAbsolutePath());
+								}
+							}
+						}
+						if (file.isDirectory()) {
+							file.listFiles(this);
+						}
+
+						return false;
+					}
+				});
+				java.util.Collections.sort(list_tFileList_1);
+
+				for (int i_tFileList_1 = 0; i_tFileList_1 < list_tFileList_1
+						.size(); i_tFileList_1++) {
+					java.io.File files_tFileList_1 = list_tFileList_1
+							.get(i_tFileList_1);
+					String fileName_tFileList_1 = files_tFileList_1.getName();
+
+					String currentFileName_tFileList_1 = files_tFileList_1
+							.getName();
+					String currentFilePath_tFileList_1 = files_tFileList_1
+							.getAbsolutePath();
+					String currentFileDirectory_tFileList_1 = files_tFileList_1
+							.getParent();
+					String currentFileExtension_tFileList_1 = null;
+
+					if (files_tFileList_1.getName().contains(".")
+							&& files_tFileList_1.isFile()) {
+						currentFileExtension_tFileList_1 = files_tFileList_1
+								.getName().substring(
+										files_tFileList_1.getName()
+												.lastIndexOf(".") + 1);
+					} else {
+						currentFileExtension_tFileList_1 = "";
+					}
+
+					NB_FILEtFileList_1++;
+					globalMap.put("tFileList_1_CURRENT_FILE",
+							currentFileName_tFileList_1);
+					globalMap.put("tFileList_1_CURRENT_FILEPATH",
+							currentFilePath_tFileList_1);
+					globalMap.put("tFileList_1_CURRENT_FILEDIRECTORY",
+							currentFileDirectory_tFileList_1);
+					globalMap.put("tFileList_1_CURRENT_FILEEXTENSION",
+							currentFileExtension_tFileList_1);
+					globalMap.put("tFileList_1_NB_FILE", NB_FILEtFileList_1);
+
+					/**
+					 * [tFileList_1 begin ] stop
+					 */
+
+					/**
+					 * [tFileList_1 main ] start
+					 */
+
+					currentComponent = "tFileList_1";
+
+					tos_count_tFileList_1++;
+
+					/**
+					 * [tFileList_1 main ] stop
+					 */
+					NB_ITERATE_tRunJob_3++;
+
+					/**
+					 * [tRunJob_3 begin ] start
+					 */
+
+					ok_Hash.put("tRunJob_3", false);
+					start_Hash.put("tRunJob_3", System.currentTimeMillis());
+
+					currentComponent = "tRunJob_3";
+
+					int tos_count_tRunJob_3 = 0;
+
+					/**
+					 * [tRunJob_3 begin ] stop
+					 */
+
+					/**
+					 * [tRunJob_3 main ] start
+					 */
+
+					currentComponent = "tRunJob_3";
+
+					java.util.List<String> paraList_tRunJob_3 = new java.util.ArrayList<String>();
+
+					paraList_tRunJob_3.add("--father_pid=" + pid);
+
+					paraList_tRunJob_3.add("--root_pid=" + rootPid);
+
+					paraList_tRunJob_3.add("--father_node=tRunJob_3");
+
+					paraList_tRunJob_3.add("--context=Default");
+
+					// for feature:10589
+
+					paraList_tRunJob_3.add("--stat_port=" + portStats);
+
+					if (resuming_logs_dir_path != null) {
+						paraList_tRunJob_3.add("--resuming_logs_dir_path="
+								+ resuming_logs_dir_path);
+					}
+					String childResumePath_tRunJob_3 = ResumeUtil
+							.getChildJobCheckPointPath(resuming_checkpoint_path);
+					String tRunJobName_tRunJob_3 = ResumeUtil
+							.getRighttRunJob(resuming_checkpoint_path);
+					if ("tRunJob_3".equals(tRunJobName_tRunJob_3)
+							&& childResumePath_tRunJob_3 != null) {
+						paraList_tRunJob_3
+								.add("--resuming_checkpoint_path="
+										+ ResumeUtil
+												.getChildJobCheckPointPath(resuming_checkpoint_path));
+					}
+					paraList_tRunJob_3.add("--parent_part_launcher=JOB:"
+							+ jobName + "/NODE:tRunJob_3");
+
+					java.util.Map<String, Object> parentContextMap_tRunJob_3 = new java.util.HashMap<String, Object>();
+
+					context.synchronizeContext();
+					java.util.Enumeration<?> propertyNames_tRunJob_3 = context
+							.propertyNames();
+					while (propertyNames_tRunJob_3.hasMoreElements()) {
+						String key_tRunJob_3 = (String) propertyNames_tRunJob_3
+								.nextElement();
+						Object value_tRunJob_3 = (Object) context
+								.get(key_tRunJob_3);
+						paraList_tRunJob_3.add("--context_param "
+								+ key_tRunJob_3 + "=" + value_tRunJob_3);
+					}
+
+					parentContextMap_tRunJob_3.put("administrativeArea",
+							context.administrativeArea);
+
+					parentContextMap_tRunJob_3.put("city", context.city);
+
+					parentContextMap_tRunJob_3.put("country", context.country);
+
+					parentContextMap_tRunJob_3.put("dataDir", context.dataDir);
+
+					parentContextMap_tRunJob_3.put("defaultProjection",
+							context.defaultProjection);
+
+					parentContextMap_tRunJob_3.put("defaultXMax",
+							context.defaultXMax);
+
+					parentContextMap_tRunJob_3.put("defaultXMin",
+							context.defaultXMin);
+
+					parentContextMap_tRunJob_3.put("defaultYMax",
+							context.defaultYMax);
+
+					parentContextMap_tRunJob_3.put("defaultYMin",
+							context.defaultYMin);
+
+					parentContextMap_tRunJob_3.put("deliveryPoint",
+							context.deliveryPoint);
+
+					parentContextMap_tRunJob_3.put("email", context.email);
+
+					parentContextMap_tRunJob_3.put(
+							"generateMetadataInSeparateDir",
+							context.generateMetadataInSeparateDir);
+
+					parentContextMap_tRunJob_3.put("individualName",
+							context.individualName);
+
+					parentContextMap_tRunJob_3.put("logDirectory",
+							context.logDirectory);
+
+					parentContextMap_tRunJob_3.put("mdAdministrativeArea",
+							context.mdAdministrativeArea);
+
+					parentContextMap_tRunJob_3.put("mdCity", context.mdCity);
+
+					parentContextMap_tRunJob_3.put("mdCountry",
+							context.mdCountry);
+
+					parentContextMap_tRunJob_3.put("mdDeliveryPoint",
+							context.mdDeliveryPoint);
+
+					parentContextMap_tRunJob_3.put("mdEmail", context.mdEmail);
+
+					parentContextMap_tRunJob_3.put("mdIndividualName",
+							context.mdIndividualName);
+
+					parentContextMap_tRunJob_3.put("mdOrganisation",
+							context.mdOrganisation);
+
+					parentContextMap_tRunJob_3.put("mdPositionName",
+							context.mdPositionName);
+
+					parentContextMap_tRunJob_3.put("mdPostalCode",
+							context.mdPostalCode);
+
+					parentContextMap_tRunJob_3.put("mdVoice", context.mdVoice);
+
+					parentContextMap_tRunJob_3.put("metadataDir",
+							context.metadataDir);
+
+					parentContextMap_tRunJob_3.put("organisationName",
+							context.organisationName);
+
+					parentContextMap_tRunJob_3.put("positionName",
+							context.positionName);
+
+					parentContextMap_tRunJob_3.put("postalCode",
+							context.postalCode);
+
+					parentContextMap_tRunJob_3.put("rasterExtensions",
+							context.rasterExtensions);
+
+					parentContextMap_tRunJob_3.put("resourceDir",
+							context.resourceDir);
+
+					parentContextMap_tRunJob_3.put("scanRaster",
+							context.scanRaster);
+
+					parentContextMap_tRunJob_3.put("scanVector",
+							context.scanVector);
+
+					parentContextMap_tRunJob_3.put("titlePrefixRaster",
+							context.titlePrefixRaster);
+
+					parentContextMap_tRunJob_3.put("titlePrefixVector",
+							context.titlePrefixVector);
+
+					parentContextMap_tRunJob_3.put("vectorExtensions",
+							context.vectorExtensions);
+
+					parentContextMap_tRunJob_3.put("voice", context.voice);
+
+					Object obj_tRunJob_3 = null;
+
+					obj_tRunJob_3 = ((String) globalMap
+							.get("tFileList_1_CURRENT_FILEPATH"));
+					paraList_tRunJob_3
+							.add("--context_param file="
+									+ RuntimeUtils
+											.tRunJobConvertContext(obj_tRunJob_3));
+					parentContextMap_tRunJob_3.put("file", obj_tRunJob_3);
+
+					metadata_generator.rasterjob_0_1.RasterJob childJob_tRunJob_3 = new metadata_generator.rasterjob_0_1.RasterJob();
+					// pass DataSources
+					java.util.Map<String, routines.system.TalendDataSource> talendDataSources_tRunJob_3 = (java.util.Map<String, routines.system.TalendDataSource>) globalMap
+							.get(KEY_DB_DATASOURCES);
+					if (null != talendDataSources_tRunJob_3) {
+						java.util.Map<String, javax.sql.DataSource> dataSources_tRunJob_3 = new java.util.HashMap<String, javax.sql.DataSource>();
+						for (java.util.Map.Entry<String, routines.system.TalendDataSource> talendDataSourceEntry_tRunJob_3 : talendDataSources_tRunJob_3
+								.entrySet()) {
+							dataSources_tRunJob_3.put(
+									talendDataSourceEntry_tRunJob_3.getKey(),
+									talendDataSourceEntry_tRunJob_3.getValue()
+											.getRawDataSource());
+						}
+						childJob_tRunJob_3
+								.setDataSources(dataSources_tRunJob_3);
+					}
+
+					childJob_tRunJob_3.parentContextMap = parentContextMap_tRunJob_3;
+
+					String[][] childReturn_tRunJob_3 = childJob_tRunJob_3
+							.runJob((String[]) paraList_tRunJob_3
+									.toArray(new String[paraList_tRunJob_3
+											.size()]));
+
+					errorCode = childJob_tRunJob_3.getErrorCode();
+
+					if (childJob_tRunJob_3.getErrorCode() == null) {
+						globalMap.put(
+								"tRunJob_3_CHILD_RETURN_CODE",
+								childJob_tRunJob_3.getStatus() != null
+										&& ("failure")
+												.equals(childJob_tRunJob_3
+														.getStatus()) ? 1 : 0);
+					} else {
+						globalMap.put("tRunJob_3_CHILD_RETURN_CODE",
+								childJob_tRunJob_3.getErrorCode());
+					}
+					if (childJob_tRunJob_3.getExceptionStackTrace() != null) {
+						globalMap.put("tRunJob_3_CHILD_EXCEPTION_STACKTRACE",
+								childJob_tRunJob_3.getExceptionStackTrace());
+					}
+
+					tos_count_tRunJob_3++;
+
+					/**
+					 * [tRunJob_3 main ] stop
+					 */
+
+					/**
+					 * [tRunJob_3 end ] start
+					 */
+
+					currentComponent = "tRunJob_3";
+
+					ok_Hash.put("tRunJob_3", true);
+					end_Hash.put("tRunJob_3", System.currentTimeMillis());
+
+					/**
+					 * [tRunJob_3 end ] stop
+					 */
+
+					/**
+					 * [tFileList_1 end ] start
+					 */
+
+					currentComponent = "tFileList_1";
+
+				}
+				globalMap.put("tFileList_1_NB_FILE", NB_FILEtFileList_1);
+
+				ok_Hash.put("tFileList_1", true);
+				end_Hash.put("tFileList_1", System.currentTimeMillis());
+
+				/**
+				 * [tFileList_1 end ] stop
+				 */
+			}// end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent,
+					globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tFileList_1 finally ] start
+				 */
+
+				currentComponent = "tFileList_1";
+
+				/**
+				 * [tFileList_1 finally ] stop
+				 */
+
+				/**
+				 * [tRunJob_3 finally ] start
+				 */
+
+				currentComponent = "tRunJob_3";
+
+				/**
+				 * [tRunJob_3 finally ] stop
+				 */
+
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tFileList_1_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -2591,6 +2585,6 @@ public class Start implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 74684 characters generated by Talend Open Studio for Data Integration on the
- * 24 de febrero de 2015 13:47:51 CET
+ * 74570 characters generated by Talend Open Studio for Data Integration on the
+ * 14 de abril de 2015 13:35:59 CEST
  ************************************************************************************************/

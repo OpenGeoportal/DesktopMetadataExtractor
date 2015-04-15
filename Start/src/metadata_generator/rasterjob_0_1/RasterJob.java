@@ -780,6 +780,17 @@ public class RasterJob implements TalendJob {
 		tWarn_2_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tDie_1_error(java.lang.Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tDie_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tFileInputDelimited_1_error(java.lang.Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
@@ -790,17 +801,6 @@ public class RasterJob implements TalendJob {
 
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent,
 				globalMap);
-	}
-
-	public void tLogRow_1_error(java.lang.Exception exception,
-			String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tLogRow_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
 	public void tAdvancedHash_properties_error(java.lang.Exception exception,
@@ -858,9 +858,8 @@ public class RasterJob implements TalendJob {
 
 	}
 
-	public void tFileInputDelimited_1_onSubJobError(
-			java.lang.Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap)
+	public void tDie_1_onSubJobError(java.lang.Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread
@@ -870,8 +869,9 @@ public class RasterJob implements TalendJob {
 
 	}
 
-	public void tLogRow_1_onSubJobError(java.lang.Exception exception,
-			String errorComponent, final java.util.Map<String, Object> globalMap)
+	public void tFileInputDelimited_1_onSubJobError(
+			java.lang.Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
 		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread
@@ -4374,7 +4374,9 @@ public class RasterJob implements TalendJob {
 				String fileName_tAFOX_2 = (context.generateMetadataInSeparateDir ? context.metadataDir
 						+ "/" + new java.io.File(context.file).getName()
 						: context.file)
-						+ "_md_iso19115-3.xml";
+						+ "_md_iso19115-3_"
+						+ System.currentTimeMillis()
+						+ ".xml";
 				Boolean alreadyExistsFile_tAFOX_2 = new java.io.File(
 						fileName_tAFOX_2).exists();
 				fileName_tAFOX_2 = new java.io.File(fileName_tAFOX_2)
@@ -4536,547 +4538,6 @@ public class RasterJob implements TalendJob {
 				currentComponent = "tLogRow_2";
 
 				int tos_count_tLogRow_2 = 0;
-
-				// /////////////////////
-
-				class Util_tLogRow_2 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[47];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 47; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i],
-										row[i].length());
-							}
-						}
-						list.add(row);
-					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
-					}
-
-					public StringBuilder format() {
-
-						StringBuilder sb = new StringBuilder();
-
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 46 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 46 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(
-									new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|%4$-");
-							sbformat.append(colLengths[3]);
-							sbformat.append("s");
-
-							sbformat.append("|%5$-");
-							sbformat.append(colLengths[4]);
-							sbformat.append("s");
-
-							sbformat.append("|%6$-");
-							sbformat.append(colLengths[5]);
-							sbformat.append("s");
-
-							sbformat.append("|%7$-");
-							sbformat.append(colLengths[6]);
-							sbformat.append("s");
-
-							sbformat.append("|%8$-");
-							sbformat.append(colLengths[7]);
-							sbformat.append("s");
-
-							sbformat.append("|%9$-");
-							sbformat.append(colLengths[8]);
-							sbformat.append("s");
-
-							sbformat.append("|%10$-");
-							sbformat.append(colLengths[9]);
-							sbformat.append("s");
-
-							sbformat.append("|%11$-");
-							sbformat.append(colLengths[10]);
-							sbformat.append("s");
-
-							sbformat.append("|%12$-");
-							sbformat.append(colLengths[11]);
-							sbformat.append("s");
-
-							sbformat.append("|%13$-");
-							sbformat.append(colLengths[12]);
-							sbformat.append("s");
-
-							sbformat.append("|%14$-");
-							sbformat.append(colLengths[13]);
-							sbformat.append("s");
-
-							sbformat.append("|%15$-");
-							sbformat.append(colLengths[14]);
-							sbformat.append("s");
-
-							sbformat.append("|%16$-");
-							sbformat.append(colLengths[15]);
-							sbformat.append("s");
-
-							sbformat.append("|%17$-");
-							sbformat.append(colLengths[16]);
-							sbformat.append("s");
-
-							sbformat.append("|%18$-");
-							sbformat.append(colLengths[17]);
-							sbformat.append("s");
-
-							sbformat.append("|%19$-");
-							sbformat.append(colLengths[18]);
-							sbformat.append("s");
-
-							sbformat.append("|%20$-");
-							sbformat.append(colLengths[19]);
-							sbformat.append("s");
-
-							sbformat.append("|%21$-");
-							sbformat.append(colLengths[20]);
-							sbformat.append("s");
-
-							sbformat.append("|%22$-");
-							sbformat.append(colLengths[21]);
-							sbformat.append("s");
-
-							sbformat.append("|%23$-");
-							sbformat.append(colLengths[22]);
-							sbformat.append("s");
-
-							sbformat.append("|%24$-");
-							sbformat.append(colLengths[23]);
-							sbformat.append("s");
-
-							sbformat.append("|%25$-");
-							sbformat.append(colLengths[24]);
-							sbformat.append("s");
-
-							sbformat.append("|%26$-");
-							sbformat.append(colLengths[25]);
-							sbformat.append("s");
-
-							sbformat.append("|%27$-");
-							sbformat.append(colLengths[26]);
-							sbformat.append("s");
-
-							sbformat.append("|%28$-");
-							sbformat.append(colLengths[27]);
-							sbformat.append("s");
-
-							sbformat.append("|%29$-");
-							sbformat.append(colLengths[28]);
-							sbformat.append("s");
-
-							sbformat.append("|%30$-");
-							sbformat.append(colLengths[29]);
-							sbformat.append("s");
-
-							sbformat.append("|%31$-");
-							sbformat.append(colLengths[30]);
-							sbformat.append("s");
-
-							sbformat.append("|%32$-");
-							sbformat.append(colLengths[31]);
-							sbformat.append("s");
-
-							sbformat.append("|%33$-");
-							sbformat.append(colLengths[32]);
-							sbformat.append("s");
-
-							sbformat.append("|%34$-");
-							sbformat.append(colLengths[33]);
-							sbformat.append("s");
-
-							sbformat.append("|%35$-");
-							sbformat.append(colLengths[34]);
-							sbformat.append("s");
-
-							sbformat.append("|%36$-");
-							sbformat.append(colLengths[35]);
-							sbformat.append("s");
-
-							sbformat.append("|%37$-");
-							sbformat.append(colLengths[36]);
-							sbformat.append("s");
-
-							sbformat.append("|%38$-");
-							sbformat.append(colLengths[37]);
-							sbformat.append("s");
-
-							sbformat.append("|%39$-");
-							sbformat.append(colLengths[38]);
-							sbformat.append("s");
-
-							sbformat.append("|%40$-");
-							sbformat.append(colLengths[39]);
-							sbformat.append("s");
-
-							sbformat.append("|%41$-");
-							sbformat.append(colLengths[40]);
-							sbformat.append("s");
-
-							sbformat.append("|%42$-");
-							sbformat.append(colLengths[41]);
-							sbformat.append("s");
-
-							sbformat.append("|%43$-");
-							sbformat.append(colLengths[42]);
-							sbformat.append("s");
-
-							sbformat.append("|%44$-");
-							sbformat.append(colLengths[43]);
-							sbformat.append("s");
-
-							sbformat.append("|%45$-");
-							sbformat.append(colLengths[44]);
-							sbformat.append("s");
-
-							sbformat.append("|%46$-");
-							sbformat.append(colLengths[45]);
-							sbformat.append("s");
-
-							sbformat.append("|%47$-");
-							sbformat.append(colLengths[46]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(),
-									(Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0]
-								- fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[2]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[3]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[4]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[5]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[6]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[7]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[8]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[9]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[10]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[11]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[12]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[13]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[14]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[15]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[16]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[17]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[18]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[19]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[20]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[21]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[22]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[23]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[24]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[25]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[26]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[27]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[28]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[29]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[30]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[31]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[32]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[33]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[34]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[35]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[36]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[37]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[38]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[39]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[40]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[41]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[42]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[43]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[44]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-						for (int i = 0; i < colLengths[45]
-								- fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[46]
-								- fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
-					}
-				}
-				Util_tLogRow_2 util_tLogRow_2 = new Util_tLogRow_2();
-				util_tLogRow_2.setTableName("tLogRow_2");
-				util_tLogRow_2.addRow(new String[] { "mdIdentifier",
-						"mdLanguage", "mdCharacterSetCode", "ciRoleCode",
-						"mdOrganisation", "mdVoice", "mdIndividualName",
-						"mdPositionName", "mdDeliveryPoint", "mdCity",
-						"mdAdministrativeArea", "mdPostalCode", "mdCountry",
-						"mdEmail", "mdDate", "title", "organisationName",
-						"voice", "email", "individualName", "positionName",
-						"deliveryPoint", "city", "administrativeArea",
-						"postalCode", "country", "spatialRepresentationType",
-						"scaleDenominator", "topicCategoryCode", "west",
-						"east", "south", "north", "mdMaintenanceFrequencyCode",
-						"keyword", "keyword2", "keyworkd1_theme",
-						"keyword2_theme", "useConstraints", "scopeCode",
-						"lineage", "srs", "columnsDef", "layerName", "bands",
-						"bandName", "bandColorInterpret", });
-				StringBuilder strBuffer_tLogRow_2 = null;
-				int nb_line_tLogRow_2 = 0;
-				// /////////////////////
 
 				/**
 				 * [tLogRow_2 begin ] stop
@@ -5689,8 +5150,10 @@ public class RasterJob implements TalendJob {
 							Var.mdUuid = Utility.sha256Digest(Var.uuidbase);
 							Var.fcatUuid = Utility.sha256Digest(Var.uuidbase
 									+ "#iso19110");
-							Var.layerName = Var.filename.substring(0,
-									Var.filename.indexOf(Var.fileext) - 1);
+							Var.layerName = StringHandling.INDEX(Var.fileext,
+									".") > 0 ? (Var.filename.substring(0,
+									Var.filename.indexOf(Var.fileext) - 1))
+									: (Var.filename);
 							Var.east = fromActualFile.latlon_extent != null ? GeometryOperation
 									.GETCOORDINATE(
 											fromActualFile.latlon_extent, 2,
@@ -6110,300 +5573,6 @@ public class RasterJob implements TalendJob {
 										 */
 
 										currentComponent = "tLogRow_2";
-
-										// /////////////////////
-
-										String[] row_tLogRow_2 = new String[47];
-
-										if (row1.mdIdentifier != null) { //
-											row_tLogRow_2[0] = String
-													.valueOf(row1.mdIdentifier);
-
-										} //
-
-										if (row1.mdLanguage != null) { //
-											row_tLogRow_2[1] = String
-													.valueOf(row1.mdLanguage);
-
-										} //
-
-										if (row1.mdCharacterSetCode != null) { //
-											row_tLogRow_2[2] = String
-													.valueOf(row1.mdCharacterSetCode);
-
-										} //
-
-										if (row1.ciRoleCode != null) { //
-											row_tLogRow_2[3] = String
-													.valueOf(row1.ciRoleCode);
-
-										} //
-
-										if (row1.mdOrganisation != null) { //
-											row_tLogRow_2[4] = String
-													.valueOf(row1.mdOrganisation);
-
-										} //
-
-										if (row1.mdVoice != null) { //
-											row_tLogRow_2[5] = String
-													.valueOf(row1.mdVoice);
-
-										} //
-
-										if (row1.mdIndividualName != null) { //
-											row_tLogRow_2[6] = String
-													.valueOf(row1.mdIndividualName);
-
-										} //
-
-										if (row1.mdPositionName != null) { //
-											row_tLogRow_2[7] = String
-													.valueOf(row1.mdPositionName);
-
-										} //
-
-										if (row1.mdDeliveryPoint != null) { //
-											row_tLogRow_2[8] = String
-													.valueOf(row1.mdDeliveryPoint);
-
-										} //
-
-										if (row1.mdCity != null) { //
-											row_tLogRow_2[9] = String
-													.valueOf(row1.mdCity);
-
-										} //
-
-										if (row1.mdAdministrativeArea != null) { //
-											row_tLogRow_2[10] = String
-													.valueOf(row1.mdAdministrativeArea);
-
-										} //
-
-										if (row1.mdPostalCode != null) { //
-											row_tLogRow_2[11] = String
-													.valueOf(row1.mdPostalCode);
-
-										} //
-
-										if (row1.mdCountry != null) { //
-											row_tLogRow_2[12] = String
-													.valueOf(row1.mdCountry);
-
-										} //
-
-										if (row1.mdEmail != null) { //
-											row_tLogRow_2[13] = String
-													.valueOf(row1.mdEmail);
-
-										} //
-
-										if (row1.mdDate != null) { //
-											row_tLogRow_2[14] = String
-													.valueOf(row1.mdDate);
-
-										} //
-
-										if (row1.title != null) { //
-											row_tLogRow_2[15] = String
-													.valueOf(row1.title);
-
-										} //
-
-										if (row1.organisationName != null) { //
-											row_tLogRow_2[16] = String
-													.valueOf(row1.organisationName);
-
-										} //
-
-										if (row1.voice != null) { //
-											row_tLogRow_2[17] = String
-													.valueOf(row1.voice);
-
-										} //
-
-										if (row1.email != null) { //
-											row_tLogRow_2[18] = String
-													.valueOf(row1.email);
-
-										} //
-
-										if (row1.individualName != null) { //
-											row_tLogRow_2[19] = String
-													.valueOf(row1.individualName);
-
-										} //
-
-										if (row1.positionName != null) { //
-											row_tLogRow_2[20] = String
-													.valueOf(row1.positionName);
-
-										} //
-
-										if (row1.deliveryPoint != null) { //
-											row_tLogRow_2[21] = String
-													.valueOf(row1.deliveryPoint);
-
-										} //
-
-										if (row1.city != null) { //
-											row_tLogRow_2[22] = String
-													.valueOf(row1.city);
-
-										} //
-
-										if (row1.administrativeArea != null) { //
-											row_tLogRow_2[23] = String
-													.valueOf(row1.administrativeArea);
-
-										} //
-
-										if (row1.postalCode != null) { //
-											row_tLogRow_2[24] = String
-													.valueOf(row1.postalCode);
-
-										} //
-
-										if (row1.country != null) { //
-											row_tLogRow_2[25] = String
-													.valueOf(row1.country);
-
-										} //
-
-										if (row1.spatialRepresentationType != null) { //
-											row_tLogRow_2[26] = String
-													.valueOf(row1.spatialRepresentationType);
-
-										} //
-
-										if (row1.scaleDenominator != null) { //
-											row_tLogRow_2[27] = String
-													.valueOf(row1.scaleDenominator);
-
-										} //
-
-										if (row1.topicCategoryCode != null) { //
-											row_tLogRow_2[28] = String
-													.valueOf(row1.topicCategoryCode);
-
-										} //
-
-										if (row1.west != null) { //
-											row_tLogRow_2[29] = String
-													.valueOf(row1.west);
-
-										} //
-
-										if (row1.east != null) { //
-											row_tLogRow_2[30] = String
-													.valueOf(row1.east);
-
-										} //
-
-										if (row1.south != null) { //
-											row_tLogRow_2[31] = String
-													.valueOf(row1.south);
-
-										} //
-
-										if (row1.north != null) { //
-											row_tLogRow_2[32] = String
-													.valueOf(row1.north);
-
-										} //
-
-										if (row1.mdMaintenanceFrequencyCode != null) { //
-											row_tLogRow_2[33] = String
-													.valueOf(row1.mdMaintenanceFrequencyCode);
-
-										} //
-
-										if (row1.keyword != null) { //
-											row_tLogRow_2[34] = String
-													.valueOf(row1.keyword);
-
-										} //
-
-										if (row1.keyword2 != null) { //
-											row_tLogRow_2[35] = String
-													.valueOf(row1.keyword2);
-
-										} //
-
-										if (row1.keyworkd1_theme != null) { //
-											row_tLogRow_2[36] = String
-													.valueOf(row1.keyworkd1_theme);
-
-										} //
-
-										if (row1.keyword2_theme != null) { //
-											row_tLogRow_2[37] = String
-													.valueOf(row1.keyword2_theme);
-
-										} //
-
-										if (row1.useConstraints != null) { //
-											row_tLogRow_2[38] = String
-													.valueOf(row1.useConstraints);
-
-										} //
-
-										if (row1.scopeCode != null) { //
-											row_tLogRow_2[39] = String
-													.valueOf(row1.scopeCode);
-
-										} //
-
-										if (row1.lineage != null) { //
-											row_tLogRow_2[40] = String
-													.valueOf(row1.lineage);
-
-										} //
-
-										if (row1.srs != null) { //
-											row_tLogRow_2[41] = String
-													.valueOf(row1.srs);
-
-										} //
-
-										if (row1.columnsDef != null) { //
-											row_tLogRow_2[42] = String
-													.valueOf(row1.columnsDef);
-
-										} //
-
-										if (row1.layerName != null) { //
-											row_tLogRow_2[43] = String
-													.valueOf(row1.layerName);
-
-										} //
-
-										if (row1.bands != null) { //
-											row_tLogRow_2[44] = String
-													.valueOf(row1.bands);
-
-										} //
-
-										if (row1.bandName != null) { //
-											row_tLogRow_2[45] = String
-													.valueOf(row1.bandName);
-
-										} //
-
-										if (row1.bandColorInterpret != null) { //
-											row_tLogRow_2[46] = String
-													.valueOf(row1.bandColorInterpret);
-
-										} //
-
-										util_tLogRow_2.addRow(row_tLogRow_2);
-										nb_line_tLogRow_2++;
-										// ////
-
-										// ////
-
-										// /////////////////////
 
 										row3 = row1;
 
@@ -9738,6 +8907,11 @@ public class RasterJob implements TalendJob {
 					tWarn_1Process(globalMap);
 				}
 
+				if (((Integer) globalMap.get("sGdalInfoInput_2_NB_ERRORS")) > 0) {
+
+					tDie_1Process(globalMap);
+				}
+
 				/**
 				 * [sGdalInfoInput_2 end ] stop
 				 */
@@ -9801,26 +8975,6 @@ public class RasterJob implements TalendJob {
 				 */
 
 				currentComponent = "tLogRow_2";
-
-				// ////
-
-				java.io.PrintStream consoleOut_tLogRow_2 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_2 = (java.io.PrintStream) globalMap
-							.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_2 = new java.io.PrintStream(
-							new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_2);
-				}
-
-				consoleOut_tLogRow_2
-						.println(util_tLogRow_2.format().toString());
-				consoleOut_tLogRow_2.flush();
-				// ////
-				globalMap.put("tLogRow_2_NB_LINE", nb_line_tLogRow_2);
-
-				// /////////////////////
 
 				ok_Hash.put("tLogRow_2", true);
 				end_Hash.put("tLogRow_2", System.currentTimeMillis());
@@ -10158,6 +9312,118 @@ public class RasterJob implements TalendJob {
 		}
 
 		globalMap.put("tWarn_2_SUBPROCESS_STATE", 1);
+	}
+
+	public void tDie_1Process(final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+		globalMap.put("tDie_1_SUBPROCESS_STATE", 0);
+
+		final boolean execStat = this.execStat;
+
+		String iterateId = "";
+
+		String currentComponent = "";
+		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
+
+		try {
+
+			String currentMethodName = new java.lang.Exception()
+					.getStackTrace()[0].getMethodName();
+			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
+			if (resumeEntryMethodName == null || resumeIt || globalResumeTicket) {// start
+																					// the
+																					// resume
+				globalResumeTicket = true;
+
+				/**
+				 * [tDie_1 begin ] start
+				 */
+
+				ok_Hash.put("tDie_1", false);
+				start_Hash.put("tDie_1", System.currentTimeMillis());
+
+				currentComponent = "tDie_1";
+
+				int tos_count_tDie_1 = 0;
+
+				/**
+				 * [tDie_1 begin ] stop
+				 */
+
+				/**
+				 * [tDie_1 main ] start
+				 */
+
+				currentComponent = "tDie_1";
+
+				globalMap.put("tDie_1_DIE_PRIORITY", 5);
+				System.err.println("File " + context.file
+						+ " not supported by GDAL library");
+
+				globalMap.put("tDie_1_DIE_MESSAGE", "File " + context.file
+						+ " not supported by GDAL library");
+				globalMap.put("tDie_1_DIE_MESSAGES", "File " + context.file
+						+ " not supported by GDAL library");
+				currentComponent = "tDie_1";
+				status = "failure";
+				errorCode = new Integer(4);
+				globalMap.put("tDie_1_DIE_CODE", errorCode);
+
+				if (true) {
+					throw new TDieException();
+				}
+
+				tos_count_tDie_1++;
+
+				/**
+				 * [tDie_1 main ] stop
+				 */
+
+				/**
+				 * [tDie_1 end ] start
+				 */
+
+				currentComponent = "tDie_1";
+
+				ok_Hash.put("tDie_1", true);
+				end_Hash.put("tDie_1", System.currentTimeMillis());
+
+				/**
+				 * [tDie_1 end ] stop
+				 */
+			}// end the resume
+
+		} catch (java.lang.Exception e) {
+
+			TalendException te = new TalendException(e, currentComponent,
+					globalMap);
+
+			throw te;
+		} catch (java.lang.Error error) {
+
+			throw error;
+		} finally {
+
+			try {
+
+				/**
+				 * [tDie_1 finally ] start
+				 */
+
+				currentComponent = "tDie_1";
+
+				/**
+				 * [tDie_1 finally ] stop
+				 */
+			} catch (java.lang.Exception e) {
+				// ignore
+			} catch (java.lang.Error error) {
+				// ignore
+			}
+			resourceMap = null;
+		}
+
+		globalMap.put("tDie_1_SUBPROCESS_STATE", 1);
 	}
 
 	public static class propertiesStruct implements
@@ -11412,180 +10678,6 @@ public class RasterJob implements TalendJob {
 		globalMap.put("tFileInputDelimited_1_SUBPROCESS_STATE", 1);
 	}
 
-	public void tLogRow_1Process(final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-		globalMap.put("tLogRow_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
-		String iterateId = "";
-
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
-
-			String currentMethodName = new java.lang.Exception()
-					.getStackTrace()[0].getMethodName();
-			boolean resumeIt = currentMethodName.equals(resumeEntryMethodName);
-			if (resumeEntryMethodName == null || resumeIt || globalResumeTicket) {// start
-																					// the
-																					// resume
-				globalResumeTicket = true;
-
-				/**
-				 * [tLogRow_1 begin ] start
-				 */
-
-				ok_Hash.put("tLogRow_1", false);
-				start_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				currentComponent = "tLogRow_1";
-
-				int tos_count_tLogRow_1 = 0;
-
-				// /////////////////////
-
-				final String OUTPUT_FIELD_SEPARATOR_tLogRow_1 = "|";
-				java.io.PrintStream consoleOut_tLogRow_1 = null;
-
-				StringBuilder sbHeader_tLogRow_1 = new StringBuilder();
-
-				sbHeader_tLogRow_1.append("driver");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("files");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("x_size");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("y_size");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("srs");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("epsg_code");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("origin");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("pixel_size");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("geotransform");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("center");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("geo_extent");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("latlon_extent");
-
-				sbHeader_tLogRow_1.append("\t");
-
-				sbHeader_tLogRow_1.append("bands");
-
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap
-							.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_1 = new java.io.PrintStream(
-							new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
-				}
-
-				consoleOut_tLogRow_1.println(sbHeader_tLogRow_1.toString());
-				consoleOut_tLogRow_1.flush();
-
-				StringBuilder strBuffer_tLogRow_1 = null;
-				int nb_line_tLogRow_1 = 0;
-				// /////////////////////
-
-				/**
-				 * [tLogRow_1 begin ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 main ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-				tos_count_tLogRow_1++;
-
-				/**
-				 * [tLogRow_1 main ] stop
-				 */
-
-				/**
-				 * [tLogRow_1 end ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-				// ////
-				// ////
-				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
-
-				// /////////////////////
-
-				ok_Hash.put("tLogRow_1", true);
-				end_Hash.put("tLogRow_1", System.currentTimeMillis());
-
-				/**
-				 * [tLogRow_1 end ] stop
-				 */
-			}// end the resume
-
-		} catch (java.lang.Exception e) {
-
-			TalendException te = new TalendException(e, currentComponent,
-					globalMap);
-
-			throw te;
-		} catch (java.lang.Error error) {
-
-			throw error;
-		} finally {
-
-			try {
-
-				/**
-				 * [tLogRow_1 finally ] start
-				 */
-
-				currentComponent = "tLogRow_1";
-
-				/**
-				 * [tLogRow_1 finally ] stop
-				 */
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
-			}
-			resourceMap = null;
-		}
-
-		globalMap.put("tLogRow_1_SUBPROCESS_STATE", 1);
-	}
-
 	public String resuming_logs_dir_path = null;
 	public String resuming_checkpoint_path = null;
 	public String parent_part_launcher = null;
@@ -12094,6 +11186,6 @@ public class RasterJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 354584 characters generated by Talend Open Studio for Data Integration on the
- * 24 de febrero de 2015 13:47:46 CET
+ * 319374 characters generated by Talend Open Studio for Data Integration on the
+ * 14 de abril de 2015 13:35:57 CEST
  ************************************************************************************************/

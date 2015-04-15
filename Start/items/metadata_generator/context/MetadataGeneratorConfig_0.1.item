@@ -6,7 +6,7 @@
   <contextParameter comment="true if you want to scan vector files" name="scanVector" prompt="scanVector?" promptNeeded="false" type="id_Boolean" value="true"/>
   <contextParameter comment="true if you want to scan raster files" name="scanRaster" prompt="scanRaster?" promptNeeded="false" type="id_Boolean" value="true"/>
   <contextParameter comment="List of extensions used by vector files as RegEx" name="vectorExtensions" prompt="vectorExtensions?" promptNeeded="false" type="id_String" value="&quot;.*\\.kml|.*\\.shp|.*\\.mif|.*\\.tab|.*\\.gml|.*\\.dxf&quot;"/>
-  <contextParameter comment="List of extensions used by raster files as RegExp" name="rasterExtensions" prompt="rasterExtensions?" promptNeeded="false" type="id_String" value="&quot;.*\\.tif|.*\\.tiff|.*\\.ecw|.*\\.asc&quot;"/>
+  <contextParameter comment="List of extensions used by raster files as RegExp" name="rasterExtensions" prompt="rasterExtensions?" promptNeeded="false" type="id_String" value="&quot;.*\\.tif|.*\\.tiff|.*\\.jp2|.*\\.sid|.*\\.ecw|.*\\.asc|.*\\.img|.*\\.hdr|.*\\.dat|.*\\.dem&quot;"/>
   <contextParameter comment="Directory where data files are" name="dataDir" prompt="dataDir?" promptNeeded="false" type="id_Directory" value="C:/Users/JuanLuis/Documents/Projects/tufts/sample-data/"/>
   <contextParameter comment="Directory where configuration files are" name="resourceDir" prompt="resourceDir?" promptNeeded="false" type="id_Directory" value="C:/Users/JuanLuis/Documents/Projects/tufts/sample-data/_resources/"/>
   <contextParameter comment="" name="defaultProjection" prompt="defaultProjection?" promptNeeded="false" type="id_String" value="&quot;EPSG:4326&quot;"/>
