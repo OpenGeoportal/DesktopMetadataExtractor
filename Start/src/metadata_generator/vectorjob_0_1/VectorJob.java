@@ -7378,62 +7378,32 @@ public class VectorJob implements TalendJob {
 																.addNamespace(
 																		"cit",
 																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/cit/1.0/2014-12-25"));
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/cit/1.0"));
 														root_tAFOX_2
 																.addNamespace(
-																		"gex",
+																		"dqc",
 																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/gex/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"lan",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/lan/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mcc",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mcc/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mco",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mco/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mdb",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mdb/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mmi",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mmi/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mrd",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrd/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mri",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mri/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mrl",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrl/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addNamespace(
-																		"mrs",
-																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrs/1.0/2014-12-25"));
+																				.replaceSpecialCharForXML("http://standards.iso.org/19157/-2/dqc/1.0"));
 														root_tAFOX_2
 																.addNamespace(
 																		"gco",
 																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19139/gco/1.0/2014-12-25"));
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/gco/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"gcx",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/gcx/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"gex",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/gex/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"gfc",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19110/gfc/1.1"));
 														root_tAFOX_2
 																.addNamespace(
 																		"gml",
@@ -7441,18 +7411,94 @@ public class VectorJob implements TalendJob {
 																				.replaceSpecialCharForXML("http://www.opengis.net/gml/3.2"));
 														root_tAFOX_2
 																.addNamespace(
+																		"gmw",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/gmw/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"lan",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/lan/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mac",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mac/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mas",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mas/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mcc",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mcc/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mco",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mco/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mdb",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mdb/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mdq",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19157/-2/mdq/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mex",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mex/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mmi",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mmi/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mpc",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mpc/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mrd",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrd/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mri",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mri/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mrl",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrl/1.0"));
+														root_tAFOX_2
+																.addNamespace(
 																		"mrc",
 																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrc/1.0/2014-12-25"));
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrc/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"mrs",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/mrs/1.0"));
+														root_tAFOX_2
+																.addNamespace(
+																		"msr",
+																		TalendString
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/msr/1.0"));
 														root_tAFOX_2
 																.addNamespace(
 																		"srv",
 																		TalendString
-																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/srv/1.0/2014-12-25"));
-														root_tAFOX_2
-																.addAttribute(
-																		"xsi:schemaLocation",
-																		"http://standards.iso.org/19115/-3/mdb/1.0/2014-12-25 ../schema.xsd");
+																				.replaceSpecialCharForXML("http://standards.iso.org/19115/-3/srv/2.0"));
 														root_tAFOX_2
 																.setName("mdb:MD_Metadata");
 														org.dom4j.Element root_0_tAFOX_2;
@@ -13174,6 +13220,6 @@ public class VectorJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 375400 characters generated by Talend Open Studio for Data Integration on the
- * 14 de abril de 2015 13:35:55 CEST
+ * 376330 characters generated by Talend Open Studio for Data Integration on the
+ * 7 de mayo de 2015 12:29:20 CEST
  ************************************************************************************************/
