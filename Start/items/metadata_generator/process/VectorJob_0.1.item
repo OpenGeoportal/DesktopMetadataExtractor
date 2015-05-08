@@ -2760,7 +2760,7 @@
       <elementValue elementRef="ORDER" value="264"/>
       <elementValue elementRef="PATH" value="gfc"/>
       <elementValue elementRef="COLUMN" value=""/>
-      <elementValue elementRef="VALUE" value="http://www.isotc211.org/namespace/gfc/1.1/2014-07-11"/>
+      <elementValue elementRef="VALUE" value="http://standards.iso.org/19110/gfc/1.1"/>
       <elementValue elementRef="ATTRIBUTE" value="ns"/>
       <elementValue elementRef="ORDER" value="265"/>
       <elementValue elementRef="PATH" value="/mdb:MD_Metadata/mdb:contentInfo/mrc:featureCatalogue/gfc:FC_FeatureCatalogue/gfc:producer"/>
