@@ -10230,6 +10230,7 @@ public class VectorJob implements TalendJob {
 															root_7_0_0_0_1_0_tAFOX_2 = root_7_0_0_0_1_tAFOX_2
 																	.addElement("gfc:FC_FeatureType");
 														}
+														subTreeRootParent_tAFOX_2 = root_7_0_0_0_1_0_tAFOX_2;
 														root_7_0_0_0_1_0_tAFOX_2
 																.setName("gfc:FC_FeatureType");
 														org.dom4j.Element root_7_0_0_0_1_0_0_tAFOX_2;
@@ -10282,24 +10283,12 @@ public class VectorJob implements TalendJob {
 														if (root_7_0_0_0_1_0_tAFOX_2
 																.getNamespaceForPrefix("gfc") == null) {
 															root_7_0_0_0_1_0_2_tAFOX_2 = root_7_0_0_0_1_0_tAFOX_2
-																	.addElement("carrierOfCharacteristics");
-														} else {
-															root_7_0_0_0_1_0_2_tAFOX_2 = root_7_0_0_0_1_0_tAFOX_2
-																	.addElement("gfc:carrierOfCharacteristics");
-														}
-														subTreeRootParent_tAFOX_2 = root_7_0_0_0_1_0_2_tAFOX_2;
-														root_7_0_0_0_1_0_2_tAFOX_2
-																.setName("gfc:carrierOfCharacteristics");
-														org.dom4j.Element root_7_0_0_0_1_0_3_tAFOX_2;
-														if (root_7_0_0_0_1_0_tAFOX_2
-																.getNamespaceForPrefix("gfc") == null) {
-															root_7_0_0_0_1_0_3_tAFOX_2 = root_7_0_0_0_1_0_tAFOX_2
 																	.addElement("featureCatalogue");
 														} else {
-															root_7_0_0_0_1_0_3_tAFOX_2 = root_7_0_0_0_1_0_tAFOX_2
+															root_7_0_0_0_1_0_2_tAFOX_2 = root_7_0_0_0_1_0_tAFOX_2
 																	.addElement("gfc:featureCatalogue");
 														}
-														root_7_0_0_0_1_0_3_tAFOX_2
+														root_7_0_0_0_1_0_2_tAFOX_2
 																.setName("gfc:featureCatalogue");
 														org.dom4j.Element root_8_tAFOX_2;
 														if (root_tAFOX_2
@@ -10467,13 +10456,13 @@ public class VectorJob implements TalendJob {
 													if (subTreeRootParent_tAFOX_2
 															.getNamespaceForPrefix("gfc") == null) {
 														loop_tAFOX_2 = org.dom4j.DocumentHelper
-																.createElement("FC_FeatureAttribute");
+																.createElement("carrierOfCharacteristics");
 													} else {
 														loop_tAFOX_2 = org.dom4j.DocumentHelper
-																.createElement("gfc:FC_FeatureAttribute");
+																.createElement("gfc:carrierOfCharacteristics");
 													}
 													if (orders_tAFOX_2[0] == 0) {
-														orders_tAFOX_2[0] = 0;
+														orders_tAFOX_2[0] = 2;
 													}
 													if (1 < orders_tAFOX_2.length) {
 														orders_tAFOX_2[1] = 0;
@@ -10483,67 +10472,283 @@ public class VectorJob implements TalendJob {
 															.add(orders_tAFOX_2[0]++,
 																	loop_tAFOX_2);
 													loop_tAFOX_2
-															.setName("gfc:FC_FeatureAttribute");
+															.setName("gfc:carrierOfCharacteristics");
 													org.dom4j.Element loop_0_tAFOX_2;
 													if (loop_tAFOX_2
 															.getNamespaceForPrefix("gfc") == null) {
 														loop_0_tAFOX_2 = loop_tAFOX_2
-																.addElement("memberName");
+																.addElement("FC_FeatureAttribute");
 													} else {
 														loop_0_tAFOX_2 = loop_tAFOX_2
-																.addElement("gfc:memberName");
-													}
-													if (valueMap_tAFOX_2
-															.get("colName") != null) {
-														nestXMLTool_tAFOX_2
-																.setText(
-																		loop_0_tAFOX_2,
-																		valueMap_tAFOX_2
-																				.get("colName"));
+																.addElement("gfc:FC_FeatureAttribute");
 													}
 													loop_0_tAFOX_2
-															.setName("gfc:memberName");
-													org.dom4j.Element loop_1_tAFOX_2;
-													if (loop_tAFOX_2
+															.setName("gfc:FC_FeatureAttribute");
+													org.dom4j.Element loop_0_0_tAFOX_2;
+													if (loop_0_tAFOX_2
 															.getNamespaceForPrefix("gfc") == null) {
-														loop_1_tAFOX_2 = loop_tAFOX_2
+														loop_0_0_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("featureType");
+													} else {
+														loop_0_0_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:featureType");
+													}
+													loop_0_0_tAFOX_2
+															.setName("gfc:featureType");
+													org.dom4j.Element loop_0_0_0_tAFOX_2;
+													if (loop_0_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_0_tAFOX_2 = loop_0_0_tAFOX_2
+																.addElement("FC_FeatureType");
+													} else {
+														loop_0_0_0_tAFOX_2 = loop_0_0_tAFOX_2
+																.addElement("gfc:FC_FeatureType");
+													}
+													loop_0_0_0_tAFOX_2
+															.setName("gfc:FC_FeatureType");
+													org.dom4j.Element loop_0_0_0_0_tAFOX_2;
+													if (loop_0_0_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_0_0_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("typeName");
+													} else {
+														loop_0_0_0_0_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("gfc:typeName");
+													}
+													loop_0_0_0_0_tAFOX_2
+															.setName("gfc:typeName");
+													org.dom4j.Element loop_0_0_0_1_tAFOX_2;
+													if (loop_0_0_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_0_0_1_tAFOX_2 = loop_0_0_0_tAFOX_2
 																.addElement("definition");
 													} else {
-														loop_1_tAFOX_2 = loop_tAFOX_2
+														loop_0_0_0_1_tAFOX_2 = loop_0_0_0_tAFOX_2
 																.addElement("gfc:definition");
 													}
-													loop_1_tAFOX_2
+													loop_0_0_0_1_tAFOX_2
 															.setName("gfc:definition");
-													org.dom4j.Element loop_1_0_tAFOX_2;
-													if (loop_1_tAFOX_2
+													org.dom4j.Element loop_0_0_0_1_0_tAFOX_2;
+													if (loop_0_0_0_1_tAFOX_2
 															.getNamespaceForPrefix("gco") == null) {
-														loop_1_0_tAFOX_2 = loop_1_tAFOX_2
+														loop_0_0_0_1_0_tAFOX_2 = loop_0_0_0_1_tAFOX_2
 																.addElement("CharacterString");
 													} else {
-														loop_1_0_tAFOX_2 = loop_1_tAFOX_2
+														loop_0_0_0_1_0_tAFOX_2 = loop_0_0_0_1_tAFOX_2
 																.addElement("gco:CharacterString");
 													}
 													if (valueMap_tAFOX_2
 															.get("colType") != null) {
 														nestXMLTool_tAFOX_2
 																.setText(
-																		loop_1_0_tAFOX_2,
+																		loop_0_0_0_1_0_tAFOX_2,
 																		valueMap_tAFOX_2
 																				.get("colType"));
 													}
-													loop_1_0_tAFOX_2
+													loop_0_0_0_1_0_tAFOX_2
 															.setName("gco:CharacterString");
-													org.dom4j.Element loop_2_tAFOX_2;
-													if (loop_tAFOX_2
+													org.dom4j.Element loop_0_0_0_2_tAFOX_2;
+													if (loop_0_0_0_tAFOX_2
 															.getNamespaceForPrefix("gfc") == null) {
-														loop_2_tAFOX_2 = loop_tAFOX_2
+														loop_0_0_0_2_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("isAbstract");
+													} else {
+														loop_0_0_0_2_tAFOX_2 = loop_0_0_0_tAFOX_2
+																.addElement("gfc:isAbstract");
+													}
+													loop_0_0_0_2_tAFOX_2
+															.setName("gfc:isAbstract");
+													org.dom4j.Element loop_0_0_0_2_0_tAFOX_2;
+													if (loop_0_0_0_2_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_0_0_2_0_tAFOX_2 = loop_0_0_0_2_tAFOX_2
+																.addElement("Boolean");
+													} else {
+														loop_0_0_0_2_0_tAFOX_2 = loop_0_0_0_2_tAFOX_2
+																.addElement("gco:Boolean");
+													}
+													nestXMLTool_tAFOX_2
+															.parseAndAdd(
+																	loop_0_0_0_2_0_tAFOX_2,
+																	"false");
+
+													loop_0_0_0_2_0_tAFOX_2
+															.setName("gco:Boolean");
+													org.dom4j.Element loop_0_1_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_1_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("constrainedBy");
+													} else {
+														loop_0_1_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:constrainedBy");
+													}
+													loop_0_1_tAFOX_2
+															.setName("gfc:constrainedBy");
+													org.dom4j.Element loop_0_1_0_tAFOX_2;
+													if (loop_0_1_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_1_0_tAFOX_2 = loop_0_1_tAFOX_2
+																.addElement("FC_Constraint");
+													} else {
+														loop_0_1_0_tAFOX_2 = loop_0_1_tAFOX_2
+																.addElement("gfc:FC_Constraint");
+													}
+													loop_0_1_0_tAFOX_2
+															.setName("gfc:FC_Constraint");
+													org.dom4j.Element loop_0_1_0_0_tAFOX_2;
+													if (loop_0_1_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_1_0_0_tAFOX_2 = loop_0_1_0_tAFOX_2
+																.addElement("description");
+													} else {
+														loop_0_1_0_0_tAFOX_2 = loop_0_1_0_tAFOX_2
+																.addElement("gfc:description");
+													}
+													loop_0_1_0_0_tAFOX_2
+															.addAttribute(
+																	"gco:nilReason",
+																	"missing");
+													loop_0_1_0_0_tAFOX_2
+															.setName("gfc:description");
+													org.dom4j.Element loop_0_2_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_2_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("memberName");
+													} else {
+														loop_0_2_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:memberName");
+													}
+													if (valueMap_tAFOX_2
+															.get("colName") != null) {
+														nestXMLTool_tAFOX_2
+																.setText(
+																		loop_0_2_tAFOX_2,
+																		valueMap_tAFOX_2
+																				.get("colName"));
+													}
+													loop_0_2_tAFOX_2
+															.setName("gfc:memberName");
+													org.dom4j.Element loop_0_3_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_3_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("definition");
+													} else {
+														loop_0_3_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:definition");
+													}
+													loop_0_3_tAFOX_2
+															.setName("gfc:definition");
+													org.dom4j.Element loop_0_3_0_tAFOX_2;
+													if (loop_0_3_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_3_0_tAFOX_2 = loop_0_3_tAFOX_2
+																.addElement("CharacterString");
+													} else {
+														loop_0_3_0_tAFOX_2 = loop_0_3_tAFOX_2
+																.addElement("gco:CharacterString");
+													}
+													if (valueMap_tAFOX_2
+															.get("colType") != null) {
+														nestXMLTool_tAFOX_2
+																.setText(
+																		loop_0_3_0_tAFOX_2,
+																		valueMap_tAFOX_2
+																				.get("colType"));
+													}
+													loop_0_3_0_tAFOX_2
+															.setName("gco:CharacterString");
+													org.dom4j.Element loop_0_4_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_4_tAFOX_2 = loop_0_tAFOX_2
 																.addElement("cardinality");
 													} else {
-														loop_2_tAFOX_2 = loop_tAFOX_2
+														loop_0_4_tAFOX_2 = loop_0_tAFOX_2
 																.addElement("gfc:cardinality");
 													}
-													loop_2_tAFOX_2
+													loop_0_4_tAFOX_2
+															.addAttribute(
+																	"gco:nilReason",
+																	"missing");
+													loop_0_4_tAFOX_2
 															.setName("gfc:cardinality");
+													org.dom4j.Element loop_0_4_0_tAFOX_2;
+													if (loop_0_4_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_4_0_tAFOX_2 = loop_0_4_tAFOX_2
+																.addElement("CharacterString");
+													} else {
+														loop_0_4_0_tAFOX_2 = loop_0_4_tAFOX_2
+																.addElement("gco:CharacterString");
+													}
+													loop_0_4_0_tAFOX_2
+															.setName("gco:CharacterString");
+													org.dom4j.Element loop_0_5_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_5_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("valueType");
+													} else {
+														loop_0_5_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:valueType");
+													}
+													loop_0_5_tAFOX_2
+															.setName("gfc:valueType");
+													org.dom4j.Element loop_0_5_0_tAFOX_2;
+													if (loop_0_5_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_5_0_tAFOX_2 = loop_0_5_tAFOX_2
+																.addElement("TypeName");
+													} else {
+														loop_0_5_0_tAFOX_2 = loop_0_5_tAFOX_2
+																.addElement("gco:TypeName");
+													}
+													loop_0_5_0_tAFOX_2
+															.setName("gco:TypeName");
+													org.dom4j.Element loop_0_5_0_0_tAFOX_2;
+													if (loop_0_5_0_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_5_0_0_tAFOX_2 = loop_0_5_0_tAFOX_2
+																.addElement("aName");
+													} else {
+														loop_0_5_0_0_tAFOX_2 = loop_0_5_0_tAFOX_2
+																.addElement("gco:aName");
+													}
+													loop_0_5_0_0_tAFOX_2
+															.setName("gco:aName");
+													org.dom4j.Element loop_0_5_0_0_0_tAFOX_2;
+													if (loop_0_5_0_0_tAFOX_2
+															.getNamespaceForPrefix("gco") == null) {
+														loop_0_5_0_0_0_tAFOX_2 = loop_0_5_0_0_tAFOX_2
+																.addElement("CharacterString");
+													} else {
+														loop_0_5_0_0_0_tAFOX_2 = loop_0_5_0_0_tAFOX_2
+																.addElement("gco:CharacterString");
+													}
+													if (valueMap_tAFOX_2
+															.get("colType") != null) {
+														nestXMLTool_tAFOX_2
+																.setText(
+																		loop_0_5_0_0_0_tAFOX_2,
+																		valueMap_tAFOX_2
+																				.get("colType"));
+													}
+													loop_0_5_0_0_0_tAFOX_2
+															.setName("gco:CharacterString");
+													org.dom4j.Element loop_0_6_tAFOX_2;
+													if (loop_0_tAFOX_2
+															.getNamespaceForPrefix("gfc") == null) {
+														loop_0_6_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("listedValue");
+													} else {
+														loop_0_6_tAFOX_2 = loop_0_tAFOX_2
+																.addElement("gfc:listedValue");
+													}
+													loop_0_6_tAFOX_2
+															.setName("gfc:listedValue");
 
 													tos_count_tAdvancedFileOutputXML_2++;
 
@@ -13022,6 +13227,6 @@ public class VectorJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 370441 characters generated by Talend Open Studio for Data Integration on the
- * 21 de mayo de 2015 12:43:47 CEST
+ * 376504 characters generated by Talend Open Studio for Data Integration on the
+ * 21 de mayo de 2015 14:36:21 CEST
  ************************************************************************************************/
