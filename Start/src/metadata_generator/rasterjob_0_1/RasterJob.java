@@ -1102,10 +1102,10 @@ public class RasterJob implements TalendJob {
 			return this.keyword2;
 		}
 
-		public String keyworkd1_theme;
+		public String keyword1_theme;
 
-		public String getKeyworkd1_theme() {
-			return this.keyworkd1_theme;
+		public String getKeyword1_theme() {
+			return this.keyword1_theme;
 		}
 
 		public String keyword2_theme;
@@ -1283,7 +1283,7 @@ public class RasterJob implements TalendJob {
 
 					this.keyword2 = readString(dis);
 
-					this.keyworkd1_theme = readString(dis);
+					this.keyword1_theme = readString(dis);
 
 					this.keyword2_theme = readString(dis);
 
@@ -1463,7 +1463,7 @@ public class RasterJob implements TalendJob {
 
 				// String
 
-				writeString(this.keyworkd1_theme, dos);
+				writeString(this.keyword1_theme, dos);
 
 				// String
 
@@ -1553,7 +1553,7 @@ public class RasterJob implements TalendJob {
 					+ mdMaintenanceFrequencyCode);
 			sb.append(",keyword=" + keyword);
 			sb.append(",keyword2=" + keyword2);
-			sb.append(",keyworkd1_theme=" + keyworkd1_theme);
+			sb.append(",keyword1_theme=" + keyword1_theme);
 			sb.append(",keyword2_theme=" + keyword2_theme);
 			sb.append(",useConstraints=" + useConstraints);
 			sb.append(",scopeCode=" + scopeCode);
@@ -1824,10 +1824,10 @@ public class RasterJob implements TalendJob {
 			return this.keyword2;
 		}
 
-		public String keyworkd1_theme;
+		public String keyword1_theme;
 
-		public String getKeyworkd1_theme() {
-			return this.keyworkd1_theme;
+		public String getKeyword1_theme() {
+			return this.keyword1_theme;
 		}
 
 		public String keyword2_theme;
@@ -2005,7 +2005,7 @@ public class RasterJob implements TalendJob {
 
 					this.keyword2 = readString(dis);
 
-					this.keyworkd1_theme = readString(dis);
+					this.keyword1_theme = readString(dis);
 
 					this.keyword2_theme = readString(dis);
 
@@ -2185,7 +2185,7 @@ public class RasterJob implements TalendJob {
 
 				// String
 
-				writeString(this.keyworkd1_theme, dos);
+				writeString(this.keyword1_theme, dos);
 
 				// String
 
@@ -2275,7 +2275,7 @@ public class RasterJob implements TalendJob {
 					+ mdMaintenanceFrequencyCode);
 			sb.append(",keyword=" + keyword);
 			sb.append(",keyword2=" + keyword2);
-			sb.append(",keyworkd1_theme=" + keyworkd1_theme);
+			sb.append(",keyword1_theme=" + keyword1_theme);
 			sb.append(",keyword2_theme=" + keyword2_theme);
 			sb.append(",useConstraints=" + useConstraints);
 			sb.append(",scopeCode=" + scopeCode);
@@ -2546,10 +2546,10 @@ public class RasterJob implements TalendJob {
 			return this.keyword2;
 		}
 
-		public String keyworkd1_theme;
+		public String keyword1_theme;
 
-		public String getKeyworkd1_theme() {
-			return this.keyworkd1_theme;
+		public String getKeyword1_theme() {
+			return this.keyword1_theme;
 		}
 
 		public String keyword2_theme;
@@ -2715,7 +2715,7 @@ public class RasterJob implements TalendJob {
 
 					this.keyword2 = readString(dis);
 
-					this.keyworkd1_theme = readString(dis);
+					this.keyword1_theme = readString(dis);
 
 					this.keyword2_theme = readString(dis);
 
@@ -2891,7 +2891,7 @@ public class RasterJob implements TalendJob {
 
 				// String
 
-				writeString(this.keyworkd1_theme, dos);
+				writeString(this.keyword1_theme, dos);
 
 				// String
 
@@ -2973,7 +2973,7 @@ public class RasterJob implements TalendJob {
 					+ mdMaintenanceFrequencyCode);
 			sb.append(",keyword=" + keyword);
 			sb.append(",keyword2=" + keyword2);
-			sb.append(",keyworkd1_theme=" + keyworkd1_theme);
+			sb.append(",keyword1_theme=" + keyword1_theme);
 			sb.append(",keyword2_theme=" + keyword2_theme);
 			sb.append(",useConstraints=" + useConstraints);
 			sb.append(",scopeCode=" + scopeCode);
@@ -3242,10 +3242,10 @@ public class RasterJob implements TalendJob {
 			return this.keyword2;
 		}
 
-		public String keyworkd1_theme;
+		public String keyword1_theme;
 
-		public String getKeyworkd1_theme() {
-			return this.keyworkd1_theme;
+		public String getKeyword1_theme() {
+			return this.keyword1_theme;
 		}
 
 		public String keyword2_theme;
@@ -3411,7 +3411,7 @@ public class RasterJob implements TalendJob {
 
 					this.keyword2 = readString(dis);
 
-					this.keyworkd1_theme = readString(dis);
+					this.keyword1_theme = readString(dis);
 
 					this.keyword2_theme = readString(dis);
 
@@ -3587,7 +3587,7 @@ public class RasterJob implements TalendJob {
 
 				// String
 
-				writeString(this.keyworkd1_theme, dos);
+				writeString(this.keyword1_theme, dos);
 
 				// String
 
@@ -3669,7 +3669,7 @@ public class RasterJob implements TalendJob {
 					+ mdMaintenanceFrequencyCode);
 			sb.append(",keyword=" + keyword);
 			sb.append(",keyword2=" + keyword2);
-			sb.append(",keyworkd1_theme=" + keyworkd1_theme);
+			sb.append(",keyword1_theme=" + keyword1_theme);
 			sb.append(",keyword2_theme=" + keyword2_theme);
 			sb.append(",useConstraints=" + useConstraints);
 			sb.append(",scopeCode=" + scopeCode);
@@ -5333,7 +5333,7 @@ public class RasterJob implements TalendJob {
 							iso19115_tmp.mdMaintenanceFrequencyCode = null;
 							iso19115_tmp.keyword = properties.keyword;
 							iso19115_tmp.keyword2 = null;
-							iso19115_tmp.keyworkd1_theme = null;
+							iso19115_tmp.keyword1_theme = null;
 							iso19115_tmp.keyword2_theme = properties.keyword2;
 							iso19115_tmp.useConstraints = properties.useConstraints;
 							iso19115_tmp.scopeCode = null;
@@ -5458,7 +5458,7 @@ public class RasterJob implements TalendJob {
 
 								row2.keyword2 = iso19115.keyword2;
 
-								row2.keyworkd1_theme = iso19115.keyworkd1_theme;
+								row2.keyword1_theme = iso19115.keyword1_theme;
 
 								row2.keyword2_theme = iso19115.keyword2_theme;
 
@@ -5538,7 +5538,7 @@ public class RasterJob implements TalendJob {
 										row1.mdMaintenanceFrequencyCode = row2.mdMaintenanceFrequencyCode;
 										row1.keyword = row2.keyword;
 										row1.keyword2 = row2.keyword2;
-										row1.keyworkd1_theme = row2.keyworkd1_theme;
+										row1.keyword1_theme = row2.keyword1_theme;
 										row1.keyword2_theme = row2.keyword2_theme;
 										row1.useConstraints = row2.useConstraints;
 										row1.scopeCode = row2.scopeCode;
@@ -5769,8 +5769,8 @@ public class RasterJob implements TalendJob {
 																.toString()
 																: null));
 										valueMap_tAFOX_2
-												.put("keyworkd1_theme",
-														(row1.keyworkd1_theme != null ? row1.keyworkd1_theme
+												.put("keyword1_theme",
+														(row1.keyword1_theme != null ? row1.keyword1_theme
 																.toString()
 																: "theme"));
 										valueMap_tAFOX_2
@@ -6027,14 +6027,6 @@ public class RasterJob implements TalendJob {
 											} else {
 												root_1_0_tAFOX_2 = root_1_tAFOX_2
 														.addElement("lan:PT_Locale");
-											}
-											if (valueMap_tAFOX_2
-													.get("mdLanguage") != null) {
-												root_1_0_tAFOX_2
-														.addAttribute(
-																"id",
-																valueMap_tAFOX_2
-																		.get("mdLanguage"));
 											}
 											root_1_0_tAFOX_2
 													.setName("lan:PT_Locale");
@@ -6909,10 +6901,10 @@ public class RasterJob implements TalendJob {
 											if (root_6_0_0_0_1_0_0_tAFOX_2
 													.getNamespaceForPrefix("gco") == null) {
 												root_6_0_0_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_1_0_0_tAFOX_2
-														.addElement("Date");
+														.addElement("DateTime");
 											} else {
 												root_6_0_0_0_1_0_0_0_tAFOX_2 = root_6_0_0_0_1_0_0_tAFOX_2
-														.addElement("gco:Date");
+														.addElement("gco:DateTime");
 											}
 											if (valueMap_tAFOX_2.get("mdDate") != null) {
 												nestXMLTool_tAFOX_2
@@ -6922,7 +6914,7 @@ public class RasterJob implements TalendJob {
 																		.get("mdDate"));
 											}
 											root_6_0_0_0_1_0_0_0_tAFOX_2
-													.setName("gco:Date");
+													.setName("gco:DateTime");
 											org.dom4j.Element root_6_0_0_0_1_0_1_tAFOX_2;
 											if (root_6_0_0_0_1_0_tAFOX_2
 													.getNamespaceForPrefix("cit") == null) {
@@ -7832,25 +7824,6 @@ public class RasterJob implements TalendJob {
 											}
 											root_6_0_6_0_0_0_0_tAFOX_2
 													.setName("mri:denominator");
-											org.dom4j.Element root_6_0_6_0_0_0_0_0_tAFOX_2;
-											if (root_6_0_6_0_0_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_6_0_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_0_tAFOX_2
-														.addElement("Integer");
-											} else {
-												root_6_0_6_0_0_0_0_0_tAFOX_2 = root_6_0_6_0_0_0_0_tAFOX_2
-														.addElement("gco:Integer");
-											}
-											if (valueMap_tAFOX_2
-													.get("scaleDenominator") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_6_0_0_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("scaleDenominator"));
-											}
-											root_6_0_6_0_0_0_0_0_tAFOX_2
-													.setName("gco:Integer");
 											org.dom4j.Element root_6_0_7_tAFOX_2;
 											if (root_6_0_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
@@ -7862,25 +7835,6 @@ public class RasterJob implements TalendJob {
 											}
 											root_6_0_7_tAFOX_2
 													.setName("mri:topicCategory");
-											org.dom4j.Element root_6_0_7_0_tAFOX_2;
-											if (root_6_0_7_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_7_0_tAFOX_2 = root_6_0_7_tAFOX_2
-														.addElement("MD_TopicCategoryCode");
-											} else {
-												root_6_0_7_0_tAFOX_2 = root_6_0_7_tAFOX_2
-														.addElement("mri:MD_TopicCategoryCode");
-											}
-											if (valueMap_tAFOX_2
-													.get("topicCategoryCode") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_7_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("topicCategoryCode"));
-											}
-											root_6_0_7_0_tAFOX_2
-													.setName("mri:MD_TopicCategoryCode");
 											org.dom4j.Element root_6_0_8_tAFOX_2;
 											if (root_6_0_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
@@ -7946,293 +7900,255 @@ public class RasterJob implements TalendJob {
 														.addElement("gml:TimePeriod");
 											}
 											root_6_0_8_0_0_0_0_0_tAFOX_2
+													.addAttribute("gml:id",
+															"A1234");
+											root_6_0_8_0_0_0_0_0_tAFOX_2
 													.setName("gml:TimePeriod");
-											org.dom4j.Element root_6_0_8_0_1_tAFOX_2;
-											if (root_6_0_8_0_tAFOX_2
+											org.dom4j.Element root_6_0_8_0_0_0_0_0_0_tAFOX_2;
+											if (root_6_0_8_0_0_0_0_0_tAFOX_2
+													.getNamespaceForPrefix("gml") == null) {
+												root_6_0_8_0_0_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_0_0_tAFOX_2
+														.addElement("beginPosition");
+											} else {
+												root_6_0_8_0_0_0_0_0_0_tAFOX_2 = root_6_0_8_0_0_0_0_0_tAFOX_2
+														.addElement("gml:beginPosition");
+											}
+											root_6_0_8_0_0_0_0_0_0_tAFOX_2
+													.setName("gml:beginPosition");
+											org.dom4j.Element root_6_0_8_0_0_0_0_0_1_tAFOX_2;
+											if (root_6_0_8_0_0_0_0_0_tAFOX_2
+													.getNamespaceForPrefix("gml") == null) {
+												root_6_0_8_0_0_0_0_0_1_tAFOX_2 = root_6_0_8_0_0_0_0_0_tAFOX_2
+														.addElement("endPosition");
+											} else {
+												root_6_0_8_0_0_0_0_0_1_tAFOX_2 = root_6_0_8_0_0_0_0_0_tAFOX_2
+														.addElement("gml:endPosition");
+											}
+											root_6_0_8_0_0_0_0_0_1_tAFOX_2
+													.setName("gml:endPosition");
+											org.dom4j.Element root_6_0_9_tAFOX_2;
+											if (root_6_0_tAFOX_2
+													.getNamespaceForPrefix("mri") == null) {
+												root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
+														.addElement("extent");
+											} else {
+												root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
+														.addElement("mri:extent");
+											}
+											root_6_0_9_tAFOX_2
+													.setName("mri:extent");
+											org.dom4j.Element root_6_0_9_0_tAFOX_2;
+											if (root_6_0_9_tAFOX_2
 													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_tAFOX_2 = root_6_0_8_0_tAFOX_2
+												root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
+														.addElement("EX_Extent");
+											} else {
+												root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
+														.addElement("gex:EX_Extent");
+											}
+											root_6_0_9_0_tAFOX_2
+													.setName("gex:EX_Extent");
+											org.dom4j.Element root_6_0_9_0_0_tAFOX_2;
+											if (root_6_0_9_0_tAFOX_2
+													.getNamespaceForPrefix("gex") == null) {
+												root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
 														.addElement("geographicElement");
 											} else {
-												root_6_0_8_0_1_tAFOX_2 = root_6_0_8_0_tAFOX_2
+												root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
 														.addElement("gex:geographicElement");
 											}
-											root_6_0_8_0_1_tAFOX_2
+											root_6_0_9_0_0_tAFOX_2
 													.setName("gex:geographicElement");
-											org.dom4j.Element root_6_0_8_0_1_0_tAFOX_2;
-											if (root_6_0_8_0_1_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_tAFOX_2;
+											if (root_6_0_9_0_0_tAFOX_2
 													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_tAFOX_2 = root_6_0_8_0_1_tAFOX_2
+												root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
 														.addElement("EX_GeographicBoundingBox");
 											} else {
-												root_6_0_8_0_1_0_tAFOX_2 = root_6_0_8_0_1_tAFOX_2
+												root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
 														.addElement("gex:EX_GeographicBoundingBox");
 											}
-											root_6_0_8_0_1_0_tAFOX_2
+											root_6_0_9_0_0_0_tAFOX_2
 													.setName("gex:EX_GeographicBoundingBox");
-											org.dom4j.Element root_6_0_8_0_1_0_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_0_tAFOX_2;
+											if (root_6_0_9_0_0_0_tAFOX_2
 													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_0_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_0_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("westBoundLongitude");
 											} else {
-												root_6_0_8_0_1_0_0_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_0_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("gex:westBoundLongitude");
 											}
-											root_6_0_8_0_1_0_0_tAFOX_2
+											root_6_0_9_0_0_0_0_tAFOX_2
 													.setName("gex:westBoundLongitude");
-											org.dom4j.Element root_6_0_8_0_1_0_0_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_0_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_0_0_tAFOX_2;
+											if (root_6_0_9_0_0_0_0_tAFOX_2
 													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_0_0_tAFOX_2 = root_6_0_8_0_1_0_0_tAFOX_2
+												root_6_0_9_0_0_0_0_0_tAFOX_2 = root_6_0_9_0_0_0_0_tAFOX_2
 														.addElement("Decimal");
 											} else {
-												root_6_0_8_0_1_0_0_0_tAFOX_2 = root_6_0_8_0_1_0_0_tAFOX_2
+												root_6_0_9_0_0_0_0_0_tAFOX_2 = root_6_0_9_0_0_0_0_tAFOX_2
 														.addElement("gco:Decimal");
 											}
 											if (valueMap_tAFOX_2.get("west") != null) {
 												nestXMLTool_tAFOX_2
 														.setText(
-																root_6_0_8_0_1_0_0_0_tAFOX_2,
+																root_6_0_9_0_0_0_0_0_tAFOX_2,
 																valueMap_tAFOX_2
 																		.get("west"));
 											}
-											root_6_0_8_0_1_0_0_0_tAFOX_2
+											root_6_0_9_0_0_0_0_0_tAFOX_2
 													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_8_0_1_0_1_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_1_tAFOX_2;
+											if (root_6_0_9_0_0_0_tAFOX_2
 													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_1_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_1_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("eastBoundLongitude");
 											} else {
-												root_6_0_8_0_1_0_1_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_1_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("gex:eastBoundLongitude");
 											}
-											root_6_0_8_0_1_0_1_tAFOX_2
+											root_6_0_9_0_0_0_1_tAFOX_2
 													.setName("gex:eastBoundLongitude");
-											org.dom4j.Element root_6_0_8_0_1_0_1_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_1_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_1_0_tAFOX_2;
+											if (root_6_0_9_0_0_0_1_tAFOX_2
 													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_1_0_tAFOX_2 = root_6_0_8_0_1_0_1_tAFOX_2
+												root_6_0_9_0_0_0_1_0_tAFOX_2 = root_6_0_9_0_0_0_1_tAFOX_2
 														.addElement("Decimal");
 											} else {
-												root_6_0_8_0_1_0_1_0_tAFOX_2 = root_6_0_8_0_1_0_1_tAFOX_2
+												root_6_0_9_0_0_0_1_0_tAFOX_2 = root_6_0_9_0_0_0_1_tAFOX_2
 														.addElement("gco:Decimal");
 											}
 											if (valueMap_tAFOX_2.get("east") != null) {
 												nestXMLTool_tAFOX_2
 														.setText(
-																root_6_0_8_0_1_0_1_0_tAFOX_2,
+																root_6_0_9_0_0_0_1_0_tAFOX_2,
 																valueMap_tAFOX_2
 																		.get("east"));
 											}
-											root_6_0_8_0_1_0_1_0_tAFOX_2
+											root_6_0_9_0_0_0_1_0_tAFOX_2
 													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_8_0_1_0_2_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_2_tAFOX_2;
+											if (root_6_0_9_0_0_0_tAFOX_2
 													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_2_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_2_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("southBoundLatitude");
 											} else {
-												root_6_0_8_0_1_0_2_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_2_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("gex:southBoundLatitude");
 											}
-											root_6_0_8_0_1_0_2_tAFOX_2
+											root_6_0_9_0_0_0_2_tAFOX_2
 													.setName("gex:southBoundLatitude");
-											org.dom4j.Element root_6_0_8_0_1_0_2_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_2_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_2_0_tAFOX_2;
+											if (root_6_0_9_0_0_0_2_tAFOX_2
 													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_2_0_tAFOX_2 = root_6_0_8_0_1_0_2_tAFOX_2
+												root_6_0_9_0_0_0_2_0_tAFOX_2 = root_6_0_9_0_0_0_2_tAFOX_2
 														.addElement("Decimal");
 											} else {
-												root_6_0_8_0_1_0_2_0_tAFOX_2 = root_6_0_8_0_1_0_2_tAFOX_2
+												root_6_0_9_0_0_0_2_0_tAFOX_2 = root_6_0_9_0_0_0_2_tAFOX_2
 														.addElement("gco:Decimal");
 											}
 											if (valueMap_tAFOX_2.get("south") != null) {
 												nestXMLTool_tAFOX_2
 														.setText(
-																root_6_0_8_0_1_0_2_0_tAFOX_2,
+																root_6_0_9_0_0_0_2_0_tAFOX_2,
 																valueMap_tAFOX_2
 																		.get("south"));
 											}
-											root_6_0_8_0_1_0_2_0_tAFOX_2
+											root_6_0_9_0_0_0_2_0_tAFOX_2
 													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_8_0_1_0_3_tAFOX_2;
-											if (root_6_0_8_0_1_0_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_3_tAFOX_2;
+											if (root_6_0_9_0_0_0_tAFOX_2
 													.getNamespaceForPrefix("gex") == null) {
-												root_6_0_8_0_1_0_3_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_3_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("northBoundLatitude");
 											} else {
-												root_6_0_8_0_1_0_3_tAFOX_2 = root_6_0_8_0_1_0_tAFOX_2
+												root_6_0_9_0_0_0_3_tAFOX_2 = root_6_0_9_0_0_0_tAFOX_2
 														.addElement("gex:northBoundLatitude");
 											}
-											root_6_0_8_0_1_0_3_tAFOX_2
+											root_6_0_9_0_0_0_3_tAFOX_2
 													.setName("gex:northBoundLatitude");
-											org.dom4j.Element root_6_0_8_0_1_0_3_0_tAFOX_2;
-											if (root_6_0_8_0_1_0_3_tAFOX_2
+											org.dom4j.Element root_6_0_9_0_0_0_3_0_tAFOX_2;
+											if (root_6_0_9_0_0_0_3_tAFOX_2
 													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_8_0_1_0_3_0_tAFOX_2 = root_6_0_8_0_1_0_3_tAFOX_2
+												root_6_0_9_0_0_0_3_0_tAFOX_2 = root_6_0_9_0_0_0_3_tAFOX_2
 														.addElement("Decimal");
 											} else {
-												root_6_0_8_0_1_0_3_0_tAFOX_2 = root_6_0_8_0_1_0_3_tAFOX_2
+												root_6_0_9_0_0_0_3_0_tAFOX_2 = root_6_0_9_0_0_0_3_tAFOX_2
 														.addElement("gco:Decimal");
 											}
 											if (valueMap_tAFOX_2.get("north") != null) {
 												nestXMLTool_tAFOX_2
 														.setText(
-																root_6_0_8_0_1_0_3_0_tAFOX_2,
+																root_6_0_9_0_0_0_3_0_tAFOX_2,
 																valueMap_tAFOX_2
 																		.get("north"));
 											}
-											root_6_0_8_0_1_0_3_0_tAFOX_2
+											root_6_0_9_0_0_0_3_0_tAFOX_2
 													.setName("gco:Decimal");
-											org.dom4j.Element root_6_0_9_tAFOX_2;
-											if (root_6_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("resourceMaintenance");
-											} else {
-												root_6_0_9_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:resourceMaintenance");
-											}
-											root_6_0_9_tAFOX_2
-													.setName("mri:resourceMaintenance");
-											org.dom4j.Element root_6_0_9_0_tAFOX_2;
-											if (root_6_0_9_tAFOX_2
-													.getNamespaceForPrefix("mmi") == null) {
-												root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
-														.addElement("MD_MaintenanceInformation");
-											} else {
-												root_6_0_9_0_tAFOX_2 = root_6_0_9_tAFOX_2
-														.addElement("mmi:MD_MaintenanceInformation");
-											}
-											root_6_0_9_0_tAFOX_2
-													.setName("mmi:MD_MaintenanceInformation");
-											org.dom4j.Element root_6_0_9_0_0_tAFOX_2;
-											if (root_6_0_9_0_tAFOX_2
-													.getNamespaceForPrefix("mmi") == null) {
-												root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
-														.addElement("maintenanceAndUpdateFrequency");
-											} else {
-												root_6_0_9_0_0_tAFOX_2 = root_6_0_9_0_tAFOX_2
-														.addElement("mmi:maintenanceAndUpdateFrequency");
-											}
-											root_6_0_9_0_0_tAFOX_2
-													.setName("mmi:maintenanceAndUpdateFrequency");
-											org.dom4j.Element root_6_0_9_0_0_0_tAFOX_2;
-											if (root_6_0_9_0_0_tAFOX_2
-													.getNamespaceForPrefix("mmi") == null) {
-												root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
-														.addElement("MD_MaintenanceFrequencyCode");
-											} else {
-												root_6_0_9_0_0_0_tAFOX_2 = root_6_0_9_0_0_tAFOX_2
-														.addElement("mmi:MD_MaintenanceFrequencyCode");
-											}
-											root_6_0_9_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode");
-											root_6_0_9_0_0_0_tAFOX_2
-													.addAttribute(
-															"codeListValue",
-															"asNeeded");
-											root_6_0_9_0_0_0_tAFOX_2
-													.setName("mmi:MD_MaintenanceFrequencyCode");
 											org.dom4j.Element root_6_0_10_tAFOX_2;
 											if (root_6_0_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
 												root_6_0_10_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("descriptiveKeywords");
+														.addElement("resourceMaintenance");
 											} else {
 												root_6_0_10_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:descriptiveKeywords");
+														.addElement("mri:resourceMaintenance");
 											}
 											root_6_0_10_tAFOX_2
-													.setName("mri:descriptiveKeywords");
+													.setName("mri:resourceMaintenance");
 											org.dom4j.Element root_6_0_10_0_tAFOX_2;
 											if (root_6_0_10_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
+													.getNamespaceForPrefix("mmi") == null) {
 												root_6_0_10_0_tAFOX_2 = root_6_0_10_tAFOX_2
-														.addElement("MD_Keywords");
+														.addElement("MD_MaintenanceInformation");
 											} else {
 												root_6_0_10_0_tAFOX_2 = root_6_0_10_tAFOX_2
-														.addElement("mri:MD_Keywords");
+														.addElement("mmi:MD_MaintenanceInformation");
 											}
 											root_6_0_10_0_tAFOX_2
-													.setName("mri:MD_Keywords");
+													.setName("mmi:MD_MaintenanceInformation");
 											org.dom4j.Element root_6_0_10_0_0_tAFOX_2;
 											if (root_6_0_10_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
+													.getNamespaceForPrefix("mmi") == null) {
 												root_6_0_10_0_0_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("keyword");
+														.addElement("maintenanceAndUpdateFrequency");
 											} else {
 												root_6_0_10_0_0_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("mri:keyword");
+														.addElement("mmi:maintenanceAndUpdateFrequency");
 											}
 											root_6_0_10_0_0_tAFOX_2
-													.setName("mri:keyword");
+													.setName("mmi:maintenanceAndUpdateFrequency");
 											org.dom4j.Element root_6_0_10_0_0_0_tAFOX_2;
 											if (root_6_0_10_0_0_tAFOX_2
-													.getNamespaceForPrefix("gco") == null) {
+													.getNamespaceForPrefix("mmi") == null) {
 												root_6_0_10_0_0_0_tAFOX_2 = root_6_0_10_0_0_tAFOX_2
-														.addElement("CharacterString");
+														.addElement("MD_MaintenanceFrequencyCode");
 											} else {
 												root_6_0_10_0_0_0_tAFOX_2 = root_6_0_10_0_0_tAFOX_2
-														.addElement("gco:CharacterString");
-											}
-											if (valueMap_tAFOX_2.get("keyword") != null) {
-												nestXMLTool_tAFOX_2
-														.setText(
-																root_6_0_10_0_0_0_tAFOX_2,
-																valueMap_tAFOX_2
-																		.get("keyword"));
+														.addElement("mmi:MD_MaintenanceFrequencyCode");
 											}
 											root_6_0_10_0_0_0_tAFOX_2
-													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_10_0_1_tAFOX_2;
-											if (root_6_0_10_0_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_10_0_1_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("type");
-											} else {
-												root_6_0_10_0_1_tAFOX_2 = root_6_0_10_0_tAFOX_2
-														.addElement("mri:type");
-											}
-											root_6_0_10_0_1_tAFOX_2
-													.setName("mri:type");
-											org.dom4j.Element root_6_0_10_0_1_0_tAFOX_2;
-											if (root_6_0_10_0_1_tAFOX_2
-													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_10_0_1_0_tAFOX_2 = root_6_0_10_0_1_tAFOX_2
-														.addElement("MD_KeywordTypeCode");
-											} else {
-												root_6_0_10_0_1_0_tAFOX_2 = root_6_0_10_0_1_tAFOX_2
-														.addElement("mri:MD_KeywordTypeCode");
-											}
-											root_6_0_10_0_1_0_tAFOX_2
 													.addAttribute(
 															"codeList",
-															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode");
-											if (valueMap_tAFOX_2
-													.get("keyworkd1_theme") != null) {
-												root_6_0_10_0_1_0_tAFOX_2
-														.addAttribute(
-																"codeListValue",
-																valueMap_tAFOX_2
-																		.get("keyworkd1_theme"));
-											}
-											root_6_0_10_0_1_0_tAFOX_2
-													.setName("mri:MD_KeywordTypeCode");
+															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode");
+											root_6_0_10_0_0_0_tAFOX_2
+													.addAttribute(
+															"codeListValue",
+															"asNeeded");
+											root_6_0_10_0_0_0_tAFOX_2
+													.setName("mmi:MD_MaintenanceFrequencyCode");
 											org.dom4j.Element root_6_0_11_tAFOX_2;
 											if (root_6_0_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
 												root_6_0_11_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("descriptiveKeyworkds");
+														.addElement("descriptiveKeywords");
 											} else {
 												root_6_0_11_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:descriptiveKeyworkds");
+														.addElement("mri:descriptiveKeywords");
 											}
 											root_6_0_11_tAFOX_2
-													.setName("mri:descriptiveKeyworkds");
+													.setName("mri:descriptiveKeywords");
 											org.dom4j.Element root_6_0_11_0_tAFOX_2;
 											if (root_6_0_11_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
@@ -8264,13 +8180,12 @@ public class RasterJob implements TalendJob {
 												root_6_0_11_0_0_0_tAFOX_2 = root_6_0_11_0_0_tAFOX_2
 														.addElement("gco:CharacterString");
 											}
-											if (valueMap_tAFOX_2
-													.get("keyword2") != null) {
+											if (valueMap_tAFOX_2.get("keyword") != null) {
 												nestXMLTool_tAFOX_2
 														.setText(
 																root_6_0_11_0_0_0_tAFOX_2,
 																valueMap_tAFOX_2
-																		.get("keyword2"));
+																		.get("keyword"));
 											}
 											root_6_0_11_0_0_0_tAFOX_2
 													.setName("gco:CharacterString");
@@ -8299,12 +8214,12 @@ public class RasterJob implements TalendJob {
 															"codeList",
 															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode");
 											if (valueMap_tAFOX_2
-													.get("keyword2_theme") != null) {
+													.get("keyword1_theme") != null) {
 												root_6_0_11_0_1_0_tAFOX_2
 														.addAttribute(
 																"codeListValue",
 																valueMap_tAFOX_2
-																		.get("keyword2_theme"));
+																		.get("keyword1_theme"));
 											}
 											root_6_0_11_0_1_0_tAFOX_2
 													.setName("mri:MD_KeywordTypeCode");
@@ -8312,232 +8227,310 @@ public class RasterJob implements TalendJob {
 											if (root_6_0_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
 												root_6_0_12_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("resourceConstraints");
+														.addElement("descriptiveKeywords");
 											} else {
 												root_6_0_12_tAFOX_2 = root_6_0_tAFOX_2
-														.addElement("mri:resourceConstraints");
+														.addElement("mri:descriptiveKeywords");
 											}
 											root_6_0_12_tAFOX_2
-													.setName("mri:resourceConstraints");
+													.setName("mri:descriptiveKeywords");
 											org.dom4j.Element root_6_0_12_0_tAFOX_2;
 											if (root_6_0_12_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
+													.getNamespaceForPrefix("mri") == null) {
 												root_6_0_12_0_tAFOX_2 = root_6_0_12_tAFOX_2
-														.addElement("MD_LegalConstraints");
+														.addElement("MD_Keywords");
 											} else {
 												root_6_0_12_0_tAFOX_2 = root_6_0_12_tAFOX_2
-														.addElement("mco:MD_LegalConstraints");
+														.addElement("mri:MD_Keywords");
 											}
 											root_6_0_12_0_tAFOX_2
-													.setName("mco:MD_LegalConstraints");
+													.setName("mri:MD_Keywords");
 											org.dom4j.Element root_6_0_12_0_0_tAFOX_2;
 											if (root_6_0_12_0_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
+													.getNamespaceForPrefix("mri") == null) {
 												root_6_0_12_0_0_tAFOX_2 = root_6_0_12_0_tAFOX_2
-														.addElement("accessConstraints");
+														.addElement("keyword");
 											} else {
 												root_6_0_12_0_0_tAFOX_2 = root_6_0_12_0_tAFOX_2
-														.addElement("mco:accessConstraints");
+														.addElement("mri:keyword");
 											}
 											root_6_0_12_0_0_tAFOX_2
-													.setName("mco:accessConstraints");
+													.setName("mri:keyword");
 											org.dom4j.Element root_6_0_12_0_0_0_tAFOX_2;
 											if (root_6_0_12_0_0_tAFOX_2
-													.getNamespaceForPrefix("mco") == null) {
+													.getNamespaceForPrefix("gco") == null) {
 												root_6_0_12_0_0_0_tAFOX_2 = root_6_0_12_0_0_tAFOX_2
-														.addElement("MD_RestrictionCode");
+														.addElement("CharacterString");
 											} else {
 												root_6_0_12_0_0_0_tAFOX_2 = root_6_0_12_0_0_tAFOX_2
-														.addElement("mco:MD_RestrictionCode");
+														.addElement("gco:CharacterString");
+											}
+											if (valueMap_tAFOX_2
+													.get("keyword2") != null) {
+												nestXMLTool_tAFOX_2
+														.setText(
+																root_6_0_12_0_0_0_tAFOX_2,
+																valueMap_tAFOX_2
+																		.get("keyword2"));
 											}
 											root_6_0_12_0_0_0_tAFOX_2
+													.setName("gco:CharacterString");
+											org.dom4j.Element root_6_0_12_0_1_tAFOX_2;
+											if (root_6_0_12_0_tAFOX_2
+													.getNamespaceForPrefix("mri") == null) {
+												root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
+														.addElement("type");
+											} else {
+												root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
+														.addElement("mri:type");
+											}
+											root_6_0_12_0_1_tAFOX_2
+													.setName("mri:type");
+											org.dom4j.Element root_6_0_12_0_1_0_tAFOX_2;
+											if (root_6_0_12_0_1_tAFOX_2
+													.getNamespaceForPrefix("mri") == null) {
+												root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
+														.addElement("MD_KeywordTypeCode");
+											} else {
+												root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
+														.addElement("mri:MD_KeywordTypeCode");
+											}
+											root_6_0_12_0_1_0_tAFOX_2
+													.addAttribute(
+															"codeList",
+															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_KeywordTypeCode");
+											if (valueMap_tAFOX_2
+													.get("keyword2_theme") != null) {
+												root_6_0_12_0_1_0_tAFOX_2
+														.addAttribute(
+																"codeListValue",
+																valueMap_tAFOX_2
+																		.get("keyword2_theme"));
+											}
+											root_6_0_12_0_1_0_tAFOX_2
+													.setName("mri:MD_KeywordTypeCode");
+											org.dom4j.Element root_6_0_13_tAFOX_2;
+											if (root_6_0_tAFOX_2
+													.getNamespaceForPrefix("mri") == null) {
+												root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
+														.addElement("resourceConstraints");
+											} else {
+												root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
+														.addElement("mri:resourceConstraints");
+											}
+											root_6_0_13_tAFOX_2
+													.setName("mri:resourceConstraints");
+											org.dom4j.Element root_6_0_13_0_tAFOX_2;
+											if (root_6_0_13_tAFOX_2
+													.getNamespaceForPrefix("mco") == null) {
+												root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
+														.addElement("MD_LegalConstraints");
+											} else {
+												root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
+														.addElement("mco:MD_LegalConstraints");
+											}
+											root_6_0_13_0_tAFOX_2
+													.setName("mco:MD_LegalConstraints");
+											org.dom4j.Element root_6_0_13_0_0_tAFOX_2;
+											if (root_6_0_13_0_tAFOX_2
+													.getNamespaceForPrefix("mco") == null) {
+												root_6_0_13_0_0_tAFOX_2 = root_6_0_13_0_tAFOX_2
+														.addElement("accessConstraints");
+											} else {
+												root_6_0_13_0_0_tAFOX_2 = root_6_0_13_0_tAFOX_2
+														.addElement("mco:accessConstraints");
+											}
+											root_6_0_13_0_0_tAFOX_2
+													.setName("mco:accessConstraints");
+											org.dom4j.Element root_6_0_13_0_0_0_tAFOX_2;
+											if (root_6_0_13_0_0_tAFOX_2
+													.getNamespaceForPrefix("mco") == null) {
+												root_6_0_13_0_0_0_tAFOX_2 = root_6_0_13_0_0_tAFOX_2
+														.addElement("MD_RestrictionCode");
+											} else {
+												root_6_0_13_0_0_0_tAFOX_2 = root_6_0_13_0_0_tAFOX_2
+														.addElement("mco:MD_RestrictionCode");
+											}
+											root_6_0_13_0_0_0_tAFOX_2
 													.addAttribute(
 															"codeList",
 															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode");
-											root_6_0_12_0_0_0_tAFOX_2
+											root_6_0_13_0_0_0_tAFOX_2
 													.addAttribute(
 															"codeListValue",
 															"copyright");
-											root_6_0_12_0_0_0_tAFOX_2
+											root_6_0_13_0_0_0_tAFOX_2
 													.setName("mco:MD_RestrictionCode");
-											org.dom4j.Element root_6_0_12_0_1_tAFOX_2;
-											if (root_6_0_12_0_tAFOX_2
+											org.dom4j.Element root_6_0_13_0_1_tAFOX_2;
+											if (root_6_0_13_0_tAFOX_2
 													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
+												root_6_0_13_0_1_tAFOX_2 = root_6_0_13_0_tAFOX_2
 														.addElement("useConstraints");
 											} else {
-												root_6_0_12_0_1_tAFOX_2 = root_6_0_12_0_tAFOX_2
+												root_6_0_13_0_1_tAFOX_2 = root_6_0_13_0_tAFOX_2
 														.addElement("mco:useConstraints");
 											}
-											root_6_0_12_0_1_tAFOX_2
+											root_6_0_13_0_1_tAFOX_2
 													.setName("mco:useConstraints");
-											org.dom4j.Element root_6_0_12_0_1_0_tAFOX_2;
-											if (root_6_0_12_0_1_tAFOX_2
+											org.dom4j.Element root_6_0_13_0_1_0_tAFOX_2;
+											if (root_6_0_13_0_1_tAFOX_2
 													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
+												root_6_0_13_0_1_0_tAFOX_2 = root_6_0_13_0_1_tAFOX_2
 														.addElement("MD_RestrictionCode");
 											} else {
-												root_6_0_12_0_1_0_tAFOX_2 = root_6_0_12_0_1_tAFOX_2
+												root_6_0_13_0_1_0_tAFOX_2 = root_6_0_13_0_1_tAFOX_2
 														.addElement("mco:MD_RestrictionCode");
 											}
-											root_6_0_12_0_1_0_tAFOX_2
+											root_6_0_13_0_1_0_tAFOX_2
 													.addAttribute(
 															"codeList",
 															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_RestrictionCode");
-											root_6_0_12_0_1_0_tAFOX_2
+											root_6_0_13_0_1_0_tAFOX_2
 													.addAttribute(
 															"codeListValue",
 															"otherRestrictions");
-											root_6_0_12_0_1_0_tAFOX_2
+											root_6_0_13_0_1_0_tAFOX_2
 													.setName("mco:MD_RestrictionCode");
-											org.dom4j.Element root_6_0_12_0_2_tAFOX_2;
-											if (root_6_0_12_0_tAFOX_2
+											org.dom4j.Element root_6_0_13_0_2_tAFOX_2;
+											if (root_6_0_13_0_tAFOX_2
 													.getNamespaceForPrefix("mco") == null) {
-												root_6_0_12_0_2_tAFOX_2 = root_6_0_12_0_tAFOX_2
+												root_6_0_13_0_2_tAFOX_2 = root_6_0_13_0_tAFOX_2
 														.addElement("otherConstraints");
 											} else {
-												root_6_0_12_0_2_tAFOX_2 = root_6_0_12_0_tAFOX_2
+												root_6_0_13_0_2_tAFOX_2 = root_6_0_13_0_tAFOX_2
 														.addElement("mco:otherConstraints");
 											}
-											root_6_0_12_0_2_tAFOX_2
+											root_6_0_13_0_2_tAFOX_2
 													.setName("mco:otherConstraints");
-											org.dom4j.Element root_6_0_12_0_2_0_tAFOX_2;
-											if (root_6_0_12_0_2_tAFOX_2
+											org.dom4j.Element root_6_0_13_0_2_0_tAFOX_2;
+											if (root_6_0_13_0_2_tAFOX_2
 													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_12_0_2_0_tAFOX_2 = root_6_0_12_0_2_tAFOX_2
+												root_6_0_13_0_2_0_tAFOX_2 = root_6_0_13_0_2_tAFOX_2
 														.addElement("CharacterString");
 											} else {
-												root_6_0_12_0_2_0_tAFOX_2 = root_6_0_12_0_2_tAFOX_2
+												root_6_0_13_0_2_0_tAFOX_2 = root_6_0_13_0_2_tAFOX_2
 														.addElement("gco:CharacterString");
 											}
 											if (valueMap_tAFOX_2
 													.get("useConstraints") != null) {
 												nestXMLTool_tAFOX_2
 														.setText(
-																root_6_0_12_0_2_0_tAFOX_2,
+																root_6_0_13_0_2_0_tAFOX_2,
 																valueMap_tAFOX_2
 																		.get("useConstraints"));
 											}
-											root_6_0_12_0_2_0_tAFOX_2
+											root_6_0_13_0_2_0_tAFOX_2
 													.setName("gco:CharacterString");
-											org.dom4j.Element root_6_0_13_tAFOX_2;
+											org.dom4j.Element root_6_0_14_tAFOX_2;
 											if (root_6_0_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
+												root_6_0_14_tAFOX_2 = root_6_0_tAFOX_2
 														.addElement("defaultLocale");
 											} else {
-												root_6_0_13_tAFOX_2 = root_6_0_tAFOX_2
+												root_6_0_14_tAFOX_2 = root_6_0_tAFOX_2
 														.addElement("mri:defaultLocale");
 											}
-											root_6_0_13_tAFOX_2
+											root_6_0_14_tAFOX_2
 													.setName("mri:defaultLocale");
-											org.dom4j.Element root_6_0_13_0_tAFOX_2;
-											if (root_6_0_13_tAFOX_2
+											org.dom4j.Element root_6_0_14_0_tAFOX_2;
+											if (root_6_0_14_tAFOX_2
 													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
+												root_6_0_14_0_tAFOX_2 = root_6_0_14_tAFOX_2
 														.addElement("PT_Locale");
 											} else {
-												root_6_0_13_0_tAFOX_2 = root_6_0_13_tAFOX_2
+												root_6_0_14_0_tAFOX_2 = root_6_0_14_tAFOX_2
 														.addElement("lan:PT_Locale");
 											}
-											if (valueMap_tAFOX_2
-													.get("mdLanguage") != null) {
-												root_6_0_13_0_tAFOX_2
-														.addAttribute(
-																"id",
-																valueMap_tAFOX_2
-																		.get("mdLanguage"));
-											}
-											root_6_0_13_0_tAFOX_2
+											root_6_0_14_0_tAFOX_2
 													.setName("lan:PT_Locale");
-											org.dom4j.Element root_6_0_13_0_0_tAFOX_2;
-											if (root_6_0_13_0_tAFOX_2
+											org.dom4j.Element root_6_0_14_0_0_tAFOX_2;
+											if (root_6_0_14_0_tAFOX_2
 													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_13_0_0_tAFOX_2 = root_6_0_13_0_tAFOX_2
+												root_6_0_14_0_0_tAFOX_2 = root_6_0_14_0_tAFOX_2
 														.addElement("language");
 											} else {
-												root_6_0_13_0_0_tAFOX_2 = root_6_0_13_0_tAFOX_2
+												root_6_0_14_0_0_tAFOX_2 = root_6_0_14_0_tAFOX_2
 														.addElement("lan:language");
 											}
-											root_6_0_13_0_0_tAFOX_2
+											root_6_0_14_0_0_tAFOX_2
 													.setName("lan:language");
-											org.dom4j.Element root_6_0_13_0_0_0_tAFOX_2;
-											if (root_6_0_13_0_0_tAFOX_2
+											org.dom4j.Element root_6_0_14_0_0_0_tAFOX_2;
+											if (root_6_0_14_0_0_tAFOX_2
 													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_13_0_0_0_tAFOX_2 = root_6_0_13_0_0_tAFOX_2
+												root_6_0_14_0_0_0_tAFOX_2 = root_6_0_14_0_0_tAFOX_2
 														.addElement("LanguageCode");
 											} else {
-												root_6_0_13_0_0_0_tAFOX_2 = root_6_0_13_0_0_tAFOX_2
+												root_6_0_14_0_0_0_tAFOX_2 = root_6_0_14_0_0_tAFOX_2
 														.addElement("lan:LanguageCode");
 											}
-											root_6_0_13_0_0_0_tAFOX_2
+											root_6_0_14_0_0_0_tAFOX_2
 													.addAttribute("codeList",
 															"http://www.loc.gov/standards/iso639-2/");
 											if (valueMap_tAFOX_2
 													.get("mdLanguage") != null) {
-												root_6_0_13_0_0_0_tAFOX_2
+												root_6_0_14_0_0_0_tAFOX_2
 														.addAttribute(
 																"codeListValue",
 																valueMap_tAFOX_2
 																		.get("mdLanguage"));
 											}
-											root_6_0_13_0_0_0_tAFOX_2
+											root_6_0_14_0_0_0_tAFOX_2
 													.setName("lan:LanguageCode");
-											org.dom4j.Element root_6_0_13_0_1_tAFOX_2;
-											if (root_6_0_13_0_tAFOX_2
+											org.dom4j.Element root_6_0_14_0_1_tAFOX_2;
+											if (root_6_0_14_0_tAFOX_2
 													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_13_0_1_tAFOX_2 = root_6_0_13_0_tAFOX_2
+												root_6_0_14_0_1_tAFOX_2 = root_6_0_14_0_tAFOX_2
 														.addElement("characterEncoding");
 											} else {
-												root_6_0_13_0_1_tAFOX_2 = root_6_0_13_0_tAFOX_2
+												root_6_0_14_0_1_tAFOX_2 = root_6_0_14_0_tAFOX_2
 														.addElement("lan:characterEncoding");
 											}
-											root_6_0_13_0_1_tAFOX_2
+											root_6_0_14_0_1_tAFOX_2
 													.setName("lan:characterEncoding");
-											org.dom4j.Element root_6_0_13_0_1_0_tAFOX_2;
-											if (root_6_0_13_0_1_tAFOX_2
+											org.dom4j.Element root_6_0_14_0_1_0_tAFOX_2;
+											if (root_6_0_14_0_1_tAFOX_2
 													.getNamespaceForPrefix("lan") == null) {
-												root_6_0_13_0_1_0_tAFOX_2 = root_6_0_13_0_1_tAFOX_2
+												root_6_0_14_0_1_0_tAFOX_2 = root_6_0_14_0_1_tAFOX_2
 														.addElement("MD_CharacterSetCode");
 											} else {
-												root_6_0_13_0_1_0_tAFOX_2 = root_6_0_13_0_1_tAFOX_2
+												root_6_0_14_0_1_0_tAFOX_2 = root_6_0_14_0_1_tAFOX_2
 														.addElement("lan:MD_CharacterSetCode");
 											}
-											root_6_0_13_0_1_0_tAFOX_2
+											root_6_0_14_0_1_0_tAFOX_2
 													.addAttribute(
 															"codeList",
 															"http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml#MD_CharacterSetCode");
 											if (valueMap_tAFOX_2
 													.get("mdCharacterSetCode") != null) {
-												root_6_0_13_0_1_0_tAFOX_2
+												root_6_0_14_0_1_0_tAFOX_2
 														.addAttribute(
 																"codeListValue",
 																valueMap_tAFOX_2
 																		.get("mdCharacterSetCode"));
 											}
-											root_6_0_13_0_1_0_tAFOX_2
+											root_6_0_14_0_1_0_tAFOX_2
 													.setName("lan:MD_CharacterSetCode");
-											org.dom4j.Element root_6_0_14_tAFOX_2;
+											org.dom4j.Element root_6_0_15_tAFOX_2;
 											if (root_6_0_tAFOX_2
 													.getNamespaceForPrefix("mri") == null) {
-												root_6_0_14_tAFOX_2 = root_6_0_tAFOX_2
+												root_6_0_15_tAFOX_2 = root_6_0_tAFOX_2
 														.addElement("supplementalInformation");
 											} else {
-												root_6_0_14_tAFOX_2 = root_6_0_tAFOX_2
+												root_6_0_15_tAFOX_2 = root_6_0_tAFOX_2
 														.addElement("mri:supplementalInformation");
 											}
-											root_6_0_14_tAFOX_2
+											root_6_0_15_tAFOX_2
 													.setName("mri:supplementalInformation");
-											org.dom4j.Element root_6_0_14_0_tAFOX_2;
-											if (root_6_0_14_tAFOX_2
+											org.dom4j.Element root_6_0_15_0_tAFOX_2;
+											if (root_6_0_15_tAFOX_2
 													.getNamespaceForPrefix("gco") == null) {
-												root_6_0_14_0_tAFOX_2 = root_6_0_14_tAFOX_2
+												root_6_0_15_0_tAFOX_2 = root_6_0_15_tAFOX_2
 														.addElement("CharacterString");
 											} else {
-												root_6_0_14_0_tAFOX_2 = root_6_0_14_tAFOX_2
+												root_6_0_15_0_tAFOX_2 = root_6_0_15_tAFOX_2
 														.addElement("gco:CharacterString");
 											}
-											root_6_0_14_0_tAFOX_2
+											root_6_0_15_0_tAFOX_2
 													.setName("gco:CharacterString");
 											org.dom4j.Element root_7_tAFOX_2;
 											if (root_tAFOX_2
@@ -11202,6 +11195,6 @@ public class RasterJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 319591 characters generated by Talend Open Studio for Data Integration on the
- * 8 de mayo de 2015 16:57:39 CEST
+ * 319751 characters generated by Talend Open Studio for Data Integration on the
+ * 21 de mayo de 2015 12:43:47 CEST
  ************************************************************************************************/
